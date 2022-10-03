@@ -221,23 +221,13 @@ const routes = [{
     {
        path: '/conselhos',
        meta:{
-        title: "Conselhos",
+        title: "Conselhos Práticos",
         },
         name: 'ConselhoPraticoView',
         component: () =>
             import ('../views/ConselhoPraticoView.vue')
 
     },
-    {
-        path: '/direitos',
-        meta:{
-            title: "Direitos",
-            },
-         name: 'DireitosTitularesView',
-         component: () =>
-             import ('../views/DireitosTitularesView.vue')
- 
-     },
     {
         path: '/legislacao',
         meta:{
@@ -273,6 +263,24 @@ const routes = [{
         name: 'FormscctvView',
         component: () =>
             import ('../views/FormscctvView.vue')
+    },
+    {
+        path: '/panfletos',
+        meta:{
+            title: "Panfletos - CNPD",
+            },
+        name: 'PanfletosView',
+        component: () =>
+            import ('../views/PanfletosView.vue')
+    },
+    {
+        path: '/videos',
+        meta:{
+            title: "Videos - CNPD",
+            },
+        name: 'VideosView',
+        component: () =>
+            import ('../views/VideosView.vue')
     },
 
 

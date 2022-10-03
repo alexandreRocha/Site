@@ -20,7 +20,7 @@
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member">
                             <div class="member-img">
-                                <img src="img/11.jpg" class="img-fluid" alt=""> 
+                                <img src="img/avatar.png" class="img-fluid" alt=""> 
                             </div>
                             <div class="member-info">
                                 <h4>Faustino Varela Monteiro</h4>
@@ -32,7 +32,7 @@
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member">
                             <div class="member-img">
-                                <img src="img/11.jpg" class="img-fluid" alt=""> 
+                                <img src="img/avatar.png" class="img-fluid" alt=""> 
                             </div>
                             <div class="member-info">
                                 <h4>Djamilson Pinto</h4>
@@ -44,7 +44,7 @@
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member">
                             <div class="member-img">
-                                <img src="img/11.jpg" class="img-fluid" alt=""> 
+                                <img src="img/avatar.png" class="img-fluid" alt=""> 
                             </div>
                             <div class="member-info">
                                 <h4>José Maria de Pina</h4>
@@ -124,6 +124,10 @@ export default {
 .composicao .member .member-img {
   position: relative;
   overflow: hidden;
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .composicao .member .social {
   position: absolute;

@@ -101,6 +101,9 @@ export default {
 </script> 
 
 <style scoped>
+  #box{
+  margin-bottom: 15px;
+}
  img {
   width: 200px;
   height: 200px;

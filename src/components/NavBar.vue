@@ -53,7 +53,7 @@
                 ><span>Canal do Cidadão</span> <i class="bi bi-chevron-down"></i
               ></a>
               <ul class="ulid">
-                <li><a href="/direitos">Direitos dos Titulares</a></li>
+                <li><a href="#">Direitos dos Titulares</a></li>
                 <li><a href="/conselhos">Conselhos Práticos</a></li> 
               </ul>
             </li>
@@ -89,11 +89,7 @@
                   <router-link to="/panfletos"> Panfletos </router-link>
                 </li>
                 <li><router-link to="/videos"> Videos Promocionais </router-link></li>
-                <li>
-                  <router-link to="/outrospub">
-                    Outros
-                  </router-link>
-                </li> 
+                 
               </ul>
             </li>
             <li><router-link to="/contato"> Contato </router-link></li>
@@ -209,11 +205,7 @@
                   <router-link to="/panfletos"> Panfletos </router-link>
                 </li>
                 <li><router-link to="/videos"> Videos </router-link></li>
-                <li>
-                  <router-link to="/outrospub">
-                    Outros
-                  </router-link>
-                </li> 
+                 
               </div>
             </li>
             <li>

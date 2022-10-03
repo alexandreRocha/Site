@@ -33,7 +33,7 @@ export default {
 	props:['faq', 'index', 'open']
 }
 </script>
-1
+
 <style scoped>
 #ptaxas{
     text-align: justify

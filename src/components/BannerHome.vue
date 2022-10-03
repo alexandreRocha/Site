@@ -12,32 +12,37 @@
     <div class="carousel-inner">
       
       <!-- CONDICAO SE EXISTIR NOTICIA NOVA A MENOS DE 5 DIAS MOSTRAR ESSA NOTICIA-->
-      
-      <div v-for="(conselho, index) in (noticias)" :key="index" class="carousel-item active">
-        <img src="img/testeimg.png"  class="responsive" >
-        <div class="carousel-caption d-none d-md-block">
-          <h5>news - {{conselho.title}}</h5>
-          <p id="textoslide">{{conselho.title}}</p>
+
+      <div v-if="pageSizenews < 2"><!-- countnews()-->
+        <div v-for="(conselho, index) in (noticias)" :key="index" class="carousel-item active">
+           
+          <div class="post-img"><img  src="https://www.parlamento.cv/userfiles/Austelino%20FINAL(texto)(2).png" class="img-fluid" alt=""></div>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>news -{{ countnews() }}   {{conselho.title}}</h5>
+            <p id="textoslide">{{conselho.title}}</p>
+          </div>
         </div>
       </div>
-      <!-- SENAO EXISTIR NOTICIA MOSTRAR O MODELO DE AVISO NO SLIDE -->
-      <!--<div class="carousel-item active">
-        <img src="/img/ModeloCCVVFINAL.png"  class="responsive" >
-        <div class="carousel-caption d-none d-md-block">
-          <h5>MODELO DE AVISO DE CCTV</h5>
-          <p id="textoslide">ESTE E O MODELO DE AVISO UE DEVE SER AFIXADO</p>
+      <!-- SLIDE DE AVISO -->
+      <div v-else>
+        <div class="carousel-item active">  
+           <div class="post-img"><img  src="/img/b.jpg" class="img-fluid" alt=""></div>
+             
+         <!--<video autoplay class="responsive">
+            <source src="/img/aviso.mp4" type="video/mp4"> 
+          </video>-->
+          <div class="carousel-caption d-none d-md-block">
+            <h5>MODELO DE AVISO DE CCTV</h5>
+            <p id="textoslide">ESTE E O MODELO DE AVISO UE DEVE SER AFIXADO</p>
+          </div>
         </div>
-      </div>-->
+      </div> 
       <!-- MOSTRAR 3 CONSELHOS PRATICOS-->
       <div v-for="(conselho, index) in (conselhospraticos)" :key="index" class="carousel-item">
-        
-  <img src="img/testeimg3.png" class="responsive" >
-  
-
-        <!--<img src="/img/passwordforte.png" class="responsive" > !-->
-        <div class="carousel-caption d-none d-md-block">
-          <h5>conselho - {{conselho.title}}</h5>
-          <p id="textoslide">{{conselho.title}}</p>
+          <div class="post-img"><img  src="/img/passwordforte.png" class="img-fluid" alt=""></div>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>conselho {{conselho.id}}- {{conselho.title}}</h5>
+            <p id="textoslide">{{conselho.title}}</p>
         </div>
       </div> 
   </div>
@@ -76,7 +81,7 @@ export default {
       if(this.currentPage > 1) this.currentPage--;
     },
 
-    countNumbers(){
+    countnews(){
       return this.photos.length; 
     }
   },
@@ -116,12 +121,26 @@ export default {
 </script>
 
 <style scoped>
+ .post-img {  
+}
+.post-img img { 
+  width: 100%;
+  height: 600px;
+}
+
+@media only screen and (max-width: 600px) {
+  .post-img img { 
+  width: 100%;
+  height: auto;
+}
+}
+ 
 #container {
   padding-top: 70px;
 }
 h5{
   color: #fff; 
-    font-size: 3rem; 
+    font-size: 2rem; 
     font-weight: 1000;
     display: block;
     line-height: 1.1;
@@ -132,6 +151,13 @@ h5{
 }
 .responsive {
   width: 100%;
+  height: 600px;
+}
+.responsiveaviso {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
   height: 600px;
 }
 </style>

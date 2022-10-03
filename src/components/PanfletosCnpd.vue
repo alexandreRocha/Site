@@ -1,17 +1,12 @@
 <template>
-  <section id="decisoes" class="decisoes">
+  <section id="panfletos" class="panfletos">
     <div class="container">
       <div class="section-title">
-        <h2>FORMULÁRIOS DE VIDEOVIGILÂNCIA</h2>
+        <h2>PANFLETOS PROMOCIONAIS</h2>
       </div>
       <div class="geral">
         <div class="row form-group">
-          <div class="col-md-4">Teste <spam class="text-danger">*</spam></div>
-          <div class="col-md-8"><input type="text" class="form-control" /></div>
-
-
-          <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
-          <div class="mt-2">Value: {{ text }}</div>
+           
         </div>
       </div>
     </div>
@@ -19,6 +14,7 @@
 </template>
 
 <script>
+  
 export default {
     data() {
       return {
@@ -95,7 +91,7 @@ export default {
   border-radius: 50px;
 }
 
-.decisoes {
+.panfletos {
   background: #fff;
   padding-top: 120px;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -107,30 +103,30 @@ export default {
 a {
   text-decoration: none;
 }
-.decisoes .icon-box {
+.panfletos .icon-box {
   display: flex;
   align-items: center;
   padding: 20px;
   transition: ease-in-out 0.3s;
   box-shadow: 2px 0 35px 0 rgba(68, 88, 144, 0.12);
 }
-.decisoes .icon-box i {
+.panfletos .icon-box i {
   font-size: 32px;
   padding-right: 10px;
   line-height: 1;
 }
-.decisoes .icon-box h3 {
+.panfletos .icon-box h3 {
   font-weight: 700;
   margin: 0;
   padding: 0;
   line-height: 1;
   font-size: 16px;
 }
-.decisoes .icon-box h3 a {
+.panfletos .icon-box h3 a {
   color: #493c3e;
   transition: ease-in-out 0.3s;
 }
-.decisoes .icon-box:hover a {
+.panfletos .icon-box:hover a {
   color: #bd9a13;
 }
 

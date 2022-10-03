@@ -37,7 +37,6 @@ export default {
 <style scoped>
 div #cursor :hover{
   cursor: pointer;
-
 }
 
 #ptaxas{

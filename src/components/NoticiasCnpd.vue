@@ -96,12 +96,15 @@ export default {
 </script> 
 
 <style scoped>
+#box{
+  margin-bottom: 10px;
+}
 a{
   text-decoration: none;
 }
 .section-title {
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 .section-title h2 {
   font-size: 13px;

@@ -13,7 +13,7 @@
             <div class="icon-box">
               <div class="icon"><IconAwe class="icon-color" icon="calendar-days" /></div>
               <h4 class="title"><a href="">Orientações da CNPD</a></h4>
-              <p class="description">Consulte aqui Conselhos Práticos</p>
+              <p class="description">Consulte aqui os Conselhos Práticos recomendados pela CNPD</p>
             </div>
           </div>
 
