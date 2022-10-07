@@ -53,7 +53,7 @@
                 ><span>Canal do Cidadão</span> <i class="bi bi-chevron-down"></i
               ></a>
               <ul class="ulid">
-                <li><a href="#">Direitos dos Titulares</a></li>
+                <li><a href="/direitos">Direitos dos Titulares</a></li>
                 <li><a href="/conselhos">Conselhos Práticos</a></li> 
               </ul>
             </li>

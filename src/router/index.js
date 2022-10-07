@@ -229,6 +229,16 @@ const routes = [{
 
     },
     {
+        path: '/direitos',
+        meta:{
+         title: "Direitos dos Titulares",
+         },
+         name: 'DireitosTitularesView',
+         component: () =>
+             import ('../views/DireitosTitularesView.vue')
+ 
+     },
+    {
         path: '/legislacao',
         meta:{
         title: "Legislação - CNPD",

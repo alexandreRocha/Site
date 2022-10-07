@@ -17,6 +17,7 @@
                             <th scope="col">#</th>  
                             <th scope="col" @click="sort('name')">Entidade<i class="fas fa-sort-alpha-down float-right"></i></th>
                             <th scope="col">Ano</th>
+                            
                            </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,8 @@
                             </td> 
 
                             <td>{{user.address.zipcode}}</td>
+                           
+                           
                         </tr>
                     </tbody>
                 </table>
