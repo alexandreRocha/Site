@@ -69,10 +69,10 @@ export default {
       }
       this.currentSort = s;
     },
-    nextPage:function() {
+    nextPage() {
       if((this.currentPage*this.pageSize) < this.users.length) this.currentPage++;
     },
-    prevPage:function() {
+    prevPage() {
       if(this.currentPage > 1) this.currentPage--;
     },
 

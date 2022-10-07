@@ -6,12 +6,11 @@
       </div>
       <div class="geral">
         <div class="row form-group">
-          <div class="col-md-4">Teste <spam class="text-danger">*</spam></div>
-          <div class="col-md-8"><input type="text" class="form-control" /></div>
+          <!-- FORMS -->
 
+         
 
-          <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
-          <div class="mt-2">Value: {{ text }}</div>
+          <!-- FIM DE FORMS-->
         </div>
       </div>
     </div>
@@ -19,12 +18,15 @@
 </template>
 
 <script>
-export default {
+     
+
+    
+export default { 
     data() {
       return {
         text: ''
       }
-    }
+    }, 
   }
 
 </script>

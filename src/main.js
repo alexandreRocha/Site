@@ -9,6 +9,8 @@
  import { fas } from '@fortawesome/free-solid-svg-icons'
  import '@coreui/coreui/dist/css/coreui.min.css'
  
+ import 'vue-universal-modal/dist/index.css'
+import VueUniversalModal from 'vue-universal-modal'
  
 
  library.add(fas);
@@ -16,5 +18,9 @@
  createApp(App)
      .component('IconAwe', FontAwesomeIcon)
      .use(router) 
+     .use(VueUniversalModal, {
+        teleportTarget: '#my-modals',
+        modalComponent: 'MyModal',
+      }) 
 
      .mount('#app');

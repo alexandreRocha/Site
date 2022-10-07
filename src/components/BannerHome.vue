@@ -17,7 +17,7 @@
         <div v-for="(conselho, index) in (noticias)" :key="index" class="carousel-item active">
            
           <div class="post-img"><img  src="https://www.parlamento.cv/userfiles/Austelino%20FINAL(texto)(2).png" class="img-fluid" alt=""></div>
-          <div class="carousel-caption d-none d-md-block">
+          <div id="titlemob" class="carousel-caption d-none d-md-block">
             <h5>news -{{ countnews() }}   {{conselho.title}}</h5>
             <p id="textoslide">{{conselho.title}}</p>
           </div>
@@ -132,15 +132,34 @@ export default {
   .post-img img { 
   width: 100%;
   height: auto;
+} 
 }
+/*
+@media screen and (max-width: 767px) { 
+.carousel-caption {
+  display: block !important;
+  font-size: 12px;
+} */
+
+/* On screens that are 600px wide or less, the background color is olive */
+@media screen and (max-width: 600px) {
+  h5{ 
+    font-size:16px;   
+}
+#textoslide{
+  font-size: 10px;
+}
+
+  .carousel-caption {
+  display: block !important;
+  font-size: 12px;
+} 
 }
  
-#container {
-  padding-top: 70px;
-}
-h5{
+@media screen and (min-width: 900px) {
+  h5{
   color: #fff; 
-    font-size: 2rem; 
+    font-size: 50px; 
     font-weight: 1000;
     display: block;
     line-height: 1.1;
@@ -149,6 +168,11 @@ h5{
 #textoslide{
   font-size: 18px;
 }
+}
+#container {
+  padding-top: 70px;
+}
+ 
 .responsive {
   width: 100%;
   height: 600px;

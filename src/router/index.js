@@ -284,6 +284,15 @@ const routes = [{
             import ('../views/PanfletosView.vue')
     },
     {
+        path: '/panfletview/:id',
+        meta:{
+            title: "Panfletos Promocionais - CNPD",
+            },
+        name: 'panfletview',
+        component: () =>
+            import ('../views/PanfletView.vue')
+    },
+    {
         path: '/videos',
         meta:{
             title: "Videos - CNPD",

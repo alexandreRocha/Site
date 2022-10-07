@@ -73,8 +73,7 @@ export default {
   .section-title p {
     width: 50%;
   }
-}
-
+}  
 .post-img {
   padding-top: 20px;
   overflow: hidden;
