@@ -8,7 +8,7 @@
          <h2>VIDEOS PROMOCIONAIS </h2>  
      </div>
   </div> 
-  <div class="row"> 
+  <div class="row">  
     <div id="box" v-for="(event, index) in (filteredList)" :key="index" class="col-lg-4"> 
       <div class="post-box"> <!--:src="event.url" -->
         <div class="post-img">
@@ -21,6 +21,10 @@
         <h3 class="post-title">{{event.title}}</h3>  
       </div>
     </div> 
+    <div id="idpage">
+      <button id="button" @click="prevPage" class="float-left btn btn-outline-info btn-sm"><i class="fas fa-arrow-left"></i> </button> 
+      <button id="button" @click="nextPage" class="float-right btn btn-outline-info btn-sm"> <i class="fas fa-arrow-right"></i></button>
+    </div>
   </div>
 
 </div>
@@ -51,10 +55,10 @@ export default {
       }
       this.currentSort = s;
     },
-    nextPage:function() {
+    nextPage() {
       if((this.currentPage*this.pageSize) < this.photos.length) this.currentPage++;
     },
-    prevPage:function() {
+    prevPage() {
       if(this.currentPage > 1) this.currentPage--;
     },
 
@@ -89,6 +93,30 @@ export default {
 </script>
 
 <style scoped>
+#idsearch{
+  width: 40%;
+  height: 30px;
+  text-align: center;
+  box-shadow: 1px 1px  #061536;
+}
+ 
+#idpage{ 
+  display: flex;
+  justify-content: space-between;
+}
+#button{
+   
+  color: #061536;
+  border: 2px solid #061536;
+  box-shadow: 1px 1px #061536;
+  height: 30px;
+  width: 30px; 
+}
+#button:hover{
+  box-shadow: 1px 1px  3px 3px black;
+  color: #fff;
+  background-color: #061536;
+}
   #box{ 
   margin-bottom: 15px;
 }

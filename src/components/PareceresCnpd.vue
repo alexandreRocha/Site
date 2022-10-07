@@ -68,10 +68,10 @@ export default {
       }
       this.currentSort = s;
     },
-    nextPage:function() {
+    nextPage() {
       if((this.currentPage*this.pageSize) < this.users.length) this.currentPage++;
     },
-    prevPage:function() {
+    prevPage() {
       if(this.currentPage > 1) this.currentPage--;
     },
 
@@ -81,7 +81,7 @@ export default {
   },
 
   computed: {
-    sortedActivity:function() {
+    sortedActivity() {
       return this.users.sort((a,b) => {
         let modifier = 1;
         if(this.currentSortDir === 'desc') modifier = -1;

@@ -64,10 +64,10 @@ export default {
       }
       this.currentSort = s;
     },
-    nextPage:function() {
+    nextPage() {
       if((this.currentPage*this.pageSize) < this.photos.length) this.currentPage++;
     },
-    prevPage:function() {
+    prevPage() {
       if(this.currentPage > 1) this.currentPage--;
     },
 
@@ -268,7 +268,7 @@ a{
   width: 140%;
   opacity: 0;
   transition: .5s ease;
-  background-color: #013365;
+  background-color: #bd9a13;
 }
 
 #box:hover .passarato {
@@ -276,9 +276,10 @@ a{
 }
 
 .descricao {
-  color: white;
-  font-size: 14px;
+  color: black;
+  font-size: 16px;
   position: absolute;
+  text-align: justify;
   top: 50%;
   left: 35%;
   -webkit-transform: translate(-50%, -50%);
