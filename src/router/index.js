@@ -238,6 +238,16 @@ const routes = [{
              import ('../views/DireitosTitularesView.vue')
  
      },
+     {
+        path: '/obrigacoes',
+        meta:{
+         title: "Obrigação do Respónsavel do Tratamento",
+         },
+         name: 'ObrigacoesRespView',
+         component: () =>
+             import ('../views/ObrigacoesRespView.vue')
+ 
+     },
     {
         path: '/legislacao',
         meta:{

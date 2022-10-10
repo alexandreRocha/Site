@@ -37,7 +37,6 @@ export default {
 <style scoped>
 div #cursor :hover{
   cursor: pointer;
-
 }
 
 #ptaxas{
@@ -70,4 +69,45 @@ div #cursor :hover{
   }
 }
 
+/*--------------------------------------------------------------
+# taxas
+--------------------------------------------------------------*/
+.taxas {
+  background: #fff; 
+  padding-top: 120px;
+} 
+.pcente{  
+  text-align: justify; 
+  font-size: 15px;
+  font-weight:normal;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#question{
+font-size: 16px;
+font-weight: bold; 
+
+}
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+.section-title h2 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 8px 20px;
+  line-height: 1;
+  margin: 0;
+  background: #BD9A13;
+  color: #000;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 50px;
+} 
+@media (min-width: 1024px) {
+  .section-title p {
+    width: 50%;
+  }
+}
 </style>
