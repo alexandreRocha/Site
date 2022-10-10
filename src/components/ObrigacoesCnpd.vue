@@ -1,9 +1,9 @@
 <template>
-     <section id="competencias" class="competencias">
+     <section id="obrigacoes" class="obrigacoes">
     <div class="container">
       <div class="section-title"> 
          <div class="section-title">  
-               <h2>Competências da <span>CNPD</span></h2>  
+               <h2>Obrigações do Responsável pelo Tratamento </h2>  
         </div>
         <p>
           Nos termos do n.º 1 do artigo 10.º do Lei n.º 42/VIII/2013, de 17 de
@@ -121,20 +121,20 @@
       </div>
     </div>
   </section>
-  <!-- End competencias Section -->
+  <!-- End obrigacoes Section -->
 </template>
 
 <script>
 export default {
-    name: 'ObrigacoesResp'
+    name: 'ObrigacoesCnpd'
     
 }
 </script>
 
 <style scoped>
-    #competencias{
+    #obrigacoes{
 
-  padding-top: 50px;
+  padding-top: 100px;
 }
 .section-title {
   text-align: center;
@@ -168,25 +168,25 @@ export default {
   }
 }
 
-.competencias .content h3 {
+.obrigacoes .content h3 {
   font-weight: 600;
   font-size: 26px;
 
   padding-top: 120px;
 }
-.competencias .content ul {
+.obrigacoes .content ul {
   list-style: none;
   padding: 0;
 }
-.competencias .content ul li {
+.obrigacoes .content ul li {
   padding-left: 28px;
   position: relative;
   text-align: justify;
 }
-.competencias .content ul li + li {
+.obrigacoes .content ul li + li {
   margin-top: 10px;
 }
-.competencias .content ul .icon-color {
+.obrigacoes .content ul .icon-color {
   position: absolute;
   left: 0;
   top: 2px;
@@ -194,10 +194,10 @@ export default {
   color: #11295f;
   line-height: 1;
 }
-.competencias .content p:last-child {
+.obrigacoes .content p:last-child {
   margin-bottom: 0;
 }
-.competencias .content .btn-learn-more {
+.obrigacoes .content .btn-learn-more {
   font-family: "Nunito", sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -213,7 +213,7 @@ export default {
   margin-top: 6px;
   border: 2px solid #e43c5c;
 }
-.competencias .content .btn-learn-more:hover {
+.obrigacoes .content .btn-learn-more:hover {
   background: #e43c5c;
   color: #fff;
   text-decoration: none;

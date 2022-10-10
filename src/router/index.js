@@ -243,9 +243,9 @@ const routes = [{
         meta:{
          title: "Obrigação do Respónsavel do Tratamento",
          },
-         name: 'ObrigacoesRespView',
+         name: 'ObrigacoesView',
          component: () =>
-             import ('../views/ObrigacoesRespView.vue')
+             import ('../views/ObrigacoesView.vue')
  
      },
     {
@@ -260,7 +260,7 @@ const routes = [{
     {
         path: '/leiview/:id',
         meta:{
-            title: "Lei Nº - CNPD",
+            title: "Legislação CNPD",
             },
         name: 'leiview',
         component: () =>
@@ -310,6 +310,25 @@ const routes = [{
         name: 'VideosView',
         component: () =>
             import ('../views/VideosView.vue')
+    },
+    {
+        path: '/isencoes',
+        meta:{
+        title: "Isenções - CNPD",
+        },
+        name: 'IsencoesView',
+        component: () =>
+            import ('../views/IsencoesView.vue')
+    },
+
+    {
+        path: '/isencaoview/:id',
+        meta:{
+            title: "Isenção CNPD",
+            },
+        name: 'isencaoview',
+        component: () =>
+            import ('../views/IsencaoView.vue')
     },
 
 

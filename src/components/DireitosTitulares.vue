@@ -38,14 +38,7 @@ export default {
 div #cursor :hover{
   cursor: pointer;
 }
-
-#ptaxas{
-    text-align: justify
-}
-#ptaxas1{
-  text-align: justify;
-  margin-left: 20px
-}
+ 
 .section-title {
   text-align: center;
   padding-bottom: 30px;
@@ -67,14 +60,6 @@ div #cursor :hover{
   .section-title p {
     width: 50%;
   }
-}
-
-/*--------------------------------------------------------------
-# taxas
---------------------------------------------------------------*/
-.taxas {
-  background: #fff; 
-  padding-top: 120px;
 } 
 .pcente{  
   text-align: justify; 
