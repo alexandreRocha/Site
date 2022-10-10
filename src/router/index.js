@@ -13,7 +13,7 @@ const routes = [{
     {
         path: '/composicao',
         meta:{
-            title: "Comnposição - CNPD",
+            title: "Composição - CNPD",
             },
         name: 'ComposicaoView',
         component: () =>

@@ -4,8 +4,8 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Membros</h2>
-                    <h3>COMPOSIÇÃO</h3> 
+                    <h2>COMPOSIÇÃO</h2>
+                    <h3></h3> 
                 </div>
                 <p id="pmembros">A CNPD é composta por três personalidades de reconhecida competência 
                     e integridade moral, eleitos pela Assembleia Nacional, por maioria de dois 
@@ -17,10 +17,10 @@
                 <p><br></p>
                 <div class="row">
  
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="col-lg-4">
                         <div class="member">
                             <div class="member-img">
-                                <img src="img/avatar.png" class="img-fluid" alt=""> 
+                                <img src="img/pre.png" class="img-fluid" alt=""> 
                             </div>
                             <div class="member-info">
                                 <h4>Faustino Varela Monteiro</h4>
@@ -29,10 +29,10 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="col-lg-4">
                         <div class="member">
                             <div class="member-img">
-                                <img src="img/avatar.png" class="img-fluid" alt=""> 
+                                <img src="img/membros.png" class="img-fluid" alt=""> 
                             </div>
                             <div class="member-info">
                                 <h4>Djamilson Pinto</h4>
@@ -41,10 +41,10 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="col-lg-4">
                         <div class="member">
                             <div class="member-img">
-                                <img src="img/avatar.png" class="img-fluid" alt=""> 
+                                <img src="img/membros.png" class="img-fluid" alt=""> 
                             </div>
                             <div class="member-info">
                                 <h4>José Maria de Pina</h4>
