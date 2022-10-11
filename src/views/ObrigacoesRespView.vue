@@ -1,19 +1,24 @@
-<template>
-
- <div>
  
-    <ObrigacoesResp/>
- </div>
+<template>
+  <div id="app">
+    <ObrigacoesResp/> 
+  </div>
 </template>
-
 <script>
-import ObrigacoesResp from "../components/ObrigacoesResp.vue"
-export default {
-name: "ObrigacoesRespView",
-component:{
- ObrigacoesResp
+import ObrigacoesResp from "../components/ObrigacoesResp.vue"; 
+
+export default{
+  name:"ObrigacoesRespView",
+
+  components: {
+    ObrigacoesResp, 
+  }
 }
-    
-}
+ 
 </script>
 
+<style>
+#app {
+ 
+}
+</style>

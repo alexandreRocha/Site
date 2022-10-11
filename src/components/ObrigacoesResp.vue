@@ -3,119 +3,91 @@
     <div class="container">
       <div class="section-title"> 
          <div class="section-title">  
-               <h2>Competências da <span>CNPD</span></h2>  
+               <h2>Obrigração do Responsável do Tratamento <span>CNPD</span></h2>  
         </div>
-        <p>
-          Nos termos do n.º 1 do artigo 10.º do Lei n.º 42/VIII/2013, de 17 de
-          setembro, compete à CNPD:
-        </p>
+
       </div>
 
       <div class="row content">
         <div class="col-lg-6">
           <ul>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Autorizar ou
-              registar, consoante os casos, os tratamentos de dados pessoais;
+              <IconAwe class="icon-color" icon="check-double" /> Notificar , previamente, a CNPD, a realização de tratamento ou conjunto de
+               tratamentos de dados pessoais, total ou parcialmente autonomizados, destinados à prossecução
+                de uma ou mais finalidades interligadas;
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Autorizar
-              excepcionalmente a utilização de dados pessoais para ﬁnalidades
-              não determinantes da recolha, com respeito pelos princípios
-              deﬁnidos na lei;
+              <IconAwe class="icon-color" icon="check-double" /> Notificar a CNPD de quaisquer alterações posteriores que venham a ocorrer;
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Autorizar, nos
-              casos previstos na lei, a interconexão de tratamentos
-              automatizados de dados pessoais;
+              <IconAwe class="icon-color" icon="check-double" /> Proceder ao tratamento de dados de forma legal, 
+              lícita e com respeito pelo princípio da boa fé.
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Autorizar a
-              transferência de dados pessoais nos casos previstos na lei;
+              <IconAwe class="icon-color" icon="check-double" /> Recolher os dados para finalidades determinadas, explicitas e legítimas.
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Fixar o tempo
-              da conservação dos dados pessoais em função da ﬁnalidade, podendo
-              emitir directivas para determinados sectores de actividade;
+              <IconAwe class="icon-color" icon="check-double" /> Recolher os dados adequados, pertinentes e não excessivos relativamente às 
+              finalidades para que são recolhidos e posteriormente tratados;
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Autorizar
-              excepcionalmente a utilização de dados pessoais para ﬁnalidades
-              não determinantes da recolha, com respeito pelos princípios
-              deﬁnidos na lei;
+              <IconAwe class="icon-color" icon="check-double" /> Garantir que os dados sejam exactos e actualizados, devendo tomar medidas adequadas 
+              para assegurar que sejam apagados ou rectificados os dados inexactos ou incompletos.
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Fazer assegurar
-              o direito de acesso à informação, bem como do exercício do direito
-              de rectiﬁcação e actualização;
+              <IconAwe class="icon-color" icon="check-double" />Prestar ao titular dos dados todas as informações exigidas por lei, sem se esquecer da informação 
+              específica exigidas quando se trata da recolha de dados em redes abertas.
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Autorizar a
-              ﬁxação de custos ou de periodicidade para o exercício do direi to
-              de acesso, bem como ﬁxar os prazos máximos de cumprimento, em cada
-              sector de actividade, das obrigações que, nos termos da lei,
-              incumbem aos responsáveis pelo tratamento de dados pessoais;
+              <IconAwe class="icon-color" icon="check-double" /> Não tratar os dados pessoais de forma incompatível com as finalidades para que tenham sido recolhidos. Caso pretenda efectuar tratamento 
+              deve previamente solicitar a autorização da CNPD ou o consentimento dos titulares dos dados.
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" />Autorizar a
-              contratação do pessoal, transferências, requisições e
-              destacamentos;
+              <IconAwe class="icon-color" icon="check-double" />Assegurar ao titular dos dados o direito de acesso, 
+              de forma livre e sem restrições, com periodicidade razoável e sem demoras ou custos excessivos.
             </li>
           </ul>
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0">
           <ul>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Dar seguimento
-              ao pedido efectuado por qualquer pessoa, ou por associação que a
-              represente, para proteção dos seus direitos e liberdades no que
-              diz respeito ao tratamento de dados pessoais e informá-la do
-              resultado;
+              <IconAwe class="icon-color" icon="check-double" /> Garantir gratuitamente ao titular dos dados o exercício do direito de 
+              oposição ao tratamento para efeitos de “marketing directo” ou qualquer outra forma de prospecção.
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Efectuar, a
-              pedido de qualquer pessoa, a veriﬁcação de licitude de um
-              tratamento de dados, sempre que esse tratamento esteja sujeito a
-              restrições de acesso ou de informação, e informá-la da realização
-              da veriﬁcação;
+              <IconAwe class="icon-color" icon="check-double" /> 
+        Conseguir junto dos assinantes o consentimento prévio 
+        para efeito de marketing directo com utilização de chamadas automáticas ou de aparelho de fax.
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Apreciar as
-              reclamações, queixas ou petições dos particulares;
+              <IconAwe class="icon-color" icon="check-double" />Obter e conservar o consentimento do titular dos dados para o tratamento dos dados pessoais;
+
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Dispensar a
-              execução de medidas de segurança, nos termos previstos na lei,
-              podendo emitir directivas para determinados sectores de
-              actividade;
+              <IconAwe class="icon-color" icon="check-double" /> Por em prática as medidas técnicas e organizativas que garantam a 
+              protecção dos dados contra a destruição, a perda acidental, a alteração, a difusão ou acesso não autorizados.
+               Deve ainda, fazer respeitar a 
+              obrigação legal quanto ao sigilo profissional relativamente aos dados pessoais tratados.
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Assegurar a
-              representação de Cabo Verde junto de instâncias internacionais no
-              âmbito das suas competências;
+              <IconAwe class="icon-color" icon="check-double" /> Não proceder à interconexão de dados pessoais, 
+              salvo disposição legal ou autorização da CNPD.
             </li>
             <li>
               <IconAwe class="icon-color" icon="check-double" /> Aplicar coimas;
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Promover e
-              apreciar códigos de conduta;
+              <IconAwe class="icon-color" icon="check-double" /> Não comunicar dados a terceiras entidades que não tenham os seus tratamentos notificados à CNPD.
+
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" /> Promover a
-              divulgação e esclarecimento dos direitos relativos à proteção de
-              dados e dar publicidade periódica à sua actividade, nomeadamente
-              através da publicação de um relatório anual;
+              <IconAwe class="icon-color" icon="check-double" /> Destruir os dados pessoais logo que findo o prazo de conservação autorizado.
             </li>
             <li>
-              <IconAwe class="icon-color" icon="check-double" />Autorizar a
-              contratação do pessoal, transferências, requisições e
-              destacamentos;
+              <IconAwe class="icon-color" icon="check-double" />Interromper o tratamento de dados pessoais quando ocorra uma situação de discordância
+               com a Lei e tenha recebido da entidade competente uma orientação nesse sentido.
             </li>
-            <li>
-              <IconAwe class="icon-color" icon="check-double" /> Exercer outras
-              competências previstas na lei.
-            </li>
+            
           </ul>
         </div>
       </div>
@@ -134,7 +106,7 @@ export default {
 <style scoped>
     #competencias{
 
-  padding-top: 50px;
+  padding-top:100px;
 }
 .section-title {
   text-align: center;

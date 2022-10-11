@@ -34,36 +34,48 @@ export default{
         {
           question: "Direito de informação",
           mt1: " Quando se procede à recolha de dados pessoais junto do seu titular, o responsável pelo tratamento ou seu representante deve prestar-lhe, salvo se já dele forem conhecidas, as seguintes informações:",
-          mt2:"Quanto mais informações colocar online maior é a probabilidade de ser vítima de um ciberataque.Seja muito prudente nas fotografias que colocas na internet. Veja que podem ser copiadas, manipuladas e exploradas para diversas finalidades.",
+          mt2:"Quem é o responsável pelo tratamento dos dados;",
+          mt3:"Qual é a finalidade do tratamento;",
+          mt4:"Quais os dados que tem de fornecer obrigatoriamente e quais são facultativos;",
+          mt5:"A existência de condições do direito de acesso e de rectificação dos seus dados;",
+          mt6:"Se os dados não forem recolhidos junto do seu titular, e exceto se dele já forem conhecidas, as informações antes referidas devem ser prestadas no momento do registo dos dados ou, se estiver prevista a comunicação a terceiros, o mais tardar aquando da primeira comunicação desses dados.",
+          mt7:"Se a recolha de dados ocorrer em redes abertas, o titular dos dados dever ser informado de que os seus dados pessoais podem circular sem condições de segurança, correndo o risco de serem vistos e utilizados por terceiros não autorizados.",
           open: true
         },
         {
           question: "Direito de acesso",
-          mt1: "Se não lhe for fornecida, exija informações sobre quem é o responsável pelo tratamento de dados, a sua finalidade, os seus destinatários, bem como os dados que tem de fornecer obrigatoriamente e os que são facultativos. Peça ainda informações sobre o exercício dos direitos de acesso e de rectificação.",
+          mt1: "O titular dos dados tem o direito de obter, directamente junto do responsável pelo tratamento, livremente e sem restriçoes, sem demoras ou custos excessivos, a confirmação de que os dados que lhe digam respeito estão ou não a serem tratados. Assiste-lhe o direito de saber qual é a finalidade desse tratamento, as categorias de dados sobre que incide, a lógica subjacente ao tratamento automatizados desses dados e a quem são comunicados;",
+          mt2:"O direito de acesso à informação relativa a dados da saúde, incluindo os dados genéticos, é exercido por intermédio de médico escolhido pelo titular dos dados, devendo para o efeito dirigir-se à CNPD;",
+          mt3:"O execercício de direito de acesso a dados tratados como medidas adequadas à segurança do Estado, defesa e segurança pública, prevenção, investigação ou repressão de infracções penais é exercido através da CNPD;",
+          mt4:"No caso de tratamento de dados efectuado para fins exclusivamente jornalísticos ou de expressão artística ou literária o direito de acesso é também exercido através da CNPD;",
+          mt5:"Se a comunicação dos dados ao seu tittular poder prejudicar a segurança do Estado, a aprevenção ou a investigação, a investigação criminal ou ainda a liberdade de expressão e informação ou a liberdade de imprensa, a CNPD limita-se a informar o titular dos dados das diligências efetuadas.",
           open: false
         },
         {
           question: "A rectificação, apagamento ou o bloqueio",
-          mt1: "A Lei de Protecção de Dados Pessoais estipula que qualquer pessoa pode “se opor, a seu pedido e gratuitamente, ao tratamento dos dados pessoais que lhe digam respeito previsto pelo responsável pelo tratamento para efeitos de “marketing” directo ou qualquer outra forma de prospecção”. Em caso de incumprimento deve apresentar queixa junto da Comissão Nacional de Protecção de Dados",
+          mt1: "O titular dos dados tem o direito de exigir junto do responsável pelo tratamento a rectificação, o apagamento ou o bloqueio dos dados devido ao carácter incompleto ou inexacto;",
+          mt2:"Tem o direito de exigir junto do responsável pelo tratamento a notificação aos terceiros a quem os dados tenham sido comunicados de qualquer rectificação, apagamento ou bloqueio.",
           open: false
         },
         {
           question: "Direito de oposição",
-          mt1: "Altere frequentemente de password, preferencialmente uma para cada tipo de conta. Deve escolher password com um mínimo de oito caracteres, misturando letras maiúsculas e minúsculas, números e símbolos especiais (#,@,*,&,%,_ ou -).",
-          mt2: "Nunca use password como '102030', '12345', 'a1b2c3d4' ou outras fáceis de se memorizar mas também de ser adivinhado por quem pretenda roubar os seus dados.A resposta à pergunta que permita recuperar o password nunca deve ser igual aos dados colocados no seu perfil de uma conta da rede social. Por isso, deve sempre iludir na resposta",
-          mt3:"O uso do telemóvel afigura-se como sendo um dos mecanismos mais seguro para a recuperação da password, Evite partilhar e escrever password em papeis, ficheiros no computador ou no meio dos contactos do telemóvel.",
+          mt1: "O titular dos dados tem o direito de se opor em qualquer altura, por razões ponderosas e legítimas relacionadas com a sua situação particular, a que os dados que lhe digam respeito sejam objecto de tratamento;",
+          mt2: "Tem o direito de se opor, a seu pedido e gratituitamente, ao tratamento dos dados pessoais que lhe digam respeito para efeitos de 'marketing' directo ou qualquer outra forma de prospecção;",
+          mt3:"Tem o direito de se opor a que os seus dados de cliente sejam utilizados para efeitos de 'marketing' da empresa;",
+          mt4:"Assiste-lhe o direito de se opor, sem despesas, a que os seus dados sejam comunicados pela primeira vez a terceiros visando a realização de «marketing» directo ou qualquer outra forma de prospecção bem ainda de serem utilizados por conta de terceiros.",
           open: false
         },
          {
           question: "Outros Direitos",
-          mt1: "Ao deixar de navegar no seu email ou em qualquer página que exija os dados de nome de usuário e password accione o botão Logout ou Sair.",
+          mt1: "O titular dos dados tem ainda direito de:",
+          mt2:"Não ficar sujeita ao tratamento automatizado de dados destinado a avaliar determinados aspectos da sua personalidade, designadamente a sua capacidade profissional, o seu crédito, a confiança ou o seu comportamento;",
+          mt3:"Exigir que os dados sejam tratados de forma legal e lícita;",
+          mt4:"Exigir que os dados recolhidos não sejam excessivos às finalidades;",
+          mt5:"Impedir que os seus dados pessoais sejam utilizados para finalidade incompatível com aquela que determinou a recolha;",
+          mt6:"Exigir que os dados não sejam comunicados a terceiros sem o seu consentimento ou conhecimento.",
           open: false
         },
-        {
-          question: "Navegue em Redes Seguras",
-          mt1: "Reserve as actividades mais confidenciais ao seu computador pessoal. Não é aconselhável efectuar o pagamento de contas, a realização de operações bancárias num computador público ou numa rede sem fio público.",
-          open: false
-        }
+        
         
   
       ]

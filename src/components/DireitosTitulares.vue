@@ -8,10 +8,13 @@
             <p class="pcente"> {{ faq.mt1 }}</p>
             <p class="pcente">{{ faq.mt2 }}</p> 
             <p class="pcente"> {{ faq.mt3 }}</p> 
-            <p id="question" class="pcente"> {{ faq.mt4 }}</p> 
+            <p class="pcente"> {{ faq.mt4 }}</p> 
             <p class="pcente"> {{ faq.mt5 }}</p> 
-            <p id="question" class="pcente"> {{ faq.mt6 }}</p> 
-            <p class="pcente"> {{ faq.mt7 }}</p>
+            <p class="pcente"> {{ faq.mt6 }}</p> 
+            <p class="pcente"> {{ faq.mt7 }}</p> 
+           
+           
+            
             <p id="question" class="pcente">{{ faq.mt8 }}</p> 
             <p class="pcente"> {{ faq.mt9 }}</p>
 
