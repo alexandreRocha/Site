@@ -58,7 +58,7 @@
                   </div>
 
                   <div class="col-lg-2  mb-5 mb-lg-0">
-                    <router-link to="/formsbio"> 
+                    <router-link to="/Bioforms"> 
                       <div class="icon-box">
                         <div class="icon"><IconAwe class="icon-color" icon="fingerprint"/></div>
                         <h4 class="title"><a href="">Formulário de Biometria</a></h4>

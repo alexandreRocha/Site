@@ -1,4 +1,5 @@
 <template> 
+
 	   <div class="faqs">
           <div class="section-title">
             <h2>Conselhos Práticos </h2> 
@@ -16,6 +17,7 @@
           </div>
           
       </div> 
+ 
 </template>
 
 <script>

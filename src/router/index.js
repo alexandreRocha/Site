@@ -285,6 +285,15 @@ const routes = [{
             import ('../views/FormscctvView.vue')
     },
     {
+        path: '/Bioforms',
+        meta:{
+            title: "Formulário - Biometria",
+            },
+        name: 'BioFormsView',
+        component: () =>
+            import ('../views/BioFormsView.vue')
+    },
+    {
         path: '/panfletos',
         meta:{
             title: "Panfletos - CNPD",
