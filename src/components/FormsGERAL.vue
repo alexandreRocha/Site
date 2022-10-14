@@ -19,24 +19,31 @@
               <div class="col-md-12" id="divg">
                 <div class="container">
                   <div class="row">
-                    <div class="col"> 
-                      <input class="form-check-input" type="radio" name="1notificacao" id="1notificacao">
+
+                    <div class="col-md-4 col-lg-4">
+                    <div class="icon-box" style="">
+                      <input class="form-check-input" type="radio" name="tiponotific" id="1notificacao">
                         <label id="labelleft" class="form-check-label" for="1notificacao">
                           1ª Notificação
                         </label>
                     </div>
-                    <div class="col"> 
-                      <input class="form-check-input" type="radio" name="alteracao" id="alteracao">
+                  </div>
+                  <div class="col-md-4 col-lg-4 ">
+                    <div class="icon-box">
+                      <input class="form-check-input" type="radio" name="tiponotific" id="alteracao">
                         <label id="labelleft" class="form-check-label" for="alteracao">
-                          Alteração da Notificação anterior
+                          Alteração
                         </label>
                     </div>
-                    <div class="col"> 
-                      <input class="form-check-input" type="radio" name="naoautorizada" id="naoautorizada">
+                  </div>
+                  <div class="col-md-4 col-lg-4">
+                    <div class="icon-box">
+                      <input class="form-check-input" type="radio" name="tiponotific" id="naoautorizada">
                         <label id="labelleft" class="form-check-label" for="naoautorizada">
-                          Substituição da Notificação ainda não autorizada
+                          Substituição da Notificação não autorizada
                         </label>
                     </div>
+                  </div> 
                      
                   </div> 
                 </div>
@@ -48,13 +55,13 @@
                 <div class="container">
                   <div class="row">
                     <div class="col"> 
-                      <input class="form-check-input" type="radio" name="pessoasingular" id="pessoasingular">
+                      <input class="form-check-input" type="radio" name="tipopessoa" id="pessoasingular">
                         <label id="labelleft" class="form-check-label" for="pessoasingular">
                           Pessoa Singular
                         </label>
                     </div>
                     <div class="col"> 
-                      <input class="form-check-input" type="radio" name="pessoacoletiva" id="pessoacoletiva">
+                      <input class="form-check-input" type="radio" name="tipopessoa" id="pessoacoletiva">
                         <label id="labelleft" class="form-check-label" for="pessoacoletiva">
                            Pessoa Colectiva
                         </label>
@@ -186,12 +193,11 @@
                 <div class="container">
                   <div class="row">
                     <div class="col"> 
-                      <input class="form-check-input" type="radio" name="pessoasingular" id="pessoasingular">
-                      Sim <label  @click="changeMorada"  id="labelleft" class="form-check-label" for="pessoasingular">
-                         </label>                     
-                      <input  v-if="checkMorada" class="form-check-input" type="radio" name="pessoacoletiva" id="pessoacoletiva">
-                      Não<label id="labelleft" class="form-check-label" for="pessoacoletiva">
-                         </label>
+                      <label class="form-check-label" >
+                        Morada do local da instalação é a mesma indicada no ponto 1? 
+                      </label><br>
+                      <buttom value="Sim" @click="changeMorada" type="button" class="btn btn-outline-primary" name="moradasim" id="moradasimbotton">
+                      {{checkMorada? 'Não': 'Sim' }} </buttom>
                     </div> 
                   </div>
                 </div>
@@ -334,7 +340,7 @@
 export default { 
   data() {
     return{
-      checkMorada:true,
+      checkMorada:false,
     }
    
   }, 
@@ -354,10 +360,15 @@ export default {
   padding: 10px;
   border-radius: 10px;
 }
+.col{ 
+  font-family:verdana;
+}
 #divg2{
   font-family:verdana;
   border: 1px solid #061536;
   padding: 10px;
+  margin-top: 10px;
+  padding-top: 20px;
   border-radius: 10px;
 }
 .col{
@@ -370,6 +381,16 @@ input, label{
 input{
  margin-bottom: 10px;
 }
+input.form-control:focus,select.form-select:focus{
+  outline: none !important;
+  border-color: #061536;
+  box-shadow: 0 0 10px #061536;
+  
+}
+option:hover {
+      background-color: yellow;
+    }
+ 
 #separacao{
   font-family:verdana;
   padding-left: 10px;
@@ -384,5 +405,19 @@ input{
 }
 #divloco{
   margin-top: 10px;
+}
+#moradasimbotton{
+  color: #061536;
+  border-color: #061536;
+}
+#moradasimbotton:hover{
+  background-color: #061536;
+  color: #fff; 
+  border: 2px solid #bd9a13;
+}
+
+.icon-box {
+  background-color: white;
+  
 }
 </style>
