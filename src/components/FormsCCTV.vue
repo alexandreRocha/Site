@@ -1,5 +1,5 @@
 <template>
-  <section id="decisoes" class="decisoes">
+  <section id="CCTV" class="CCTV">
     <div class="container">
       <div class="section-title">
         <h2>FORMULÁRIOS DE VIDEOVIGILÂNCIA</h2>
@@ -8,14 +8,12 @@
         <div class="row form-group">
           <!-- FORMS -->
 
-         <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
+
+       
+
+
+
+            <FormsGERAL/>
 
           <!-- FIM DE FORMS-->
         </div>
@@ -25,16 +23,18 @@
 </template>
 
 <script>
+import FormsGERAL from './FormsGERAL.vue';
      
 
     
-export default { 
+export default {
     data() {
-      return {
-        text: ''
-      }
-    }, 
-  }
+        return {
+            text: ""
+        };
+    },
+    components: { FormsGERAL }
+}
 
 </script>
 
@@ -104,7 +104,7 @@ export default {
   border-radius: 50px;
 }
 
-.decisoes {
+.CCTV {
   background: #fff;
   padding-top: 120px;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -116,30 +116,30 @@ export default {
 a {
   text-decoration: none;
 }
-.decisoes .icon-box {
+.CCTV .icon-box {
   display: flex;
   align-items: center;
   padding: 20px;
   transition: ease-in-out 0.3s;
   box-shadow: 2px 0 35px 0 rgba(68, 88, 144, 0.12);
 }
-.decisoes .icon-box i {
+.CCTV .icon-box i {
   font-size: 32px;
   padding-right: 10px;
   line-height: 1;
 }
-.decisoes .icon-box h3 {
+.CCTV .icon-box h3 {
   font-weight: 700;
   margin: 0;
   padding: 0;
   line-height: 1;
   font-size: 16px;
 }
-.decisoes .icon-box h3 a {
+.CCTV .icon-box h3 a {
   color: #493c3e;
   transition: ease-in-out 0.3s;
 }
-.decisoes .icon-box:hover a {
+.CCTV .icon-box:hover a {
   color: #bd9a13;
 }
 
