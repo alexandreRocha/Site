@@ -1,9 +1,12 @@
 <template>
   <section id="decisoes" class="decisoes">
     <div class="container"> 
+         <div class="section-title">
+        <h2>FORMULÁRIOS DE Biometria </h2>
+      </div>
           <!-- FORMS GERAL--> 
           <div class="col-md-12" id="separacao">
-              Notificação de VideoVigilância       
+              Notificação de Biometria     
           </div>
               <div class="col-md-12" id="divg">
                 <div class="container">
@@ -77,8 +80,7 @@
                          <select class="form-select" aria-label="Default select example">
                             <option value="">- Escolha a actividade desenvolvida-</option>
                                <option v-for="atividade in atividades" :key="atividade" value="1">{{atividade}}</option>
-                                 
-                              
+                               
                                 
                           </select>
                       </div>
@@ -138,6 +140,42 @@
                       </div> 
                   </div>
                 </div>
+                 <div class="col-md-12"> 
+                      <input type="text" class="form-control" id="nomedenominacao" alt="Nome Denominação: Refere-se à designação oficial de uma instituição pública ou privada" placeholder=" Representante">
+                    </div>
+                    <div class="col-md-12">  
+                      <input type="text" class="form-control" id="nomecomercial" alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida." placeholder=" Nome/Comercial">
+                    </div>
+                     <div class="col-md-12">  
+                      <input type="text" class="form-control" id="nomecomercial" alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida." placeholder=" Rua">
+                    </div>
+                     <div class="col-md-12">  
+                      <input type="text" class="form-control" id="nomecomercial" alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida." placeholder=" Caixa Postal">
+                    </div>
+                     <div class="col-md-12">  
+                      <input type="text" class="form-control" id="nomecomercial" alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida." placeholder=" Cidade/Vila/Lugar/Zona">
+                    </div>
+                    <div class="col-md-12"> 
+                        <div class="row">
+                          <div class="col">  
+                            <select class="form-select" aria-label="Default select example">
+                              <option value="">- Qual a sua ilha -</option>
+                            <option v-for="ilha in ilhas" :key="ilha" value="1">{{ilha}}</option>
+                                
+                            </select>
+                          </div>
+                          <div class="col">  
+                            <select class="form-select" aria-label="Default select example">
+                              <option value="">- Qual o concelho -</option> 
+                               <option v-for="concelho in concelhos" :key="concelho" value="1">{{concelho}}</option>
+                                
+                             </select>
+                          </div> 
+                        </div> 
+                      </div> 
+                      <div class="col-md-12">  
+                      <input type="text" class="form-control" id="nomecomercial" alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida." placeholder=" Nome da pessoa do contato">
+                    </div>
               </div>
               <div class="col-md-12" id="separacao">
                 Morada Local de Instalação   
@@ -226,6 +264,7 @@
                               País: Cabo Verde/Fora do Território Nacional
                             </label>
                           </div> 
+                          
                         </div> 
                       </div> 
                   </div>
@@ -242,6 +281,8 @@
 
 <script>    
 export default { 
+    name:"BiometriaForms",
+   
   data() {
     return{
       checkMorada:false,
@@ -368,14 +409,14 @@ option:hover {
 #separacao{
   font-family:verdana;
   padding-left: 10px;
-  text-align: left;
+  text-align: center;
   color: #ffffff;
   border-style: ridge;
   border-radius: 10px;
   background: #061536;
 }
 #labelleft{
-  text-align: left;
+  text-align: center;
 }
 #divloco{
   margin-top: 10px;
@@ -394,4 +435,22 @@ option:hover {
   background-color: white;
   
 }
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+.section-title h2 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 8px 20px;
+  line-height: 1;
+  margin: 0;
+  background: #bd9a13;
+  color: #000;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 50px;
+}
+
 </style>
