@@ -280,9 +280,9 @@ const routes = [{
         meta:{
             title: "VIDEOVIGILÂNCIA - CNPD",
             },
-        name: 'FormscctvView',
+        name: 'CctvFormsView',
         component: () =>
-            import ('../views/FormscctvView.vue')
+            import ('../views/CctvFormsView.vue')
     },
     {
         path: '/biometria',

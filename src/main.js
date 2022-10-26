@@ -11,6 +11,9 @@
  
  import 'vue-universal-modal/dist/index.css'
 import VueUniversalModal from 'vue-universal-modal'
+
+
+
  
 
  library.add(fas);
@@ -21,6 +24,10 @@ import VueUniversalModal from 'vue-universal-modal'
      .use(VueUniversalModal, {
         teleportTarget: '#my-modals',
         modalComponent: 'MyModal',
-      }) 
+        
+       
+      })
+    
+     
 
      .mount('#app');

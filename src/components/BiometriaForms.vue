@@ -8,16 +8,7 @@
           <div class="col-md-12" id="separacao">
               Notificação de Biometria     
           </div>
-              <div class="col-md-12" id="divg">
-                <div class="container">
-                  <div class="row">
-                    <div class="col"> 
-                      <label id="labelleft" for="finalidade" class="form-label">Finalidade</label>
-                      <input class="form-control" type="text" placeholder="Proteção de Pessoas e Bens" aria-label="Disabled input example" disabled>
-                    </div> 
-                  </div> 
-                </div>
-              </div>
+              
               <br>
               <div class="col-md-12" id="divg">
                 <div class="container">
@@ -176,103 +167,87 @@
                       <div class="col-md-12">  
                       <input type="text" class="form-control" id="nomecomercial" alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida." placeholder=" Nome da pessoa do contato">
                     </div>
-              </div>
-              <div class="col-md-12" id="separacao">
-                Morada Local de Instalação   
-              </div>
-              <div class="col">
-                <div class="container">
-                  <div class="row">
-                    <div class="col"> 
-                      <label class="form-check-label" >
-                        Morada do local da instalação é a mesma indicada no ponto 1? 
-                      </label><br>
-                      <buttom value="Sim" @click="changeMorada" type="button" class="btn btn-outline-primary" name="moradasim" id="moradasimbotton">
-                      {{checkMorada? 'Não': 'Sim' }} </buttom>
-                    </div> 
-                  </div>
-                </div>
-              </div>
-
- 
-              <div class="col-md-12" id="divg2" v-if="checkMorada">
-                <div class="container">
-                  <div class="row"> 
-                    
-                    <div class="col-md-12"> 
-                      <input type="text" class="form-control" id="nomedenominacao" alt="Nome Denominação: Refere-se à designação oficial de uma instituição pública ou privada" placeholder=" Nome/Denominação">
-                    </div>
-                    <div class="col-md-12">  
-                      <input type="text" class="form-control" id="nomecomercial" alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida." placeholder=" Nome/Comercial">
-                    </div>
-                     <div class="col"> 
-                         <select class="form-select" aria-label="Default select example">
-                            <option value="">- Escolha a actividade desenvolvida-</option>
-                                <option v-for="atividade in atividades" :key="atividade" value="1">{{atividade}}</option>
-                                
-                          </select>
-                      </div>
-                      <div class="col">  
-                        <input type="text" class="form-control" id="nif" alt="NIF" placeholder="Número de NIF">
-                      </div>
-                      <div class="col-md-12"> 
+                     <div class="col-md-12" id="divloco"> 
                         <div class="row">
                           <div class="col">  
-                            <input type="text" class="form-control" id="rua" alt="RUA" placeholder="Entre o nome da Rua">
-                          </div>
-                          <div class="col">  
-                            <input type="text" class="form-control" id="local" alt="Local" placeholder="Cidade/Vila/Lugar/Zona">
-                          </div> 
-                        </div> 
-                      </div>
-                      <div class="col-md-12"> 
-                        <div class="row">
-                          <div class="col">  
-                            <select class="form-select" aria-label="Default select example">
-                              <option value="">- Qual a sua ilha -</option>
-                                <option v-for="ilha in ilhas" :key="ilha" value="1">{{ilha}}</option>
-                                
-                            </select>
-                          </div>
-                          <div class="col">  
-                            <select class="form-select" aria-label="Default select example">
-                              <option value="">- Qual o concelho -</option> 
-                                <option v-for="concelho in concelhos" :key="concelho" value="1">{{concelho}}</option>
-                                
-                             </select>
-                          </div> 
-                        </div> 
-                      </div>  
-                      <div class="col-md-12" id="divloco"> 
-                        <div class="row">
-                          <div class="col">  
-                            <input type="text" class="form-control" id="caixapostal" alt="Caixa Postal" placeholder="Entre o número da Caixa Postal">
+                            <input type="email" class="form-control" id="caixapostal" alt="Caixa Postal" placeholder="Entre o seu email: example@cnpd.cv">
                           </div>
                           <div class="col">  
                             <input type="number" class="form-control" id="telefone" alt="Telefone/Telemovel" placeholder="Contato: Telefone/Telemovel">
                           </div> 
                         </div> 
                       </div>
-                      <div class="col-md-12"> 
-                        <div class="row">
-                          <div class="col"> 
-                            <input type="email" class="form-control" id="email" placeholder="Entre o seu email: example@cnpd.cv">
-                          </div>
-                          <div class="col">  
-                            <input class="form-check-input" type="radio" name="pais" id="pais">
-                            <label id="labelleft" class="form-check-label" for="pais">
-                              País: Cabo Verde/Fora do Território Nacional
-                            </label>
-                          </div> 
-                          
-                        </div> 
-                      </div> 
+              </div>
+             <div class="col-md-12" id="separacao">
+                Processamento da informação
+              </div>
+              <div class="col" id="divg">
+                <div class="container">
+                  <div class="row">
+                    <div class="col"> 
+                      <label class="form-check-label" >
+                        Existe um Serviço Externo encarregado do processamento ?
+                      </label>
+                      <buttom @click="changeServico" type="button" class="btn btn-outline-primary" name="morada" id="moradasimbotton">
+                      {{checkServico? 'Não': 'Sim' }} </buttom>
+                    </div> 
                   </div>
                 </div>
               </div>
-
- 
-
+                <div class="col-md-12" id="divg2" v-if="checkServico">
+                <div class="container">
+                  <div class="row"> 
+                    
+                    <div class="col-md-12"> 
+                      <input type="text" class="form-control" name="entidadeProcessInfo" id="entidadeProcessInfo" placeholder=" Qual a Entidade Encarregue pelo proccessamento das imagens">
+                    </div>
+                    <div class="col-md-12">  
+                      <input type="text" class="form-control" name="ruaProcessInfo" id="ruaProcessInfo" placeholder=" Rua">
+                    </div>
+                    <div class="col-md-12"> 
+                      <input type="text" class="form-control" name="caixaPostalProcessInfo" id="caixaPostalProcessInfo" placeholder=" Caixa Postal">
+                    </div>
+                    <div class="col-md-12">  
+                      <input type="text" class="form-control" name="lugarProcessInfo" id="lugarProcessInfo" placeholder="Cidade/Vila/Lugar/Zona da Entidade">
+                    </div>
+                      
+                      <div class="col-md-12"> 
+                        <div class="row">
+                          <div class="col">  
+                            <select class="form-select" name="ilhaProcessInfo" id="ilhaProcessInfo" aria-label="Default select example">
+                              <option value="">- Qual a sua ilha -</option>
+                                <option v-for="ilha in ilhas" :key="ilha" value="1">{{ilha}}</option>
+                               
+                            </select>
+                          </div>
+                          <div class="col">  
+                            <select class="form-select" name="concelhoProcessInfo" id="concelhoProcessInfo" aria-label="Default select example">
+                              <option value="">- Qual o concelho -</option> 
+                                <option  v-for="concelho in concelhos" :key="concelho" value="1">{{concelho}}</option>
+                                
+                             </select>
+                          </div> 
+                        </div> 
+                      </div>   
+                      
+                  </div>
+                </div>
+              </div>
+           <div class="col-md-12" id="separacao">
+                2. Finalidade do tratamento
+              </div>
+             <div class="col"> 
+                      <input class="form-check-input" type="checkbox" name="tipopessoa" id="pessoasingular">
+                        <label id="labelleft" class="form-check-label" for="pessoasingular">
+                          Controlo de assiduidade
+                        </label>
+                    </div>
+                    <div class="col"> 
+                      <input class="form-check-input" type="checkbox" name="tipopessoa" id="pessoacoletiva">
+                        <label id="labelleft" class="form-check-label" for="pessoacoletiva">
+                           Controlo de acesso às instalações
+                        </label>
+                    </div>
                
           <!-- FIM DE FORMS--> 
     </div>
@@ -286,6 +261,7 @@ export default {
   data() {
     return{
       checkMorada:false,
+      checkServico:false,
       concelhos:[
         'Ribeira Grande',
         'Paul',
@@ -359,7 +335,11 @@ export default {
   methods:{
 			 changeMorada(){
         this.checkMorada = !this.checkMorada;
-       }
+       },
+        changeServico(){
+        this.checkServico = !this.checkServico; 
+
+       },
 		}
   }
 

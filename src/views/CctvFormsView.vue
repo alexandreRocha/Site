@@ -1,17 +1,17 @@
  
 <template>
   <div id="app">
-    <FormsCCTV/> 
+    <CctvForms/> 
   </div>
 </template>
 <script>
-import FormsCCTV from "../components/FormsCCTV.vue"; 
+import CctvForms from "../components/CctvForms.vue"; 
 
 export default{
-  name:"FormscctvView",
+  name:"CctvFormsView",
 
   components: {
-    FormsCCTV, 
+    CctvForms, 
   }
 }
  
