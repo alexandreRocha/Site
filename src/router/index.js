@@ -293,6 +293,15 @@ const routes = [{
         component: () =>
             import ('../views/BiometriaFormsView')
     },
+    {
+        path: '/formsgeral',
+        meta:{
+            title: "Formulario Geral",
+            },
+        name: 'GeralFormsView',
+        component: () =>
+            import ('../views/GeralFormsView')
+    },
     
     {
         path: '/panfletos',

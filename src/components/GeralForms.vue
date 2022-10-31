@@ -2,11 +2,11 @@
   <section id="decisoes" class="decisoes">
     <div class="container"> 
          <div class="section-title">
-        <h2>FORMULÁRIOS DE Biometria </h2>
+        <h2>NOTIFICAÇÃO DE TRATAMENTO DE DADOS </h2>
       </div>
           <!-- FORMS GERAL--> 
           <div class="col-md-12" id="separacao">
-              Notificação de Biometria     
+              Notificação Geral   
           </div>
               
               <br>
@@ -22,19 +22,12 @@
                         </label>
                     </div>
                   </div>
-                  <div class="col-md-4 col-lg-4 ">
-                    <div class="icon-box">
-                      <input class="form-check-input" type="radio" name="tiponotific" id="alteracao">
-                        <label id="labelleft" class="form-check-label" for="alteracao">
-                          Alteração
-                        </label>
-                    </div>
-                  </div>
+                  
                   <div class="col-md-4 col-lg-4">
                     <div class="icon-box">
                       <input class="form-check-input" type="radio" name="tiponotific" id="naoautorizada">
                         <label id="labelleft" class="form-check-label" for="naoautorizada">
-                          Substituição da Notificação não autorizada
+                          Alteração de notificação anterior
                         </label>
                     </div>
                   </div> 
@@ -238,25 +231,32 @@
               </div>
              <div  id="fin" class="col"> 
               
-
-                     <div > <input class="form-check-input" type="checkbox" name="tipopessoa" id="pessoasingular">
-                        <label id="labelleft" class="form-check-label" for="pessoasingular">
-                          Controlo de assiduidade
-                        </label>
-                        </div>
-                   
-                      <div><input class="form-check-input" type="checkbox" name="tipopessoa" id="pessoacoletiva">
-                        <label id="labelleft" class="form-check-label" for="pessoacoletiva">
-                           Controlo de acesso às instalações
-                        </label>
-                        </div>
-                        <div class="col">  
-                            <input type="number" class="form-control" id="numfunc" alt="Telefone/Telemovel" placeholder="número de funcionários">
-                          </div> 
+<div class="col-md-12" id="divg">
+                     <div class="row">  
+                      
+                      <div class="col">  
+                        
+                        <Multiselect
+                        v-model="value"
+                        name="finalidadeTratamentos" 
+                        id="finalidadeTratamento"
+                        placeholder="-indique finalidade de tratamento-"
+                        mode="tags"
+                        :close-on-select="false"
+                        :searchable="true"
+                        :create-option="true"
+                        :options=" finalidadeTratamento"
+                      />
+                          
+                      </div> 
+                      <div class="col-md-12"><br></div>
+                </div>
+                    </div>
+                     
                     </div>
                     <div class="col-md-12" id="separacao">
-                3. Dados pessoais contidos em cada registo      
-              </div>
+                    3. Dados pessoais contidos em cada registo      
+                    </div>
                     <div class="col-md-12" id="divg">
                      <div class="row">  
                       
@@ -550,7 +550,7 @@ export default {
       Multiselect
       
     },
-    name:"BiometriaForms",
+    name:"GeralForms",
    
   data() {
     return{
@@ -624,15 +624,82 @@ export default {
         'Transporte (Aéreo, Marítimo, Terrestre)'
 
        ],
-         dadosRegistrado: [ 
-        { value: 'Impressão digital', label: 'Impressão digital' },
-        { value: 'Contorno da mão', label: 'Contorno da mão' },
-        { value: 'Reconhecimento', label: 'Reconhecimento' },
-        { value: 'Íris', label: 'Íris' },
-        { value: 'Geometria das veias', label: 'Geometria das veias' },
-        { value: 'Assinatura', label: 'Assinatura' },
-        { value: 'Voz', label: 'Voz' },
-       
+        finalidadeTratamento: [ 
+        { value: 'Gestão Fiscal', label: 'Gestão Fiscal' },
+        { value: 'Gestão Administrativa', label: 'Gestão Administrativa' },
+        { value: 'Gestão de Faturação', label: 'Gestão de Faturação' },
+        { value: 'Gestão de Cobranças e Pagamentos', label: 'Gestão de Cobranças e Pagamentos' },
+        { value: 'Gestão de Fornecedores', label: 'Gestão de Fornecedores' },
+        { value: 'Administração de Condomínios', label: 'Administração de Condomínios' },
+        { value: 'Consultorias, Auditorias e Serviços Relacionados', label: 'Consultorias, Auditorias e Serviços Relacionados' },
+        { value: 'Gestão Fiscal', label: 'Gestão Fiscal' },
+        { value: 'Gestão Administrativa', label: 'Gestão Administrativa' },
+         { value: 'Histórico de Relações Comerciais', label: 'Histórico de Relações Comerciais' },
+        { value: 'Gestão de Recursos Humanos', label: 'Gestão de Recursos Humanos' },
+         { value: 'Processamento de Remunerações', label: 'Processamento de Remunerações' },
+        { value: 'Formação Profissional', label: 'Formação Profissiona' },
+        { value: 'Gestão de Sanções disciplinares', label: 'Gestão de Sanções disciplinares' },
+        { value: 'Seleção de Pessoal e Recrutamento', label: 'Seleção de Pessoal e Recrutamento' },
+        { value: 'Gestão de Trabalho Temporário', label: 'Gestão de Trabalho Temporário' },
+        { value: 'Gestão de Teletrabalho', label: 'Gestão de Teletrabalho' },
+        { value: 'Medicina no Trabalho', label: 'Medicina no Trabalho' },
+        { value: 'Controlo de Horário / Assiduidade', label: 'Controlo de Horário / Assiduidade' },
+        { value: 'Controlos de emails, acessos à internet e chamadas', label: 'Controlos de emails, acessos à internet e chamadas' },
+        { value: 'Controlo de alcoolemia e produtos psicotrópicos', label: 'Controlo de alcoolemia e produtos psicotrópicos' },
+        { value: 'Linhas de ática (Whistle blowing)', label: 'Linhas de ática (Whistle blowing)' },
+        { value: 'Controlo por GPS / GSM / RFID', label: 'Controlo por GPS / GSM / RFID' },
+        { value: 'Gestão de Clientes', label: 'Gestão de Clientes' },
+        { value: 'Avaliação de Risco e Crédito', label: 'Avaliação de Risco e Crédito' },
+        { value: 'Titularização de Créditos', label: 'Titularização de Créditos' },
+        { value: 'Cessão de Créditos', label: 'Cessão de Créditos' },
+        { value: 'Prospecção da opções de Créditos', label: 'Prospecção da opções de Créditos' },
+        { value: 'Gestão de Créditos Litigiosos', label: 'Gestão de Créditos Litigiosos' },
+        { value: 'Recuperação de Créditos Extrajudiciais', label: 'Recuperação de Créditos Extrajudiciais' },
+        { value: 'Informação e Negócio', label: 'Informação e Negócio' },
+        { value: 'Gestão de seguros de vida', label: 'Gestão de Seguros de Vida' },
+        { value: 'Gestão de seguros de não  vida', label: 'Gestão de Seguros de não  Vidao' },
+        { value: 'Gestão de seguros de automóveis', label: 'Gestão de seguros de automóveis' },
+        { value: 'Gestão de seguros de acidentes pessoais', label: 'Gestão de seguros de acidentes pessoais' },
+        { value: 'Gestão de seguros de acidentes trabalho', label: 'Gestão de seguros de trabalho' },
+        { value: 'Gestão de seguros de outra natureza', label: 'Gestão de seguros de outra natureza' },
+        { value: 'Mediação de seguros', label: 'Mediação de seguros' },
+        { value: 'Resseguros', label: 'Resseguros' },
+        { value: 'Marketing', label: 'Marketing' },
+        { value: 'Sondagens e inquérito de opinião', label: 'Sondagens e inquérito de opinião' },
+        { value: 'Análise de perfis de consumo', label: 'Análise de perfis de consumo' },
+        { value: 'Gestão de clientes', label: 'Gestão de clientes' },
+        { value: 'Fidelização de clientes', label: 'Fidelização de clientes' },
+        { value: 'Registro de utilizadores em site na internet', label: 'Registro de utilizadores em site na internet' },
+        { value: 'Gravação de chamadas na relação contratual', label: 'Gravação de chamadas na relação contratual' },
+        { value: 'Gravação de chamadas de emergência', label: 'Gravação de chamadas de emergência' },
+        { value: 'Gravação para monitorização da qualidade do serviço', label: 'Gravação para monitorização da qualidade do serviço' },
+        { value: 'Retenção de dados de tráfego/ocalização', label: 'Retenção de dados de tráfego/ocalização' },
+        { value: 'Gestão de contecioso', label: 'Gestão de contecioso' },
+        { value: 'Gestão de pedidos interceção judicias das comunicações', label: 'Gestão de pedidos interceção judicias das comunicações' },
+        { value: 'Gestão de pedido da lei', label: 'Gestão de pedido da lei' },
+        { value: 'Gestão de serviços de GPS', label: 'Gestão de serviços de GPS' },
+        { value: 'Gestão de utentes', label: 'Gestão de utentes' },
+        { value: 'Atribuição ou prestações de apoios sociais', label: 'Atribuição ou prestações de apoios sociais' },
+        { value: 'Gestão de linhas telefónicas de apoio', label: 'Gestão de linhas telefónicas de apoio' },
+        { value: 'Gestão de alunos', label: 'Gestão de alunos' },
+        { value: 'Gestão de docentes', label: 'Gestão de docentes' },
+        { value: 'Promoção e inserção na vida profissional', label: 'Promoção e inserção na vida profissional' },
+        { value: 'Gestão de cartões escolares eletrónicos', label: 'Gestão de cartões escolares eletrónicos' },
+        { value: 'Gestão de apoios sociais', label: 'Gestão de apoios sociais' },
+        { value: 'Gestão de sites escolares', label: 'Gestão de sites escolares' },
+        { value: 'Gestão de processos clínicos', label: 'Gestão de processos clínicos' },
+        { value: 'Prescrição medicamentosa eletrónica', label: 'Prescrição medicamentosa eletrónica' },
+        { value: 'Gestão administrativa de utentes', label: 'Gestão administrativa de utentes' },
+        { value: 'Estudos clínicos observacionais (não intervencionais)', label: 'Estudos clínicos observacionais (não intervencionais)' },
+        { value: 'Ensaios clínicos (intervencionais)', label: 'Ensaios clínicos (intervencionais)' },
+        { value: 'Farmacovigilância', label: 'Farmacovigilância' },
+        { value: 'Gestão de utentes de farmácia', label: 'Gestão de utentes de farmácia' },
+        { value: 'Sistema de apoio à prática de enfermagem', label: 'Sistema de apoio à prática de enfermagem' },
+
+
+
+
+
       ],
        outrosDados: [ 
         { value: 'No do empregado', label: 'No do empregado' },
@@ -657,7 +724,7 @@ export default {
         { value: 'Central num estabelecimento único', label: 'Central num estabelecimento único' },
         { value: 'Central com vários estabelecimentos', label: 'Central com vários estabelecimentos' },
         { value: 'Em cada estabelecimento', label: 'Em cada estabelecimento' },
-       
+      
        
         
        
