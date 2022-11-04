@@ -285,6 +285,24 @@ const routes = [{
             import ('../views/CctvFormsView.vue')
     },
     {
+        path: '/formsgeo',
+        meta:{
+            title: "GEOLOCALIZAÇÃO - CNPD",
+            },
+        name: 'GpsFormsView',
+        component: () =>
+            import ('../views/GpsFormsView.vue')
+    },
+    {
+        path: '/formsinter',
+        meta:{
+            title: "INTERCONEXÃO - CNPD",
+            },
+        name: 'IntcnFormsView',
+        component: () =>
+            import ('../views/IntcnFormsView.vue')
+    },
+    {
         path: '/biometria',
         meta:{
             title: "Biometria",

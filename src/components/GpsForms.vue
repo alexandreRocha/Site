@@ -1,50 +1,10 @@
 <template>
-  <section id="cctv" class="cctv">
+  <section id="GEO" class="GEO">
     <div class="container">
       <form>
-        <!-- FORMS CCTV-->
+        <!-- FORMS GEO-->
         <div class="section-title">
-          <h2>NOTIFICAÇÃO DE VIDEOVIGILÂNCIA</h2>
-        </div>
-        <div class="col-md-12" id="divg">
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <label id="labelleft" for="finalidade" class="form-label"
-                  >Finalidade</label
-                >
-                <input
-                  class="form-control"
-                  type="text"
-                  placeholder="Proteção de Pessoas e Bens"
-                  aria-label="Disabled input example"
-                  disabled
-                />
-              </div>
-              <div class="col">
-                <label id="labelleft" for="tipoVideovigilancia" class="form-label"
-                  >Tipo Videovigilância</label
-                >
-
-                <Multiselect
-                  placeholder="- Tipo Videovigilância -"
-                  v-model="tipovideo"
-                  name="tipoVideovigilancia"
-                  id="tipoVideovigilancia"
-                  :options="tipoCctv"
-                  label="label"
-                  track-by="label"
-                  :multiple="false"
-                  :taggable="false"
-                >
-                </Multiselect>
-
-                <!--  <pre
-                  class="language-json"
-                ><code>Id pra mandar pra BD:{{ tipovideo  }}</code></pre>-->
-              </div>
-            </div>
-          </div>
+          <h2>NOTIFICAÇÃO DE GEOLOCALIZAÇÃO DE VIATURAS NO CONTEXTO LABORAL</h2>
         </div>
         <div class="col-md-12"></div>
         <div class="col-md-12" id="divg">
@@ -150,7 +110,7 @@
                   v-model="atividadeDes"
                   name="atividadeDesenvolvida"
                   id="atividadeDesenvolvida"
-                  placeholder="- selecione a atividade desenvolvida -"
+                  placeholder="- qual a atividade desenvolvida -"
                   :options="atividadeDesenvolvida"
                 />
               </div>
@@ -288,183 +248,131 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <!-- ------------------------------------ Morada Local de Instalação   ---------------------------------------------------------------------->
-        <div class="col-md-12" id="separacao">Morada Local de Instalação</div>
-        <div class="col" id="divg">
-          <div class="container">
-            <div class="row">
+
+              <div class="col-md-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="representante"
+                  id="representante"
+                  placeholder=" Representante"
+                />
+              </div>
               <div class="col">
-                <label class="form-check-label">
-                  Morada do local da instalação é a mesma indicada no ponto 1?
-                </label>
-                <buttom
-                  @click="changeMorada"
-                  type="button"
-                  class="btn btn-outline-primary"
-                  name="morada"
-                  id="moradasimbotton"
-                >
-                  {{ checkMorada ? "Sim" : "Não" }}
-                </buttom>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="ruaRep"
+                  id="ruaRep"
+                  placeholder=" Rua"
+                />
               </div>
-              <div class="container">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="caixaPostalRep"
+                  id="caixaPostalRep"
+                  placeholder=" Caixa Postal"
+                />
+              </div>
+
+              <div class="col-md-12">
                 <div class="row">
-                  <div class="col-md-12" v-if="checkMorada1">
-                    <div class="row">
-                      <div class="col-md-12" id="divloco">
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="nomePessoaContato"
-                          id="nomePessoaContato"
-                          alt="Caixa Postal"
-                          placeholder="Nome da pessoa de contato"
-                        />
-                      </div>
-
-                      <div class="col-md-12">
-                        <div class="row">
-                          <div class="col">
-                            <input
-                              type="email"
-                              class="form-control"
-                              name="emailMoradaInstalacao"
-                              id="emailMoradaInstalacao"
-                              placeholder="Entre o email da pessoa de contato: example@cnpd.cv"
-                            />
-                          </div>
-                          <div class="col">
-                            <input
-                              type="number"
-                              class="form-control"
-                              name="telefoneMoradaInstalacao"
-                              id="telefoneMoradaInstalacao"
-                              placeholder="Contato: Telefone/Telemovel"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="col">
+                    <select
+                      class="form-select"
+                      v-model="ilhaMorRep"
+                      name="ilhaMorRep"
+                      id="ilhaMorRep"
+                      for="ilhaMorRep"
+                      placeholder="- Seleciona uma ilha-"
+                    >
+                      <option :value="null">- selecione uma ilha -</option>
+                      <option
+                        v-for="option in ilhas"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <select
+                      class="form-select"
+                      v-model="concelhoMorRep"
+                      name="concelhoMorRep"
+                      id="concelhoMorRep"
+                      for="concelhoMorRep"
+                      placeholder="- Seleciona um concelho -"
+                    >
+                      <option :value="null">- selecione um concelho -</option>
+                      <option
+                        v-for="option in concelhos[ilhaMorRep]"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
                   </div>
                 </div>
               </div>
-              <div class="col-md-12" id="divg2" v-if="checkMorada">
-                <div class="col-md-12">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="moradaLocalInstalacao"
-                    id="moradaLocalInstalacao"
-                    placeholder=" Morada Local de instalação"
-                  />
-                </div>
-                <div class="col-md-12">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="ruaMoradaInstalacao"
-                    id="ruaMoradaInstalacao"
-                    placeholder=" Rua"
-                  />
-                </div>
-                <div class="col-md-12">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="caixaPostalMoradaInstalacao"
-                    id="caixaPostalMoradaInstalacao"
-                    placeholder=" Caixa Postal"
-                  />
-                </div>
-                <div class="col-md-12">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="localMoradaInstalacao"
-                    id="localMoradaInstalacao"
-                    placeholder=" Local de instalação - Cidade/Vila/Lugar/Zona"
-                  />
-                </div>
-
+              <div class="col-md-12" id="divloco">
                 <div class="col-md-12">
                   <div class="row">
                     <div class="col">
-                      <select
-                        class="form-select"
-                        v-model="ilhaMorInst"
-                        name="ilhaMoradaInstalacao"
-                        id="ilhaMoradaInstalacao"
-                        for="ilhaMoradaInstalacao"
-                        placeholder="- Seleciona uma ilha-"
-                      >
-                        <option :value="null">- selecione uma ilha -</option>
-                        <option
-                          v-for="option in ilhas"
-                          :key="option.value"
-                          :value="option.value"
-                        >
-                          {{ option.label }}
-                        </option>
-                      </select>
-                    </div>
-                    <div class="col">
-                      <select
-                        class="form-select"
-                        v-model="concelhoMorInst"
-                        name="concelhoMoradaInstalacao"
-                        id="concelhoMoradaInstalacao"
-                        for="concelhoMoradaInstalacao"
-                        placeholder="- Seleciona um concelho -"
-                      >
-                        <option :value="null">- selecione um concelho -</option>
-                        <option
-                          v-for="option in concelhos[ilhaMorInst]"
-                          :key="option.value"
-                          :value="option.value"
-                        >
-                          {{ option.label }}
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="row">
-                    <div class="col-md-12" id="divloco">
                       <input
                         type="text"
                         class="form-control"
-                        name="nomePessoaContato"
-                        id="nomePessoaContato"
-                        alt="Caixa Postal"
-                        placeholder="Nome da pessoa de contato"
+                        name="localMoradaRep"
+                        id="localMoradaRep"
+                        placeholder="Cidade/Vila/Lugar/Zona"
                       />
                     </div>
+                    <div class="col">
+                      <input
+                        disabled
+                        type="text"
+                        class="form-control"
+                        name="paisRep"
+                        value="Cabo Verde"
+                        id="paisRep"
+                        placeholder="Cabo Verde"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="nomePessoaContato"
+                    id="nomePessoaContato"
+                    placeholder="Nome da pessoa de contato"
+                  />
+                </div>
 
-                    <div class="col-md-12">
-                      <div class="row">
-                        <div class="col">
-                          <input
-                            type="email"
-                            class="form-control"
-                            name="emailMoradaInstalacao"
-                            id="emailMoradaInstalacao"
-                            placeholder="Entre o email da pessoa de contato: example@cnpd.cv"
-                          />
-                        </div>
-                        <div class="col">
-                          <input
-                            type="number"
-                            class="form-control"
-                            name="telefoneMoradaInstalacao"
-                            id="telefoneMoradaInstalacao"
-                            placeholder="Contato: Telefone/Telemovel"
-                          />
-                        </div>
-                      </div>
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col">
+                      <input
+                        type="email"
+                        class="form-control"
+                        name="emailMoradaRep"
+                        id="emailMoradaRep"
+                        placeholder="Entre o email da pessoa de contato: example@cnpd.cv"
+                      />
+                    </div>
+                    <div class="col">
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="telefoneMorRep"
+                        id="telefoneMorRep"
+                        placeholder="Contato: Telefone/Telemovel"
+                      />
                     </div>
                   </div>
                 </div>
@@ -500,7 +408,7 @@
                     class="form-control"
                     name="entidadeProcessInfo"
                     id="entidadeProcessInfo"
-                    placeholder=" Qual a Entidade Encarregue pelo proccessamento das imagens"
+                    placeholder=" Qual a Entidade Encarregue pelo proccessamento dos dados"
                   />
                 </div>
                 <div class="col-md-12">
@@ -578,121 +486,52 @@
           </div>
         </div>
 
-        <div class="col-md-12" id="separacao">2. Característica do sistema</div>
+        <!---- ----------------- Finalidade e Categoria de dados Pesoais-------------------------------------------------------------------->
 
-        <div class="col-md-12" id="divg">
+        <div class="col" id="divg">
           <div class="container">
             <div class="row">
-              <div class="col">
-                <input
-                  type="number"
-                  class="form-control"
-                  name="numeroCamaras"
-                  id="numeroCamaras"
-                  placeholder=" Nº total de câmaras instaladas"
-                />
-              </div>
-              <div class="col"> 
-                <Multiselect
-                  v-model="zona"
-                  :options="zonasAbrangidas"
-                  mode="tags"
-                  placeholder="- selecione as zonas abrangidas -"
-                  :close-on-select="false"
-                  :searchable="true"
-                  :object="true"
-                />
+              <div class="col-md-12" id="separacao">2. Finalidades do Tratamento</div>
+
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12" id="separacao1">
+                Indique a(s) finalidade(s) do tratamento de dados (selecione todas as que
+                se apliquem)
               </div>
               <div class="col-md-12"><br /></div>
-
-              <div class="col">
-                <div class="col">
-                  <label class="form-check-label">
-                    Existe transmissão das imagems para fora da instalação ?
-                  </label>
-                  <buttom
-                    @click="changeTranssmisao"
-                    type="button"
-                    class="btn btn-outline-primary"
-                    name="morada"
-                    id="moradasimbotton"
-                  >
-                    {{ checkTransmissao ? "Não" : "Sim" }}
-                  </buttom>
-                </div>
-                <div class="col-md-12"><br /></div>
-                <div class="col-md-12" v-if="checkTransmissao">
-                  <textarea
-                    class="form-control"
-                    name="transmissaoParaFora"
-                    id="transmissaoParaFora"
-                    placeholder=" Local para onde é realizada a transmissão: Ex: Por telemóvel, etc, ... "
-                    rows="2"
-                  ></textarea>
-                </div>
+              <treeselect
+                :multiple="true"
+                :options="finalidadesTratamento"
+                placeholder="- Selecione as finalidades - "
+                v-model="finalidade"
+              />
+              <!--<pre class="language-json"><code>{{finalidade}}</code></pre>-->
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12" id="separacao1">
+                Categorias dos dados pessoais tratados
               </div>
-              <div class="col">
-                <div class="col">
-                  <label class="form-check-label">
-                    Existe visualização das imagems em Tempo Real ?
-                  </label>
-                  <buttom
-                    @click="changeTempoReal"
-                    type="button"
-                    class="btn btn-outline-primary"
-                    name="morada"
-                    id="moradasimbotton"
-                  >
-                    {{ checkTempoReal ? "Não" : "Sim" }}
-                  </buttom>
-                </div>
-                <div class="col-md-12"><br /></div>
-                <div class="col-md-12" v-if="checkTempoReal">
-                  <textarea
-                    class="form-control"
-                    name="visualizacaoTempoReal"
-                    id="visualizacaoTempoReal"
-                    placeholder=" Quem tem acesso às imagens em tempo real? Indicar todas as pessoas quem têm acesso ás imagens"
-                    rows="2"
-                  ></textarea>
-                </div> 
-                <select v-model="categoria"
-                        class="form-select" 
-                        name="categorias"
-                        id="categorias"
-                        for="categorias"
-                        placeholder="- Seleciona uma categoria-"
-                      >
-                        <option :value="null">- selecione uma categoria -</option>
-                        <option
-                          v-for="option in categorias"
-                          :key="option.value"
-                          :value="option.value"
-                        >
-                          {{ option.label }}
-                        </option>
-                      </select>  
+              <treeselect
+                :multiple="true"
+                :options="categoriasDados"
+                placeholder="- Selecione as categorias de dados - "
+                v-model="categoria"
+              />
+              <!--<pre class="language-json"><code>{{categoria}}</code></pre>-->
 
-                      <Multiselect 
-                        v-model="finalidd"
-                        :options="finalidadesCategorias[categoria]"
-                        mode="tags"
-                        placeholder="- selecione as finalidades -"
-                        :close-on-select="true"
-                        :searchable="true"
-                        :object="true"  
-                        :multiple="true"
-                        
-                      />
-                      
-              </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12" id="separacao1">Outros dados pessoais tratados</div>
+              <treeselect
+                :multiple="true"
+                :options="outrosDadosTratados"
+                placeholder="- Selecione os dados tratados - "
+                v-model="outrosDadosTratado"
+              />
+              <!--<pre class="language-json"><code>{{outrosDadosTratado}}</code></pre>-->
             </div>
           </div>
         </div>
 
-        <div class="col-md-12" id="separacao">
-          3.Exercício do direito de acesso às imagens gravadas
-        </div>
+        <div class="col-md-12" id="separacao">3.Exercício do direito de acesso</div>
         <div class="col" id="divg">
           <div class="container">
             <div class="row">
@@ -711,6 +550,7 @@
                   {{ checkDireitoAcesso ? "Sim" : "Não" }}
                 </buttom>
               </div>
+
               <div class="col-md-12" id="divg2" v-if="checkDireitoAcesso">
                 <div class="col-md-12">
                   <input
@@ -809,6 +649,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-md-12" id="separacao">
           De que forma é exercido o direito de acesso?
         </div>
@@ -886,30 +727,33 @@
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
-              <div class="col">
-                <label class="form-check-label">
-                  Existe representante dos trabalhadores?
-                </label>
-                <buttom
-                  @click="changeRepTrab"
-                  type="button"
-                  class="btn btn-outline-primary"
-                  name="morada"
-                  id="moradasimbotton"
-                >
-                  {{ checkRepTrab ? "Não" : "Sim" }}
-                </buttom>
-              </div>
-              <div class="col-md-12"><br /></div>
-              <div class="col-md-12" v-if="checkRepTrab">
-                <label for="formFile" class="form-label"
-                  >Se sim, juntar a cópia do parecer ou comprovativo do pedido.</label
-                >
-                <input class="form-control" type="file" id="formFile" />
+              <div class="col-md-12">
+                <div class="col">
+                  <label class="form-check-label">
+                    Existe representante dos trabalhadores?
+                  </label>
+                  <buttom
+                    @click="changeRepTrab"
+                    type="button"
+                    class="btn btn-outline-primary"
+                    name="morada"
+                    id="moradasimbotton"
+                  >
+                    {{ checkRepTrab ? "Não" : "Sim" }}
+                  </buttom>
+                </div>
+                <div class="col-md-12"><br /></div>
+                <div class="col-md-12" v-if="checkRepTrab">
+                  <label for="formFile" class="form-label"
+                    >Se sim, juntar a cópia do parecer ou comprovativo do pedido.</label
+                  >
+                  <input class="form-control" type="file" id="formFile" />
+                </div>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-12"><br /></div>
         <!-- FIM DE FORMS-->
         <div class="col-12" id="divsave">
@@ -924,19 +768,20 @@
 
 <script>
 import Multiselect from "@vueform/multiselect";
-
+// import the component
+import Treeselect from "vue3-treeselect";
+// import the styles
+import "vue3-treeselect/dist/vue3-treeselect.css";
 export default {
   components: {
     Multiselect,
+    Treeselect,
   },
   data() {
     return {
       nomeDenominacao: "",
       checkMorada: false,
-      checkMorada1: true,
       checkServico: false,
-      checkTempoReal: false,
-      checkTransmissao: false,
       checkDireitoAcesso: false,
       checkRepTrab: false,
 
@@ -993,125 +838,130 @@ export default {
         },
       ],
 
-      /******************************ZTIPOS DE CCTV*******************************/
-
-      tipoVideovigilancia: null,
-      tipovideo: null,
-      tipoCctv: [
-        { value: "Centros Comerciais", label: "Centros Comerciais" },
+      /******************************FINALIDADES E CATEGORIA DO TRATAMENTO*******************************/
+      //FINALIDADE
+      finalidade: [],
+      finalidadesTratamento: [
         {
-          value: "Edifícios de habitação Condomínios",
-          label: "Edifícios de habitação Condomínios",
-        },
-        {
-          value: "Estabelecimentos comerciais de venda ao público",
-          label: "Estabelecimentos comerciais de venda ao público",
-        },
-        {
-          value: "Estabelecimentos de Ensino e Similares",
-          label: "Estabelecimentos de Ensino e Similares",
-        },
-        { value: "Estabelecimentos de Saude", label: "Estabelecimentos de Saude" },
-        {
-          value: "Estabelecimentos destinados a dança",
-          label: "Estabelecimentos destinados a dança",
-        },
-        {
-          value: "Farmácias, ParaFarmácias e Posto de Venda de Medicamentos e Similares",
-          label: "Farmácias, ParaFarmácias e Posto de Venda de Medicamentos e Similares",
-        },
-        { value: "Gasolineiras", label: "Gasolineiras" },
-        { value: "Hotelaria", label: "Hotelaria" },
-        {
-          value: "Instalações empresariais industriais e de serviços",
-          label: "Instalações empresariais industriais e de serviços",
-        },
-        { value: "Instituiçoes Financeiras", label: "Instituiçoes Financeiras" },
-        {
-          value: "Lares e outros Estabelecimentos de Apoio Social",
-          label: "Lares e outros Estabelecimentos de Apoio Social",
-        },
-        { value: "Locais de Culto", label: "Locais de Culto" },
-        {
-          value: "Museus, Bibliotecas e Salas de Espectáculo",
-          label: "Museus, Bibliotecas e Salas de Espectáculo",
-        },
-        {
-          value: "Ourivesarias,Joalharias e Relojoarias",
-          label: "Ourivesarias,Joalharias e Relojoarias",
-        },
-        { value: "Parques de Estacionamento", label: "Parques de Estacionamento" },
-        {
-          value: "Recintos Espectáculos desportivos",
-          label: "Recintos Espectáculos desportivos",
-        },
-        {
-          value: "Residências Moradias Unifamiliares",
-          label: "Residências Moradias Unifamiliares",
-        },
-        { value: "Restauração", label: "Restauração" },
-        { value: "Sucateiras", label: "Sucateiras" },
-        {
-          value: "Formulário geral de videovigilância",
-          label: "Formulário geral de videovigilância",
-        },
-      ],
-      /******************************ZONAS ABRANGIDAS*******************************/
-
-      zona: null,
-      zonasAbrangidas: [
-        {
-          value: "Pontos de acesso a partir do exterior",
-          label: "Pontos de acesso a partir do exterior",
-        },
-        { value: "Acesso a elevadores", label: "Acesso a elevadores" },
-        { value: "Parque de estacionamento", label: "Parque de estacionamento" },
-      ],
-      selected: {},
-      finalidd:null,
-      categoria:null,
-      categorias: [
-        { value: "RH", label: "RH" },
-        { value: "Telecomunicação", label: "Telecomunicação" }, 
-      ],
-
-      finalidadesCategorias: {
-         
-         "RH":[
+          id: "Gestão da frota em serviço",
+          label: "Gestão da frota em serviço",
+          children: [
             {
-              value: "Finalidade RH 1",
-              label: "Finalidade RH 1",
+              id: "Assistência técnica externa/ao domicílio",
+              label: "Assistência técnica externa/ao domicílio",
             },
             {
-              value: "Finalidade RH 2",
-              label: "Finalidade RH 2",
-            }
+              id: "Transporte público de passageiros",
+              label: "Transporte público de passageiros",
+            },
+            {
+              id: "Transporte de mercadorias",
+              label: "Transporte de mercadorias",
+            },
+            {
+              id: "Destribuição de bens",
+              label: "Destribuição de bens",
+            },
+            {
+              id: "Segurança privada",
+              label: "Segurança privada",
+            },
           ],
-       
-         "Telecomunicação":[
+        },
+        {
+          id: "Proteção de pessoas e carga de materiais perigosos",
+          label: "Proteção de pessoas e carga de materiais perigosos",
+        },
+        {
+          id: "Proteção de carga de materiais de valor",
+          label: "Proteção de carga de materiais de valor",
+        },
+        {
+          id: "Participação criminal em caso de furto",
+          label: "Participação criminal em caso de furto",
+        },
+      ],
+      //CATEGORIA DE DADOS
+      categoria: [],
+      categoriasDados: [
+        {
+          id: "Dados de geolocalização de viatura",
+          label: "Dados de geolocalização de viatura",
+        },
+        {
+          id: "Dados relativos à identificação do veículo",
+          label: "Dados relativos à identificação do veículo",
+        },
+        {
+          id: "Dados de identificação dos trabalhadores",
+          label: "Dados de identificação dos trabalhadores",
+        },
+      ],
+      //OUTROS DADOS TRATADOS
+      outrosDadosTratado: [],
+      outrosDadosTratados: [
+        {
+          id: "Outros dados para gestão de frota em serviço externo:",
+          label: "Outros dados para gestão de frota em serviço externo:",
+          children: [
             {
-              value: "Finalidade Telecomunicacao 1",
-              label: "Finalidade Telecomunicacao 1",
+              id: "Dados letaivos ao serviço a prestar",
+              label: "Dados letaivos ao serviço a prestar",
             },
             {
-              value: "Finalidade Telecomunicacao 2",
-              label: "Finalidade Telecomunicacao 2",
-            }
-          ]
+              id: "Dados relativos à carga transportada",
+              label: "Dados relativos à carga transportada",
+            },
+          ],
         },
-
-      categoriaFinalidade:null,
-      finalidades: null,
-      CategoriaRecursoHumanos:[
-          { name:"Gestão de Recursos Humanos",id:1 },
-          { name:"Formação Profissional",id:2 },
-          { name:"Gestão de Teletrabalho",id:3 }
-      ],
-
-      CategoriaTelecomunicacoes:[
-          { name:"Gestão de Faturação",id:1 },
-          { name:"Retenção de Dados de Tráfego/ localização",id:2 },
-          { name:"Gestão de Contencioso",id:3 }
+        {
+          id: "Outros dados para proteção de pessoas e carga de materiais perigosos",
+          label: "Outros dados para proteção de pessoas e carga de materiais perigosos",
+          children: [
+            {
+              id: "Dados relativos ao transsporte",
+              label: "Dados relativos ao transsporte",
+            },
+            {
+              id: "Percurso previsto",
+              label: "Percurso previsto",
+            },
+            {
+              id: "Carga transportada",
+              label: "Carga transportada",
+            },
+            {
+              id: "Procedimentos de segurança e/ou emergência adotados",
+              label: "Procedimentos de segurança e/ou emergência adotados",
+            },
+          ],
+        },
+        {
+          id: "Outros dados para a proteção de carga de materiais de valor:",
+          label: "Outros dados para a proteção de carga de materiais de valor:",
+          children: [
+            {
+              id: "Caraterśticas da viatura",
+              label: "Caraterśticas da viatura",
+            },
+            {
+              id: "Dados relativos ao transporte",
+              label: "Dados relativos ao transporte",
+            },
+            {
+              id: "Percurso previsto",
+              label: "Percurso previsto",
+            },
+            {
+              id: "Carga transportada",
+              label: "Carga transportada",
+            },
+            {
+              id: "Procedimentos de segurança e/ou emergência adotados",
+              label: "Procedimentos de segurança e/ou emergência adotados",
+            },
+          ],
+        },
       ],
 
       /** *********************ILHAS E CONCELHOS ************************************** */
@@ -1134,6 +984,10 @@ export default {
       concelhoMorInst: null,
       concelhoServExt: null,
       concelhoDirAcess: null,
+      ilhaMorRep: null,
+      concelhoMorRep: null,
+      concelhoResp: null,
+
       concelhos: {
         "Santo Antão": [
           { value: "Ribeira Grande", label: "Ribeira Grande" },
@@ -1168,42 +1022,26 @@ export default {
       },
 
       /** *********************************************************** */
-       
     };
   },
 
-  methods: { 
-
+  methods: {
     changeServico() {
       this.checkServico = !this.checkServico;
-    },
-    changeTempoReal() {
-      this.checkTempoReal = !this.checkTempoReal;
-    },
-    changeTranssmisao() {
-      this.checkTransmissao = !this.checkTransmissao;
     },
     changeDireitoAcesso() {
       this.checkDireitoAcesso = !this.checkDireitoAcesso;
     },
-    changeMorada() {
-      this.checkMorada = !this.checkMorada;
-      this.checkMorada1 = !this.checkMorada1;
-    },
+
     changeRepTrab() {
       this.checkRepTrab = !this.checkRepTrab;
     },
-  },  
-  watch: { 
-    categoria() {
-      this.finalidd = null
-    },
-  }
+  },
 };
 </script>
 
 <style>
-.cctv {
+.GEO {
   font-family: verdana;
   padding-top: 110px;
 }
@@ -1243,8 +1081,6 @@ export default {
 }
 #divg2 {
   font-family: verdana;
-  padding: 10px;
-  margin-top: 10px;
   padding-top: 20px;
 }
 .col,
@@ -1286,6 +1122,11 @@ option:hover {
   border-radius: 10px;
   background: #061536;
 }
+#separacao1 {
+  font-family: verdana;
+  padding-left: 10px;
+  color: #061536;
+}
 #labelleft {
   text-align: left;
 }
@@ -1316,7 +1157,7 @@ button#buttonsave:focus {
   background-color: #061536;
   outline: none !important;
   border-color: #061536;
-  color: #bd9a13;
+  color: #061536;
   box-shadow: 0 0 10px #061536;
 }
 
@@ -1777,5 +1618,980 @@ button#buttonsave:focus {
   to {
     transform: rotate(1turn);
   }
+}
+
+/**
+ * Skipped minification because the original files appears to be already minified.
+ * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+ */
+
+.vue-treeselect-helper-hide {
+  display: none;
+}
+.vue-treeselect-helper-zoom-effect-off {
+  -webkit-transform: none !important;
+  transform: none !important;
+}
+@-webkit-keyframes vue-treeselect-animation-fade-in {
+  0% {
+    opacity: 0;
+  }
+}
+@keyframes vue-treeselect-animation-fade-in {
+  0% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes vue-treeselect-animation-bounce {
+  0%,
+  to {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes vue-treeselect-animation-bounce {
+  0%,
+  to {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes vue-treeselect-animation-rotate {
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+@keyframes vue-treeselect-animation-rotate {
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+.vue-treeselect__multi-value-item--transition-enter-active,
+.vue-treeselect__multi-value-item--transition-leave-active {
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+}
+.vue-treeselect__multi-value-item--transition-enter-active {
+  -webkit-transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.vue-treeselect__multi-value-item--transition-leave-active {
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  position: absolute;
+}
+.vue-treeselect__multi-value-item--transition-enter,
+.vue-treeselect__multi-value-item--transition-leave-to {
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+  opacity: 0;
+}
+.vue-treeselect__multi-value-item--transition-move {
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: -webkit-transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1),
+    -webkit-transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+/*
+.vue-treeselect:focus,
+.vue-treeselect:hover {
+  outline: none !important;
+  border-color: #061536;
+  box-shadow: 0 0 10px #061536;
+  font-family: verdana;
+}*/
+.vue-treeselect {
+  position: relative;
+  text-align: left;
+  font-family: verdana;
+}
+[dir="rtl"] .vue-treeselect {
+  text-align: right;
+}
+.vue-treeselect div,
+.vue-treeselect span {
+  box-sizing: border-box;
+}
+.vue-treeselect svg {
+  fill: currentColor;
+}
+.vue-treeselect__control {
+  padding-left: 5px;
+  padding-right: 5px;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 36px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: border-color, box-shadow, width, height, background-color,
+    opacity;
+  transition-property: border-color, box-shadow, width, height, background-color, opacity;
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.vue-treeselect:not(.vue-treeselect--disabled):not(.vue-treeselect--focused)
+  .vue-treeselect__control:hover {
+  border-color: #cfcfcf;
+}
+.vue-treeselect--focused:not(.vue-treeselect--open) .vue-treeselect__control {
+  border-color: #061536;
+  box-shadow: 0 0 0 3px rgba(3, 155, 229, 0.1);
+}
+.vue-treeselect--disabled .vue-treeselect__control {
+  background-color: #f9f9f9;
+}
+.vue-treeselect--open .vue-treeselect__control {
+  border-color: #cfcfcf;
+}
+.vue-treeselect--open.vue-treeselect--open-below .vue-treeselect__control {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.vue-treeselect--open.vue-treeselect--open-above .vue-treeselect__control {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.vue-treeselect__multi-value,
+.vue-treeselect__value-container {
+  width: 100%;
+  vertical-align: middle;
+}
+.vue-treeselect__value-container {
+  display: table-cell;
+  position: relative;
+}
+.vue-treeselect--searchable:not(.vue-treeselect--disabled)
+  .vue-treeselect__value-container {
+  cursor: text;
+}
+.vue-treeselect__multi-value {
+  display: inline-block;
+}
+.vue-treeselect--has-value .vue-treeselect__multi-value {
+  margin-bottom: 5px;
+}
+.vue-treeselect__placeholder,
+.vue-treeselect__single-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 5px;
+  padding-right: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  line-height: 34px;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+.vue-treeselect__placeholder {
+  color: #bdbdbd;
+}
+.vue-treeselect__single-value {
+  color: #333;
+}
+.vue-treeselect--focused.vue-treeselect--searchable .vue-treeselect__single-value {
+  color: #061536;
+  /*aquiii */
+}
+.vue-treeselect--disabled .vue-treeselect__single-value {
+  position: static;
+}
+.vue-treeselect__multi-value-item-container {
+  display: inline-block;
+  padding-top: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+[dir="rtl"] .vue-treeselect__multi-value-item-container {
+  padding-right: 0;
+  padding-left: 5px;
+}
+.vue-treeselect__multi-value-item {
+  display: inline-table;
+  padding: 2px 0;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  font-size: var(--ms-font-size, 15px);
+  vertical-align: top;
+}
+.vue-treeselect:not(.vue-treeselect--disabled)
+  .vue-treeselect__multi-value-item:not(.vue-treeselect__multi-value-item-disabled):hover
+  .vue-treeselect__multi-value-item:not(.vue-treeselect__multi-value-item-new)
+  .vue-treeselect__multi-value-item:not(.vue-treeselect__multi-value-item-new):hover,
+.vue-treeselect__multi-value-item {
+  cursor: pointer;
+  background: #061536;
+  color: #fff;
+}
+.vue-treeselect__multi-value-item.vue-treeselect__multi-value-item-disabled {
+  cursor: default;
+  background: #f5f5f5;
+  color: #757575;
+}
+.vue-treeselect--disabled .vue-treeselect__multi-value-item {
+  cursor: default;
+  background: #fff;
+  border-color: #e5e5e5;
+  color: #555;
+}
+.vue-treeselect__multi-value-item.vue-treeselect__multi-value-item-new,
+.vue-treeselect__multi-value-item.vue-treeselect__multi-value-item-new:hover {
+  background: #e8f5e9;
+}
+.vue-treeselect__multi-value-label,
+.vue-treeselect__value-remove {
+  display: table-cell;
+  padding: 0 5px;
+  vertical-align: middle;
+}
+.vue-treeselect__value-remove {
+  color: #061536;
+  padding-left: 5px;
+  border-left: 1px solid #fff;
+  line-height: 0;
+}
+[dir="rtl"] .vue-treeselect__value-remove {
+  border-left: 0 none;
+  border-right: 1px solid #fff;
+}
+.vue-treeselect__multi-value-item:hover .vue-treeselect__value-remove {
+  color: #e53935;
+}
+.vue-treeselect--disabled .vue-treeselect__value-remove,
+.vue-treeselect__multi-value-item-disabled .vue-treeselect__value-remove {
+  display: none;
+}
+.vue-treeselect__value-remove > svg {
+  width: 6px;
+  height: 6px;
+}
+.vue-treeselect__multi-value-label {
+  padding-right: 5px;
+  white-space: pre-line;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.vue-treeselect__limit-tip {
+  display: inline-block;
+  padding-top: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+[dir="rtl"] .vue-treeselect__limit-tip {
+  padding-right: 0;
+  padding-left: 5px;
+}
+.vue-treeselect__limit-tip-text {
+  cursor: default;
+  display: block;
+  margin: 2px 0;
+  padding: 1px 0;
+  color: #bdbdbd;
+  font-size: var(--ms-font-size, 15px);
+  font-weight: 600;
+}
+.vue-treeselect__input-container {
+  display: block;
+  max-width: 100%;
+  outline: none;
+}
+.vue-treeselect--single .vue-treeselect__input-container {
+  font-size: inherit;
+  height: 100%;
+}
+.vue-treeselect--multi .vue-treeselect__input-container {
+  display: inline-block;
+  font-size: var(--ms-font-size, 15px);
+  vertical-align: top;
+}
+.vue-treeselect--searchable .vue-treeselect__input-container {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.vue-treeselect--searchable.vue-treeselect--multi.vue-treeselect--has-value
+  .vue-treeselect__input-container {
+  padding-top: 5px;
+  padding-left: 0;
+}
+[dir="rtl"]
+  .vue-treeselect--searchable.vue-treeselect--multi.vue-treeselect--has-value
+  .vue-treeselect__input-container {
+  padding-left: 5px;
+  padding-right: 0;
+}
+.vue-treeselect--disabled .vue-treeselect__input-container {
+  display: none;
+}
+.vue-treeselect__input,
+.vue-treeselect__sizer {
+  margin: 0;
+  line-height: inherit;
+  font-family: verdana;
+  font-size: inherit;
+}
+.vue-treeselect__input {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  box-sizing: initial;
+  box-shadow: none;
+  background: none transparent;
+  line-height: 1;
+  vertical-align: middle;
+}
+.vue-treeselect__input::-ms-clear {
+  display: none;
+}
+.vue-treeselect--single .vue-treeselect__input {
+  width: 100%;
+  height: 100%;
+}
+.vue-treeselect--multi .vue-treeselect__input {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.vue-treeselect--has-value .vue-treeselect__input {
+  line-height: inherit;
+  vertical-align: top;
+}
+.vue-treeselect__sizer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: scroll;
+  white-space: pre;
+}
+.vue-treeselect__x-container {
+  display: table-cell;
+  vertical-align: middle;
+  width: 20px;
+  text-align: center;
+  line-height: 0;
+  cursor: pointer;
+  color: #ccc;
+  -webkit-animation: vue-treeselect-animation-fade-in 0.2s
+    cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: vue-treeselect-animation-fade-in 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.vue-treeselect__x-container:hover {
+  color: #e53935;
+}
+.vue-treeselect__x {
+  width: 8px;
+  height: 8px;
+}
+.vue-treeselect__control-arrow-container {
+  display: table-cell;
+  vertical-align: middle;
+  width: 20px;
+  text-align: center;
+  line-height: 0;
+  cursor: pointer;
+}
+.vue-treeselect--disabled .vue-treeselect__control-arrow-container {
+  cursor: default;
+}
+.vue-treeselect__control-arrow {
+  width: 9px;
+  height: 9px;
+  color: #ccc;
+}
+.vue-treeselect:not(.vue-treeselect--disabled)
+  .vue-treeselect__control-arrow-container:hover
+  .vue-treeselect__control-arrow {
+  color: #616161;
+}
+.vue-treeselect--disabled .vue-treeselect__control-arrow {
+  opacity: 0.35;
+}
+.vue-treeselect__control-arrow--rotated {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.vue-treeselect__menu-container {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: visible;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+.vue-treeselect--open-below:not(.vue-treeselect--append-to-body)
+  .vue-treeselect__menu-container {
+  top: 100%;
+}
+.vue-treeselect--open-above:not(.vue-treeselect--append-to-body)
+  .vue-treeselect__menu-container {
+  bottom: 100%;
+}
+.vue-treeselect__menu {
+  cursor: default;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: block;
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: auto;
+  border: 1px solid #cfcfcf;
+  background: #fff;
+  line-height: 180%;
+  -webkit-overflow-scrolling: touch;
+}
+.vue-treeselect--open-below .vue-treeselect__menu {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  top: 0;
+  margin-top: -1px;
+  border-top-color: #f2f2f2;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+.vue-treeselect--open-above .vue-treeselect__menu {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  bottom: 0;
+  margin-bottom: -1px;
+  border-bottom-color: #f2f2f2;
+}
+.vue-treeselect__indent-level-0 .vue-treeselect__option {
+  padding-left: 5px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-0 .vue-treeselect__option {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.vue-treeselect__indent-level-0 .vue-treeselect__tip {
+  padding-left: 25px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-0 .vue-treeselect__tip {
+  padding-left: 5px;
+  padding-right: 25px;
+}
+.vue-treeselect__indent-level-1 .vue-treeselect__option {
+  padding-left: 25px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-1 .vue-treeselect__option {
+  padding-left: 5px;
+  padding-right: 25px;
+}
+.vue-treeselect__indent-level-1 .vue-treeselect__tip {
+  padding-left: 45px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-1 .vue-treeselect__tip {
+  padding-left: 5px;
+  padding-right: 45px;
+}
+.vue-treeselect__indent-level-2 .vue-treeselect__option {
+  padding-left: 45px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-2 .vue-treeselect__option {
+  padding-left: 5px;
+  padding-right: 45px;
+}
+.vue-treeselect__indent-level-2 .vue-treeselect__tip {
+  padding-left: 65px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-2 .vue-treeselect__tip {
+  padding-left: 5px;
+  padding-right: 65px;
+}
+.vue-treeselect__indent-level-3 .vue-treeselect__option {
+  padding-left: 65px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-3 .vue-treeselect__option {
+  padding-left: 5px;
+  padding-right: 65px;
+}
+.vue-treeselect__indent-level-3 .vue-treeselect__tip {
+  padding-left: 85px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-3 .vue-treeselect__tip {
+  padding-left: 5px;
+  padding-right: 85px;
+}
+.vue-treeselect__indent-level-4 .vue-treeselect__option {
+  padding-left: 85px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-4 .vue-treeselect__option {
+  padding-left: 5px;
+  padding-right: 85px;
+}
+.vue-treeselect__indent-level-4 .vue-treeselect__tip {
+  padding-left: 105px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-4 .vue-treeselect__tip {
+  padding-left: 5px;
+  padding-right: 105px;
+}
+.vue-treeselect__indent-level-5 .vue-treeselect__option {
+  padding-left: 105px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-5 .vue-treeselect__option {
+  padding-left: 5px;
+  padding-right: 105px;
+}
+.vue-treeselect__indent-level-5 .vue-treeselect__tip {
+  padding-left: 125px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-5 .vue-treeselect__tip {
+  padding-left: 5px;
+  padding-right: 125px;
+}
+.vue-treeselect__indent-level-6 .vue-treeselect__option {
+  padding-left: 125px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-6 .vue-treeselect__option {
+  padding-left: 5px;
+  padding-right: 125px;
+}
+.vue-treeselect__indent-level-6 .vue-treeselect__tip {
+  padding-left: 145px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-6 .vue-treeselect__tip {
+  padding-left: 5px;
+  padding-right: 145px;
+}
+.vue-treeselect__indent-level-7 .vue-treeselect__option {
+  padding-left: 145px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-7 .vue-treeselect__option {
+  padding-left: 5px;
+  padding-right: 145px;
+}
+.vue-treeselect__indent-level-7 .vue-treeselect__tip {
+  padding-left: 165px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-7 .vue-treeselect__tip {
+  padding-left: 5px;
+  padding-right: 165px;
+}
+.vue-treeselect__indent-level-8 .vue-treeselect__option {
+  padding-left: 165px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-8 .vue-treeselect__option {
+  padding-left: 5px;
+  padding-right: 165px;
+}
+.vue-treeselect__indent-level-8 .vue-treeselect__tip {
+  padding-left: 185px;
+}
+[dir="rtl"] .vue-treeselect__indent-level-8 .vue-treeselect__tip {
+  padding-left: 5px;
+  padding-right: 185px;
+}
+.vue-treeselect__option {
+  padding-left: 5px;
+  padding-right: 5px;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+.vue-treeselect__option--highlight {
+  background: #f5f5f5;
+}
+.vue-treeselect--single .vue-treeselect__option--selected {
+  background: #e3f2fd;
+  font-weight: 600;
+}
+.vue-treeselect--single .vue-treeselect__option--selected:hover {
+  background: #e3f2fd;
+}
+.vue-treeselect__option--hide {
+  display: none;
+}
+.vue-treeselect__option-arrow-container,
+.vue-treeselect__option-arrow-placeholder {
+  display: table-cell;
+  vertical-align: middle;
+  width: 20px;
+  text-align: center;
+  line-height: 0;
+}
+.vue-treeselect__option-arrow-container {
+  cursor: pointer;
+}
+.vue-treeselect__option-arrow {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  color: #ccc;
+  vertical-align: middle;
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: -webkit-transform 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 0.2s cubic-bezier(0.19, 1, 0.22, 1),
+    -webkit-transform 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+[dir="rtl"] .vue-treeselect__option-arrow {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.vue-treeselect--branch-nodes-disabled
+  .vue-treeselect__option:hover
+  .vue-treeselect__option-arrow,
+.vue-treeselect__option-arrow-container:hover .vue-treeselect__option-arrow {
+  color: #616161;
+}
+.vue-treeselect__option-arrow--rotated,
+[dir="rtl"] .vue-treeselect__option-arrow--rotated {
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+}
+.vue-treeselect__option-arrow--rotated.vue-treeselect__option-arrow--prepare-enter {
+  -webkit-transform: rotate(-90deg) !important;
+  transform: rotate(-90deg) !important;
+}
+[dir="rtl"]
+  .vue-treeselect__option-arrow--rotated.vue-treeselect__option-arrow--prepare-enter {
+  -webkit-transform: rotate(90deg) !important;
+  transform: rotate(90deg) !important;
+}
+.vue-treeselect__label-container {
+  display: table-cell;
+  vertical-align: middle;
+  cursor: pointer;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  color: inherit;
+}
+.vue-treeselect__option--disabled .vue-treeselect__label-container {
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.25);
+}
+.vue-treeselect__checkbox-container {
+  display: table-cell;
+  width: 20px;
+  min-width: 20px;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+.vue-treeselect__checkbox {
+  display: block;
+  margin: auto;
+  width: 12px;
+  height: 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2px;
+  position: relative;
+  -webkit-transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.vue-treeselect__check-mark,
+.vue-treeselect__minus-mark {
+  display: block;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  background-repeat: no-repeat;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.vue-treeselect__minus-mark {
+  width: 8px;
+  height: 8px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAgMAAAC5YVYYAAAACVBMVEUAAAD///////9zeKVjAAAAAnRSTlMAuLMp9oYAAAAPSURBVAjXY4CDrJUgBAMAGaECJ9dz3BAAAAAASUVORK5CYII=);
+  background-size: 8px 8px;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+  .vue-treeselect__minus-mark {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEUAAAD///////////84wDuoAAAAA3RSTlMAyTzPIdReAAAAGUlEQVQI12PAD+b///+Nof7//79gAsLFCwAx/w4blADeeQAAAABJRU5ErkJggg==);
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .vue-treeselect__minus-mark {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEUAAAD///////////84wDuoAAAAA3RSTlMAyTzPIdReAAAAGUlEQVQI12PAD+b///+Nof7//79gAsLFCwAx/w4blADeeQAAAABJRU5ErkJggg==);
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .vue-treeselect__minus-mark {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAD1BMVEUAAAD///////////////+PQt5oAAAABHRSTlMAy2EFIuWxUgAAACRJREFUGNNjGBBgJOICBY7KDCoucODEAJSAS6FwUJShGjAQAADBPRGrK2/FhgAAAABJRU5ErkJggg==);
+  }
+}
+.vue-treeselect__checkbox--indeterminate > .vue-treeselect__minus-mark {
+  opacity: 1;
+}
+.vue-treeselect__checkbox--disabled .vue-treeselect__minus-mark {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAgMAAAC5YVYYAAAACVBMVEUAAADi4uLh4eHOxeSRAAAAAnRSTlMAuLMp9oYAAAAPSURBVAjXY4CDrJUgBAMAGaECJ9dz3BAAAAAASUVORK5CYII=);
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+  .vue-treeselect__checkbox--disabled .vue-treeselect__minus-mark {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEUAAADi4uLi4uLh4eE5RQaIAAAAA3RSTlMAyTzPIdReAAAAGUlEQVQI12PAD+b///+Nof7//79gAsLFCwAx/w4blADeeQAAAABJRU5ErkJggg==);
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .vue-treeselect__checkbox--disabled .vue-treeselect__minus-mark {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEUAAADi4uLi4uLh4eE5RQaIAAAAA3RSTlMAyTzPIdReAAAAGUlEQVQI12PAD+b///+Nof7//79gAsLFCwAx/w4blADeeQAAAABJRU5ErkJggg==);
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .vue-treeselect__checkbox--disabled .vue-treeselect__minus-mark {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAD1BMVEUAAADh4eHg4ODNzc3h4eEYfw2wAAAABHRSTlMAy2EFIuWxUgAAACRJREFUGNNjGBBgJOICBY7KDCoucODEAJSAS6FwUJShGjAQAADBPRGrK2/FhgAAAABJRU5ErkJggg==);
+  }
+}
+.vue-treeselect__check-mark {
+  width: 8px;
+  height: 8px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAQlBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////8IX9KGAAAAFXRSTlMA8u24NxILB+Tawb6jiH1zRz0xIQIIP3GUAAAAMklEQVQI1y3FtQEAMQDDQD+EGbz/qkEVOpyEOP6PudKjZNSXn4Jm2CKRdBKzSLsFWl8fMG0Bl6Jk1rMAAAAASUVORK5CYII=);
+  background-size: 8px 8px;
+  -webkit-transform: scaleY(0.125);
+  transform: scaleY(0.125);
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+  .vue-treeselect__check-mark {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAYFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////98JRy6AAAAH3RSTlMAzu4sDenl38fBvo1OMyIdEQrj1cSihX5hYFpHNycIcQOASAAAAF9JREFUGNN9zEcOgDAMRFHTS0LvNfe/JRmHKAIJ/mqeLJn+k9uDtaeUeFnFziGsBucUTirrprfe81RqZ3Bb6hPWeuZwDFOHyf+ig9CCzQ7INBn7bG5kF+QSt13BHNJnF7AaCT4Y+CW7AAAAAElFTkSuQmCC);
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .vue-treeselect__check-mark {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAYFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////98JRy6AAAAH3RSTlMAzu4sDenl38fBvo1OMyIdEQrj1cSihX5hYFpHNycIcQOASAAAAF9JREFUGNN9zEcOgDAMRFHTS0LvNfe/JRmHKAIJ/mqeLJn+k9uDtaeUeFnFziGsBucUTirrprfe81RqZ3Bb6hPWeuZwDFOHyf+ig9CCzQ7INBn7bG5kF+QSt13BHNJnF7AaCT4Y+CW7AAAAAElFTkSuQmCC);
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .vue-treeselect__check-mark {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAWlBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////9ZMre9AAAAHXRSTlMA/PiJhGNI9XlEHJB/b2ldV08+Oibk49vPp6QhAYgGBuwAAACCSURBVCjPrdHdDoIwDAXgTWAqCigo/+f9X5OwnoUwtis4V92XNWladUl+rzQPeQJAN2EHxoOnsPn7/oYk8fxBv08Rr/deOH/aZ2Nm8ZJ+s573QGfWKnNuZGzWm3+lv2V3pcU1XQ385/yjmBoM3Z+dXvlbYLLD3ujhTaOM3KaIXvNkFkuSEvYy1LqOAAAAAElFTkSuQmCC);
+  }
+}
+.vue-treeselect__checkbox--checked > .vue-treeselect__check-mark {
+  opacity: 1;
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}
+.vue-treeselect__checkbox--disabled .vue-treeselect__check-mark {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAP1BMVEUAAADj4+Pf39/h4eHh4eHh4eHk5OTh4eHg4ODi4uLh4eHh4eHg4ODh4eHh4eHg4ODh4eHh4eHp6en////h4eFqcyvUAAAAFHRSTlMAOQfy7bgS5NrBvqOIfXNHMSELAgQ/iFsAAAA2SURBVAjXY4AANjYIzcjMAaVFuBkY+RkEWERYmRjYRXjANAOfiIgIFxNIAa8IpxBEi6AwiAQAK2MBd7xY8csAAAAASUVORK5CYII=);
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+  .vue-treeselect__checkbox--disabled .vue-treeselect__check-mark {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAXVBMVEUAAADh4eHh4eHh4eHi4uLb29vh4eHh4eHh4eHh4eHh4eHh4eHh4eHi4uLi4uLj4+Pi4uLk5OTo6Ojh4eHh4eHi4uLg4ODg4ODh4eHg4ODh4eHf39/g4OD////h4eEzIk+wAAAAHnRSTlMAzu6/LA3p5eLZx8ONTjYiHRIKooV+YWBaRzEnCANnm5rnAAAAZElEQVQY033P2wqAIAyA4VWaaWrnc/n+j5mbhBjUf7WPoTD47TJb4i5zTr/sRDRHuyFaoWX7uK/RlbctlPEuyI1f4WY9yQINEkf6rzzo8YIzmUFoCs7J1EjeIaa9bXIEmzl8dgOZEAj/+2IvzAAAAABJRU5ErkJggg==);
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .vue-treeselect__checkbox--disabled .vue-treeselect__check-mark {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAXVBMVEUAAADh4eHh4eHh4eHi4uLb29vh4eHh4eHh4eHh4eHh4eHh4eHh4eHi4uLi4uLj4+Pi4uLk5OTo6Ojh4eHh4eHi4uLg4ODg4ODh4eHg4ODh4eHf39/g4OD////h4eEzIk+wAAAAHnRSTlMAzu6/LA3p5eLZx8ONTjYiHRIKooV+YWBaRzEnCANnm5rnAAAAZElEQVQY033P2wqAIAyA4VWaaWrnc/n+j5mbhBjUf7WPoTD47TJb4i5zTr/sRDRHuyFaoWX7uK/RlbctlPEuyI1f4WY9yQINEkf6rzzo8YIzmUFoCs7J1EjeIaa9bXIEmzl8dgOZEAj/+2IvzAAAAABJRU5ErkJggg==);
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .vue-treeselect__checkbox--disabled .vue-treeselect__check-mark {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAUVBMVEUAAADh4eHh4eHh4eHh4eHi4uLi4uLh4eHh4eHh4eHf39/j4+Ph4eHh4eHh4eHg4ODi4uLh4eHh4eHi4uLh4eHh4eHh4eHh4eHh4eH////h4eF3FMFTAAAAGnRSTlMA+/eJhGhfSHE9JBzz5KaQf3pXT0Xbz0I5AYDw8F0AAAB+SURBVCjPrdHbDoMgEEVRKAii1dZe9fz/hxplTiKIT7qfYCWTEEZdUvOwbckNAD2WHeh3brHW5f5EzGQ+iN+b1Gt6KPvtv16Dn6JX9M9ya3/A1yfu5dlyduL6Hec7mXY6ddXLPP2lpABGZ8PWXfYLTJxZekVhhl7eTX24zZPNKXoRC7zQLjUAAAAASUVORK5CYII=);
+  }
+}
+.vue-treeselect__checkbox--unchecked {
+  border-color: #e0e0e0;
+  background: #fff;
+}
+.vue-treeselect__label-container:hover .vue-treeselect__checkbox--unchecked {
+  border-color: #061536;
+  background: #fff;
+}
+.vue-treeselect__checkbox--checked,
+.vue-treeselect__checkbox--indeterminate,
+.vue-treeselect__label-container:hover .vue-treeselect__checkbox--checked,
+.vue-treeselect__label-container:hover .vue-treeselect__checkbox--indeterminate {
+  border-color: #061536;
+  background: #061536;
+}
+.vue-treeselect__checkbox--disabled,
+.vue-treeselect__label-container:hover .vue-treeselect__checkbox--disabled {
+  border-color: #e0e0e0;
+  background-color: #f7f7f7;
+}
+.vue-treeselect__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: table-cell;
+  padding-left: 5px;
+  max-width: 100%;
+  vertical-align: middle;
+  cursor: inherit;
+}
+[dir="rtl"] .vue-treeselect__label {
+  padding-left: 0;
+  padding-right: 5px;
+}
+.vue-treeselect__count {
+  margin-left: 5px;
+  font-weight: 400;
+  opacity: 0.6;
+}
+[dir="rtl"] .vue-treeselect__count {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.vue-treeselect__tip {
+  padding-left: 5px;
+  padding-right: 5px;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  color: #757575;
+}
+.vue-treeselect__tip-text {
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  font-size: var(--ms-font-size, 15px);
+}
+.vue-treeselect__error-tip .vue-treeselect__retry {
+  cursor: pointer;
+  margin-left: 5px;
+  font-style: normal;
+  font-weight: 600;
+  text-decoration: none;
+  color: #061536;
+}
+[dir="rtl"] .vue-treeselect__error-tip .vue-treeselect__retry {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.vue-treeselect__icon-container {
+  display: table-cell;
+  vertical-align: middle;
+  width: 20px;
+  text-align: center;
+  line-height: 0;
+}
+.vue-treeselect--single .vue-treeselect__icon-container {
+  padding-left: 5px;
+}
+[dir="rtl"] .vue-treeselect--single .vue-treeselect__icon-container {
+  padding-left: 0;
+  padding-right: 5px;
+}
+.vue-treeselect__icon-warning {
+  display: block;
+  margin: auto;
+  border-radius: 50%;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background: #061536;
+}
+.vue-treeselect__icon-warning:after {
+  display: block;
+  position: absolute;
+  content: "";
+  left: 5px;
+  top: 2.5px;
+  width: 2px;
+  height: 1px;
+  border: 0 solid #fff;
+  border-top-width: 5px;
+  border-bottom-width: 1px;
+}
+.vue-treeselect__icon-error {
+  display: block;
+  margin: auto;
+  border-radius: 50%;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background: #e53935;
+}
+.vue-treeselect__icon-error:after,
+.vue-treeselect__icon-error:before {
+  display: block;
+  position: absolute;
+  content: "";
+  background: #fff;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.vue-treeselect__icon-error:before {
+  width: 6px;
+  height: 2px;
+  left: 3px;
+  top: 5px;
+}
+.vue-treeselect__icon-error:after {
+  width: 2px;
+  height: 6px;
+  left: 5px;
+  top: 3px;
+}
+.vue-treeselect__icon-loader {
+  display: block;
+  margin: auto;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  text-align: center;
+  -webkit-animation: vue-treeselect-animation-rotate 1.6s linear infinite;
+  animation: vue-treeselect-animation-rotate 1.6s linear infinite;
+}
+.vue-treeselect__icon-loader:after,
+.vue-treeselect__icon-loader:before {
+  border-radius: 50%;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  -webkit-animation: vue-treeselect-animation-bounce 1.6s ease-in-out infinite;
+  animation: vue-treeselect-animation-bounce 1.6s ease-in-out infinite;
+}
+.vue-treeselect__icon-loader:before {
+  background: #061536;
+}
+.vue-treeselect__icon-loader:after {
+  background: #061536;
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+.vue-treeselect__menu-placeholder {
+  display: none;
+}
+.vue-treeselect__portal-target {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  overflow: visible;
+  box-sizing: border-box;
 }
 </style>
