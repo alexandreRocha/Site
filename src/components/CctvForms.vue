@@ -25,23 +25,26 @@
                 <label id="labelleft" for="tipoVideovigilancia" class="form-label"
                   >Tipo Videovigilância</label
                 >
-
-                <Multiselect
-                  placeholder="- Tipo Videovigilância -"
-                  v-model="tipovideo"
-                  name="tipoVideovigilancia"
-                  id="tipoVideovigilancia"
-                  :options="tipoCctv"
-                  label="label"
-                  track-by="label"
-                  :multiple="false"
-                  :taggable="false"
-                >
-                </Multiselect>
+                <select v-model="tipoVideo"
+                        class="form-select" 
+                        name="tipoVideovigilancia"
+                        id="tipoVideovigilancia"
+                        for="tipoVideovigilancia"
+                        placeholder="- Tipo Videovigilância -"
+                      >
+                        <option :value="null">- Tipo Videovigilância-</option>
+                        <option
+                          v-for="tipo in tipoCctv"
+                          :key="tipo.value"
+                          :value="tipo.value"
+                        >
+                          {{ tipo.value }}
+                        </option>
+                      </select>  
 
                 <!--  <pre
                   class="language-json"
-                ><code>Id pra mandar pra BD:{{ tipovideo  }}</code></pre>-->
+                ><code>Id pra mandar pra BD:{{ tipoVideo  }}</code></pre>-->
               </div>
             </div>
           </div>
@@ -95,10 +98,11 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12" id="separacao">1. Responsável pelo Tratamento</div>
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">1. Responsável pelo Tratamento</div>
+              <div class="col-md-12"><br /></div>
               <div class="col">
                 <input
                   class="form-check-input"
@@ -292,10 +296,11 @@
           </div>
         </div>
         <!-- ------------------------------------ Morada Local de Instalação   ---------------------------------------------------------------------->
-        <div class="col-md-12" id="separacao">Morada Local de Instalação</div>
         <div class="col" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">Morada Local de Instalação</div>
+              <div class="col-md-12"><br /></div>
               <div class="col">
                 <label class="form-check-label">
                   Morada do local da instalação é a mesma indicada no ponto 1?
@@ -474,10 +479,11 @@
         </div>
 
         <!---- ----------------- Processamento da informação--------------------------------------------------------------------->
-        <div class="col-md-12" id="separacao">Processamento da informação</div>
         <div class="col" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">Processamento da informação</div>
+              <div class="col-md-12"><br /></div>
               <div class="col">
                 <label class="form-check-label">
                   Existe um Serviço Externo encarregado do processamento ?
@@ -578,11 +584,12 @@
           </div>
         </div>
 
-        <div class="col-md-12" id="separacao">2. Característica do sistema</div>
-
+      
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">2. Característica do sistema</div>
+              <div class="col-md-12"><br /></div>
               <div class="col">
                 <input
                   type="number"
@@ -592,17 +599,19 @@
                   placeholder=" Nº total de câmaras instaladas"
                 />
               </div>
-              <div class="col"> 
-                <Multiselect
-                  v-model="zona"
-                  :options="zonasAbrangidas"
-                  mode="tags"
-                  placeholder="- selecione as zonas abrangidas -"
-                  :close-on-select="false"
-                  :searchable="true"
-                  :object="true"
-                />
-              </div>
+              <div class="col">  
+                <Multiselect  
+                        v-model="zona"
+                        :options="zonasAbrangidas[tipoVideo]"
+                        mode="tags"
+                        placeholder="- selecione as zonas abrangidas -"
+                        :close-on-select="true"
+                        :searchable="true"
+                        :object="true"  
+                        :multiple="true" 
+                        
+                      />
+              </div> 
               <div class="col-md-12"><br /></div>
 
               <div class="col">
@@ -655,47 +664,18 @@
                     placeholder=" Quem tem acesso às imagens em tempo real? Indicar todas as pessoas quem têm acesso ás imagens"
                     rows="2"
                   ></textarea>
-                </div> 
-                <select v-model="categoria"
-                        class="form-select" 
-                        name="categorias"
-                        id="categorias"
-                        for="categorias"
-                        placeholder="- Seleciona uma categoria-"
-                      >
-                        <option :value="null">- selecione uma categoria -</option>
-                        <option
-                          v-for="option in categorias"
-                          :key="option.value"
-                          :value="option.value"
-                        >
-                          {{ option.label }}
-                        </option>
-                      </select>  
-
-                      <Multiselect 
-                        v-model="finalidd"
-                        :options="finalidadesCategorias[categoria]"
-                        mode="tags"
-                        placeholder="- selecione as finalidades -"
-                        :close-on-select="true"
-                        :searchable="true"
-                        :object="true"  
-                        :multiple="true"
-                        
-                      />
-                      
+                </div>    
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="col-md-12" id="separacao">
-          3.Exercício do direito de acesso às imagens gravadas
-        </div>
+        </div> 
+        
         <div class="col" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">
+          3.Exercício do direito de acesso às imagens gravadas
+        </div>
               <div class="col">
                 <label class="form-check-label">
                   Morada do local do exercício do direito de acesso é a mesma indicada em
@@ -809,13 +789,14 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12" id="separacao">
-          De que forma é exercido o direito de acesso?
-        </div>
+        
 
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">
+          De que forma é exercido o direito de acesso?
+        </div>
               <div class="col">
                 <input
                   class="form-check-input"
@@ -852,10 +833,11 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12" id="separacao">4. Medidas de segurança a implementar</div>
-        <div class="col-md-12" id="divg">
+       <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">4. Medidas de segurança a implementar</div>
+        
               <div class="col-md-12">
                 <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
                   Especifique as medidas físicas de segurança do sistema:
@@ -882,10 +864,11 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12" id="separacao">5. Representante dos trabalhadores</div>
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">5. Representante dos trabalhadores</div>
+       
               <div class="col">
                 <label class="form-check-label">
                   Existe representante dos trabalhadores?
@@ -996,7 +979,7 @@ export default {
       /******************************ZTIPOS DE CCTV*******************************/
 
       tipoVideovigilancia: null,
-      tipovideo: null,
+      tipoVideo: null,
       tipoCctv: [
         { value: "Centros Comerciais", label: "Centros Comerciais" },
         {
@@ -1058,62 +1041,568 @@ export default {
       ],
       /******************************ZONAS ABRANGIDAS*******************************/
 
-      zona: null,
-      zonasAbrangidas: [
-        {
-          value: "Pontos de acesso a partir do exterior",
-          label: "Pontos de acesso a partir do exterior",
-        },
-        { value: "Acesso a elevadores", label: "Acesso a elevadores" },
-        { value: "Parque de estacionamento", label: "Parque de estacionamento" },
-      ],
-      selected: {},
-      finalidd:null,
-      categoria:null,
-      categorias: [
-        { value: "RH", label: "RH" },
-        { value: "Telecomunicação", label: "Telecomunicação" }, 
-      ],
-
-      finalidadesCategorias: {
+      zona: null, 
+      zonasAbrangidas: {
          
-         "RH":[
+         "Centros Comerciais":[
             {
-              value: "Finalidade RH 1",
-              label: "Finalidade RH 1",
+              value: "Pontos de acesso a partir do exterior",
+              label: "Pontos de acesso a partir do exterior",
             },
             {
-              value: "Finalidade RH 2",
-              label: "Finalidade RH 2",
+              value: "Acesso a elevadores",
+              label: "Acesso a elevadores",
+            },
+            {
+              value: "Parque de estacionamento",
+              label: "Parque de estacionamento",
+            },
+            {
+              value: "Zona de ATM's (Caixa vinte e quatro)",
+              label: "Zona de ATM's (Caixa vinte e quatro)",
+            },
+            {
+              value: "Zonas internas de circulação",
+              label: "Zonas internas de circulação",
+            },
+            {
+              value: "Área de venda",
+              label: "Área de venda",
+            },
+            {
+              value: "Armazéns",
+              label: "Armazéns",
+            },
+            {
+              value: "Máquinas de Vending",
+              label: "Máquinas de Vending",
+            },
+            {
+              value: "Zonas técnicas",
+              label: "Zonas técnicas",
             }
           ],
        
-         "Telecomunicação":[
+         "Edifícios de habitação Condomínios":[
             {
-              value: "Finalidade Telecomunicacao 1",
-              label: "Finalidade Telecomunicacao 1",
+              value: "Áreas comuns ",
+              label: "Áreas comuns ",
             },
             {
-              value: "Finalidade Telecomunicacao 2",
-              label: "Finalidade Telecomunicacao 2",
-            }
-          ]
-        },
+              value: "Pontos de acesso a partir do exterior",
+              label: "Pontos de acesso a partir do exterior",
+            },
+            {
+              value: "Parque de estacionamento",
+              label: "Parque de estacionamento",
+            },
+            {
+              value: "Zonas internas de circulação",
+              label: "Zonas internas de circulação",
+            },
+            {
+              value: "Acesso a elevadores",
+              label: "Acesso a elevadores",
+            },
+            {
+              value: "Pontos de acesso interiores",
+              label: "Pontos de acesso interiores",
+            },
+            {
+              value: "Garagens",
+              label: "Garagens",
+            },
+          ],
+          "Estabelecimentos comerciais de venda ao público":[
+            {
+              value: "Pontos de acesso a partir do exterior",
+              label: "Pontos de acesso a partir do exterior",
+            },
+            {
+              value: "Área de venda",
+              label: "Área de venda",
+            },
+            {
+              value: "Zonas das caixas registadoras",
+              label: "Zonas das caixas registadoras",
+            },
 
-      categoriaFinalidade:null,
-      finalidades: null,
-      CategoriaRecursoHumanos:[
-          { name:"Gestão de Recursos Humanos",id:1 },
-          { name:"Formação Profissional",id:2 },
-          { name:"Gestão de Teletrabalho",id:3 }
-      ],
-
-      CategoriaTelecomunicacoes:[
-          { name:"Gestão de Faturação",id:1 },
-          { name:"Retenção de Dados de Tráfego/ localização",id:2 },
-          { name:"Gestão de Contencioso",id:3 }
-      ],
-
+            {
+              value: "Parque de estacionamento",
+              label: "Parque de estacionamento",
+            }, 
+            {
+              value: "Sala de contagem de valores",
+              label: "Sala de contagem de valores",
+            },
+            {
+              value: "Área de cofre",
+              label: "Área de cofre",
+            },
+            {
+              value: "Zonas internas de circulação",
+              label: "Zonas internas de circulação",
+            }, 
+            {
+              value: "Armazéns",
+              label: "Armazéns",
+            },
+          ],
+          "Estabelecimentos de Ensino e Similares":[
+            {
+              value: "Pontos de acesso a partir do exterior",
+              label: "Pontos de acesso a partir do exterior",
+            },
+            {
+              value: "Parque de estacionamento",
+              label: "Parque de estacionamento",
+            },
+          ],
+          "Estabelecimentos de Saude":[
+            {
+              value: "Acesso a quartos das especialidades infantis ",
+              label: "Acesso a quartos das especialidades infantis ",
+            },
+            {
+              value: "Pontos de acesso a partir do exterior",
+              label: "Pontos de acesso a partir do exterior",
+            },
+            {
+              value: "Pontos de acesso a divisões interiores (Enfermarias) ",
+              label: "Pontos de acesso a divisões interiores (Enfermarias) ",
+            },
+            {
+              value: "Parque de estacionamento",
+              label: "Parque de estacionamento",
+            },
+            {
+              value: "Receção",
+              label: "Receção",
+            },
+            {
+              value: "Hall e/ou acesso a elevadores ",
+              label: "Hall e/ou acesso a elevadores ",
+            },
+            {
+              value: "Farmácias",
+              label: "Farmácias",
+            },
+          ],
+          "Estabelecimentos destinados a dança":[ 
+            {
+              value: "Pontos de acesso a partir do exterior",
+              label: "Pontos de acesso a partir do exterior",
+            },
+            {
+              value: "Bengaleiro",
+              label: "Bengaleiro",
+            },
+            {
+              value: "Zonas de pagamento ",
+              label: "Zonas de pagamento ",
+            },
+            {
+              value: "Balcões de atendimento",
+              label: "Balcões de atendimento",
+            },
+            {
+              value: "Zonas internas de circulação",
+              label: "Zonas internas de circulação",
+            } 
+          ],
+          "Farmácias, ParaFarmácias e Posto de Venda de Medicamentos e Similares":[ 
+            {
+              value: "Pontos de acesso a partir do exterior",
+              label: "Pontos de acesso a partir do exterior",
+            },
+            {
+              value: "Balcão",
+              label: "Balcão",
+            },
+            {
+              value: "Área de venda",
+              label: "Área de venda",
+            },
+            {
+              value: "Armazém",
+              label: "Armazém",
+            },
+            {
+              value: "Área de Conferência",
+              label: "Área de Conferência",
+            },
+            {
+              value: "Área de pagamento ",
+              label: "Área de pagamento ",
+            },
+            {
+              value: "Zona de exposição de produtos ",
+              label: "Zona de exposição de produtos ",
+            },
+            {
+              value: "Atendimento ao público nocturno ",
+              label: "Atendimento ao público nocturno ",
+            },
+            {
+              value: "Laboratório",
+              label: "Laboratório",
+            } 
+          ],
+          "Gasolineiras":[ 
+            {
+              value: "Pontos de acesso a partir do exterior",
+              label: "Pontos de acesso a partir do exterior",
+            },
+            {
+              value: "Locais de pagamento",
+              label: "Locais de pagamento",
+            },
+            {
+              value: "Armazéns",
+              label: "Armazéns",
+            },
+            {
+              value: "Cofre",
+              label: "Cofre",
+            },
+            {
+              value: "Ilhas de abastecimento",
+              label: "Ilhas de abastecimento",
+            },
+            {
+              value: "Área comercial da loja",
+              label: "Área comercial da loja",
+            },
+            {
+              value: "Parque de estacionamento ",
+              label: "Parque de estacionamento ",
+            },
+            {
+              value: "Zonas internas de circulação ",
+              label: "Zonas internas de circulação ",
+            },
+            {
+              value: "Área de lavagem de serviço automóvel ",
+              label: "Área de lavagem de serviço automóvel ",
+            } 
+          ],
+          "Hotelaria":[ 
+            {
+              value: "Receção",
+              label: "Receção",
+            },
+            {
+              value: "Garagens",
+              label: "Garagens",
+            },
+            {
+              value: "Pontos de acesso a partir do exterior ",
+              label: "Pontos de acesso a partir do exterior ",
+            },
+            {
+              value: "Acesso a elevadores ",
+              label: "Acesso a elevadores ",
+            },
+            {
+              value: "Entrada e/ou caixa do bar ",
+              label: "Entrada e/ou caixa do bar ",
+            },
+            {
+              value: "Entrada e/ou caixa do restaurante ",
+              label: "Entrada e/ou caixa do restaurante ",
+            },
+            {
+              value: "Parque de estacionamento exterior ",
+              label: "Parque de estacionamento exterior ",
+            },
+            {
+              value: "Área de cofre",
+              label: "Área de cofre",
+            },
+            {
+              value: "Hall de escadas ",
+              label: "Hall de escadas ",
+            },
+            {
+              value: "Zonas comerciais ",
+              label: " Zonas comerciais ",
+            },
+            {
+              value: "Locais de circulação ",
+              label: "Locais de circulação ",
+            },
+          ],
+          "Instalações empresariais industriais e de serviços":[ 
+            {
+              value: "Receção",
+              label: "Receção",
+            },
+            {
+              value: "Zonas internas de circulação ",
+              label: "Zonas internas de circulação ",
+            },
+            {
+              value: "Pontos de acesso a partir do exterior ",
+              label: "Pontos de acesso a partir do exterior ",
+            },
+            
+            {
+              value: "Parque de estacionamento",
+              label: "Parque de estacionamento",
+            },
+            {
+              value: "Zonas e balcões de atendimento ",
+              label: "Zonas e balcões de atendimento ",
+            },
+            {
+              value: "Oficinas",
+              label: "Oficinas",
+            },
+            {
+              value: "Acesso a elevadores ",
+              label: "Acesso a elevadores ",
+            },
+            {
+              value: "Armazém",
+              label: "Armazém",
+            },
+            {
+              value: "Máquinas de Vending ",
+              label: "Máquinas de Vending ",
+            },
+            
+          ],
+          "Instituiçoes Financeiras":[ 
+            {
+              value: "Zonas internas de circulação ",
+              label: "Zonas internas de circulação ",
+            },
+            {
+              value: "Pontos de acesso a partir do exterior ",
+              label: "Pontos de acesso a partir do exterior ",
+            }, 
+            {
+              value: "Parque de estacionamento",
+              label: "Parque de estacionamento",
+            },
+            {
+              value: "Área de cofre ",
+              label: "Área de cofre ",
+            },
+            {
+              value: "Zonas técnicas ",
+              label: "Zonas técnicas ",
+            },
+            {
+              value: "Zona de ATM's (Caixa vinte e quatro) ",
+              label: "Zona de ATM's (Caixa vinte e quatro) ",
+            },
+            {
+              value: "Locais de atendimento ao público ",
+              label: "Locais de atendimento ao público ",
+            }  
+          ],
+          "Lares e outros Estabelecimentos de Apoio Social":[ 
+            {
+              value: "Zonas internas de circulação (excepto corredores de acesso aos quartos)  ",
+              label: "Zonas internas de circulação (excepto corredores de acesso aos quartos) ",
+            },
+            {
+              value: "Pontos de acesso a partir do exterior ",
+              label: "Pontos de acesso a partir do exterior ",
+            }, 
+            {
+              value: "Parque de estacionamento",
+              label: "Parque de estacionamento",
+            },
+            {
+              value: "Pontos de acesso interiores",
+              label: "Pontos de acesso interiores",
+            }, 
+          ],
+          "Locais de Culto":[  
+            {
+              value: "Pontos de acesso a partir do exterior ",
+              label: "Pontos de acesso a partir do exterior ",
+            }, 
+            {
+              value: "Pontos de venda de artigos religiosos ",
+              label: "Pontos de venda de artigos religiosos ",
+            },
+            {
+              value: "Sala de Cofres",
+              label: "Sala de Cofres",
+            }, 
+          ],
+          "Ourivesarias,Joalharias e Relojoarias":[  
+            {
+              value: "Pontos de acesso a partir do exterior ",
+              label: "Pontos de acesso a partir do exterior ",
+            }, 
+            {
+              value: "Locais de atendimento ao público ",
+              label: "Locais de atendimento ao público ",
+            },
+            {
+              value: "Armazéns",
+              label: "Armazéns",
+            }, 
+            {
+              value: "Montras",
+              label: "Montras",
+            },
+            {
+              value: "Zonas da caixa ",
+              label: "Zonas da caixa ",
+            }, 
+            {
+              value: "Área do Cofre ",
+              label: "Área do Cofre ",
+            }, 
+            {
+              value: "Balcão",
+              label: "Balcão",
+            },
+            {
+              value: "Zonas de exposição de artigos ",
+              label: "Zonas de exposição de artigos ",
+            }, 
+            {
+              value: "Oficinas",
+              label: "Oficinas",
+            },
+          ],
+          "Parques de Estacionamento":[  
+            {
+              value: "Pontos de acesso a partir do exterior ",
+              label: "Pontos de acesso a partir do exterior ",
+            },  
+            {
+              value: "Zonas internas de circulação ",
+              label: "Zonas internas de circulação ",
+            }, 
+            {
+              value: "Zonas da caixa ",
+              label: "Zonas da caixa ",
+            },
+          ],
+          "Recintos Espectáculos desportivos":[  
+            {
+              value: "Pontos de acesso a partir do exterior ",
+              label: "Pontos de acesso a partir do exterior ",
+            },  
+            {
+              value: "Zonas internas de circulação ",
+              label: "Zonas internas de circulação ",
+            }, 
+            {
+              value: "Área do espectáculo desportivo ",
+              label: "Área do espectáculo desportivo ",
+            }, 
+            {
+              value: "Zonas Comerciais",
+              label: "Zonas Comerciais",
+            }, 
+            {
+              value: "Anel ou perímetro de segurança",
+              label: "Anel ou perímetro de segurança",
+            }, 
+            {
+              value: "Zonas de pagamento",
+              label: "Zonas de pagamento",
+            }, 
+            {
+              value: "Locais de atendimento ao público ",
+              label: "Locais de atendimento ao público ",
+            }, 
+            {
+              value: "Parque de Estacionamento ",
+              label: "Parque de Estacionamento ",
+            }, 
+          ],
+          "Residências Moradias Unifamiliares":[  
+            {
+              value: "Áreas da via pública",
+              label: "Áreas da via pública",
+            }, 
+            {
+              value: "Áreas de propriedades de terceiros",
+              label: "Áreas de propriedades de terceiros",
+            }, 
+            {
+              value:  "Áreas de Trabalhadores",
+              label: "Áreas de Trabalhadores",
+            }, 
+          ],
+          "Restauração":[  
+            {
+              value: "Pontos de acesso a partir do exterior",
+              label: "Pontos de acesso a partir do exterior",
+            }, 
+            {
+              value: "Zonas de exposição de produtos ",
+              label: "Zonas de exposição de produtos ",
+            }, 
+            {
+              value:  "Zonas da caixa ",
+              label: "Zonas da caixa ",
+            }, 
+            {
+              value:  "Zonas técnicas e frigoríficas ",
+              label: "Zonas técnicas e frigoríficas ",
+            },
+            {
+              value:  "Zonas de Fornos ",
+              label: "Zonas de Fornos ",
+            },  
+            {
+              value:  "Área do Cofre",
+              label: "Área do Cofre",
+            },  
+            {
+              value:  "Armazém/Economato ",
+              label: "Armazém/Economato ",
+            }, 
+            {
+              value:  "Take-away exterior ",
+              label: "Take-away exterior ",
+            }, 
+            {
+              value:  "Parques de estacionamento ",
+              label: "Parques de estacionamento ",
+            },   
+          ],
+          "Sucateiras":[ 
+            {
+              value: "Zonas internas de circulação ",
+              label: "Zonas internas de circulação ",
+            },  
+            {
+              value: "Pontos de acesso a partir do exterior",
+              label: "Pontos de acesso a partir do exterior",
+            }, 
+            {
+              value:  "Parques de estacionamento ",
+              label: "Parques de estacionamento ",
+            }, 
+            {
+              value:  "Armazéns",
+              label: "Armazéns",
+            }, {
+              value:  "Parque de resíduos ",
+              label: "Parque de resíduos ",
+            }, 
+            {
+              value:  "Receção",
+              label: "Receção",
+            },  
+            {
+              value:  "Zona de Balança/Báscula ",
+              label: "Zona de Balança/Báscula ",
+            }, 
+             
+          ],
+        },  
       /** *********************ILHAS E CONCELHOS ************************************** */
       ilhaResp: null,
       ilhaMorInst: null,
@@ -1198,7 +1687,11 @@ export default {
     categoria() {
       this.finalidd = null
     },
-  }
+    tipoVideo() {
+      this.zona = null
+    },
+  },
+  
 };
 </script>
 

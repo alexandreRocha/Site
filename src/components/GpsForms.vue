@@ -19,7 +19,11 @@
                     name="tipoNotificacao"
                     id="tipoNotificacao"
                   />
-                  <label id="labelleft" class="form-check-label" for="tipoNotificacao">
+                  <label
+                    id="labelleft"
+                    class="form-check-label"
+                    for="tipoNotificacao"
+                  >
                     1ª Notificação
                   </label>
                 </div>
@@ -33,7 +37,11 @@
                     name="tipoNotificacao"
                     id="tipoNotificacao"
                   />
-                  <label id="labelleft" class="form-check-label" for="tipoNotificacao">
+                  <label
+                    id="labelleft"
+                    class="form-check-label"
+                    for="tipoNotificacao"
+                  >
                     Alteração
                   </label>
                 </div>
@@ -47,7 +55,11 @@
                     name="tipoNotificacao"
                     id="tipoNotificacao"
                   />
-                  <label id="labelleft" class="form-check-label" for="tipoNotificacao">
+                  <label
+                    id="labelleft"
+                    class="form-check-label"
+                    for="tipoNotificacao"
+                  >
                     Substituição da Notificação não autorizada
                   </label>
                 </div>
@@ -55,7 +67,9 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12" id="separacao">1. Responsável pelo Tratamento</div>
+        <div class="col-md-12" id="separacao">
+          1. Responsável pelo Tratamento
+        </div>
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
@@ -491,54 +505,69 @@
         <div class="col" id="divg">
           <div class="container">
             <div class="row">
-              <div class="col-md-12" id="separacao">2. Finalidades do Tratamento</div>
-
-              <div class="col-md-12"><br /></div>
-              <div class="col-md-12" id="separacao1">
-                Indique a(s) finalidade(s) do tratamento de dados (selecione todas as que
-                se apliquem)
+              <div class="col-md-12" id="separacao">
+                2. Finalidades do Tratamento
               </div>
               <div class="col-md-12"><br /></div>
-              <treeselect
-                :multiple="true"
-                :options="finalidadesTratamento"
-                placeholder="- Selecione as finalidades - "
-                v-model="finalidade"
-              />
-              <!--<pre class="language-json"><code>{{finalidade}}</code></pre>-->
-              <div class="col-md-12"><br /></div>
-              <div class="col-md-12" id="separacao1">
-                Categorias dos dados pessoais tratados
+              <div class="col-md-12">
+                <div class="col-md-12" id="separacao1">
+                  Indique a(s) finalidade(s) do tratamento de dados 
+                </div> 
+                  <treeselect
+                  :multiple="true"
+                  :options="finalidadesTratamento"
+                  :disable-branch-nodes="true"
+                  placeholder="- Selecione as finalidades - "
+                  v-model="finalidade"
+                  search-nested
+                  />
+                 
+                <!--<pre class="language-json"><code>{{finalidade}}</code></pre>-->
               </div>
-              <treeselect
-                :multiple="true"
-                :options="categoriasDados"
-                placeholder="- Selecione as categorias de dados - "
-                v-model="categoria"
-              />
-              <!--<pre class="language-json"><code>{{categoria}}</code></pre>-->
 
               <div class="col-md-12"><br /></div>
-              <div class="col-md-12" id="separacao1">Outros dados pessoais tratados</div>
-              <treeselect
-                :multiple="true"
-                :options="outrosDadosTratados"
-                placeholder="- Selecione os dados tratados - "
-                v-model="outrosDadosTratado"
-              />
-              <!--<pre class="language-json"><code>{{outrosDadosTratado}}</code></pre>-->
+              <div class="col">
+                <div class="col-md-12" id="separacao1">
+                  Categorias dos dados pessoais tratados
+                </div>
+                <treeselect
+                  :multiple="true"
+                  :options="categoriasDados"
+                  placeholder="- Selecione as categorias de dados - "
+                  v-model="categoria"
+                />
+                <!--<pre class="language-json"><code>{{categoria}}</code></pre>-->
+              </div>
+              <div class="col">
+                <div class="col-md-12" id="separacao1">
+                  Outros dados pessoais tratados
+                </div>
+                <treeselect
+                  :multiple="true"
+                  :options="outrosDadosTratados"
+                  :disable-branch-nodes="true"
+                  placeholder="- Selecione os dados tratados - "
+                  v-model="outrosDadosTratado"
+                  search-nested
+                  />
+                 
+                <!--<pre class="language-json"><code>{{outrosDadosTratado}}</code></pre>-->
+              </div>
+              <div class="col-md-12"><br /></div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-12" id="separacao">3.Exercício do direito de acesso</div>
+        <div class="col-md-12" id="separacao">
+          3.Exercício do direito de acesso
+        </div>
         <div class="col" id="divg">
           <div class="container">
             <div class="row">
               <div class="col">
                 <label class="form-check-label">
-                  Morada do local do exercício do direito de acesso é a mesma indicada em
-                  1 ?
+                  Morada do local do exercício do direito de acesso é a mesma
+                  indicada em 1 ?
                 </label>
                 <buttom
                   @click="changeDireitoAcesso"
@@ -665,7 +694,11 @@
                   name="formaDireitoAcesso"
                   id="formaDireitoAcesso"
                 />
-                <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
                   Presencial
                 </label>
               </div>
@@ -677,7 +710,11 @@
                   name="formaDireitoAcesso"
                   id="formaDireitoAcesso"
                 />
-                <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
                   Escrita
                 </label>
               </div>
@@ -688,17 +725,23 @@
                   name="outraFormaDireitoAcesso"
                   id="outraFormaDireitoAcesso"
                   placeholder=" Mencionar outras formas de direito de acesso, caso não for mencionado acima"
-                  ></textarea>
+                ></textarea>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-12" id="separacao">4. Medidas de segurança a implementar</div>
+        <div class="col-md-12" id="separacao">
+          4. Medidas de segurança a implementar
+        </div>
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
                   Especifique as medidas físicas de segurança do sistema:
                 </label>
                 <textarea
@@ -710,7 +753,11 @@
               </div>
               <div class="col-md-12"><br /></div>
               <div class="col-md-12">
-                <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
                   Especifique as medidas lógica de segurança do sistema:
                 </label>
                 <textarea
@@ -723,7 +770,9 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12" id="separacao">5. Representante dos trabalhadores</div>
+        <div class="col-md-12" id="separacao">
+          5. Representante dos trabalhadores
+        </div>
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
@@ -745,7 +794,8 @@
                 <div class="col-md-12"><br /></div>
                 <div class="col-md-12" v-if="checkRepTrab">
                   <label for="formFile" class="form-label"
-                    >Se sim, juntar a cópia do parecer ou comprovativo do pedido.</label
+                    >Se sim, juntar a cópia do parecer ou comprovativo do
+                    pedido.</label
                   >
                   <input class="form-control" type="file" id="formFile" />
                 </div>
@@ -757,7 +807,12 @@
         <div class="col-md-12"><br /></div>
         <!-- FIM DE FORMS-->
         <div class="col-12" id="divsave">
-          <button id="buttonsave" value="Save" class="btn btn-primary" type="submit">
+          <button
+            id="buttonsave"
+            value="Save"
+            class="btn btn-primary"
+            type="submit"
+          >
             Submeter Dados
           </button>
         </div>
@@ -792,7 +847,10 @@ export default {
           value: "Emprego (Selecção, fornecimento de recursos humanos)",
           label: "Emprego (Selecção, fornecimento de recursos humanos)",
         },
-        { value: "Segurança e Ordem pública", label: "Segurança e Ordem pública" },
+        {
+          value: "Segurança e Ordem pública",
+          label: "Segurança e Ordem pública",
+        },
         { value: "Produção da Água", label: "Produção da Água" },
         { value: "Telecomunicação", label: "Telecomunicação" },
         { value: "Segurança Privada", label: "Segurança Privada" },
@@ -905,33 +963,40 @@ export default {
           label: "Outros dados para gestão de frota em serviço externo:",
           children: [
             {
-              id: "Dados letaivos ao serviço a prestar",
+              id:1,
+              value: "Dados letaivos ao serviço a prestar",
               label: "Dados letaivos ao serviço a prestar",
             },
             {
-              id: "Dados relativos à carga transportada",
+              id:2,
+              value: "Dados relativos à carga transportada",
               label: "Dados relativos à carga transportada",
             },
           ],
         },
         {
           id: "Outros dados para proteção de pessoas e carga de materiais perigosos",
-          label: "Outros dados para proteção de pessoas e carga de materiais perigosos",
+          label:
+            "Outros dados para proteção de pessoas e carga de materiais perigosos",
           children: [
             {
-              id: "Dados relativos ao transsporte",
+              id:3,
+              value: "Dados relativos ao transsporte",
               label: "Dados relativos ao transsporte",
             },
             {
-              id: "Percurso previsto",
+              id:4,
+              value: "Percurso previsto",
               label: "Percurso previsto",
             },
             {
-              id: "Carga transportada",
+              id:5,
+              value: "Carga transportada",
               label: "Carga transportada",
             },
             {
-              id: "Procedimentos de segurança e/ou emergência adotados",
+              id:6,
+              value: "Procedimentos de segurança e/ou emergência adotados",
               label: "Procedimentos de segurança e/ou emergência adotados",
             },
           ],
@@ -941,23 +1006,28 @@ export default {
           label: "Outros dados para a proteção de carga de materiais de valor:",
           children: [
             {
-              id: "Caraterśticas da viatura",
+              id:7,
+              value: "Caraterśticas da viatura",
               label: "Caraterśticas da viatura",
             },
             {
-              id: "Dados relativos ao transporte",
+              id:8,
+              value: "Dados relativos ao transporte",
               label: "Dados relativos ao transporte",
             },
             {
-              id: "Percurso previsto",
+              id:9,
+              value: "Percurso previsto",
               label: "Percurso previsto",
             },
             {
-              id: "Carga transportada",
+              id:10,
+              value: "Carga transportada",
               label: "Carga transportada",
             },
             {
-              id: "Procedimentos de segurança e/ou emergência adotados",
+              id:11,
+              value: "Procedimentos de segurança e/ou emergência adotados",
               label: "Procedimentos de segurança e/ou emergência adotados",
             },
           ],
@@ -997,7 +1067,10 @@ export default {
         "São Vicente": [{ value: "São Vicente", label: "São Vicente" }],
         "São Nicolau": [
           { value: "Ribeira Brava", label: "Ribeira Brava" },
-          { value: "Tarrafal de São Nicolau", label: "Tarrafal de São Nicolau" },
+          {
+            value: "Tarrafal de São Nicolau",
+            label: "Tarrafal de São Nicolau",
+          },
         ],
         Sal: [{ value: "Sal", label: "Sal" }],
         "Boa Vista": [{ value: "Boa Vista", label: "Boa Vista" }],
@@ -1008,8 +1081,14 @@ export default {
           { value: "Santa Catarina", label: "Santa Catarina" },
           { value: "São Salvador do Mundo", label: "São Salvador do Mundo" },
           { value: "Santa Cruz", label: "Santa Cruz" },
-          { value: "São Lourenço dos Órgãos", label: "São Lourenço dos Órgãos" },
-          { value: "Ribeira Grande de Santiago", label: "Ribeira Grande de Santiago" },
+          {
+            value: "São Lourenço dos Órgãos",
+            label: "São Lourenço dos Órgãos",
+          },
+          {
+            value: "Ribeira Grande de Santiago",
+            label: "Ribeira Grande de Santiago",
+          },
           { value: "São Miguel", label: "São Miguel" },
           { value: "Tarrafal", label: "Tarrafal" },
         ],
@@ -1435,7 +1514,8 @@ button#buttonsave:focus {
   background: var(--ms-dropdown-bg, #fff);
   border: var(--ms-dropdown-border-width, 1px) solid
     var(--ms-dropdown-border-color, #061536);
-  border-radius: 0 0 var(--ms-dropdown-radius, 4px) var(--ms-dropdown-radius, 4px);
+  border-radius: 0 0 var(--ms-dropdown-radius, 4px)
+    var(--ms-dropdown-radius, 4px);
   bottom: 0;
   display: flex;
   flex-direction: column;
@@ -1451,7 +1531,8 @@ button#buttonsave:focus {
   z-index: 100;
 }
 .multiselect-dropdown.is-top {
-  border-radius: var(--ms-dropdown-radius, 4px) var(--ms-dropdown-radius, 4px) 0 0;
+  border-radius: var(--ms-dropdown-radius, 4px) var(--ms-dropdown-radius, 4px) 0
+    0;
   bottom: auto;
   top: var(--ms-border-width, 1px);
   transform: translateY(-100%);
@@ -1590,8 +1671,8 @@ button#buttonsave:focus {
 [dir="rtl"] .multiselect-tag {
   margin-left: var(--ms-tag-mx, 0.25rem);
   margin-right: 0;
-  padding: var(--ms-tag-py, 0.125rem) var(--ms-tag-px, 0.5rem) var(--ms-tag-py, 0.125rem)
-    0;
+  padding: var(--ms-tag-py, 0.125rem) var(--ms-tag-px, 0.5rem)
+    var(--ms-tag-py, 0.125rem) 0;
 }
 [dir="rtl"] .multiselect-tag.is-disabled {
   padding-left: var(--ms-tag-px, 0.5rem);
@@ -1742,9 +1823,10 @@ button#buttonsave:focus {
   background: #fff;
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
-  -webkit-transition-property: border-color, box-shadow, width, height, background-color,
+  -webkit-transition-property: border-color, box-shadow, width, height,
+    background-color, opacity;
+  transition-property: border-color, box-shadow, width, height, background-color,
     opacity;
-  transition-property: border-color, box-shadow, width, height, background-color, opacity;
   -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
@@ -1812,7 +1894,8 @@ button#buttonsave:focus {
 .vue-treeselect__single-value {
   color: #333;
 }
-.vue-treeselect--focused.vue-treeselect--searchable .vue-treeselect__single-value {
+.vue-treeselect--focused.vue-treeselect--searchable
+  .vue-treeselect__single-value {
   color: #061536;
   /*aquiii */
 }
@@ -1998,7 +2081,8 @@ button#buttonsave:focus {
   color: #ccc;
   -webkit-animation: vue-treeselect-animation-fade-in 0.2s
     cubic-bezier(0.075, 0.82, 0.165, 1);
-  animation: vue-treeselect-animation-fade-in 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: vue-treeselect-animation-fade-in 0.2s
+    cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .vue-treeselect__x-container:hover {
   color: #e53935;
@@ -2418,7 +2502,8 @@ button#buttonsave:focus {
 .vue-treeselect__checkbox--checked,
 .vue-treeselect__checkbox--indeterminate,
 .vue-treeselect__label-container:hover .vue-treeselect__checkbox--checked,
-.vue-treeselect__label-container:hover .vue-treeselect__checkbox--indeterminate {
+.vue-treeselect__label-container:hover
+  .vue-treeselect__checkbox--indeterminate {
   border-color: #061536;
   background: #061536;
 }

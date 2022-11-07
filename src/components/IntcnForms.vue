@@ -19,7 +19,11 @@
                     name="tipoNotificacao"
                     id="tipoNotificacao"
                   />
-                  <label id="labelleft" class="form-check-label" for="tipoNotificacao">
+                  <label
+                    id="labelleft"
+                    class="form-check-label"
+                    for="tipoNotificacao"
+                  >
                     1ª Notificação
                   </label>
                 </div>
@@ -33,7 +37,11 @@
                     name="tipoNotificacao"
                     id="tipoNotificacao"
                   />
-                  <label id="labelleft" class="form-check-label" for="tipoNotificacao">
+                  <label
+                    id="labelleft"
+                    class="form-check-label"
+                    for="tipoNotificacao"
+                  >
                     Alteração
                   </label>
                 </div>
@@ -47,7 +55,11 @@
                     name="tipoNotificacao"
                     id="tipoNotificacao"
                   />
-                  <label id="labelleft" class="form-check-label" for="tipoNotificacao">
+                  <label
+                    id="labelleft"
+                    class="form-check-label"
+                    for="tipoNotificacao"
+                  >
                     Substituição da Notificação não autorizada
                   </label>
                 </div>
@@ -55,14 +67,22 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12" id="separacao">1. Responsável pelo Tratamento e seu representante</div>
-        <div class="col-md-12" id="separacao1">1.1. Primeira entidade de interconexão (destinatário de dados na interconexão)</div>
-        
+
         <div class="col-md-12" id="divg">
-          <div class="col-md-12" id="separacao1">1.1.1. Responsável pelo Tratamento </div>
-       
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  1. Responsável pelo Tratamento e seu representante
+                <br> 
+                  1.1. Primeira entidade de interconexão (destinatário de dados
+                  na interconexão)
+                </div>
+
+                <div class="col-md-12" id="separacao1">
+                  1.1.1. Responsável pelo Tratamento
+                </div>
+              </div>
               <div class="col">
                 <input
                   class="form-check-input"
@@ -252,7 +272,11 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-12" id="separacao">1.1.2. Representante do Primeiro Responsável pelo Tratamento </div>
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  1.1.2. Representante do Primeiro Responsável pelo Tratamento
+                </div>
+              </div>
               <div class="col-md-12">
                 <input
                   type="text"
@@ -348,8 +372,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12" id="separacao">1.1.3. Pessoa de Contato do Primeiro Responsável pelo Tratamento </div>
-             
+                <div class="col-md-12" id="separacao">
+                  1.1.3. Pessoa de Contato do Primeiro Responsável pelo
+                  Tratamento
+                </div>
+
                 <div class="col-md-12">
                   <input
                     type="text"
@@ -388,13 +415,18 @@
         </div>
 
         <!---- ----------------- Processamento da informação primeiro responsavel--------------------------------------------------------------------->
-        <div class="col-md-12" id="separacao">1.1.4. Processamento da informação do Primeiro Responsável</div>
         <div class="col" id="divg">
           <div class="container">
             <div class="row">
-              <div class="col-md-12">              
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  1.1.4. Processamento da informação do Primeiro Responsável
+                </div>
+              </div>
+              <div class="col-md-12">
                 <label class="form-check-label">
-                  Existe um Serviço Externo encarregado do processamento do primeiro Responsável?
+                  Existe um Serviço Externo encarregado do processamento do
+                  primeiro Responsável?
                 </label>
                 <buttom
                   @click="changeServico"
@@ -486,22 +518,29 @@
                       </select>
                     </div>
                   </div>
-                 <div class="col">
-                  * Caso exista mais que uma entidade, deverá anexar uma lista de todas as entidades que processam os dados, com que fim e quais os dados tratados.
-               </div>
+                  <div class="col">
+                    * Caso exista mais que uma entidade, deverá anexar uma lista
+                    de todas as entidades que processam os dados, com que fim e
+                    quais os dados tratados.
                   </div>
+                </div>
               </div>
             </div>
-            
           </div>
-        
         </div>
         <!--------------------------------------SEGUNDA ENTIDADE DE INTERCONEXAO----------------------------------------------------->
         <div class="col-md-12" id="divg">
-          <div class="col-md-12" id="separacao">1.2. Segunda entidade de interconexão (fornecedor de dados na interconexão) </div>       
-          <div class="col-md-12" id="separacao1">1.2.1. Responsável pelo Tratamento </div>       
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  1.2. Segunda entidade de interconexão (fornecedor de dados na
+                  interconexão)
+                </div>
+                <div class="col-md-12" id="separacao1">
+                  1.2.1. Responsável pelo Tratamento
+                </div>
+              </div>
               <div class="col">
                 <input
                   class="form-check-input"
@@ -691,7 +730,11 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-12" id="separacao">1.2.2. Representante do Primeiro Responsável pelo Tratamento </div>
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  1.2.2. Representante do Segundo Responsável pelo Tratamento
+                </div>
+              </div>
               <div class="col-md-12">
                 <input
                   type="text"
@@ -787,8 +830,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12" id="separacao">1.2.3. Pessoa de Contato do Segundo Responsável pelo Tratamento </div>
-             
+                <div class="col-md-12" id="separacao">
+                  1.2.3. Pessoa de Contato do Segundo Responsável pelo
+                  Tratamento
+                </div>
+
                 <div class="col-md-12">
                   <input
                     type="text"
@@ -827,13 +873,18 @@
         </div>
 
         <!---- ----------------- Processamento da informação segundo responsavel--------------------------------------------------------------------->
-        <div class="col-md-12" id="separacao">1.2.4. Processamento da informação do Segundo Responsável</div>
         <div class="col" id="divg">
           <div class="container">
             <div class="row">
-              <div class="col-md-12">              
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  1.2.4. Processamento da informação do Segundo Responsável
+                </div>
+              </div>
+              <div class="col-md-12">
                 <label class="form-check-label">
-                  Existe um Serviço Externo encarregado do processamento do Segundo Responsável?
+                  Existe um Serviço Externo encarregado do processamento do
+                  Segundo Responsável?
                 </label>
                 <buttom
                   @click="changeServicoSR"
@@ -925,60 +976,164 @@
                       </select>
                     </div>
                   </div>
-                 <div class="col">
-                  * Caso exista mais que uma entidade, deverá anexar uma lista de todas as entidades que processam os dados, com que fim e quais os dados tratados.
-               </div>
+                  <div class="col">
+                    * Caso exista mais que uma entidade, deverá anexar uma lista
+                    de todas as entidades que processam os dados, com que fim e
+                    quais os dados tratados.
                   </div>
+                </div>
               </div>
             </div>
-            
           </div>
-        
         </div>
 
-          <!---- ----------------- FORMAS E MEIOS DE INTERCONEXAO-------------------------------------------------------------------->
-            <div class="col-md-12" id="separacao">2. Descrição de formas de interconexão (pode ser preenchido pela primeira ou segunda entidade de interconexão)</div>
-            <div class="col" id="divg">
-              <div class="col-md-12"><br /></div>
-                <div class="col-md-12">
-                  <textarea
-                    class="form-control"
-                    name="outraFormaDireitoAcesso"
-                    id="outraFormaDireitoAcesso"
-                    placeholder=" Como serão facultados os dados na interconexão"
-                  ></textarea>
+        <!---- ----------------- FORMAS E MEIOS DE INTERCONEXAO-------------------------------------------------------------------->
+        <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  2. Descrição de formas de interconexão (pode ser preenchido
+                  pela primeira ou segunda entidade de interconexão)
                 </div>
-            </div>
-
-            <!---- ----------------- FINALIDADE DO TRATAMENTO-------------------------------------------------------------------->
-            <div class="col-md-12" id="separacao">3. Finalidade do tratamento (primeira entidade de interconexão)</div>
-            <div class="col" id="divg">
+              </div>
               <div class="col-md-12"><br /></div>
-              <div class="container">
-              <div class="row">
+              <div class="col-md-12">
+                <textarea
+                  class="form-control"
+                  name="outraFormaDireitoAcesso"
+                  id="outraFormaDireitoAcesso"
+                  placeholder=" Como serão facultados os dados na interconexão"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!---- ----------------- FINALIDADE DO TRATAMENTO-------------------------------------------------------------------->
+        <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  3. Finalidade do tratamento (primeira entidade de
+                  interconexão)
+                </div>
+              </div>
+              <div class="col-md-12"><br /></div>
               <div class="col-md-12">
                 <label class="form-check-label">
-                  Descrição da finalidade (indique uma das opções indicadas)
+                  Descrição da finalidade (indique uma das opções indicadas) Se
+                  tiver mais do que uma categoria de finalidades a serem
+                  tratados clique no botão verde para adicionar mais campos.
                 </label>
-                <div class="col-md-12" style="background-color: yellow">
-                 TEMOS UE VER COMO RESOLVER A QUESTAO DE MULTIPLAS CATEGORIAS COM FINALIDADES
+                <div class="col-md-12">
+                  <button
+                    @click="addFinalidd()"
+                    alt="Adicionar mais campos"
+                    type="button"
+                    class="btn btn-success"
+                  >
+                    <b class="add"
+                      ><IconAwe class="icon-color" icon="plus"
+                    /></b>
+                  </button>
+                  <div class="col-md-12"><br /></div>
+
+                  <div
+                    class="row"
+                    v-for="(finalidadi, index) in finalidadiCategory"
+                    :key="index"
+                  >
+                    <div class="col-md-4" id="cambs">
+                      <select
+                        v-model="finalidadi.categoria"
+                        name="categoria"
+                        id="categoria"
+                        class="form-select"
+                        for="categoria"
+                        placeholder="- Seleciona uma categoria-"
+                      >
+                        <option :value="null">
+                          - selecione uma categoria -
+                        </option>
+                        <option
+                          v-for="option in categorias"
+                          :key="option.id"
+                          :value="option.value"
+                        >
+                          {{ option.label }}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-md-7" id="cambs">
+                      <Multiselect
+                        v-model="finalidadi.finalidd"
+                        :options="finalidadesCategorias[finalidadi.categoria]"
+                        mode="tags"
+                        placeholder="- selecione as finalidades -"
+                        :close-on-select="true"
+                        :searchable="true"
+                        :object="true"
+                        :multiple="true"
+                      />
+                    </div>
+                    <div class="col-md-1">
+                      <button
+                        @click="removeFinalidd(index)"
+                        v-show="index != 0"
+                        type="button"
+                        class="btn btn-danger"
+                      >
+                        <b class="add"
+                          ><IconAwe class="icon-color" icon="trash-can"
+                        /></b>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              </div>
               </div>
             </div>
-             <!---- ----------------- Dados sujeitos a conexão-------------------------------------------------------------------->
-             <div class="col-md-12" id="separacao">4. Dados sujeitos a conexão (primeira entidade de interconexão)</div>
-            <div class="col" id="divg">
-             <div class="container">
-             <div class="row">
-              <div class="col-md-12"><br /></div>
-              <div class="col-md-12" style="background-color: yellow">
-                 TEMOS UE VER COMO RESOLVER A QUESTAO DE MULTIPLAS CATEGORIAS COM FINALIDADES
+          </div>
+        </div>
+        <!---- ----------------- Dados sujeitos a conexão-------------------------------------------------------------------->
+        <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  4. Dados sujeitos a conexão (primeira entidade de
+                  interconexão)
                 </div>
-                <div class="col-md-12"><br /></div>
-                <div class="col-md-12">
-                  <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
+              </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
+                  Indique quais são os dados pessoais tratados, se não faz
+                  tratamento de nenhum desses dados não preencha este campo.
+                </label>
+                <Multiselect
+                  v-model="dadosPessoaisTratado"
+                  :options="dadospessoaisTratados"
+                  mode="tags"
+                  placeholder="- selecione os dados pessoais tratados -"
+                  :close-on-select="true"
+                  :searchable="true"
+                  :object="true"
+                  :multiple="true"
+                />
+              </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
                   Que outros dados referentes aos artigos 8º e 11º
                 </label>
                 <textarea
@@ -988,297 +1143,106 @@
                   placeholder=" Mencionar quais os outros dados tratados referentes aos artigos 8º e 11º da lei nº. 121/IX/2021 de 17 de março "
                 ></textarea>
                 <div class="col-md-12"><br /></div>
-                <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
                   Lista de dados pessoais tratados
                 </label>
                 <textarea
                   class="form-control"
                   name="listaDadosPessoaisTratados"
                   id="listaDadosPessoaisTratados"
-                  placeholder=" Mencionar todos os dados pessoais tratados"
+                  placeholder=" Mencionar todos os dados pessoais tratados EX: nome, BI, NIF, Registo criminal, etc"
                 ></textarea>
-                </div>
-             </div>
-             </div>
+              </div>
             </div>
+          </div>
+        </div>
         <!---- ----------------- Comunicaçao dos dados a terceiros-------------------------------------------------------------------->
 
         <div class="col" id="divg">
           <div class="container">
             <div class="row">
-              <div class="col-md-12" id="separacao">5. Comunicação dos Dados a terceiros (primeira entidade de interconexão)</div>
-              <div class="col">
-                  <label class="form-check-label">
-                    Existe comunicação de dados a terceiros?
-                  </label>
-                  <buttom
-                    @click="changeComunicTerce"
-                    type="button"
-                    class="btn btn-outline-primary"
-                    name="morada"
-                    id="moradasimbotton"
-                  >
-                    {{ checkComunicTerce ? "Não" : "Sim" }}
-                  </buttom>
-                </div>
-                <div class="col-md-12"><br /></div>
-                <div class="col-md-12" v-if="checkComunicTerce">
-                  <label for="formFile" class="form-label"
-                    >Se sim, indique as entidades a quem são comunicados os dados e motivos da comunicação.
-                    Se tiver mais do que uma entidade clique no botão verde para adicionar mais campos.
-                  </label> 
-                  <div class="col-md-12">  
-                  <button  @click="addMore()" alt="Adicionar mais campos" type="button" class="btn btn-success">
-                   <b class="add"><IconAwe class="icon-color" icon="plus" /></b>
-                  </button> 
-                <div class="col-md-12"><br /></div>
-
-                  <div class="row" v-for="(comunica, index) in comunicacao" :key="index">
-                    <div class="col-md-5">
-                      <input 
-                        class="form-control"
-                        v-model="comunica.entidadesComunicadas"
-                        name="entidadesComunicadas"
-                        id="entidadesComunicadas"
-                        :placeholder="'Entidades para onde os dados são comunicados ' + (index + 1)" 
-                        />
-                    </div>
-                    <div class="col-md-6">
-                      <input 
-                        type="text"
-                        class="form-control"
-                        v-model="comunica.condicoesComunicacao"
-                        name="condicoesComunicacao"
-                        id="condicoesComunicacao"
-                        :placeholder="'Quais  as condições de comunicação ' + (index + 1)"  
-                        />
-                  </div>
-                  <div class="col-md-1">
-                    <button  @click="remove(index)" v-show="index != 0" type="button" class="btn btn-danger">
-                      <b class="add"><IconAwe class="icon-color" icon="trash-can" /></b>
-                   </button>
-                  </div>   
-                </div> 
-              </div>
-              
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  5. Comunicação dos Dados a terceiros (primeira entidade de
+                  interconexão)
                 </div>
               </div>
-          </div>
-          </div>
-           
-  <!---- ----------------- Prazo conservacao dos dados-------------------------------------------------------------------->
-
-  <div class="col" id="divg">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12" id="separacao">6. CPrazo máximo de conservação dos Dados pessoais (primeira entidade de interconexão)</div>
-              
-              <div class="col-md-12"><br /></div>
-              <div class="col-md-4">
-                <label class="form-check-label">
-                    Qual o prazo máximo de conservação dos dados?
-                  </label>
-              </div>
-              <div class="col-md-8">
-                <input
-                    type="text"
-                    class="form-control"
-                    name="prazoConserva"
-                    id="caixaPostalPrprazoConservaocessInfoSR"
-                    placeholder=" Indique por quanto tempo os dados serão conservados"
-                  />
-                </div>
-            </div>
-          </div>
-        </div>
-
-<!---- ----------------- Transferencia internacional dos dados-------------------------------------------------------------------->
- 
-<div class="col" id="divg">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12" id="separacao">7. Fluxos internacionais de dados para outros países (primeira entidade de interconexão)</div>
-              <div class="col">
-                  <label class="form-check-label">
-                    Existe fluxos para fora do Território Nacional?
-                  </label>
-                  <buttom
-                    @click="changeTransfInter"
-                    type="button"
-                    class="btn btn-outline-primary"
-                    name="morada"
-                    id="moradasimbotton"
-                  >
-                    {{ checkTransfInter ? "Não" : "Sim" }}
-                  </buttom>
-                </div>
-                <div class="col-md-12"><br /></div>
-                <div class="col-md-12" v-if="checkTransfInter">
-                  <label for="formFile" class="form-label"
-                    >Listagem das entidades e respetivos países para onde há transmissão 
-                    de dados e quais os dados transferidos.  
-                     Se tiver mais do que uma entidade clique no botão verde para adicionar mais campos.
-                  </label> 
-                  <div class="col-md-12">  
-                  <button  @click="addMore1()" alt="Adicionar mais campos" type="button" class="btn btn-success">
-                   <b class="add"><IconAwe class="icon-color" icon="plus" /></b>
-                  </button> 
-                <div class="col-md-12"><br /></div>
-
-                  <div class="row" v-for="(inter, index) in internacional" :key="index">
-                    <div class="col-md-4">
-                      <input 
-                        class="form-control"
-                        v-model="inter.entidadesInternacional"
-                        name="entidadesInternacional"
-                        id="entidadesInternacional"
-                        :placeholder="'Entidades para onde os dados são transferidos ' + (index + 1)" 
-                        />
-                    </div>
-                    <div class="col-md-3">
-                      <input 
-                        type="text"
-                        class="form-control"
-                        v-model="inter.paisTransferido"
-                        name="paisTransferido"
-                        id="paisTransferido"
-                        :placeholder="'País para onde os dados são transferidos ' + (index + 1)"  
-                        />
-                  </div>
-                  <div class="col-md-4">
-                      <input 
-                        type="text"
-                        class="form-control"
-                        v-model="inter.dadosTransferidos"
-                        name="dadosTransferidos"
-                        id="dadosTransferidos"
-                        :placeholder="'Quais os Dados que são transferidos ' + (index + 1)"  
-                        />
-                  </div> 
-
-                  <div class="col-md-1">
-                    <button  @click="remove1(index)" v-show="index != 0" type="button" class="btn btn-danger">
-                      <b class="add"><IconAwe class="icon-color" icon="trash-can" /></b>
-                   </button>
-                  </div>   
-                </div> 
-              </div>
-                   
-                </div>
-              </div>
-          </div>
-        </div>
-        <div class="col-md-12" id="separacao">8.Exercício do direito de acesso</div>
-        <div class="col" id="divg">
-          <div class="container">
-            <div class="row">
               <div class="col">
                 <label class="form-check-label">
-                  Morada do local do exercício do direito de acesso é a mesma indicada em
-                  1 ?
+                  Existe comunicação de dados a terceiros?
                 </label>
                 <buttom
-                  @click="changeDireitoAcesso"
+                  @click="changeComunicTerce"
                   type="button"
                   class="btn btn-outline-primary"
                   name="morada"
                   id="moradasimbotton"
                 >
-                  {{ checkDireitoAcesso ? "Sim" : "Não" }}
+                  {{ checkComunicTerce ? "Não" : "Sim" }}
                 </buttom>
               </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12" v-if="checkComunicTerce">
+                <label for="formFile" class="form-label"
+                  >Se sim, indique as entidades a quem são comunicados os dados
+                  e motivos da comunicação. Se tiver mais do que uma entidade
+                  clique no botão verde para adicionar mais campos.
+                </label>
+                <div class="col-md-12">
+                  <button
+                    @click="addComunicTerce()"
+                    alt="Adicionar mais campos"
+                    type="button"
+                    class="btn btn-success"
+                  >
+                    <b class="add"
+                      ><IconAwe class="icon-color" icon="plus"
+                    /></b>
+                  </button>
+                  <div class="col-md-12"><br /></div>
 
-              <div class="col-md-12" id="divg2" v-if="checkDireitoAcesso">
-                <div class="col-md-12">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="ruaDireitoAcesso"
-                    id="ruaDireitoAcesso"
-                    placeholder=" Rua"
-                  />
-                </div>
-                <div class="col-md-12">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="caixaPostalDireitoAcesso"
-                    id="caixaPostalDireitoAcesso"
-                    placeholder=" Caixa Postal"
-                  />
-                </div>
-                <div class="col-md-12">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="localDireitoAcesso"
-                    id="localDireitoAcesso"
-                    placeholder=" Local - Cidade/Vila/Lugar/Zona"
-                  />
-                </div>
-
-                <div class="col-md-12">
-                  <div class="row">
-                    <div class="col">
-                      <select
-                        class="form-select"
-                        v-model="ilhaDirAcess"
-                        name="ilhaDireitoAcesso"
-                        id="ilhaDireitoAcesso"
-                        for="ilhaDireitoAcesso"
-                        placeholder="- Seleciona uma ilha-"
-                      >
-                        <option :value="null">- selecione uma ilha -</option>
-                        <option
-                          v-for="option in ilhas"
-                          :key="option.value"
-                          :value="option.value"
-                        >
-                          {{ option.label }}
-                        </option>
-                      </select>
-                    </div>
-                    <div class="col">
-                      <select
-                        class="form-select"
-                        v-model="concelhoDirAcess"
-                        name="concelhoDireitoAcesso"
-                        id="concelhoDireitoAcesso"
-                        for="concelhoDireitoAcesso"
-                        placeholder="- Seleciona um concelho -"
-                      >
-                        <option :value="null">- selecione um concelho -</option>
-                        <option
-                          v-for="option in concelhos[ilhaDirAcess]"
-                          :key="option.value"
-                          :value="option.value"
-                        >
-                          {{ option.label }}
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12"><br /></div>
-                <div class="col-md-12">
-                  <div class="row">
-                    <div class="col">
+                  <div
+                    class="row"
+                    v-for="(comunica, index) in comunicacao"
+                    :key="index"
+                  >
+                    <div class="col-md-5">
                       <input
-                        type="email"
                         class="form-control"
-                        name="emailDireitoAcesso"
-                        id="emailDireitoAcesso"
-                        placeholder="Entre o email da pessoa de contato: example@cnpd.cv"
+                        v-model="comunica.entidadesComunicadas"
+                        name="entidadesComunicadas"
+                        id="entidadesComunicadas"
+                        :placeholder="
+                          +(index + 1) +
+                          'ª- Entidade para onde os dados são comunicados '
+                        "
                       />
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                       <input
-                        type="number"
+                        type="text"
                         class="form-control"
-                        name="telefoneDireitoAcesso"
-                        id="telefoneDireitoAcesso"
-                        placeholder="Contato: Telefone/Telemovel"
+                        v-model="comunica.condicoesComunicacao"
+                        name="condicoesComunicacao"
+                        id="condicoesComunicacao"
+                        :placeholder="'Quais  as condições de comunicação '"
                       />
+                    </div>
+                    <div class="col-md-1">
+                      <button
+                        @click="removeComunic(index)"
+                        v-show="index != 0"
+                        type="button"
+                        class="btn btn-danger"
+                      >
+                        <b class="add"
+                          ><IconAwe class="icon-color" icon="trash-can"
+                        /></b>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1287,13 +1251,279 @@
           </div>
         </div>
 
-        <div class="col-md-12" id="separacao">
-          De que forma é exercido o direito de acesso?
+        <!---- ----------------- Prazo conservacao dos dados-------------------------------------------------------------------->
+
+        <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  6. Prazo máximo de conservação dos Dados pessoais (primeira
+                  entidade de interconexão)
+                </div>
+              </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-4">
+                <label class="form-check-label">
+                  Qual o prazo máximo de conservação dos dados?
+                </label>
+              </div>
+              <div class="col-md-8">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="prazoConserva"
+                  id="caixaPostalPrprazoConservaocessInfoSR"
+                  placeholder=" Indique por quanto tempo os dados serão conservados"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!---- ----------------- Transferencia internacional dos dados-------------------------------------------------------------------->
+
+        <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  7. Fluxos internacionais de dados para outros países (primeira
+                  entidade de interconexão)
+                </div>
+              </div>
+              <div class="col">
+                <label class="form-check-label">
+                  Existe fluxos para fora do Território Nacional?
+                </label>
+                <buttom
+                  @click="changeTransfInter"
+                  type="button"
+                  class="btn btn-outline-primary"
+                  name="morada"
+                  id="moradasimbotton"
+                >
+                  {{ checkTransfInter ? "Não" : "Sim" }}
+                </buttom>
+              </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12" v-if="checkTransfInter">
+                <label for="formFile" class="form-label"
+                  >Listagem das entidades e respetivos países para onde há
+                  transmissão de dados e quais os dados transferidos. Se tiver
+                  mais do que uma entidade clique no botão verde para adicionar
+                  mais campos.
+                </label>
+                <div class="col-md-12">
+                  <button
+                    @click="addTransfInter()"
+                    alt="Adicionar mais campos"
+                    type="button"
+                    class="btn btn-success"
+                  >
+                    <b class="add"
+                      ><IconAwe class="icon-color" icon="plus"
+                    /></b>
+                  </button>
+                  <div class="col-md-12"><br /></div>
+
+                  <div
+                    class="row"
+                    v-for="(inter, index) in internacional"
+                    :key="index"
+                  >
+                    <div class="col-md-4">
+                      <input
+                        class="form-control"
+                        v-model="inter.entidadesInternacional"
+                        name="entidadesInternacional"
+                        id="entidadesInternacional"
+                        :placeholder="
+                          +(index + 1) +
+                          'ª- Entidade para onde os dados são transferidos '
+                        "
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="inter.paisTransferido"
+                        name="paisTransferido"
+                        id="paisTransferido"
+                        :placeholder="
+                          +(index + 1) + 'º- País de Transferência '
+                        "
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="inter.dadosTransferidos"
+                        name="dadosTransferidos"
+                        id="dadosTransferidos"
+                        :placeholder="'Quais os Dados que são transferidos '"
+                      />
+                    </div>
+
+                    <div class="col-md-1">
+                      <button
+                        @click="removeInter(index)"
+                        v-show="index != 0"
+                        type="button"
+                        class="btn btn-danger"
+                      >
+                        <b class="add"
+                          ><IconAwe class="icon-color" icon="trash-can"
+                        /></b>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  8.Exercício do direito de acesso
+                </div>
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <label class="form-check-label">
+                      Morada do local do exercício do direito de acesso é a
+                      mesma indicada em 1 ?
+                    </label>
+                    <buttom
+                      @click="changeDireitoAcesso"
+                      type="button"
+                      class="btn btn-outline-primary"
+                      name="morada"
+                      id="moradasimbotton"
+                    >
+                      {{ checkDireitoAcesso ? "Sim" : "Não" }}
+                    </buttom>
+                  </div>
+
+                  <div class="col-md-12" id="divg2" v-if="checkDireitoAcesso">
+                    <div class="col-md-12">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="ruaDireitoAcesso"
+                        id="ruaDireitoAcesso"
+                        placeholder=" Rua"
+                      />
+                    </div>
+                    <div class="col-md-12">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="caixaPostalDireitoAcesso"
+                        id="caixaPostalDireitoAcesso"
+                        placeholder=" Caixa Postal"
+                      />
+                    </div>
+                    <div class="col-md-12">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="localDireitoAcesso"
+                        id="localDireitoAcesso"
+                        placeholder=" Local - Cidade/Vila/Lugar/Zona"
+                      />
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col">
+                          <select
+                            class="form-select"
+                            v-model="ilhaDirAcess"
+                            name="ilhaDireitoAcesso"
+                            id="ilhaDireitoAcesso"
+                            for="ilhaDireitoAcesso"
+                            placeholder="- Seleciona uma ilha-"
+                          >
+                            <option :value="null">
+                              - selecione uma ilha -
+                            </option>
+                            <option
+                              v-for="option in ilhas"
+                              :key="option.value"
+                              :value="option.value"
+                            >
+                              {{ option.label }}
+                            </option>
+                          </select>
+                        </div>
+                        <div class="col">
+                          <select
+                            class="form-select"
+                            v-model="concelhoDirAcess"
+                            name="concelhoDireitoAcesso"
+                            id="concelhoDireitoAcesso"
+                            for="concelhoDireitoAcesso"
+                            placeholder="- Seleciona um concelho -"
+                          >
+                            <option :value="null">
+                              - selecione um concelho -
+                            </option>
+                            <option
+                              v-for="option in concelhos[ilhaDirAcess]"
+                              :key="option.value"
+                              :value="option.value"
+                            >
+                              {{ option.label }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12"><br /></div>
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col">
+                          <input
+                            type="email"
+                            class="form-control"
+                            name="emailDireitoAcesso"
+                            id="emailDireitoAcesso"
+                            placeholder="Entre o email da pessoa de contato: example@cnpd.cv"
+                          />
+                        </div>
+                        <div class="col">
+                          <input
+                            type="number"
+                            class="form-control"
+                            name="telefoneDireitoAcesso"
+                            id="telefoneDireitoAcesso"
+                            placeholder="Contato: Telefone/Telemovel"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  De que forma é exercido o direito de acesso?
+                </div>
+              </div>
               <div class="col">
                 <input
                   class="form-check-input"
@@ -1302,7 +1532,11 @@
                   name="formaDireitoAcesso"
                   id="formaDireitoAcesso"
                 />
-                <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
                   Presencial
                 </label>
               </div>
@@ -1314,7 +1548,11 @@
                   name="formaDireitoAcesso"
                   id="formaDireitoAcesso"
                 />
-                <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
                   Escrita
                 </label>
               </div>
@@ -1325,17 +1563,25 @@
                   name="outraFormaDireitoAcesso"
                   id="outraFormaDireitoAcesso"
                   placeholder=" Mencionar outras formas de direito de acesso, caso não for mencionado acima"
-                  ></textarea>
+                ></textarea>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-12" id="separacao">9. Medidas de segurança a implementar</div>
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  9. Medidas de segurança a implementar
+                </div>
+              </div>
               <div class="col-md-12">
-                <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
                   Especifique as medidas físicas de segurança do sistema:
                 </label>
                 <textarea
@@ -1347,7 +1593,11 @@
               </div>
               <div class="col-md-12"><br /></div>
               <div class="col-md-12">
-                <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
                   Especifique as medidas lógica de segurança do sistema:
                 </label>
                 <textarea
@@ -1359,12 +1609,17 @@
               </div>
             </div>
           </div>
-        </div> 
+        </div>
 
         <div class="col-md-12"><br /></div>
         <!-- FIM DE FORMS-->
         <div class="col-12" id="divsave">
-          <button id="buttonsave" value="Save" class="btn btn-primary" type="submit">
+          <button
+            id="buttonsave"
+            value="Save"
+            class="btn btn-primary"
+            type="submit"
+          >
             Submeter Dados
           </button>
         </div>
@@ -1374,20 +1629,20 @@
 </template>
 
 <script>
-import Multiselect from "@vueform/multiselect"; 
+import Multiselect from "@vueform/multiselect";
 export default {
   components: {
-    Multiselect, 
+    Multiselect,
   },
   data() {
     return {
       nomeDenominacao: "",
       checkMorada: false,
       checkServico: false,
-      checkServicoSR:false,
-      checkDireitoAcesso: false, 
-      checkComunicTerce:false,
-      checkTransfInter:false,
+      checkServicoSR: false,
+      checkDireitoAcesso: false,
+      checkComunicTerce: false,
+      checkTransfInter: false,
 
       /**********************************ATIVIDADE DESENVOLVIDA*********************************************** */
       atividadeDesenvolvida: [
@@ -1396,7 +1651,10 @@ export default {
           value: "Emprego (Selecção, fornecimento de recursos humanos)",
           label: "Emprego (Selecção, fornecimento de recursos humanos)",
         },
-        { value: "Segurança e Ordem pública", label: "Segurança e Ordem pública" },
+        {
+          value: "Segurança e Ordem pública",
+          label: "Segurança e Ordem pública",
+        },
         { value: "Produção da Água", label: "Produção da Água" },
         { value: "Telecomunicação", label: "Telecomunicação" },
         { value: "Segurança Privada", label: "Segurança Privada" },
@@ -1440,7 +1698,7 @@ export default {
           value: "Transporte (Aéreo, Marítimo, Terrestre)",
           label: "Transporte (Aéreo, Marítimo, Terrestre)",
         },
-      ], 
+      ],
 
       /** *********************ILHAS E CONCELHOS ************************************** */
       ilhaResp: null,
@@ -1466,7 +1724,6 @@ export default {
       concelhoMorRep: null,
       concelhoResp: null,
 
-
       concelhoServExtSR: null,
       ilhaServExtSR: null,
       ilhaRespSR: null,
@@ -1483,7 +1740,10 @@ export default {
         "São Vicente": [{ value: "São Vicente", label: "São Vicente" }],
         "São Nicolau": [
           { value: "Ribeira Brava", label: "Ribeira Brava" },
-          { value: "Tarrafal de São Nicolau", label: "Tarrafal de São Nicolau" },
+          {
+            value: "Tarrafal de São Nicolau",
+            label: "Tarrafal de São Nicolau",
+          },
         ],
         Sal: [{ value: "Sal", label: "Sal" }],
         "Boa Vista": [{ value: "Boa Vista", label: "Boa Vista" }],
@@ -1494,8 +1754,14 @@ export default {
           { value: "Santa Catarina", label: "Santa Catarina" },
           { value: "São Salvador do Mundo", label: "São Salvador do Mundo" },
           { value: "Santa Cruz", label: "Santa Cruz" },
-          { value: "São Lourenço dos Órgãos", label: "São Lourenço dos Órgãos" },
-          { value: "Ribeira Grande de Santiago", label: "Ribeira Grande de Santiago" },
+          {
+            value: "São Lourenço dos Órgãos",
+            label: "São Lourenço dos Órgãos",
+          },
+          {
+            value: "Ribeira Grande de Santiago",
+            label: "Ribeira Grande de Santiago",
+          },
           { value: "São Miguel", label: "São Miguel" },
           { value: "Tarrafal", label: "Tarrafal" },
         ],
@@ -1506,50 +1772,502 @@ export default {
         ],
         Brava: [{ value: "Brava", label: "Brava" }],
       },
+      /*****************************CATEGORIA E FINALIDADES DE TRATAMENTO************************************** */
+      selected: {},
+      finalidd: null,
+      categoria: null,
 
+      categorias: [
+        {
+          id: 1,
+          value: "Gestão contabilidade, fiscal e administrativa",
+          label: "Gestão contabilidade, fiscal e administrativa",
+        },
+        { id: 2, value: "Gravação de Chamadas", label: "Gravação de Chamadas" },
+        { id: 3, value: "Recursos Humanos", label: "Recursos Humanos" },
+        { id: 4, value: "Telecomunicações", label: "Telecomunicações" },
+        { id: 5, value: "Actividade Social", label: "Actividade Social" },
+        {
+          id: 6,
+          value: "Actividade Financeira, Creditícia e Seguradora",
+          label: "Actividade Financeira, Creditícia e Seguradora",
+        },
+        { id: 7, value: "Actividade Educativa", label: "Actividade Educativa" },
+        { id: 8, value: "Saúde", label: "Saúde" },
+        {
+          id: 9,
+          value: "Actividade Comercial e de Marketing",
+          label: "Actividade Comercial e de Marketing",
+        },
+      ],
+
+      finalidadesCategorias: {
+        "Gestão contabilidade, fiscal e administrativa": [
+          {
+            id: 1,
+            value: "Gestão fiscal",
+            label: "Gestão fiscal",
+          },
+          {
+            id: 1,
+            value: "Gestão administrativa",
+            label: "Gestão administrativa",
+          },
+          {
+            id: 1,
+            value: "Gestão de faturação",
+            label: "Gestão de faturação",
+          },
+          {
+            id: 1,
+            value: "Gestão de clientes",
+            label: "Gestão de clientes",
+          },
+          {
+            id: 1,
+            value: "Gestão de cobranças e pagamentos",
+            label: "Gestão de cobranças e pagamentos",
+          },
+          {
+            id: 1,
+            value: "Gestão de fornecedores",
+            label: "Gestão de fornecedores",
+          },
+          {
+            id: 1,
+            value: "Gestão de condomínios",
+            label: "Gestão de condomínios",
+          },
+          {
+            id: 1,
+            value: "Consultorias, auditorias e serviços relacionados",
+            label: "Consultorias, auditorias e serviços relacionados",
+          },
+          {
+            id: 1,
+            value: "Histórico de relações comerciais",
+            label: "Histórico de relações comerciais",
+          },
+        ],
+
+        "Gravação de Chamadas": [
+          {
+            id: 1,
+            value: "Gravação de chamadas na relação contratual",
+            label: "Gravação de chamadas na relação contratual",
+          },
+          {
+            id: 1,
+            value: "Gravação de chamadas de emergência",
+            label: "Gravação de chamadas de emergência",
+          },
+          {
+            id: 1,
+            value: "Gravação para monitorização da qualidade serviço",
+            label: "Gravação para monitorização da qualidade serviço",
+          },
+        ],
+        "Recursos Humanos": [
+          {
+            id: 1,
+            value: "Gestão de recursos humanos",
+            label: "Gestão de recursos humanos",
+          },
+          {
+            id: 2,
+            value: "Processamento de remuneração",
+            label: "Processamento de remuneração",
+          },
+          {
+            id: 3,
+            value: "Formação profissional",
+            label: "Formação profissional",
+          },
+          {
+            id: 4,
+            value: "Gestão de sanções disciplinar",
+            label: "Gestão de sanções disciplinar",
+          },
+          {
+            id: 5,
+            value: "Seleção de pessoal e recrutamento",
+            label: "Seleção de pessoal e recrutamento",
+          },
+          {
+            id: 6,
+            value: "Gestão de trabalho temporário",
+            label: "Gestão de trabalho temporário",
+          },
+          {
+            id: 7,
+            value: "Gestão de teletrabalho",
+            label: "Gestão de teletrabalho",
+          },
+          {
+            id: 8,
+            value: "Medicina no trabalho",
+            label: "Medicina no trabalho",
+          },
+          {
+            id: 9,
+            value: "Controlo de horário / assiduidade",
+            label: "Controlo de horário / assiduidade",
+          },
+          {
+            id: 10,
+            value: "Controlo de emails, acessos à internet e chamadas",
+            label: "Controlo de emails, acessos à internet e chamadas",
+          },
+          {
+            id: 11,
+            value: "Controlo de alcoolemia e produtos psicotrópicos",
+            label: "Controlo de alcoolemia e produtos psicotrópicos",
+          },
+          {
+            id: 12,
+            value: "Linhas de ática (Whistle blowing)",
+            label: "Linhas de ática (Whistle blowing)",
+          },
+          {
+            id: 13,
+            value: "Controlo por GPS/GSM/RFID",
+            label: "Controlo por GPS/GSM/RFID",
+          },
+        ],
+        Telecomunicações: [
+          {
+            id: 14,
+            value: "Gestão da faturação",
+            label: "Gestão da faturação",
+          },
+          {
+            id: 15,
+            value: "Retenção de dados de trafego/localização",
+            label: "Retenção de dados de trafego/localização",
+          },
+          {
+            id: 16,
+            value: "Gestão de contencioso",
+            label: "Gestão de contencioso",
+          },
+          {
+            id: 17,
+            value: "Gestão de pedidos interceção judiciais das comunicações",
+            label: "Gestão de pedidos interceção judiciais das comunicações",
+          },
+          {
+            id: 18,
+            value: "Gestão de pedidos da lei",
+            label: "Gestão de pedidos da lei",
+          },
+          {
+            id: 19,
+            value: "Gestão de pedidos de GPS",
+            label: "Gestão de pedidos da GPS",
+          },
+        ],
+        "Actividade Social": [
+          {
+            id: 20,
+            value: "Gestão de utentes",
+            label: "Gestão de utentes",
+          },
+          {
+            id: 21,
+            value: "Gestão de apoio domiciliário",
+            label: "Gestão de apoio domiciliário",
+          },
+          {
+            id: 22,
+            value: "Atribuição ou prestação de sociais",
+            label: "Atribuição ou prestação de sociais",
+          },
+          {
+            id: 23,
+            value: "Gestão de linhas telefónicas de apoio ",
+            label: "Gestão de linhas telefónicas de apoio ",
+          },
+        ],
+        "Actividade Financeira, Creditícia e Seguradora": [
+          {
+            id: 24,
+            value: "Gestão de clientes",
+            label: "Gestão de clientes",
+          },
+          {
+            id: 25,
+            value: "Avaliação de risco de crédito",
+            label: "Avaliação de risco de crédito",
+          },
+          {
+            id: 26,
+            value: "Titularização de créditos",
+            label: "Titularização de créditos",
+          },
+          {
+            id: 27,
+            value: "Cessão de créditos ",
+            label: "Cessão de créditos ",
+          },
+          {
+            id: 28,
+            value: "Prospecção das opções de crédito ",
+            label: "Prospecção das opções de crédito ",
+          },
+          {
+            id: 29,
+            value: "Gestão de créditos extrajudiciais ",
+            label: "Gestão de créditos extrajudiciais ",
+          },
+          {
+            id: 30,
+            value: "Informação e negócios",
+            label: "Informação e negócios",
+          },
+          {
+            id: 31,
+            value: "Gestão de seguros de vida",
+            label: "Gestão de seguros de vida",
+          },
+          {
+            id: 32,
+            value: "Gestão de seguros de não vida",
+            label: "Gestão de seguros de  não vida",
+          },
+          {
+            id: 33,
+            value: "Gestão de seguros automóveis",
+            label: "Gestão de seguros automóveis",
+          },
+          {
+            id: 34,
+            value: "Gestão de seguros de acidentes pessoais",
+            label: "Gestão de seguros de acidentes pessoais",
+          },
+          {
+            id: 35,
+            value: "Gestão de seguros de acidentes de trabalho",
+            label: "Gestão de seguros de acidentes de trabalho",
+          },
+          {
+            id: 36,
+            value: "Gestão de seguros de acidentes de outra natureza",
+            label: "Gestão de seguros de acidentes de outra natureza",
+          },
+          {
+            id: 37,
+            value: "Mediação de seguros",
+            label: "Mediação de seguros",
+          },
+          {
+            id: 38,
+            value: "Resseguros",
+            label: "Resseguros",
+          },
+        ],
+        "Actividade Educativa": [
+          {
+            id: 39,
+            value: "Gestão de alunos",
+            label: "Gestão de alunos",
+          },
+          {
+            id: 40,
+            value: "Gestão de docentes",
+            label: "Gestão de docentes",
+          },
+          {
+            id: 41,
+            value: "Promoção e inserção na vida profissional",
+            label: "Promoção e inserção na vida profissional",
+          },
+          {
+            id: 42,
+            value: "Gestão de apoios sociais ",
+            label: "Gestão de apoios sociais ",
+          },
+          {
+            id: 43,
+            value: "Gestão de sites escolares ",
+            label: "Gestão de sites escolares",
+          },
+        ],
+        Saúde: [
+          {
+            id: 44,
+            value: "Gestão de processos clínicos",
+            label: "Gestão de processos clínicos",
+          },
+          {
+            id: 45,
+            value: "Prescrição medicamentos electrónica",
+            label: "Prescrição medicamentos electrónica",
+          },
+          {
+            id: 46,
+            value: "Gestão administrativa de utentes",
+            label: "Gestão administrativa de utentes",
+          },
+          {
+            id: 47,
+            value: "Etudos clínicos observacionais(não intervencionais) ",
+            label: "Etudos clínicos observacionais(não intervencionais)",
+          },
+          {
+            id: 48,
+            value: "Ensaios clínicos (intervencionais)",
+            label: "Ensaios clínicos (intervencionais)",
+          },
+          {
+            id: 49,
+            value: "Farmacovigilância",
+            label: "Farmacovigilância",
+          },
+          {
+            id: 50,
+            value: "Gestão de utentes de farmácia",
+            label: "Gestão de utentes de farmácia",
+          },
+          {
+            id: 51,
+            value: "Sistema de apoio à prática de enfermagem",
+            label: "Sistema de apoio à prática de enfermagem",
+          },
+        ],
+        "Actividade Comercial e de Marketing": [
+          {
+            id: 52,
+            value: "Marketing",
+            label: "Marketing",
+          },
+          {
+            id: 53,
+            value: "Sondagem e inquéiritos de opinião",
+            label: "Sondagem e inquéiritos de opinião",
+          },
+          {
+            id: 54,
+            value: "Analise e perfis de consumo",
+            label: "Analise e perfis de consumo",
+          },
+          {
+            id: 55,
+            value: "Gestão de clientes ",
+            label: "Gestão de clientes ",
+          },
+          {
+            id: 56,
+            value: "Fidelização de clientes ",
+            label: "Fidelização de clientes",
+          },
+          {
+            id: 57,
+            value: "Registro de utilizadores em site da internet ",
+            label: "Registro de utilizadores em site da internet",
+          },
+        ],
+      },
       /** **************************ADD COMUNICACACO A TERCEIROS********************************* */
       comunicacao: [
         {
-        condicoesComunicacao: "", 
-        entidadesComunicadas:"",
+          condicoesComunicacao: "",
+          entidadesComunicadas: "",
         },
       ],
+      /** *************************TRANSFERENCIA INTERNACIONAL********************************* */
 
       internacional: [
         {
-        dadosTransferidos: "", 
-        entidadesInternacional:"",
-        paisTransferido:"",
-
+          dadosTransferidos: "",
+          entidadesInternacional: "",
+          paisTransferido: "",
+        },
+      ],
+      /************************************CATEGORIA DE FINALIDADE*********************************** */
+      finalidadiCategory: [
+        {
+          categoria: "",
+          finalidadesCategorias: "",
         },
       ],
 
-      /****************************************************** */
+      /********************************DADOS PESSOAIS TRATADOS**********************************************/
+      dadosPessoaisTratado: null,
+      dadospessoaisTratados: [
+        {
+          value: "Convicções ou filiação partidária ou sindical, fé religiosa",
+          label: "Convicções ou filiação partidária ou sindical, fé religiosa",
+        },
+        {
+          value: "Convicções filosóficas ou ideológicas",
+          label: "Convicções filosóficas ou ideológicas",
+        },
+        { value: "Origem racial ou étnica", label: "Origem racial ou étnica" },
+        { value: "Vida Privada", label: "Vida Privada" },
+        {
+          value: "Dados da saúde, vida sexual ou genéticos",
+          label: "Dados da saúde, vida sexual ou genéticos",
+        },
+        {
+          value: "Suspeitas de atividades ilícitas",
+          label: "Suspeitas de atividades ilícitas",
+        },
+        { value: "Condenações penais", label: "Condenações penais" },
+        {
+          value: "Decisões que apliquem medidas de segurança",
+          label: "Decisões que apliquem medidas de segurança",
+        },
+        {
+          value: "Coímas, sansões acessórias",
+          label: "Coímas, sansões acessórias",
+        },
+        {
+          value: "Infrações penais e Contra-ordenações",
+          label: "Infrações penais e Contra-ordenações",
+        },
+        {
+          value:
+            "Outros dados referentes ao art. 8º e 11º da lei nº.121/IX/2021 de 17 de março",
+          label:
+            "Outros dados referentes ao art. 8º e 11º da lei nº.121/IX/2021 de 17 de março",
+        },
+      ],
+      /**************************************************************************************************** */
     };
   },
 
   methods: {
-    addMore() {
+    addComunicTerce() {
       this.comunicacao.push({
         condicoesComunicacao: "",
         entidadesComunicadas: "",
       });
     },
-    remove(index) {
+    removeComunic(index) {
       this.comunicacao.splice(index, 1);
     },
-    addMore1() {
+    /*TRANSFER INTERNACIONAL*/
+    addTransfInter() {
       this.internacional.push({
-        dadosTransferidos: "", 
-        entidadesInternacional:"",
-        paisTransferido:"",
+        dadosTransferidos: "",
+        entidadesInternacional: "",
+        paisTransferido: "",
       });
     },
-    remove1(index) {
+    removeInter(index) {
       this.internacional.splice(index, 1);
     },
+    /*FINALIDADES MULTIPLAS*/
 
-
+    addFinalidd() {
+      this.finalidadiCategory.push({
+        categoria: "",
+        finalidadesCategorias: "",
+      });
+    },
+    removeFinalidd(index) {
+      this.finalidadiCategory.splice(index, 1);
+    },
     changeServico() {
       this.checkServico = !this.checkServico;
     },
@@ -1559,20 +2277,31 @@ export default {
     changeDireitoAcesso() {
       this.checkDireitoAcesso = !this.checkDireitoAcesso;
     },
- 
+
     changeComunicTerce() {
       this.checkComunicTerce = !this.checkComunicTerce;
     },
     changeTransfInter() {
       this.checkTransfInter = !this.checkTransfInter;
     },
-    
-  }, 
+  },
+
+  watch: {
+    categoria() {
+      this.finalidd = null;
+    },
+    tipoVideo() {
+      this.zona = null;
+    },
+  },
 };
 </script>
 
 <style>
-.add{
+#cambs {
+  margin-top: 5px;
+}
+.add {
   font-size: 16px;
   font-family: verdana;
 }
@@ -1971,7 +2700,8 @@ button#buttonsave:focus {
   background: var(--ms-dropdown-bg, #fff);
   border: var(--ms-dropdown-border-width, 1px) solid
     var(--ms-dropdown-border-color, #061536);
-  border-radius: 0 0 var(--ms-dropdown-radius, 4px) var(--ms-dropdown-radius, 4px);
+  border-radius: 0 0 var(--ms-dropdown-radius, 4px)
+    var(--ms-dropdown-radius, 4px);
   bottom: 0;
   display: flex;
   flex-direction: column;
@@ -1987,7 +2717,8 @@ button#buttonsave:focus {
   z-index: 100;
 }
 .multiselect-dropdown.is-top {
-  border-radius: var(--ms-dropdown-radius, 4px) var(--ms-dropdown-radius, 4px) 0 0;
+  border-radius: var(--ms-dropdown-radius, 4px) var(--ms-dropdown-radius, 4px) 0
+    0;
   bottom: auto;
   top: var(--ms-border-width, 1px);
   transform: translateY(-100%);
@@ -2126,8 +2857,8 @@ button#buttonsave:focus {
 [dir="rtl"] .multiselect-tag {
   margin-left: var(--ms-tag-mx, 0.25rem);
   margin-right: 0;
-  padding: var(--ms-tag-py, 0.125rem) var(--ms-tag-px, 0.5rem) var(--ms-tag-py, 0.125rem)
-    0;
+  padding: var(--ms-tag-py, 0.125rem) var(--ms-tag-px, 0.5rem)
+    var(--ms-tag-py, 0.125rem) 0;
 }
 [dir="rtl"] .multiselect-tag.is-disabled {
   padding-left: var(--ms-tag-px, 0.5rem);
@@ -2278,9 +3009,10 @@ button#buttonsave:focus {
   background: #fff;
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
-  -webkit-transition-property: border-color, box-shadow, width, height, background-color,
+  -webkit-transition-property: border-color, box-shadow, width, height,
+    background-color, opacity;
+  transition-property: border-color, box-shadow, width, height, background-color,
     opacity;
-  transition-property: border-color, box-shadow, width, height, background-color, opacity;
   -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
@@ -2348,7 +3080,8 @@ button#buttonsave:focus {
 .vue-treeselect__single-value {
   color: #333;
 }
-.vue-treeselect--focused.vue-treeselect--searchable .vue-treeselect__single-value {
+.vue-treeselect--focused.vue-treeselect--searchable
+  .vue-treeselect__single-value {
   color: #061536;
   /*aquiii */
 }
@@ -2534,7 +3267,8 @@ button#buttonsave:focus {
   color: #ccc;
   -webkit-animation: vue-treeselect-animation-fade-in 0.2s
     cubic-bezier(0.075, 0.82, 0.165, 1);
-  animation: vue-treeselect-animation-fade-in 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: vue-treeselect-animation-fade-in 0.2s
+    cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .vue-treeselect__x-container:hover {
   color: #e53935;
@@ -2954,7 +3688,8 @@ button#buttonsave:focus {
 .vue-treeselect__checkbox--checked,
 .vue-treeselect__checkbox--indeterminate,
 .vue-treeselect__label-container:hover .vue-treeselect__checkbox--checked,
-.vue-treeselect__label-container:hover .vue-treeselect__checkbox--indeterminate {
+.vue-treeselect__label-container:hover
+  .vue-treeselect__checkbox--indeterminate {
   border-color: #061536;
   background: #061536;
 }
