@@ -10,59 +10,18 @@
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
-              <div class="col-md-4 col-lg-4">
-                <div class="icon-box" style="">
-                  <input
-                    class="form-check-input"
-                    value="1ª Notificação"
-                    type="radio"
-                    name="tipoNotificacao"
-                    id="tipoNotificacao"
-                  />
-                  <label
-                    id="labelleft"
-                    class="form-check-label"
-                    for="tipoNotificacao"
-                  >
-                    1ª Notificação
-                  </label>
-                </div>
+              <div class="col-md-2">
+                <label id="labelleft" for="TipoNot" class="form-label"
+                  >Tipo Notificação</label> 
               </div>
-              <div class="col-md-4 col-lg-4">
-                <div class="icon-box">
-                  <input
-                    class="form-check-input"
-                    value="Alteração"
-                    type="radio"
-                    name="tipoNotificacao"
-                    id="tipoNotificacao"
-                  />
-                  <label
-                    id="labelleft"
-                    class="form-check-label"
-                    for="tipoNotificacao"
-                  >
-                    Alteração
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-4 col-lg-4">
-                <div class="icon-box">
-                  <input
-                    class="form-check-input"
-                    value=" Substituição da Notificação não autorizada"
-                    type="radio"
-                    name="tipoNotificacao"
-                    id="tipoNotificacao"
-                  />
-                  <label
-                    id="labelleft"
-                    class="form-check-label"
-                    for="tipoNotificacao"
-                  >
-                    Substituição da Notificação não autorizada
-                  </label>
-                </div>
+              <div class="col-md-10">
+                <Multiselect
+                  v-model="TipoNot"
+                  name="TipoNot"
+                  id="TipoNot"
+                  placeholder="- selecione o tipo de Notificação -"
+                  :options="TipoNotf"
+                />
               </div>
             </div>
           </div>
@@ -1643,6 +1602,15 @@ export default {
       checkDireitoAcesso: false,
       checkComunicTerce: false,
       checkTransfInter: false,
+
+       /**************************TIPO NOTIFICACAO *********************************** */
+       tipoNot:null,
+      TipoNotf: [
+        { value: "1ª Notificação", label: "1ª Notificação" },
+        { value: "Alteração", label: "Alteração" },
+        { value: "Substituição da Notificação não autorizada", label: "Substituição da Notificação não autorizada" }, 
+      ],
+
 
       /**********************************ATIVIDADE DESENVOLVIDA*********************************************** */
       atividadeDesenvolvida: [

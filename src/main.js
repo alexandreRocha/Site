@@ -12,6 +12,8 @@
  import 'vue-universal-modal/dist/index.css'
 import VueUniversalModal from 'vue-universal-modal'
 
+import { useVuelidate } from '@vuelidate/core'
+
 
 
  
@@ -21,6 +23,7 @@ import VueUniversalModal from 'vue-universal-modal'
  createApp(App)
      .component('IconAwe', FontAwesomeIcon)
      .use(router) 
+     .use(useVuelidate) 
      .use(VueUniversalModal, {
         teleportTarget: '#my-modals',
         modalComponent: 'MyModal',

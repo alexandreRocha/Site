@@ -10,69 +10,30 @@
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
-              <div class="col-md-4 col-lg-4">
-                <div class="icon-box" style="">
-                  <input
-                    class="form-check-input"
-                    value="1ª Notificação"
-                    type="radio"
-                    name="tipoNotificacao"
-                    id="tipoNotificacao"
-                  />
-                  <label
-                    id="labelleft"
-                    class="form-check-label"
-                    for="tipoNotificacao"
-                  >
-                    1ª Notificação
-                  </label>
-                </div>
+              <div class="col-md-2">
+                <label id="labelleft" for="TipoNot" class="form-label"
+                  >Tipo Notificação</label
+                >
               </div>
-              <div class="col-md-4 col-lg-4">
-                <div class="icon-box">
-                  <input
-                    class="form-check-input"
-                    value="Alteração"
-                    type="radio"
-                    name="tipoNotificacao"
-                    id="tipoNotificacao"
-                  />
-                  <label
-                    id="labelleft"
-                    class="form-check-label"
-                    for="tipoNotificacao"
-                  >
-                    Alteração
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-4 col-lg-4">
-                <div class="icon-box">
-                  <input
-                    class="form-check-input"
-                    value=" Substituição da Notificação não autorizada"
-                    type="radio"
-                    name="tipoNotificacao"
-                    id="tipoNotificacao"
-                  />
-                  <label
-                    id="labelleft"
-                    class="form-check-label"
-                    for="tipoNotificacao"
-                  >
-                    Substituição da Notificação não autorizada
-                  </label>
-                </div>
+              <div class="col-md-10">
+                <Multiselect
+                  v-model="TipoNot"
+                  name="TipoNot"
+                  id="TipoNot"
+                  placeholder="- selecione o tipo de Notificação -"
+                  :options="TipoNotf"
+                />
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-12" id="separacao">
-          1. Responsável pelo Tratamento
-        </div>
+
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">
+                1. Responsável pelo Tratamento
+              </div>
               <div class="col">
                 <input
                   class="form-check-input"
@@ -396,10 +357,13 @@
         </div>
 
         <!---- ----------------- Processamento da informação--------------------------------------------------------------------->
-        <div class="col-md-12" id="separacao">Processamento da informação</div>
         <div class="col" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">
+                Processamento da informação
+              </div>
+
               <div class="col">
                 <label class="form-check-label">
                   Existe um Serviço Externo encarregado do processamento ?
@@ -511,17 +475,17 @@
               <div class="col-md-12"><br /></div>
               <div class="col-md-12">
                 <div class="col-md-12" id="separacao1">
-                  Indique a(s) finalidade(s) do tratamento de dados 
-                </div> 
-                  <treeselect
+                  Indique a(s) finalidade(s) do tratamento de dados
+                </div>
+                <treeselect
                   :multiple="true"
                   :options="finalidadesTratamento"
                   :disable-branch-nodes="true"
                   placeholder="- Selecione as finalidades - "
                   v-model="finalidade"
                   search-nested
-                  />
-                 
+                />
+
                 <!--<pre class="language-json"><code>{{finalidade}}</code></pre>-->
               </div>
 
@@ -549,8 +513,8 @@
                   placeholder="- Selecione os dados tratados - "
                   v-model="outrosDadosTratado"
                   search-nested
-                  />
-                 
+                />
+
                 <!--<pre class="language-json"><code>{{outrosDadosTratado}}</code></pre>-->
               </div>
               <div class="col-md-12"><br /></div>
@@ -558,12 +522,12 @@
           </div>
         </div>
 
-        <div class="col-md-12" id="separacao">
-          3.Exercício do direito de acesso
-        </div>
         <div class="col" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">
+                3.Exercício do direito de acesso
+              </div>
               <div class="col">
                 <label class="form-check-label">
                   Morada do local do exercício do direito de acesso é a mesma
@@ -679,13 +643,12 @@
           </div>
         </div>
 
-        <div class="col-md-12" id="separacao">
-          De que forma é exercido o direito de acesso?
-        </div>
-
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">
+                De que forma é exercido o direito de acesso?
+              </div>
               <div class="col">
                 <input
                   class="form-check-input"
@@ -730,12 +693,13 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12" id="separacao">
-          4. Medidas de segurança a implementar
-        </div>
+
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">
+                4. Medidas de segurança a implementar
+              </div>
               <div class="col-md-12">
                 <label
                   id="labelleft"
@@ -770,12 +734,13 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12" id="separacao">
-          5. Representante dos trabalhadores
-        </div>
+
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
+              <div class="col-md-12" id="separacao">
+                5. Representante dos trabalhadores
+              </div>
               <div class="col-md-12">
                 <div class="col">
                   <label class="form-check-label">
@@ -839,6 +804,17 @@ export default {
       checkServico: false,
       checkDireitoAcesso: false,
       checkRepTrab: false,
+
+      /**************************TIPO NOTIFICACAO *********************************** */
+      tipoNot: null,
+      TipoNotf: [
+        { value: "1ª Notificação", label: "1ª Notificação" },
+        { value: "Alteração", label: "Alteração" },
+        {
+          value: "Substituição da Notificação não autorizada",
+          label: "Substituição da Notificação não autorizada",
+        },
+      ],
 
       /**********************************ATIVIDADE DESENVOLVIDA*********************************************** */
       atividadeDesenvolvida: [
@@ -963,12 +939,12 @@ export default {
           label: "Outros dados para gestão de frota em serviço externo:",
           children: [
             {
-              id:1,
+              id: 1,
               value: "Dados letaivos ao serviço a prestar",
               label: "Dados letaivos ao serviço a prestar",
             },
             {
-              id:2,
+              id: 2,
               value: "Dados relativos à carga transportada",
               label: "Dados relativos à carga transportada",
             },
@@ -980,22 +956,22 @@ export default {
             "Outros dados para proteção de pessoas e carga de materiais perigosos",
           children: [
             {
-              id:3,
+              id: 3,
               value: "Dados relativos ao transsporte",
               label: "Dados relativos ao transsporte",
             },
             {
-              id:4,
+              id: 4,
               value: "Percurso previsto",
               label: "Percurso previsto",
             },
             {
-              id:5,
+              id: 5,
               value: "Carga transportada",
               label: "Carga transportada",
             },
             {
-              id:6,
+              id: 6,
               value: "Procedimentos de segurança e/ou emergência adotados",
               label: "Procedimentos de segurança e/ou emergência adotados",
             },
@@ -1006,27 +982,27 @@ export default {
           label: "Outros dados para a proteção de carga de materiais de valor:",
           children: [
             {
-              id:7,
+              id: 7,
               value: "Caraterśticas da viatura",
               label: "Caraterśticas da viatura",
             },
             {
-              id:8,
+              id: 8,
               value: "Dados relativos ao transporte",
               label: "Dados relativos ao transporte",
             },
             {
-              id:9,
+              id: 9,
               value: "Percurso previsto",
               label: "Percurso previsto",
             },
             {
-              id:10,
+              id: 10,
               value: "Carga transportada",
               label: "Carga transportada",
             },
             {
-              id:11,
+              id: 11,
               value: "Procedimentos de segurança e/ou emergência adotados",
               label: "Procedimentos de segurança e/ou emergência adotados",
             },

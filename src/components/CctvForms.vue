@@ -1,7 +1,7 @@
 <template>
   <section id="cctv" class="cctv">
     <div class="container">
-      <form>
+      <form id="submit-form">
         <!-- FORMS CCTV-->
         <div class="section-title">
           <h2>NOTIFICAÇÃO DE VIDEOVIGILÂNCIA</h2>
@@ -22,10 +22,23 @@
                 />
               </div>
               <div class="col">
+                <label id="labelleft" for="TipoNot" class="form-label"
+                  >Tipo Notificação</label> 
+                      <Multiselect
+                  v-model="TipoNot"
+                  name="TipoNot"
+                  id="TipoNot"
+                  placeholder="- selecione o tipo de Notificação -"
+                  :options="TipoNotf"
+                />
+              </div>
+              <div class="col">
                 <label id="labelleft" for="tipoVideovigilancia" class="form-label"
                   >Tipo Videovigilância</label
                 >
-                <select v-model="tipoVideo"
+                <select 
+                v-model.trim="tipoVideo"
+                v-model="tipoVideo"
                         class="form-select" 
                         name="tipoVideovigilancia"
                         id="tipoVideovigilancia"
@@ -49,55 +62,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12"></div>
-        <div class="col-md-12" id="divg">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4 col-lg-4">
-                <div class="icon-box" style="">
-                  <input
-                    class="form-check-input"
-                    value="1ª Notificação"
-                    type="radio"
-                    name="tipoNotificacao"
-                    id="tipoNotificacao"
-                  />
-                  <label id="labelleft" class="form-check-label" for="tipoNotificacao">
-                    1ª Notificação
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-4 col-lg-4">
-                <div class="icon-box">
-                  <input
-                    class="form-check-input"
-                    value="Alteração"
-                    type="radio"
-                    name="tipoNotificacao"
-                    id="tipoNotificacao"
-                  />
-                  <label id="labelleft" class="form-check-label" for="tipoNotificacao">
-                    Alteração
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-4 col-lg-4">
-                <div class="icon-box">
-                  <input
-                    class="form-check-input"
-                    value=" Substituição da Notificação não autorizada"
-                    type="radio"
-                    name="tipoNotificacao"
-                    id="tipoNotificacao"
-                  />
-                  <label id="labelleft" class="form-check-label" for="tipoNotificacao">
-                    Substituição da Notificação não autorizada
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="col-md-12"></div> 
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
@@ -896,7 +861,7 @@
         <div class="col-md-12"><br /></div>
         <!-- FIM DE FORMS-->
         <div class="col-12" id="divsave">
-          <button id="buttonsave" value="Save" class="btn btn-primary" type="submit">
+          <button id="buttonsave" class="btn btn-primary" type="submit">
             Submeter Dados
           </button>
         </div>
@@ -915,6 +880,9 @@ export default {
   data() {
     return {
       nomeDenominacao: "",
+
+
+
       checkMorada: false,
       checkMorada1: true,
       checkServico: false,
@@ -922,6 +890,14 @@ export default {
       checkTransmissao: false,
       checkDireitoAcesso: false,
       checkRepTrab: false,
+
+      /**************************TIPO NOTIFICACAO *********************************** */
+      tipoNot:null,
+      TipoNotf: [
+        { value: "1ª Notificação", label: "1ª Notificação" },
+        { value: "Alteração", label: "Alteração" },
+        { value: "Substituição da Notificação não autorizada", label: "Substituição da Notificação não autorizada" }, 
+      ],
 
       /**********************************ATIVIDADE DESENVOLVIDA*********************************************** */
       atividadeDesenvolvida: [
