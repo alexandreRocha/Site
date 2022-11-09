@@ -297,7 +297,7 @@
                         :value="option.value"
                       >
                         {{ option.label }}
-                      </option>s
+                      </option>
                     </select>
                           </div> 
                         </div> 
@@ -456,58 +456,373 @@
             </div>
           </div>
         </div>
-                    
-                    
-                    <div class="col-md-12" id="separacao">
-                4. Forma de armazenamento do dado biométrico   
-              </div>
-              <div class="col-md-12" id="divg">
-                     <div class="row">  
-                      
-                      <div class="col">  
-                        
-                        <Multiselect
-                        v-model="value"
-                        name="formasRegistro" 
-                        id="formasRegistros"
-                        placeholder="-formas de registro -"
-                        mode="tags"
-                        :close-on-select="false"
-                        :searchable="true"
-                        :create-option="true"
-                        :options="formasRegistro"
-                      />
-                          
-                      </div> 
-                      <div class="col-md-12"><br></div>
+                     <!--    ***************************************** RECOLHA DE DADOS****************** -->
+
+            <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  4. Recolha de Dados
                 </div>
-                    </div>
-                     <div class="col-md-12" id="separacao">
-               5. Tratamento da informação  
               </div>
-              <div class="col-md-12" id="divg">
-                     <div class="row">  
-                      
-                      <div class="col">  
-                        
-                        <Multiselect
-                        v-model="value"
-                        name=" tratamentoInfo" 
-                        id=" tratamentoInfo"
-                        placeholder="-de que forma a informação é tratada -"
-                        mode="tags"
-                        :close-on-select="false"
-                        :searchable="true"
-                        :create-option="true"
-                        :options=" tratamentoInfo"
-                      />
-                          
-                      </div> 
-                      <div class="col-md-12"><br></div>
+             <div class="col-md-6">
+               
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
+                 Recolha direta
+                </label>
+                <Multiselect
+                  v-model="recolhaDireta"
+                  :options="recolhaDiretas"
+                  mode="tags"
+                  placeholder="- selecione os dados pessoais tratados -"
+                  :close-on-select="true"
+                  :searchable="true"
+                  :object="true"
+                  :multiple="true"
+                />
+              </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
+                 URL
+                </label>
+                <input
+                  class="form-control"
+                  name="url"
+                  id="url"
+                  placeholder=" introduza aqui a URL de recolha "
+                >
+                <div class="col-md-12"><br /></div>
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
+                 Descreve a outra forma de recolha direta
+                </label>
+                <textarea
+                  class="form-control"
+                  name="listaDadosPessoaisTratados"
+                  id="listaDadosPessoaisTratados"
+                  placeholder=" Descreve a outra forma de recolha direta"
+                ></textarea>
+              </div>
+             </div>
+             <div class="col-md-6">
+              <div class="col-md-12"><br /></div>
+              <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
+                 Descreve a outra forma de recolha direta
+                </label>
+                <textarea
+                  class="form-control"
+                  name="listaDadosPessoaisTratados"
+                  id="listaDadosPessoaisTratados"
+                  placeholder=" Descreve a outra forma de recolha direta"
+                  rows="10"
+                ></textarea>
+             </div>
+            </div>
+          </div>
+        </div>
+                   
+              <!---- ----------------- Comunicaçao dos dados a terceiros-------------------------------------------------------------------->
+
+        <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  5. Comunicação dos Dados a terceiros 
                 </div>
+              </div>
+              <div class="col">
+                <label class="form-check-label">
+                  Existe comunicação de dados a terceiros?
+                </label>
+                <buttom
+                  @click="changeComunicTerce"
+                  type="button"
+                  class="btn btn-outline-primary"
+                  name="morada"
+                  id="moradasimbotton"
+                >
+                  {{ checkComunicTerce ? "Não" : "Sim" }}
+                </buttom>
+              </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12" v-if="checkComunicTerce">
+                <label for="formFile" class="form-label"
+                  >Se sim, indique as entidades a quem são comunicados os dados
+                  e motivos da comunicação. Se tiver mais do que uma entidade
+                  clique no botão verde para adicionar mais campos.
+                </label>
+                <div class="col-md-12">
+                  <button
+                    @click="addComunicTerce()"
+                    alt="Adicionar mais campos"
+                    type="button"
+                    class="btn btn-success"
+                  >
+                    <b class="add"
+                      ><IconAwe class="icon-color" icon="plus"
+                    /></b>
+                  </button>
+                  <div class="col-md-12"><br /></div>
+
+                  <div
+                    class="row"
+                    v-for="(comunica, index) in comunicacao"
+                    :key="index"
+                  >
+                    <div class="col-md-4">
+                      <input
+                        class="form-control"
+                        v-model="comunica.entidadesComunicadas"
+                        name="entidadesComunicadas"
+                        id="entidadesComunicadas"
+                        :placeholder="
+                          +(index + 1) +
+                          'ª- Entidade para onde os dados são comunicados '
+                        "
+                      />
                     </div>
+                    <div class="col-md-4">
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="comunica.condicoesComunicacao"
+                        name="condicoesComunicacao"
+                        id="condicoesComunicacao"
+                        :placeholder="'Quais  as condições de comunicação '"
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <input
+                        class="form-control"
+                        v-model="comunica.dadosTrasnferidos"
+                        name="dadosComunicadas"
+                        id="dadosComunicadas"
+                        :placeholder="
+                          +(index + 1) +
+                          '- dados transferidos '
+                        "
+                      />
+                    </div>
+                    <div class="col-md-1">
+                      <button
+                        @click="removeComunic(index)"
+                        v-show="index != 0"
+                        type="button"
+                        class="btn btn-danger"
+                      >
+                        <b class="add"
+                          ><IconAwe class="icon-color" icon="trash-can"
+                        /></b>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+
+        <!--    ************** INTERCONEXOES  -->
+
+
+             <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  6. Interconexões 
+                </div>
+              </div>
+             
+              
+             
+              <div class="col-md-12">
+                
+                
+                <div class="col-md-12"><br /></div>
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="descreverFinalidade"
+                >
+                  Interconexões de tratamentos
+                </label>
+                <textarea
+                  class="form-control"
+                  name="descreverFinalidade"
+                  id="descreverFinalidade"
+                  placeholder=" descreve a finalidade, tipos de dados objeto de interconexão e os responsáveis pelo tratamento"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---- ----------------- Transferencia internacional dos dados-------------------------------------------------------------------->
+
+        <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  7. Fluxos internacionais de dados para outros países (primeira
+                  entidade de interconexão)
+                </div>
+              </div>
+              <div class="col">
+                <label class="form-check-label">
+                  Existe fluxos para fora do Território Nacional?
+                </label>
+                <buttom
+                  @click="changeTransfInter"
+                  type="button"
+                  class="btn btn-outline-primary"
+                  name="morada"
+                  id="moradasimbotton"
+                >
+                  {{ checkTransfInter ? "Não" : "Sim" }}
+                </buttom>
+              </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12" v-if="checkTransfInter">
+                <label for="formFile" class="form-label"
+                  >Listagem das entidades e respetivos países para onde há
+                  transmissão de dados e quais os dados transferidos. Se tiver
+                  mais do que uma entidade clique no botão verde para adicionar
+                  mais campos.
+                </label>
+                <div class="col-md-12">
+                  <button
+                    @click="addTransfInter()"
+                    alt="Adicionar mais campos"
+                    type="button"
+                    class="btn btn-success"
+                  >
+                    <b class="add"
+                      ><IconAwe class="icon-color" icon="plus"
+                    /></b>
+                  </button>
+                  <div class="col-md-12"><br /></div>
+
+                  <div
+                    class="row"
+                    v-for="(inter, index) in internacional"
+                    :key="index"
+                  >
+                    <div class="col-md-3">
+                      <input
+                        class="form-control"
+                        v-model="inter.entidadesInternacional"
+                        name="entidadesInternacional"
+                        id="entidadesInternacional"
+                        :placeholder="
+                          +(index + 1) +
+                          'ª- Entidade para onde os dados são transferidos '
+                        "
+                      />
+                    </div>
+                    <div class="col-md-2">
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="inter.paisTransferido"
+                        name="paisTransferido"
+                        id="paisTransferido"
+                        :placeholder="
+                          +(index + 1) + 'º- País de Transferência '
+                        "
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="inter.dadosTransferidos"
+                        name="dadosTransferidos"
+                        id="dadosTransferidos"
+                        :placeholder="' dados  transferidos '"
+                      />
+                    </div>
+                     <div class="col-md-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="inter.fundamento"
+                        name="fundamento"
+                        id="fundamento"
+                        :placeholder="'fundamento '"
+                      />
+                    </div>
+
+                    <div class="col-md-1">
+                      <button
+                        @click="removeInter(index)"
+                        v-show="index != 0"
+                        type="button"
+                        class="btn btn-danger"
+                      >
+                        <b class="add"
+                          ><IconAwe class="icon-color" icon="trash-can"
+                        /></b>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <!---- ----------------- Prazo conservacao dos dados-------------------------------------------------------------------->
+
+        <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  8. Prazo máximo de conservação dos Dados pessoais 
+                </div>
+              </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-4">
+                <label class="form-check-label">
+                  Qual o prazo máximo de conservação dos dados?
+                </label>
+              </div>
+              <div class="col-md-8">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="prazoConserva"
+                  id="caixaPostalPrprazoConservaocessInfoSR"
+                  placeholder=" Indique por quanto tempo os dados serão conservados"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+                
+            
                     <div class="col-md-12" id="separacao">
-                6.Exercício do direito de Acesso
+                9.Exercício do direito de Acesso
               </div>
                  <div class="col" id="divg">
                 <div class="container">
@@ -538,89 +853,46 @@
                       
                       <div class="col-md-12"> 
                         <div class="row">
+                          
+                         
+                          
                           <div class="col">  
-                            <select class="form-select" name="ilhaDireitoAcesso" id="ilhaDireitoAcesso" aria-label="Default select example">
-                              <option value="">- Qual a sua ilha -</option>
-                                <option value="1">Santo Antão</option>
-                                <option value="2">São Vicente</option>
-                                <option value="3">São Nicolau</option>
-                                <option value="4">Sal</option>
-                                <option value="5">Boa Vista</option>
-                                <option value="6">Maio</option>
-                                <option value="7">Santiago</option>
-                                <option value="8">Fogo</option>
-                                <option value="9">Brava</option>
-                            </select>
+                            <select
+                      class="form-select"
+                      v-model="ilhaResp"
+                      name="ilhaResp"
+                      id="ilhaResp"
+                      for="ilhaResp"
+                      placeholder="- Seleciona uma ilha-"
+                    >
+                      <option :value="null">- selecione uma ilha -</option>
+                      <option
+                        v-for="option in ilhas"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
                           </div>
                           <div class="col">  
-                            <select class="form-select" name="concelhoDireitoAcesso" id="concelhoDireitoAcesso" aria-label="Default select example">
-                              <option value="">- Qual o concelho -</option> 
-                                <option value="1">Ribeira Grande</option>
-                                <option value="2">Paul</option>
-                                <option value="3">Porto novo</option>
-                                <option value="4">São Vicente</option>
-                                <option value="5">Ribeira Brava</option>
-                                <option value="6">Tarrafal de São Nicolau</option>
-                                <option value="7">Sal</option>
-                                <option value="8">Boa Vista</option>
-                                <option value="9">Maio</option>
-                                <option value="10">Praia</option>
-                                <option value="11">São Domingos</option>
-                                <option value="12">Santa Catarina</option>
-                                <option value="13">São Salvador do Mundo</option>
-                                <option value="14">Santa Cruz</option>
-                                <option value="15">São Lourenço dos Órgãos</option>
-                                <option value="16">Ribeira Grande de Santiago	</option>
-                                <option value="17">São Miguel</option>
-                                <option value="18">Tarrafal</option>
-                                <option value="19">São Filipe</option>
-                                <option value="20">Santa Catarina do Fogo</option>
-                                <option value="21">Mosteiros</option>
-                                <option value="22">Brava</option>
-                             </select>
-                            
-                          </div> 
-                          <div class="col-md-12"><br></div>
-                          <div class="col">  
-                            <select class="form-select" name="ilhaDireitoAcesso" id="ilhaDireitoAcesso" aria-label="Default select example">
-                              <option value="">- Qual a sua ilha -</option>
-                                <option value="1">Santo Antão</option>
-                                <option value="2">São Vicente</option>
-                                <option value="3">São Nicolau</option>
-                                <option value="4">Sal</option>
-                                <option value="5">Boa Vista</option>
-                                <option value="6">Maio</option>
-                                <option value="7">Santiago</option>
-                                <option value="8">Fogo</option>
-                                <option value="9">Brava</option>
-                            </select>
-                          </div>
-                          <div class="col">  
-                            <select class="form-select" name="concelhoDireitoAcesso" id="concelhoDireitoAcesso" aria-label="Default select example">
-                              <option value="">- Qual o concelho -</option> 
-                                <option value="1">Ribeira Grande</option>
-                                <option value="2">Paul</option>
-                                <option value="3">Porto novo</option>
-                                <option value="4">São Vicente</option>
-                                <option value="5">Ribeira Brava</option>
-                                <option value="6">Tarrafal de São Nicolau</option>
-                                <option value="7">Sal</option>
-                                <option value="8">Boa Vista</option>
-                                <option value="9">Maio</option>
-                                <option value="10">Praia</option>
-                                <option value="11">São Domingos</option>
-                                <option value="12">Santa Catarina</option>
-                                <option value="13">São Salvador do Mundo</option>
-                                <option value="14">Santa Cruz</option>
-                                <option value="15">São Lourenço dos Órgãos</option>
-                                <option value="16">Ribeira Grande de Santiago	</option>
-                                <option value="17">São Miguel</option>
-                                <option value="18">Tarrafal</option>
-                                <option value="19">São Filipe</option>
-                                <option value="20">Santa Catarina do Fogo</option>
-                                <option value="21">Mosteiros</option>
-                                <option value="22">Brava</option>
-                             </select>
+                            <select
+                      class="form-select"
+                      v-model="concelhoResp"
+                      name="concelhoResp"
+                      id="concelhoResp"
+                      for="concelhoResp"
+                      placeholder="- Seleciona um concelho -"
+                    >
+                      <option :value="null">- selecione um concelho -</option>
+                      <option
+                        v-for="option in concelhos[ilhaResp]"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
                           </div> 
                         </div> 
                       </div> 
@@ -654,7 +926,7 @@
               </div>
              </div>
              <div class="col-md-12" id="separacao">
-             7. Medidas de segurança a implementar
+             10. Medidas de segurança a implementar
               </div>
               <div class="col-md-12" id="divg">
                 <div class="row">   
@@ -717,6 +989,26 @@ export default {
       checkServico:false,
       checkDireitoAcesso:false, 
        checkRepTrab:false,
+       checkComunicTerce: false,
+       checkTransfInter: false,
+
+         /*******************************************RECOLHA DIRETA ******************************************/
+        recolhaDireta: null,
+        recolhaDiretas:[
+
+          {value:"Presencial", label:"Presencial"},
+          {value:"Telefone", label:"Telefone"},
+          {value:"Internet", label:"Internet"},
+          {value:"Por impresso", label:"Por impresso"}
+
+        ],
+        comunicacao: [
+        {
+          condicoesComunicacao: "",
+          entidadesComunicadas: "",
+          dadosTrasnferidos: "",
+        },
+      ],
 
        /*******************************************DADOS PESSOAIS CONTIDOS EM CADA REGISTRO DADOS TRATADOS ******************************************/
         
@@ -1306,6 +1598,16 @@ export default {
         
        
       ],
+       /** *************************TRANSFERENCIA INTERNACIONAL********************************* */
+
+      internacional: [
+        {
+          dadosTransferidos: "",
+          entidadesInternacional: "",
+          paisTransferido: "",
+          fundamento: ""
+        },
+      ],
 
 
     }
@@ -1335,8 +1637,32 @@ export default {
         finalidadesCategorias: "",
       });
     },
+    addComunicTerce() {
+      this.comunicacao.push({
+        condicoesComunicacao: "",
+        entidadesComunicadas: "",
+      });
+    },
+     /*TRANSFER INTERNACIONAL*/
+    addTransfInter() {
+      this.internacional.push({
+        dadosTransferidos: "",
+        entidadesInternacional: "",
+        paisTransferido: "",
+        fundamento: "",
+      });
+    },
+    removeComunic(index) {
+      this.comunicacao.splice(index, 1);
+    },
+    changeComunicTerce() {
+      this.checkComunicTerce = !this.checkComunicTerce;
+    },
     removeFinalidd(index) {
       this.finalidadiCategory.splice(index, 1);
+    },
+    changeTransfInter() {
+      this.checkTransfInter = !this.checkTransfInter;
     },
 		},
      watch: {
