@@ -2,46 +2,33 @@
   <section id="decisoes" class="decisoes">
     <div class="container"> 
          <div class="section-title">
-        <h2>FORMULÁRIOS DE Biometria </h2>
+        <h2>Notificação de tratamento de dados biométricos de trabalhadores </h2>
       </div>
           <!-- FORMS GERAL--> 
-          <div class="col-md-12" id="separacao">
-              Notificação de Biometria     
-          </div>
+          
               
               <br>
-              <div class="col-md-12" id="divg">
-                <div class="container">
-                  <div class="row">
-
-                    <div id ="finalidade" class="col-md-4 col-lg-4">
-                    <div class="icon-box" style="">
-                      <input class="form-check-input" type="radio" name="tiponotific" id="1notificacao">
-                        <label id="labelleft" class="form-check-label" for="1notificacao">
-                          1ª Notificação
-                        </label>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-lg-4 ">
-                    <div class="icon-box">
-                      <input class="form-check-input" type="radio" name="tiponotific" id="alteracao">
-                        <label id="labelleft" class="form-check-label" for="alteracao">
-                          Alteração
-                        </label>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-lg-4">
-                    <div class="icon-box">
-                      <input class="form-check-input" type="radio" name="tiponotific" id="naoautorizada">
-                        <label id="labelleft" class="form-check-label" for="naoautorizada">
-                          Substituição da Notificação não autorizada
-                        </label>
-                    </div>
-                  </div> 
-                     
-                  </div> 
-                </div>
+              <div class="col-md-12"></div>
+        <div class="col-md-12" id="divg">
+          <div class="container">
+              <div class="row">
+              <div class="col-md-2">
+                <label id="labelleft" for="TipoNot" class="form-label"
+                  >Tipo Notificação</label
+                >
               </div>
+              <div class="col-md-10">
+                <Multiselect
+                  v-model="TipoNot"
+                  name="TipoNot"
+                  id="TipoNot"
+                  placeholder="- selecione o tipo de Notificação -"
+                  :options="TipoNotf"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
               <div class="col-md-12" id="separacao">
                 1. Responsável pelo Tratamento       
               </div>
@@ -91,18 +78,42 @@
                       <div class="col-md-12"> 
                         <div class="row">
                           <div class="col">  
-                            <select class="form-select" aria-label="Default select example">
-                              <option value="">- Qual a sua ilha -</option>
-                            <option v-for="ilha in ilhas" :key="ilha" value="1">{{ilha}}</option>
-                                
-                            </select>
+                            <select
+                      class="form-select"
+                      v-model="ilhaResp"
+                      name="ilhaResp"
+                      id="ilhaResp"
+                      for="ilhaResp"
+                      placeholder="- Seleciona uma ilha-"
+                    >
+                      <option :value="null">- selecione uma ilha -</option>
+                      <option
+                        v-for="option in ilhas"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
                           </div>
                           <div class="col">  
-                            <select class="form-select" aria-label="Default select example">
-                              <option value="">- Qual o concelho -</option> 
-                               <option v-for="concelho in concelhos" :key="concelho" value="1">{{concelho}}</option>
-                                
-                             </select>
+                            <select
+                      class="form-select"
+                      v-model="concelhoResp"
+                      name="concelhoResp"
+                      id="concelhoResp"
+                      for="concelhoResp"
+                      placeholder="- Seleciona um concelho -"
+                    >
+                      <option :value="null">- selecione um concelho -</option>
+                      <option
+                        v-for="option in concelhos[ilhaResp]"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
                           </div> 
                         </div> 
                       </div>  
@@ -149,18 +160,46 @@
                     <div class="col-md-12"> 
                         <div class="row">
                           <div class="col">  
-                            <select class="form-select" aria-label="Default select example">
-                              <option value="">- Qual a sua ilha -</option>
-                            <option v-for="ilha in ilhas" :key="ilha" value="1">{{ilha}}</option>
-                                
-                            </select>
+                             <select
+                            class="form-select"
+                            v-model="ilhaDirAcess"
+                            name="ilhaDireitoAcesso"
+                            id="ilhaDireitoAcesso"
+                            for="ilhaDireitoAcesso"
+                            placeholder="- Seleciona uma ilha-"
+                          >
+                            <option :value="null">
+                              - selecione uma ilha -
+                            </option>
+                            <option
+                              v-for="option in ilhas"
+                              :key="option.value"
+                              :value="option.value"
+                            >
+                              {{ option.label }}
+                            </option>
+                          </select>
                           </div>
                           <div class="col">  
-                            <select class="form-select" aria-label="Default select example">
-                              <option value="">- Qual o concelho -</option> 
-                               <option v-for="concelho in concelhos" :key="concelho" value="1">{{concelho}}</option>
-                                
-                             </select>
+                           <select
+                            class="form-select"
+                            v-model="concelhoDirAcess"
+                            name="concelhoDireitoAcesso"
+                            id="concelhoDireitoAcesso"
+                            for="concelhoDireitoAcesso"
+                            placeholder="- Seleciona um concelho -"
+                          >
+                            <option :value="null">
+                              - selecione um concelho -
+                            </option>
+                            <option
+                              v-for="option in concelhos[ilhaDirAcess]"
+                              :key="option.value"
+                              :value="option.value"
+                            >
+                              {{ option.label }}
+                            </option>
+                          </select>
                           </div> 
                         </div> 
                       </div> 
@@ -233,33 +272,66 @@
                   </div>
                 </div>
               </div>
-           <div class="col-md-12" id="separacao">
-                2. Finalidade do tratamento
-              </div>
-             <div  id="fin" class="col"> 
               
-
-                     <div > <input class="form-check-input" type="checkbox" name="tipopessoa" id="pessoasingular">
-                        <label id="labelleft" class="form-check-label" for="pessoasingular">
-                          Controlo de assiduidade
-                        </label>
-                        </div>
-                   
-                      <div><input class="form-check-input" type="checkbox" name="tipopessoa" id="pessoacoletiva">
-                        <label id="labelleft" class="form-check-label" for="pessoacoletiva">
-                           Controlo de acesso às instalações
-                        </label>
-                        </div>
-                        <div class="col">  
-                            <input type="number" class="form-control" id="numfunc" alt="Telefone/Telemovel" placeholder="número de funcionários">
-                          </div> 
-                    </div>
+           <!--------------------------------------FINALIDADE DO TRATAMENTO----------------------------------------------------->
+           
+        <div class="col-md-12" id="divg">
+          <div class="container">
+            <div class="row">
+               <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                2. Finalidade do tratamento
+                </div>
+              </div>
+             <div class="col-md-12"> <br> </div>
+             <label class="form-check-label" >
+                       (caso seja tratamento de assiduidade e controlo de acesso, deverá selecionar as duas opções)
+                      </label>
+                 <div class="col">  
+                        
+                        <Multiselect
+                        v-model="value"
+                        name="finalidadetra" 
+                        id="finalidadetra"
+                        placeholder="-Indique a(s) finalidade(s) do tratamento-"
+                        mode="tags"
+                        :close-on-select="false"
+                        :searchable="true"
+                        :create-option="true"
+                        :options="finalidadeTratamento"
+                      />
+                          
+                      </div> 
+                      <br>
+                     
+                    
+                     <div class="row">  
+                      
+                      <div class="col">  
+                        <label class="form-check-label" >
+                       Número de funcionarios
+                      </label>
+                       <input type="number" class="form-control" id="numfunc" alt="numero de funcionario" placeholder="indique número de funcionário">
+                          
+                      </div> 
+                      
+                            
+                         
+                      <div class="col-md-12"><br></div>
+                </div>
+                    
+                       
+            </div>
+          </div>
+        </div>
                     <div class="col-md-12" id="separacao">
                 3. Dados pessoais contidos em cada registo      
               </div>
                     <div class="col-md-12" id="divg">
                      <div class="row">  
-                      
+                      <label class="form-check-label" >
+                      Dados registrados
+                      </label>
                       <div class="col">  
                         
                         <Multiselect
@@ -281,7 +353,9 @@
                     
               <div class="col-md-12" id="divg">
                      <div class="row">  
-                      
+                      <label class="form-check-label" >
+                     Outros dados
+                      </label>
                       <div class="col">  
                         
                         <Multiselect
@@ -305,14 +379,16 @@
               </div>
               <div class="col-md-12" id="divg">
                      <div class="row">  
-                      
+                      <label class="form-check-label" >
+                     Forma de registro
+                      </label>
                       <div class="col">  
                         
                         <Multiselect
                         v-model="value"
                         name="formasRegistro" 
                         id="formasRegistros"
-                        placeholder="-formas de registro -"
+                        placeholder="-indique forma de registro -"
                         mode="tags"
                         :close-on-select="false"
                         :searchable="true"
@@ -329,7 +405,9 @@
               </div>
               <div class="col-md-12" id="divg">
                      <div class="row">  
-                      
+                      <label class="form-check-label" >
+                     Forma de tratamento da informação
+                      </label>
                       <div class="col">  
                         
                         <Multiselect
@@ -381,88 +459,68 @@
                       <div class="col-md-12"> 
                         <div class="row">
                           <div class="col">  
-                            <select class="form-select" name="ilhaDireitoAcesso" id="ilhaDireitoAcesso" aria-label="Default select example">
-                              <option value="">- Qual a sua ilha -</option>
-                                <option value="1">Santo Antão</option>
-                                <option value="2">São Vicente</option>
-                                <option value="3">São Nicolau</option>
-                                <option value="4">Sal</option>
-                                <option value="5">Boa Vista</option>
-                                <option value="6">Maio</option>
-                                <option value="7">Santiago</option>
-                                <option value="8">Fogo</option>
-                                <option value="9">Brava</option>
-                            </select>
+                              <select
+                      class="form-select"
+                      v-model="ilhaResp"
+                      name="ilhaResp"
+                      id="ilhaResp"
+                      for="ilhaResp"
+                      placeholder="- Seleciona uma ilha-"
+                    >
+                      <option :value="null">- selecione uma ilha -</option>
+                      <option
+                        v-for="option in ilhas"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
                           </div>
                           <div class="col">  
-                            <select class="form-select" name="concelhoDireitoAcesso" id="concelhoDireitoAcesso" aria-label="Default select example">
-                              <option value="">- Qual o concelho -</option> 
-                                <option value="1">Ribeira Grande</option>
-                                <option value="2">Paul</option>
-                                <option value="3">Porto novo</option>
-                                <option value="4">São Vicente</option>
-                                <option value="5">Ribeira Brava</option>
-                                <option value="6">Tarrafal de São Nicolau</option>
-                                <option value="7">Sal</option>
-                                <option value="8">Boa Vista</option>
-                                <option value="9">Maio</option>
-                                <option value="10">Praia</option>
-                                <option value="11">São Domingos</option>
-                                <option value="12">Santa Catarina</option>
-                                <option value="13">São Salvador do Mundo</option>
-                                <option value="14">Santa Cruz</option>
-                                <option value="15">São Lourenço dos Órgãos</option>
-                                <option value="16">Ribeira Grande de Santiago	</option>
-                                <option value="17">São Miguel</option>
-                                <option value="18">Tarrafal</option>
-                                <option value="19">São Filipe</option>
-                                <option value="20">Santa Catarina do Fogo</option>
-                                <option value="21">Mosteiros</option>
-                                <option value="22">Brava</option>
-                             </select>
+                            <select
+                      class="form-select"
+                      v-model="concelhoResp"
+                      name="concelhoResp"
+                      id="concelhoResp"
+                      for="concelhoResp"
+                      placeholder="- Seleciona um concelho -"
+                    >
+                      <option :value="null">- selecione um concelho -</option>
+                      <option
+                        v-for="option in concelhos[ilhaResp]"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
                           </div> 
                           <div class="col-md-12"><br></div>
-                          <div class="col">  
-                            <select class="form-select" name="ilhaDireitoAcesso" id="ilhaDireitoAcesso" aria-label="Default select example">
-                              <option value="">- Qual a sua ilha -</option>
-                                <option value="1">Santo Antão</option>
-                                <option value="2">São Vicente</option>
-                                <option value="3">São Nicolau</option>
-                                <option value="4">Sal</option>
-                                <option value="5">Boa Vista</option>
-                                <option value="6">Maio</option>
-                                <option value="7">Santiago</option>
-                                <option value="8">Fogo</option>
-                                <option value="9">Brava</option>
-                            </select>
-                          </div>
-                          <div class="col">  
-                            <select class="form-select" name="concelhoDireitoAcesso" id="concelhoDireitoAcesso" aria-label="Default select example">
-                              <option value="">- Qual o concelho -</option> 
-                                <option value="1">Ribeira Grande</option>
-                                <option value="2">Paul</option>
-                                <option value="3">Porto novo</option>
-                                <option value="4">São Vicente</option>
-                                <option value="5">Ribeira Brava</option>
-                                <option value="6">Tarrafal de São Nicolau</option>
-                                <option value="7">Sal</option>
-                                <option value="8">Boa Vista</option>
-                                <option value="9">Maio</option>
-                                <option value="10">Praia</option>
-                                <option value="11">São Domingos</option>
-                                <option value="12">Santa Catarina</option>
-                                <option value="13">São Salvador do Mundo</option>
-                                <option value="14">Santa Cruz</option>
-                                <option value="15">São Lourenço dos Órgãos</option>
-                                <option value="16">Ribeira Grande de Santiago	</option>
-                                <option value="17">São Miguel</option>
-                                <option value="18">Tarrafal</option>
-                                <option value="19">São Filipe</option>
-                                <option value="20">Santa Catarina do Fogo</option>
-                                <option value="21">Mosteiros</option>
-                                <option value="22">Brava</option>
-                             </select>
-                          </div> 
+                        
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col">
+                          <input
+                            type="email"
+                            class="form-control"
+                            name="emailDireitoAcesso"
+                            id="emailDireitoAcesso"
+                            placeholder="Entre o email da pessoa de contato: example@cnpd.cv"
+                          />
+                        </div>
+                        <div class="col">
+                          <input
+                            type="number"
+                            class="form-control"
+                            name="telefoneDireitoAcesso"
+                            id="telefoneDireitoAcesso"
+                            placeholder="Contato: Telefone/Telemovel"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                          
                         </div> 
                       </div> 
                   </div> 
@@ -539,6 +597,16 @@
             </div>
                
           <!-- FIM DE FORMS--> 
+            <div class="col-12" id="divsave">
+          <button
+            id="buttonsave"
+            value="Save"
+            class="btn btn-primary"
+            type="submit"
+          >
+            Submeter Dados
+          </button>
+        </div>
     </div>
   </section>
 </template>
@@ -558,44 +626,85 @@ export default {
       checkServico:false,
       checkDireitoAcesso:false, 
        checkRepTrab:false,
-      concelhos:[
-        'Ribeira Grande',
-        'Paul',
-        'Porto novo',
-        'São Vicente',
-        'Ribeira Brava',
-        'Tarrafal de São Nicolau',
-        'Sal',
-        'Boa Vista',
-        'Maio',
-        'Praia',
-        'São Domingos',
-        'Santa Catarina',
-        'São Salvador do Mundo',
-        'Santa Cruz',
-        'São Lourenço dos Órgãos',
-        'Ribeira Grande de Santiago',
-        'São Miguel',
-        'Tarrafal',
-        'São Filipe',
-        'Santa Catarina do Fogo',
-        'Mosteiros',
-        'Brava'
-        ],
-
-       ilhas:[
-        'Santo Antão',
-        'São Vicente',
-        'São Nicolau',
-        'Sal',
-        'Boa Vista',
-        'Maio',
-        'Santiago',
-        'Fogo',
-        'Brava'
+       /** *********************Finalidade de tratamento ************************************** */
+       finalidadeTratamento: [ 
+        { value: 'Controlo de assiduidade', label: 'Controlo de assiduidade' },
+        { value: 'Controlo de acesso às instalações', label: 'Controlo de acesso às instalações' }
        
-       ],
+       
+      ],
+       /** *********************ILHAS E CONCELHOS ************************************** */
+      ilhaResp: null,
+      ilhaMorInst: null,
+      ilhaServExt: null,
+      ilhaDirAcess: null,
+      ilhas: [
+        { value: "Santo Antão", label: "Santo Antão" },
+        { value: "São Vicente", label: "São Vicente" },
+        { value: "São Nicolau", label: "São Nicolau" },
+        { value: "Sal", label: "Sal" },
+        { value: "Boa Vista", label: "Boa Vista" },
+        { value: "Maio", label: "Maio" },
+        { value: "Santiago", label: "Santiago" },
+        { value: "Fogo", label: "Fogo" },
+        { value: "Brava", label: "Brava" },
+      ],
+      concelho: null,
+      concelhoMorInst: null,
+      concelhoServExt: null,
+      concelhoDirAcess: null,
+      ilhaMorRep: null,
+      concelhoMorRep: null,
+      concelhoResp: null,
 
+      concelhoServExtSR: null,
+      ilhaServExtSR: null,
+      ilhaRespSR: null,
+      concelhoRespSR: null,
+      ilhaMorRepSR: null,
+      concelhoMorRepSR: null,
+
+      concelhos: {
+        "Santo Antão": [
+          { value: "Ribeira Grande", label: "Ribeira Grande" },
+          { value: "Paul", label: "Paul" },
+          { value: "Porto novo", label: "Porto novo" },
+        ],
+        "São Vicente": [{ value: "São Vicente", label: "São Vicente" }],
+        "São Nicolau": [
+          { value: "Ribeira Brava", label: "Ribeira Brava" },
+          {
+            value: "Tarrafal de São Nicolau",
+            label: "Tarrafal de São Nicolau",
+          },
+        ],
+        Sal: [{ value: "Sal", label: "Sal" }],
+        "Boa Vista": [{ value: "Boa Vista", label: "Boa Vista" }],
+        Maio: [{ value: "Maio", label: "Maio" }],
+        Santiago: [
+          { value: "Praia", label: "Praia" },
+          { value: "São Domingos", label: "São Domingos" },
+          { value: "Santa Catarina", label: "Santa Catarina" },
+          { value: "São Salvador do Mundo", label: "São Salvador do Mundo" },
+          { value: "Santa Cruz", label: "Santa Cruz" },
+          {
+            value: "São Lourenço dos Órgãos",
+            label: "São Lourenço dos Órgãos",
+          },
+          {
+            value: "Ribeira Grande de Santiago",
+            label: "Ribeira Grande de Santiago",
+          },
+          { value: "São Miguel", label: "São Miguel" },
+          { value: "Tarrafal", label: "Tarrafal" },
+        ],
+        Fogo: [
+          { value: "São Filipe", label: "São Filipe" },
+          { value: "Santa Catarina do Fogo", label: "Santa Catarina do Fogo" },
+          { value: "Mosteiros", label: "Mosteiros" },
+        ],
+        Brava: [{ value: "Brava", label: "Brava" }],
+      },
        atividades:[
         'Produção da Electricidade',
         'Actividade de Televisão',
@@ -662,7 +771,16 @@ export default {
         
        
       ],
-
+     /*******************************************TIPO DE NOTIFICAÇÃO ******************************************/
+      tipoNot: null,
+      TipoNotf: [
+        { value: "1ª Notificação", label: "1ª Notificação" },
+        { value: "Alteração", label: "Alteração" },
+        {
+          value: "Substituição da Notificação não autorizada",
+          label: "Substituição da Notificação não autorizada",
+        },
+      ],
 
     }
    

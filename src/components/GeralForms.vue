@@ -5,36 +5,29 @@
         <h2>NOTIFICAÇÃO DE TRATAMENTO DE DADOS </h2>
       </div>
           <!-- FORMS GERAL--> 
-          <div class="col-md-12" id="separacao">
-              Notificação Geral   
-          </div>
+          
               
-              <br>
-              <div class="col-md-12" id="divg">
-                <div class="container">
-                  <div class="row">
-
-                    <div id ="finalidade" class="col-md-4 col-lg-4">
-                    <div class="icon-box" style="">
-                      <input class="form-check-input" type="radio" name="tiponotific" id="1notificacao">
-                        <label id="labelleft" class="form-check-label" for="1notificacao">
-                          1ª Notificação
-                        </label>
-                    </div>
-                  </div>
-                  
-                  <div class="col-md-4 col-lg-4">
-                    <div class="icon-box">
-                      <input class="form-check-input" type="radio" name="tiponotific" id="naoautorizada">
-                        <label id="labelleft" class="form-check-label" for="naoautorizada">
-                          Alteração de notificação anterior
-                        </label>
-                    </div>
-                  </div> 
-                     
-                  </div> 
-                </div>
+               <div class="col-md-12" id="divg">
+          <div class="container">
+              <div class="row">
+              <div class="col-md-2">
+                <label id="labelleft" for="TipoNot" class="form-label"
+                  >Tipo Notificação</label
+                >
               </div>
+              <div class="col-md-10">
+                <Multiselect
+                  v-model="TipoNot"
+                  name="TipoNot"
+                  id="TipoNot"
+                  placeholder="- selecione o tipo de Notificação -"
+                  :options="TipoNotf"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+              
               <div class="col-md-12" id="separacao">
                 1. Responsável pelo Tratamento       
               </div>
@@ -84,18 +77,42 @@
                       <div class="col-md-12"> 
                         <div class="row">
                           <div class="col">  
-                            <select class="form-select" aria-label="Default select example">
-                              <option value="">- Qual a sua ilha -</option>
-                            <option v-for="ilha in ilhas" :key="ilha" value="1">{{ilha}}</option>
-                                
-                            </select>
+                           <select
+                      class="form-select"
+                      v-model="ilhaResp"
+                      name="ilhaResp"
+                      id="ilhaResp"
+                      for="ilhaResp"
+                      placeholder="- Seleciona uma ilha-"
+                    >
+                      <option :value="null">- selecione uma ilha -</option>
+                      <option
+                        v-for="option in ilhas"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
                           </div>
                           <div class="col">  
-                            <select class="form-select" aria-label="Default select example">
-                              <option value="">- Qual o concelho -</option> 
-                               <option v-for="concelho in concelhos" :key="concelho" value="1">{{concelho}}</option>
-                                
-                             </select>
+                           <select
+                      class="form-select"
+                      v-model="concelhoResp"
+                      name="concelhoResp"
+                      id="concelhoResp"
+                      for="concelhoResp"
+                      placeholder="- Seleciona um concelho -"
+                    >
+                      <option :value="null">- selecione um concelho -</option>
+                      <option
+                        v-for="option in concelhos[ilhaResp]"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
                           </div> 
                         </div> 
                       </div>  
@@ -114,11 +131,26 @@
                           <div class="col"> 
                             <input type="email" class="form-control" id="email" placeholder="Entre o seu email: example@cnpd.cv">
                           </div>
-                          <div class="col">  
-                            <input class="form-check-input" type="radio" name="pais" id="pais">
-                            <label id="labelleft" class="form-check-label" for="pais">
-                              País: Cabo Verde/Fora do Território Nacional
-                            </label>
+                           <div class="col">  
+                            <input
+                      class="form-check-input"
+                      type="radio"
+                      name="paisResp"
+                      id="paisResp"
+                    />
+                    <label id="labelleft" class="form-check-label" for="pais">
+                      Cabo Verde
+                    </label>
+                    <div class="col-md-12"></div>
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="paisResp"
+                      id="paisResp"
+                    />
+                    <label id="labelleft" class="form-check-label" for="pais">
+                      Fora do Território Nacional
+                    </label>
                           </div> 
                         </div> 
                       </div> 
@@ -142,18 +174,42 @@
                     <div class="col-md-12"> 
                         <div class="row">
                           <div class="col">  
-                            <select class="form-select" aria-label="Default select example">
-                              <option value="">- Qual a sua ilha -</option>
-                            <option v-for="ilha in ilhas" :key="ilha" value="1">{{ilha}}</option>
-                                
-                            </select>
+                            <select
+                      class="form-select"
+                      v-model="ilhaResp"
+                      name="ilhaResp"
+                      id="ilhaResp"
+                      for="ilhaResp"
+                      placeholder="- Seleciona uma ilha-"
+                    >
+                      <option :value="null">- selecione uma ilha -</option>
+                      <option
+                        v-for="option in ilhas"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
                           </div>
                           <div class="col">  
-                            <select class="form-select" aria-label="Default select example">
-                              <option value="">- Qual o concelho -</option> 
-                               <option v-for="concelho in concelhos" :key="concelho" value="1">{{concelho}}</option>
-                                
-                             </select>
+                            <select
+                      class="form-select"
+                      v-model="concelhoResp"
+                      name="concelhoResp"
+                      id="concelhoResp"
+                      for="concelhoResp"
+                      placeholder="- Seleciona um concelho -"
+                    >
+                      <option :value="null">- selecione um concelho -</option>
+                      <option
+                        v-for="option in concelhos[ilhaResp]"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
                           </div> 
                         </div> 
                       </div> 
@@ -207,18 +263,42 @@
                       <div class="col-md-12"> 
                         <div class="row">
                           <div class="col">  
-                            <select class="form-select" name="ilhaProcessInfo" id="ilhaProcessInfo" aria-label="Default select example">
-                              <option value="">- Qual a sua ilha -</option>
-                                <option v-for="ilha in ilhas" :key="ilha" value="1">{{ilha}}</option>
-                               
-                            </select>
+                             <select
+                      class="form-select"
+                      v-model="ilhaResp"
+                      name="ilhaResp"
+                      id="ilhaResp"
+                      for="ilhaResp"
+                      placeholder="- Seleciona uma ilha-"
+                    >
+                      <option :value="null">- selecione uma ilha -</option>
+                      <option
+                        v-for="option in ilhas"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>
+                    </select>
                           </div>
                           <div class="col">  
-                            <select class="form-select" name="concelhoProcessInfo" id="concelhoProcessInfo" aria-label="Default select example">
-                              <option value="">- Qual o concelho -</option> 
-                                <option  v-for="concelho in concelhos" :key="concelho" value="1">{{concelho}}</option>
-                                
-                             </select>
+                            <select
+                      class="form-select"
+                      v-model="concelhoResp"
+                      name="concelhoResp"
+                      id="concelhoResp"
+                      for="concelhoResp"
+                      placeholder="- Seleciona um concelho -"
+                    >
+                      <option :value="null">- selecione um concelho -</option>
+                      <option
+                        v-for="option in concelhos[ilhaResp]"
+                        :key="option.value"
+                        :value="option.value"
+                      >
+                        {{ option.label }}
+                      </option>s
+                    </select>
                           </div> 
                         </div> 
                       </div>   
@@ -226,80 +306,158 @@
                   </div>
                 </div>
               </div>
-           <div class="col-md-12" id="separacao">
-                2. Finalidade do tratamento
+            <!---- ----------------- FINALIDADE DO TRATAMENTO-------------------------------------------------------------------->
+        <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  2. Finalidade do tratamento 
+                </div>
               </div>
-             <div  id="fin" class="col"> 
-              
-<div class="col-md-12" id="divg">
-                     <div class="row">  
-                      
-                      <div class="col">  
-                        
-                        <Multiselect
-                        v-model="value"
-                        name="finalidadeTratamentos" 
-                        id="finalidadeTratamento"
-                        placeholder="-indique finalidade de tratamento-"
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12">
+                <label class="form-check-label">
+                  Descrição da finalidade (indique uma das opções indicadas) Se
+                  tiver mais do que uma categoria de finalidades a serem
+                  tratados clique no botão verde para adicionar mais campos.
+                </label>
+                <div class="col-md-12">
+                  <button
+                    @click="addFinalidd()"
+                    alt="Adicionar mais campos"
+                    type="button"
+                    class="btn btn-success"
+                  >
+                    <b class="add"
+                      ><IconAwe class="icon-color" icon="plus"
+                    /></b>
+                  </button>
+                  <div class="col-md-12"><br /></div>
+
+                  <div
+                    class="row"
+                    v-for="(finalidadi, index) in finalidadiCategory"
+                    :key="index"
+                  >
+                    <div class="col-md-4" id="cambs">
+                      <select
+                        v-model="finalidadi.categoria"
+                        name="categoria"
+                        id="categoria"
+                        class="form-select"
+                        for="categoria"
+                        placeholder="- Seleciona uma categoria-"
+                      >
+                        <option :value="null">
+                          - selecione uma categoria -
+                        </option>
+                        <option
+                          v-for="option in categorias"
+                          :key="option.id"
+                          :value="option.value"
+                        >
+                          {{ option.label }}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-md-7" id="cambs">
+                      <Multiselect
+                        v-model="finalidadi.finalidd"
+                        :options="finalidadesCategorias[finalidadi.categoria]"
                         mode="tags"
-                        :close-on-select="false"
+                        placeholder="- selecione as finalidades -"
+                        :close-on-select="true"
                         :searchable="true"
-                        :create-option="true"
-                        :options=" finalidadeTratamento"
+                        :object="true"
+                        :multiple="true"
                       />
-                          
-                      </div> 
-                      <div class="col-md-12"><br></div>
+                    </div>
+                    <div class="col-md-1">
+                      <button
+                        @click="removeFinalidd(index)"
+                        v-show="index != 0"
+                        type="button"
+                        class="btn btn-danger"
+                      >
+                        <b class="add"
+                          ><IconAwe class="icon-color" icon="trash-can"
+                        /></b>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                    </div>
-                     
-                    </div>
-                    <div class="col-md-12" id="separacao">
-                    3. Dados pessoais contidos em cada registo      
-                    </div>
-                    <div class="col-md-12" id="divg">
-                     <div class="row">  
-                      
-                      <div class="col">  
-                        
-                        <Multiselect
-                        v-model="value"
-                        name="dadoscontidos" 
-                        id="dadoscontidos"
-                        placeholder="-dados pessoais contidos em cada registro -"
-                        mode="tags"
-                        :close-on-select="false"
-                        :searchable="true"
-                        :create-option="true"
-                        :options="dadosRegistrado"
-                      />
-                          
-                      </div> 
-                      <div class="col-md-12"><br></div>
+              </div>
+            </div>
+          </div>
+        </div>
+             <!--    ************** DADOS PESSOAIS CONTIDOS EM CADA REGISTRO DADOS TRATADOS  -->
+
+
+             <div class="col" id="divg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12" id="divloco">
+                <div class="col-md-12" id="separacao">
+                  3. Dados pessoais contidos em cada registro
                 </div>
-                    </div>
+              </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
+                  Indique quais são os dados pessoais tratados, se não faz
+                  tratamento de nenhum desses dados não preencha este campo.
+                </label>
+                <Multiselect
+                  v-model="dadosPessoaisTratado"
+                  :options="dadospessoaisTratados"
+                  mode="tags"
+                  placeholder="- selecione os dados pessoais tratados -"
+                  :close-on-select="true"
+                  :searchable="true"
+                  :object="true"
+                  :multiple="true"
+                />
+              </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
+                  Que outros dados referentes aos artigos 8º e 11º
+                </label>
+                <textarea
+                  class="form-control"
+                  name="outrosDadosArt8e11"
+                  id="outrosDadosArt8e11"
+                  placeholder=" Mencionar quais os outros dados tratados referentes aos artigos 8º e 11º da lei nº. 121/IX/2021 de 17 de março "
+                ></textarea>
+                <div class="col-md-12"><br /></div>
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
+                  Lista de dados pessoais tratados
+                </label>
+                <textarea
+                  class="form-control"
+                  name="listaDadosPessoaisTratados"
+                  id="listaDadosPessoaisTratados"
+                  placeholder=" Mencionar todos os dados pessoais tratados EX: nome, BI, NIF, Registo criminal, etc"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
                     
-              <div class="col-md-12" id="divg">
-                     <div class="row">  
-                      
-                      <div class="col">  
-                        
-                        <Multiselect
-                        v-model="value"
-                        name="outrosDados" 
-                        id="outrosDados"
-                        placeholder="-outros dados -"
-                        mode="tags"
-                        :close-on-select="false"
-                        :searchable="true"
-                        :create-option="true"
-                        :options="outrosDados"
-                      />
-                          
-                      </div> 
-                      <div class="col-md-12"><br></div>
-                </div>
-                    </div>
+                    
                     <div class="col-md-12" id="separacao">
                 4. Forma de armazenamento do dado biométrico   
               </div>
@@ -420,6 +578,7 @@
                                 <option value="21">Mosteiros</option>
                                 <option value="22">Brava</option>
                              </select>
+                            
                           </div> 
                           <div class="col-md-12"><br></div>
                           <div class="col">  
@@ -558,44 +717,136 @@ export default {
       checkServico:false,
       checkDireitoAcesso:false, 
        checkRepTrab:false,
-      concelhos:[
-        'Ribeira Grande',
-        'Paul',
-        'Porto novo',
-        'São Vicente',
-        'Ribeira Brava',
-        'Tarrafal de São Nicolau',
-        'Sal',
-        'Boa Vista',
-        'Maio',
-        'Praia',
-        'São Domingos',
-        'Santa Catarina',
-        'São Salvador do Mundo',
-        'Santa Cruz',
-        'São Lourenço dos Órgãos',
-        'Ribeira Grande de Santiago',
-        'São Miguel',
-        'Tarrafal',
-        'São Filipe',
-        'Santa Catarina do Fogo',
-        'Mosteiros',
-        'Brava'
+
+       /*******************************************DADOS PESSOAIS CONTIDOS EM CADA REGISTRO DADOS TRATADOS ******************************************/
+        
+      
+      dadosPessoaisTratado: null,
+      dadospessoaisTratados: [
+        {
+          value: "Convicções ou filiação partidária ou sindical, fé religiosa",
+          label: "Convicções ou filiação partidária ou sindical, fé religiosa",
+        },
+        {
+          value: "Convicções filosóficas ou ideológicas",
+          label: "Convicções filosóficas ou ideológicas",
+        },
+        { value: "Origem racial ou étnica", label: "Origem racial ou étnica" },
+        { value: "Vida Privada", label: "Vida Privada" },
+        {
+          value: "Dados da saúde, vida sexual ou genéticos",
+          label: "Dados da saúde, vida sexual ou genéticos",
+        },
+        {
+          value: "Suspeitas de atividades ilícitas",
+          label: "Suspeitas de atividades ilícitas",
+        },
+        { value: "Condenações penais", label: "Condenações penais" },
+        {
+          value: "Decisões que apliquem medidas de segurança",
+          label: "Decisões que apliquem medidas de segurança",
+        },
+        {
+          value: "Coímas, sansões acessórias",
+          label: "Coímas, sansões acessórias",
+        },
+        {
+          value: "Infrações penais e Contra-ordenações",
+          label: "Infrações penais e Contra-ordenações",
+        },
+        {
+          value:
+            "Outros dados referentes ao art. 8º e 11º da lei nº.121/IX/2021 de 17 de março",
+          label:
+            "Outros dados referentes ao art. 8º e 11º da lei nº.121/IX/2021 de 17 de março",
+        },
+      ],
+
+
+
+
+       /*******************************************TIPO DE NOTIFICAÇÃO ******************************************/
+      tipoNot: null,
+      TipoNotf: [
+        { value: "1ª Notificação", label: "1ª Notificação" },
+        { value: "Alteração", label: "Alteração" },
+        {
+          value: "Substituição da Notificação não autorizada",
+          label: "Substituição da Notificação não autorizada",
+        },
+      ],
+      /** *********************ILHAS E CONCELHOS ************************************** */
+      ilhaResp: null,
+      ilhaMorInst: null,
+      ilhaServExt: null,
+      ilhaDirAcess: null,
+      ilhas: [
+        { value: "Santo Antão", label: "Santo Antão" },
+        { value: "São Vicente", label: "São Vicente" },
+        { value: "São Nicolau", label: "São Nicolau" },
+        { value: "Sal", label: "Sal" },
+        { value: "Boa Vista", label: "Boa Vista" },
+        { value: "Maio", label: "Maio" },
+        { value: "Santiago", label: "Santiago" },
+        { value: "Fogo", label: "Fogo" },
+        { value: "Brava", label: "Brava" },
+      ],
+      concelho: null,
+      concelhoMorInst: null,
+      concelhoServExt: null,
+      concelhoDirAcess: null,
+      ilhaMorRep: null,
+      concelhoMorRep: null,
+      concelhoResp: null,
+
+      concelhoServExtSR: null,
+      ilhaServExtSR: null,
+      ilhaRespSR: null,
+      concelhoRespSR: null,
+      ilhaMorRepSR: null,
+      concelhoMorRepSR: null,
+
+      concelhos: {
+        "Santo Antão": [
+          { value: "Ribeira Grande", label: "Ribeira Grande" },
+          { value: "Paul", label: "Paul" },
+          { value: "Porto novo", label: "Porto novo" },
         ],
-
-       ilhas:[
-        'Santo Antão',
-        'São Vicente',
-        'São Nicolau',
-        'Sal',
-        'Boa Vista',
-        'Maio',
-        'Santiago',
-        'Fogo',
-        'Brava'
-       
-       ],
-
+        "São Vicente": [{ value: "São Vicente", label: "São Vicente" }],
+        "São Nicolau": [
+          { value: "Ribeira Brava", label: "Ribeira Brava" },
+          {
+            value: "Tarrafal de São Nicolau",
+            label: "Tarrafal de São Nicolau",
+          },
+        ],
+        Sal: [{ value: "Sal", label: "Sal" }],
+        "Boa Vista": [{ value: "Boa Vista", label: "Boa Vista" }],
+        Maio: [{ value: "Maio", label: "Maio" }],
+        Santiago: [
+          { value: "Praia", label: "Praia" },
+          { value: "São Domingos", label: "São Domingos" },
+          { value: "Santa Catarina", label: "Santa Catarina" },
+          { value: "São Salvador do Mundo", label: "São Salvador do Mundo" },
+          { value: "Santa Cruz", label: "Santa Cruz" },
+          {
+            value: "São Lourenço dos Órgãos",
+            label: "São Lourenço dos Órgãos",
+          },
+          {
+            value: "Ribeira Grande de Santiago",
+            label: "Ribeira Grande de Santiago",
+          },
+          { value: "São Miguel", label: "São Miguel" },
+          { value: "Tarrafal", label: "Tarrafal" },
+        ],
+        Fogo: [
+          { value: "São Filipe", label: "São Filipe" },
+          { value: "Santa Catarina do Fogo", label: "Santa Catarina do Fogo" },
+          { value: "Mosteiros", label: "Mosteiros" },
+        ],
+        Brava: [{ value: "Brava", label: "Brava" }],
+      },
        atividades:[
         'Produção da Electricidade',
         'Actividade de Televisão',
@@ -624,83 +875,409 @@ export default {
         'Transporte (Aéreo, Marítimo, Terrestre)'
 
        ],
-        finalidadeTratamento: [ 
-        { value: 'Gestão Fiscal', label: 'Gestão Fiscal' },
-        { value: 'Gestão Administrativa', label: 'Gestão Administrativa' },
-        { value: 'Gestão de Faturação', label: 'Gestão de Faturação' },
-        { value: 'Gestão de Cobranças e Pagamentos', label: 'Gestão de Cobranças e Pagamentos' },
-        { value: 'Gestão de Fornecedores', label: 'Gestão de Fornecedores' },
-        { value: 'Administração de Condomínios', label: 'Administração de Condomínios' },
-        { value: 'Consultorias, Auditorias e Serviços Relacionados', label: 'Consultorias, Auditorias e Serviços Relacionados' },
-        { value: 'Gestão Fiscal', label: 'Gestão Fiscal' },
-        { value: 'Gestão Administrativa', label: 'Gestão Administrativa' },
-         { value: 'Histórico de Relações Comerciais', label: 'Histórico de Relações Comerciais' },
-        { value: 'Gestão de Recursos Humanos', label: 'Gestão de Recursos Humanos' },
-         { value: 'Processamento de Remunerações', label: 'Processamento de Remunerações' },
-        { value: 'Formação Profissional', label: 'Formação Profissiona' },
-        { value: 'Gestão de Sanções disciplinares', label: 'Gestão de Sanções disciplinares' },
-        { value: 'Seleção de Pessoal e Recrutamento', label: 'Seleção de Pessoal e Recrutamento' },
-        { value: 'Gestão de Trabalho Temporário', label: 'Gestão de Trabalho Temporário' },
-        { value: 'Gestão de Teletrabalho', label: 'Gestão de Teletrabalho' },
-        { value: 'Medicina no Trabalho', label: 'Medicina no Trabalho' },
-        { value: 'Controlo de Horário / Assiduidade', label: 'Controlo de Horário / Assiduidade' },
-        { value: 'Controlos de emails, acessos à internet e chamadas', label: 'Controlos de emails, acessos à internet e chamadas' },
-        { value: 'Controlo de alcoolemia e produtos psicotrópicos', label: 'Controlo de alcoolemia e produtos psicotrópicos' },
-        { value: 'Linhas de ática (Whistle blowing)', label: 'Linhas de ática (Whistle blowing)' },
-        { value: 'Controlo por GPS / GSM / RFID', label: 'Controlo por GPS / GSM / RFID' },
-        { value: 'Gestão de Clientes', label: 'Gestão de Clientes' },
-        { value: 'Avaliação de Risco e Crédito', label: 'Avaliação de Risco e Crédito' },
-        { value: 'Titularização de Créditos', label: 'Titularização de Créditos' },
-        { value: 'Cessão de Créditos', label: 'Cessão de Créditos' },
-        { value: 'Prospecção da opções de Créditos', label: 'Prospecção da opções de Créditos' },
-        { value: 'Gestão de Créditos Litigiosos', label: 'Gestão de Créditos Litigiosos' },
-        { value: 'Recuperação de Créditos Extrajudiciais', label: 'Recuperação de Créditos Extrajudiciais' },
-        { value: 'Informação e Negócio', label: 'Informação e Negócio' },
-        { value: 'Gestão de seguros de vida', label: 'Gestão de Seguros de Vida' },
-        { value: 'Gestão de seguros de não  vida', label: 'Gestão de Seguros de não  Vidao' },
-        { value: 'Gestão de seguros de automóveis', label: 'Gestão de seguros de automóveis' },
-        { value: 'Gestão de seguros de acidentes pessoais', label: 'Gestão de seguros de acidentes pessoais' },
-        { value: 'Gestão de seguros de acidentes trabalho', label: 'Gestão de seguros de trabalho' },
-        { value: 'Gestão de seguros de outra natureza', label: 'Gestão de seguros de outra natureza' },
-        { value: 'Mediação de seguros', label: 'Mediação de seguros' },
-        { value: 'Resseguros', label: 'Resseguros' },
-        { value: 'Marketing', label: 'Marketing' },
-        { value: 'Sondagens e inquérito de opinião', label: 'Sondagens e inquérito de opinião' },
-        { value: 'Análise de perfis de consumo', label: 'Análise de perfis de consumo' },
-        { value: 'Gestão de clientes', label: 'Gestão de clientes' },
-        { value: 'Fidelização de clientes', label: 'Fidelização de clientes' },
-        { value: 'Registro de utilizadores em site na internet', label: 'Registro de utilizadores em site na internet' },
-        { value: 'Gravação de chamadas na relação contratual', label: 'Gravação de chamadas na relação contratual' },
-        { value: 'Gravação de chamadas de emergência', label: 'Gravação de chamadas de emergência' },
-        { value: 'Gravação para monitorização da qualidade do serviço', label: 'Gravação para monitorização da qualidade do serviço' },
-        { value: 'Retenção de dados de tráfego/ocalização', label: 'Retenção de dados de tráfego/ocalização' },
-        { value: 'Gestão de contecioso', label: 'Gestão de contecioso' },
-        { value: 'Gestão de pedidos interceção judicias das comunicações', label: 'Gestão de pedidos interceção judicias das comunicações' },
-        { value: 'Gestão de pedido da lei', label: 'Gestão de pedido da lei' },
-        { value: 'Gestão de serviços de GPS', label: 'Gestão de serviços de GPS' },
-        { value: 'Gestão de utentes', label: 'Gestão de utentes' },
-        { value: 'Atribuição ou prestações de apoios sociais', label: 'Atribuição ou prestações de apoios sociais' },
-        { value: 'Gestão de linhas telefónicas de apoio', label: 'Gestão de linhas telefónicas de apoio' },
-        { value: 'Gestão de alunos', label: 'Gestão de alunos' },
-        { value: 'Gestão de docentes', label: 'Gestão de docentes' },
-        { value: 'Promoção e inserção na vida profissional', label: 'Promoção e inserção na vida profissional' },
-        { value: 'Gestão de cartões escolares eletrónicos', label: 'Gestão de cartões escolares eletrónicos' },
-        { value: 'Gestão de apoios sociais', label: 'Gestão de apoios sociais' },
-        { value: 'Gestão de sites escolares', label: 'Gestão de sites escolares' },
-        { value: 'Gestão de processos clínicos', label: 'Gestão de processos clínicos' },
-        { value: 'Prescrição medicamentosa eletrónica', label: 'Prescrição medicamentosa eletrónica' },
-        { value: 'Gestão administrativa de utentes', label: 'Gestão administrativa de utentes' },
-        { value: 'Estudos clínicos observacionais (não intervencionais)', label: 'Estudos clínicos observacionais (não intervencionais)' },
-        { value: 'Ensaios clínicos (intervencionais)', label: 'Ensaios clínicos (intervencionais)' },
-        { value: 'Farmacovigilância', label: 'Farmacovigilância' },
-        { value: 'Gestão de utentes de farmácia', label: 'Gestão de utentes de farmácia' },
-        { value: 'Sistema de apoio à prática de enfermagem', label: 'Sistema de apoio à prática de enfermagem' },
+        /*****************************CATEGORIA E FINALIDADES DE TRATAMENTO************************************** */
+      selected: {},
+      finalidd: null,
+      categoria: null,
 
-
-
-
-
+      categorias: [
+        {
+          id: 1,
+          value: "Gestão contabilidade, fiscal e administrativa",
+          label: "Gestão contabilidade, fiscal e administrativa",
+        },
+        { id: 2, value: "Gravação de Chamadas", label: "Gravação de Chamadas" },
+        { id: 3, value: "Recursos Humanos", label: "Recursos Humanos" },
+        { id: 4, value: "Telecomunicações", label: "Telecomunicações" },
+        { id: 5, value: "Actividade Social", label: "Actividade Social" },
+        {
+          id: 6,
+          value: "Actividade Financeira, Creditícia e Seguradora",
+          label: "Actividade Financeira, Creditícia e Seguradora",
+        },
+        { id: 7, value: "Actividade Educativa", label: "Actividade Educativa" },
+        { id: 8, value: "Saúde", label: "Saúde" },
+        {
+          id: 9,
+          value: "Actividade Comercial e de Marketing",
+          label: "Actividade Comercial e de Marketing",
+        },
       ],
+
+       finalidadesCategorias: {
+        "Gestão contabilidade, fiscal e administrativa": [
+          {
+            id: 1,
+            value: "Gestão fiscal",
+            label: "Gestão fiscal",
+          },
+          {
+            id: 1,
+            value: "Gestão administrativa",
+            label: "Gestão administrativa",
+          },
+          {
+            id: 1,
+            value: "Gestão de faturação",
+            label: "Gestão de faturação",
+          },
+          {
+            id: 1,
+            value: "Gestão de clientes",
+            label: "Gestão de clientes",
+          },
+          {
+            id: 1,
+            value: "Gestão de cobranças e pagamentos",
+            label: "Gestão de cobranças e pagamentos",
+          },
+          {
+            id: 1,
+            value: "Gestão de fornecedores",
+            label: "Gestão de fornecedores",
+          },
+          {
+            id: 1,
+            value: "Gestão de condomínios",
+            label: "Gestão de condomínios",
+          },
+          {
+            id: 1,
+            value: "Consultorias, auditorias e serviços relacionados",
+            label: "Consultorias, auditorias e serviços relacionados",
+          },
+          {
+            id: 1,
+            value: "Histórico de relações comerciais",
+            label: "Histórico de relações comerciais",
+          },
+        ],
+
+        "Gravação de Chamadas": [
+          {
+            id: 1,
+            value: "Gravação de chamadas na relação contratual",
+            label: "Gravação de chamadas na relação contratual",
+          },
+          {
+            id: 1,
+            value: "Gravação de chamadas de emergência",
+            label: "Gravação de chamadas de emergência",
+          },
+          {
+            id: 1,
+            value: "Gravação para monitorização da qualidade serviço",
+            label: "Gravação para monitorização da qualidade serviço",
+          },
+        ],
+        "Recursos Humanos": [
+          {
+            id: 1,
+            value: "Gestão de recursos humanos",
+            label: "Gestão de recursos humanos",
+          },
+          {
+            id: 2,
+            value: "Processamento de remuneração",
+            label: "Processamento de remuneração",
+          },
+          {
+            id: 3,
+            value: "Formação profissional",
+            label: "Formação profissional",
+          },
+          {
+            id: 4,
+            value: "Gestão de sanções disciplinar",
+            label: "Gestão de sanções disciplinar",
+          },
+          {
+            id: 5,
+            value: "Seleção de pessoal e recrutamento",
+            label: "Seleção de pessoal e recrutamento",
+          },
+          {
+            id: 6,
+            value: "Gestão de trabalho temporário",
+            label: "Gestão de trabalho temporário",
+          },
+          {
+            id: 7,
+            value: "Gestão de teletrabalho",
+            label: "Gestão de teletrabalho",
+          },
+          {
+            id: 8,
+            value: "Medicina no trabalho",
+            label: "Medicina no trabalho",
+          },
+          {
+            id: 9,
+            value: "Controlo de horário / assiduidade",
+            label: "Controlo de horário / assiduidade",
+          },
+          {
+            id: 10,
+            value: "Controlo de emails, acessos à internet e chamadas",
+            label: "Controlo de emails, acessos à internet e chamadas",
+          },
+          {
+            id: 11,
+            value: "Controlo de alcoolemia e produtos psicotrópicos",
+            label: "Controlo de alcoolemia e produtos psicotrópicos",
+          },
+          {
+            id: 12,
+            value: "Linhas de ática (Whistle blowing)",
+            label: "Linhas de ática (Whistle blowing)",
+          },
+          {
+            id: 13,
+            value: "Controlo por GPS/GSM/RFID",
+            label: "Controlo por GPS/GSM/RFID",
+          },
+        ],
+        Telecomunicações: [
+          {
+            id: 14,
+            value: "Gestão da faturação",
+            label: "Gestão da faturação",
+          },
+          {
+            id: 15,
+            value: "Retenção de dados de trafego/localização",
+            label: "Retenção de dados de trafego/localização",
+          },
+          {
+            id: 16,
+            value: "Gestão de contencioso",
+            label: "Gestão de contencioso",
+          },
+          {
+            id: 17,
+            value: "Gestão de pedidos interceção judiciais das comunicações",
+            label: "Gestão de pedidos interceção judiciais das comunicações",
+          },
+          {
+            id: 18,
+            value: "Gestão de pedidos da lei",
+            label: "Gestão de pedidos da lei",
+          },
+          {
+            id: 19,
+            value: "Gestão de pedidos de GPS",
+            label: "Gestão de pedidos da GPS",
+          },
+        ],
+        "Actividade Social": [
+          {
+            id: 20,
+            value: "Gestão de utentes",
+            label: "Gestão de utentes",
+          },
+          {
+            id: 21,
+            value: "Gestão de apoio domiciliário",
+            label: "Gestão de apoio domiciliário",
+          },
+          {
+            id: 22,
+            value: "Atribuição ou prestação de sociais",
+            label: "Atribuição ou prestação de sociais",
+          },
+          {
+            id: 23,
+            value: "Gestão de linhas telefónicas de apoio ",
+            label: "Gestão de linhas telefónicas de apoio ",
+          },
+        ],
+        "Actividade Financeira, Creditícia e Seguradora": [
+          {
+            id: 24,
+            value: "Gestão de clientes",
+            label: "Gestão de clientes",
+          },
+          {
+            id: 25,
+            value: "Avaliação de risco de crédito",
+            label: "Avaliação de risco de crédito",
+          },
+          {
+            id: 26,
+            value: "Titularização de créditos",
+            label: "Titularização de créditos",
+          },
+          {
+            id: 27,
+            value: "Cessão de créditos ",
+            label: "Cessão de créditos ",
+          },
+          {
+            id: 28,
+            value: "Prospecção das opções de crédito ",
+            label: "Prospecção das opções de crédito ",
+          },
+          {
+            id: 29,
+            value: "Gestão de créditos extrajudiciais ",
+            label: "Gestão de créditos extrajudiciais ",
+          },
+          {
+            id: 30,
+            value: "Informação e negócios",
+            label: "Informação e negócios",
+          },
+          {
+            id: 31,
+            value: "Gestão de seguros de vida",
+            label: "Gestão de seguros de vida",
+          },
+          {
+            id: 32,
+            value: "Gestão de seguros de não vida",
+            label: "Gestão de seguros de  não vida",
+          },
+          {
+            id: 33,
+            value: "Gestão de seguros automóveis",
+            label: "Gestão de seguros automóveis",
+          },
+          {
+            id: 34,
+            value: "Gestão de seguros de acidentes pessoais",
+            label: "Gestão de seguros de acidentes pessoais",
+          },
+          {
+            id: 35,
+            value: "Gestão de seguros de acidentes de trabalho",
+            label: "Gestão de seguros de acidentes de trabalho",
+          },
+          {
+            id: 36,
+            value: "Gestão de seguros de acidentes de outra natureza",
+            label: "Gestão de seguros de acidentes de outra natureza",
+          },
+          {
+            id: 37,
+            value: "Mediação de seguros",
+            label: "Mediação de seguros",
+          },
+          {
+            id: 38,
+            value: "Resseguros",
+            label: "Resseguros",
+          },
+        ],
+        "Actividade Educativa": [
+          {
+            id: 39,
+            value: "Gestão de alunos",
+            label: "Gestão de alunos",
+          },
+          {
+            id: 40,
+            value: "Gestão de docentes",
+            label: "Gestão de docentes",
+          },
+          {
+            id: 41,
+            value: "Promoção e inserção na vida profissional",
+            label: "Promoção e inserção na vida profissional",
+          },
+          {
+            id: 42,
+            value: "Gestão de apoios sociais ",
+            label: "Gestão de apoios sociais ",
+          },
+          {
+            id: 43,
+            value: "Gestão de sites escolares ",
+            label: "Gestão de sites escolares",
+          },
+        ],
+        Saúde: [
+          {
+            id: 44,
+            value: "Gestão de processos clínicos",
+            label: "Gestão de processos clínicos",
+          },
+          {
+            id: 45,
+            value: "Prescrição medicamentos electrónica",
+            label: "Prescrição medicamentos electrónica",
+          },
+          {
+            id: 46,
+            value: "Gestão administrativa de utentes",
+            label: "Gestão administrativa de utentes",
+          },
+          {
+            id: 47,
+            value: "Etudos clínicos observacionais(não intervencionais) ",
+            label: "Etudos clínicos observacionais(não intervencionais)",
+          },
+          {
+            id: 48,
+            value: "Ensaios clínicos (intervencionais)",
+            label: "Ensaios clínicos (intervencionais)",
+          },
+          {
+            id: 49,
+            value: "Farmacovigilância",
+            label: "Farmacovigilância",
+          },
+          {
+            id: 50,
+            value: "Gestão de utentes de farmácia",
+            label: "Gestão de utentes de farmácia",
+          },
+          {
+            id: 51,
+            value: "Sistema de apoio à prática de enfermagem",
+            label: "Sistema de apoio à prática de enfermagem",
+          },
+        ],
+        "Actividade Comercial e de Marketing": [
+          {
+            id: 52,
+            value: "Marketing",
+            label: "Marketing",
+          },
+          {
+            id: 53,
+            value: "Sondagem e inquéiritos de opinião",
+            label: "Sondagem e inquéiritos de opinião",
+          },
+          {
+            id: 54,
+            value: "Analise e perfis de consumo",
+            label: "Analise e perfis de consumo",
+          },
+          {
+            id: 55,
+            value: "Gestão de clientes ",
+            label: "Gestão de clientes ",
+          },
+          {
+            id: 56,
+            value: "Fidelização de clientes ",
+            label: "Fidelização de clientes",
+          },
+          {
+            id: 57,
+            value: "Registro de utilizadores em site da internet ",
+            label: "Registro de utilizadores em site da internet",
+          },
+        ],
+      },
+      /************************************CATEGORIA DE FINALIDADE*********************************** */
+      finalidadiCategory: [
+        {
+          categoria: "",
+          finalidadesCategorias: "",
+        },
+      ],
+      
        outrosDados: [ 
         { value: 'No do empregado', label: 'No do empregado' },
         { value: 'Nome', label: 'Nome' },
@@ -750,7 +1327,26 @@ export default {
         this.checkRepTrab = !this.checkRepTrab; 
 
 	  	},
-		}
+      /*FINALIDADES MULTIPLAS*/
+
+    addFinalidd() {
+      this.finalidadiCategory.push({
+        categoria: "",
+        finalidadesCategorias: "",
+      });
+    },
+    removeFinalidd(index) {
+      this.finalidadiCategory.splice(index, 1);
+    },
+		},
+     watch: {
+    categoria() {
+      this.finalidd = null;
+    },
+    tipoVideo() {
+      this.zona = null;
+    },
+  },
   }
 
 </script>

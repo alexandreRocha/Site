@@ -284,6 +284,16 @@ const routes = [{
         component: () =>
             import ('../views/CctvFormsView.vue')
     },
+   
+    {
+        path: '/formstic',
+        meta:{
+            title: "TIC - CNPD",
+            },
+        name: ' TicFormsView',
+        component: () =>
+            import ('../views/TicFormsView.vue')
+    },
     {
         path: '/formsgeo',
         meta:{

@@ -861,7 +861,7 @@
         <div class="col-md-12"><br /></div>
         <!-- FIM DE FORMS-->
         <div class="col-12" id="divsave">
-          <button id="buttonsave" class="btn btn-primary" type="submit">
+          <button @click="submitForm" id="buttonsave" class="btn btn-primary" type="submit">
             Submeter Dados
           </button>
         </div>
@@ -1638,6 +1638,12 @@ export default {
   },
 
   methods: { 
+    submitForm(){
+      
+    
+    console.log("Clicado");
+     
+    },
 
     changeServico() {
       this.checkServico = !this.checkServico;
