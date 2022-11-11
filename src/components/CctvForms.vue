@@ -1,7 +1,7 @@
 <template>
   <section id="cctv" class="cctv">
     <div class="container">
-      <form id="submit-form">
+      <form onsubmit="event.preventDefault()" id="submit-form">
         <!-- FORMS CCTV-->
         <div class="section-title">
           <h2>NOTIFICAÇÃO DE VIDEOVIGILÂNCIA</h2>
@@ -22,23 +22,32 @@
                 />
               </div>
               <div class="col">
-                <label id="labelleft" for="TipoNot" class="form-label"
+                <label id="labelleft" for="TipoNotificacao" class="form-label"
                   >Tipo Notificação</label> 
-                      <Multiselect
-                  v-model="TipoNot"
-                  name="TipoNot"
-                  id="TipoNot"
-                  placeholder="- selecione o tipo de Notificação -"
-                  :options="TipoNotf"
-                />
+                  <select  
+                v-model="TipoNotificacao"
+                        class="form-select" 
+                        name="TipoNotificacao"
+                        id="TipoNotificacao"
+                        for="TipoNotificacao"
+                        placeholder="- selecione  o tipo de Notificação -"
+                      >
+                        <option :value="null">- selecione  o tipo de Notificação-</option>
+                        <option
+                          v-for="TipoNotificacao in TipoNotificacoes"
+                          :key="TipoNotificacao.value"
+                          :value="TipoNotificacao.value"
+                        >
+                          {{ TipoNotificacao.value }}
+                        </option>
+                      </select>   
               </div>
               <div class="col">
                 <label id="labelleft" for="tipoVideovigilancia" class="form-label"
                   >Tipo Videovigilância</label
                 >
-                <select 
-                v-model.trim="tipoVideo"
-                v-model="tipoVideo"
+                <select  
+                v-model="tipoVideovigilancia"
                         class="form-select" 
                         name="tipoVideovigilancia"
                         id="tipoVideovigilancia"
@@ -47,17 +56,17 @@
                       >
                         <option :value="null">- Tipo Videovigilância-</option>
                         <option
-                          v-for="tipo in tipoCctv"
-                          :key="tipo.value"
-                          :value="tipo.value"
+                          v-for="tipoVideovigilancia in tiposVideovigilancias"
+                          :key="tipoVideovigilancia.value"
+                          :value="tipoVideovigilancia.value"
                         >
-                          {{ tipo.value }}
+                          {{ tipoVideovigilancia.value }}
                         </option>
                       </select>  
 
                 <!--  <pre
                   class="language-json"
-                ><code>Id pra mandar pra BD:{{ tipoVideo  }}</code></pre>-->
+                ><code>Id pra mandar pra BD:{{ tipoVideovigilancia  }}</code></pre>-->
               </div>
             </div>
           </div>
@@ -115,13 +124,23 @@
                 />
               </div>
               <div class="col">
-                <Multiselect
-                  v-model="atividadeDes"
-                  name="atividadeDesenvolvida"
-                  id="atividadeDesenvolvida"
-                  placeholder="- selecione a atividade desenvolvida -"
-                  :options="atividadeDesenvolvida"
-                />
+                <select  
+                v-model="atividade"
+                        class="form-select" 
+                        name="atividadeDesenvolvida"
+                        id="atividadeDesenvolvida"
+                        for="atividadeDesenvolvida"
+                        placeholder="- selecione a atividade desenvolvida -"
+                      >
+                        <option :value="null">- selecione a atividade desenvolvida -</option>
+                        <option
+                          v-for="atividade in atividadesDesenvolvidas"
+                          :key="atividade.value"
+                          :value="atividade.value"
+                        >
+                          {{ atividade.value }}
+                        </option>
+                      </select> 
               </div>
               <div class="col">
                 <input
@@ -165,16 +184,11 @@
                       v-model="ilhaResp"
                       name="ilhaResp"
                       id="ilhaResp"
-                      for="ilhaResp"
-                      placeholder="- Seleciona uma ilha-"
+                      for="ilhaResp" 
                     >
                       <option :value="null">- selecione uma ilha -</option>
-                      <option
-                        v-for="option in ilhas"
-                        :key="option.value"
-                        :value="option.value"
-                      >
-                        {{ option.label }}
+                      <option v-for="ilha in ilhas" :key="ilha.value" :value="ilha.value">
+                        {{ ilha.label }}
                       </option>
                     </select>
                   </div>
@@ -189,11 +203,11 @@
                     >
                       <option :value="null">- selecione um concelho -</option>
                       <option
-                        v-for="option in concelhos[ilhaResp]"
-                        :key="option.value"
-                        :value="option.value"
+                        v-for="concelho in concelhos[ilhaResp]"
+                        :key="concelho.value"
+                        :value="concelho.value"
                       >
-                        {{ option.label }}
+                        {{ concelho.label }}
                       </option>
                     </select>
                   </div>
@@ -372,11 +386,11 @@
                       >
                         <option :value="null">- selecione uma ilha -</option>
                         <option
-                          v-for="option in ilhas"
-                          :key="option.value"
-                          :value="option.value"
+                          v-for="ilha in ilhas"
+                          :key="ilha.value"
+                          :value="ilha.value"
                         >
-                          {{ option.label }}
+                          {{ ilha.label }}
                         </option>
                       </select>
                     </div>
@@ -391,11 +405,11 @@
                       >
                         <option :value="null">- selecione um concelho -</option>
                         <option
-                          v-for="option in concelhos[ilhaMorInst]"
-                          :key="option.value"
-                          :value="option.value"
+                          v-for="concelho in concelhos[ilhaMorInst]"
+                          :key="concelho.value"
+                          :value="concelho.value"
                         >
-                          {{ option.label }}
+                          {{ concelho.label }}
                         </option>
                       </select>
                     </div>
@@ -515,11 +529,11 @@
                       >
                         <option :value="null">- selecione uma ilha -</option>
                         <option
-                          v-for="option in ilhas"
-                          :key="option.value"
-                          :value="option.value"
+                          v-for="ilha in ilhas"
+                          :key="ilha.value"
+                          :value="ilha.value"
                         >
-                          {{ option.label }}
+                          {{ ilha.label }}
                         </option>
                       </select>
                     </div>
@@ -534,11 +548,11 @@
                       >
                         <option :value="null">- selecione um concelho -</option>
                         <option
-                          v-for="option in concelhos[ilhaServExt]"
-                          :key="option.value"
-                          :value="option.value"
+                          v-for="concelho in concelhos[ilhaServExt]"
+                          :key="concelho.value"
+                          :value="concelho.value"
                         >
-                          {{ option.label }}
+                          {{ concelho.label }}
                         </option>
                       </select>
                     </div>
@@ -567,7 +581,7 @@
               <div class="col">  
                 <Multiselect  
                         v-model="zona"
-                        :options="zonasAbrangidas[tipoVideo]"
+                        :options="zonasAbrangidas[tipoVideovigilancia]"
                         mode="tags"
                         placeholder="- selecione as zonas abrangidas -"
                         :close-on-select="true"
@@ -698,11 +712,11 @@
                       >
                         <option :value="null">- selecione uma ilha -</option>
                         <option
-                          v-for="option in ilhas"
-                          :key="option.value"
-                          :value="option.value"
+                          v-for="ilha in ilhas"
+                          :key="ilha.value"
+                          :value="ilha.value"
                         >
-                          {{ option.label }}
+                          {{ ilha.label }}
                         </option>
                       </select>
                     </div>
@@ -717,11 +731,11 @@
                       >
                         <option :value="null">- selecione um concelho -</option>
                         <option
-                          v-for="option in concelhos[ilhaDirAcess]"
-                          :key="option.value"
-                          :value="option.value"
+                          v-for="concelho in concelhos[ilhaDirAcess]"
+                          :key="concelho.value"
+                          :value="concelho.value"
                         >
-                          {{ option.label }}
+                          {{ concelho.label }}
                         </option>
                       </select>
                     </div>
@@ -892,129 +906,16 @@ export default {
       checkRepTrab: false,
 
       /**************************TIPO NOTIFICACAO *********************************** */
-      tipoNot:null,
-      TipoNotf: [
-        { value: "1ª Notificação", label: "1ª Notificação" },
-        { value: "Alteração", label: "Alteração" },
-        { value: "Substituição da Notificação não autorizada", label: "Substituição da Notificação não autorizada" }, 
-      ],
+      TipoNotificacoes:null,
+      TipoNotificacao:null,
+       
 
       /**********************************ATIVIDADE DESENVOLVIDA*********************************************** */
-      atividadeDesenvolvida: [
-        { value: "Actividade de Televisão", label: "Actividade de Televisão" },
-        {
-          value: "Emprego (Selecção, fornecimento de recursos humanos)",
-          label: "Emprego (Selecção, fornecimento de recursos humanos)",
-        },
-        { value: "Segurança e Ordem pública", label: "Segurança e Ordem pública" },
-        { value: "Produção da Água", label: "Produção da Água" },
-        { value: "Telecomunicação", label: "Telecomunicação" },
-        { value: "Segurança Privada", label: "Segurança Privada" },
-        {
-          value: "Ensino (Pré-escolar, Básico, Secundário, Superior)",
-          label: "Ensino (Pré-escolar, Básico, Secundário, Superior)",
-        },
-        {
-          value: "Estabelecimento comercial de venda a público",
-          label: "Estabelecimento comercial de venda a público",
-        },
-        {
-          value:
-            "Serviço de Internet (processamento de dados, domiciliação de informação",
-          label:
-            "Serviço de Internet (processamento de dados, domiciliação de informação",
-        },
-        {
-          value: "Administração Pública (Central, Local)",
-          label: "Administração Pública (Central, Local)",
-        },
-        { value: "Saúde", label: "Saúde" },
-        { value: "Centro Comercial", label: "Centro Comercial" },
-        {
-          value: "Publicidade, Estudos de Mercado, Sondagens de Opinião",
-          label: "Publicidade, Estudos de Mercado, Sondagens de Opinião",
-        },
-        { value: "Negócios Estrangeiros", label: "Negócios Estrangeiros" },
-        { value: "Previdência Social", label: "Previdência Social" },
-        {
-          value: "Alojamento (Hotel, Residencial, Pensão, etc.)",
-          label: "Alojamento (Hotel, Residencial, Pensão, etc.)",
-        },
-        { value: "Defesa", label: "Defesa" },
-        { value: "Actividade Financeira", label: "Actividade Financeira" },
-        { value: "Comércio Electrónico", label: "Comércio Electrónico" },
-        { value: "Informática", label: "Informática" },
-        { value: "Justiça", label: "Justiça" },
-        { value: "Seguros", label: "Seguros" },
-        {
-          value: "Transporte (Aéreo, Marítimo, Terrestre)",
-          label: "Transporte (Aéreo, Marítimo, Terrestre)",
-        },
-      ],
-
+      atividade:null,
+      atividadesDesenvolvidas:null, 
       /******************************ZTIPOS DE CCTV*******************************/
-
-      tipoVideovigilancia: null,
-      tipoVideo: null,
-      tipoCctv: [
-        { value: "Centros Comerciais", label: "Centros Comerciais" },
-        {
-          value: "Edifícios de habitação Condomínios",
-          label: "Edifícios de habitação Condomínios",
-        },
-        {
-          value: "Estabelecimentos comerciais de venda ao público",
-          label: "Estabelecimentos comerciais de venda ao público",
-        },
-        {
-          value: "Estabelecimentos de Ensino e Similares",
-          label: "Estabelecimentos de Ensino e Similares",
-        },
-        { value: "Estabelecimentos de Saude", label: "Estabelecimentos de Saude" },
-        {
-          value: "Estabelecimentos destinados a dança",
-          label: "Estabelecimentos destinados a dança",
-        },
-        {
-          value: "Farmácias, ParaFarmácias e Posto de Venda de Medicamentos e Similares",
-          label: "Farmácias, ParaFarmácias e Posto de Venda de Medicamentos e Similares",
-        },
-        { value: "Gasolineiras", label: "Gasolineiras" },
-        { value: "Hotelaria", label: "Hotelaria" },
-        {
-          value: "Instalações empresariais industriais e de serviços",
-          label: "Instalações empresariais industriais e de serviços",
-        },
-        { value: "Instituiçoes Financeiras", label: "Instituiçoes Financeiras" },
-        {
-          value: "Lares e outros Estabelecimentos de Apoio Social",
-          label: "Lares e outros Estabelecimentos de Apoio Social",
-        },
-        { value: "Locais de Culto", label: "Locais de Culto" },
-        {
-          value: "Museus, Bibliotecas e Salas de Espectáculo",
-          label: "Museus, Bibliotecas e Salas de Espectáculo",
-        },
-        {
-          value: "Ourivesarias,Joalharias e Relojoarias",
-          label: "Ourivesarias,Joalharias e Relojoarias",
-        },
-        { value: "Parques de Estacionamento", label: "Parques de Estacionamento" },
-        {
-          value: "Recintos Espectáculos desportivos",
-          label: "Recintos Espectáculos desportivos",
-        },
-        {
-          value: "Residências Moradias Unifamiliares",
-          label: "Residências Moradias Unifamiliares",
-        },
-        { value: "Restauração", label: "Restauração" },
-        { value: "Sucateiras", label: "Sucateiras" },
-        {
-          value: "Formulário geral de videovigilância",
-          label: "Formulário geral de videovigilância",
-        },
-      ],
+      tipoVideovigilancia: null, 
+      tiposVideovigilancias:null,
       /******************************ZONAS ABRANGIDAS*******************************/
 
       zona: null, 
@@ -1580,26 +1481,17 @@ export default {
           ],
         },  
       /** *********************ILHAS E CONCELHOS ************************************** */
+      ilha:null,
+      ilhas:null,
       ilhaResp: null,
       ilhaMorInst: null,
       ilhaServExt: null,
-      ilhaDirAcess: null,
-      ilhas: [
-        { value: "Santo Antão", label: "Santo Antão" },
-        { value: "São Vicente", label: "São Vicente" },
-        { value: "São Nicolau", label: "São Nicolau" },
-        { value: "Sal", label: "Sal" },
-        { value: "Boa Vista", label: "Boa Vista" },
-        { value: "Maio", label: "Maio" },
-        { value: "Santiago", label: "Santiago" },
-        { value: "Fogo", label: "Fogo" },
-        { value: "Brava", label: "Brava" },
-      ],
-      concelho: null,
+      ilhaDirAcess: null, 
+      concelho: null, 
       concelhoMorInst: null,
       concelhoServExt: null,
       concelhoDirAcess: null,
-      concelhos: {
+         concelhos: {
         "Santo Antão": [
           { value: "Ribeira Grande", label: "Ribeira Grande" },
           { value: "Paul", label: "Paul" },
@@ -1608,7 +1500,10 @@ export default {
         "São Vicente": [{ value: "São Vicente", label: "São Vicente" }],
         "São Nicolau": [
           { value: "Ribeira Brava", label: "Ribeira Brava" },
-          { value: "Tarrafal de São Nicolau", label: "Tarrafal de São Nicolau" },
+          {
+            value: "Tarrafal de São Nicolau",
+            label: "Tarrafal de São Nicolau",
+          },
         ],
         Sal: [{ value: "Sal", label: "Sal" }],
         "Boa Vista": [{ value: "Boa Vista", label: "Boa Vista" }],
@@ -1619,8 +1514,14 @@ export default {
           { value: "Santa Catarina", label: "Santa Catarina" },
           { value: "São Salvador do Mundo", label: "São Salvador do Mundo" },
           { value: "Santa Cruz", label: "Santa Cruz" },
-          { value: "São Lourenço dos Órgãos", label: "São Lourenço dos Órgãos" },
-          { value: "Ribeira Grande de Santiago", label: "Ribeira Grande de Santiago" },
+          {
+            value: "São Lourenço dos Órgãos",
+            label: "São Lourenço dos Órgãos",
+          },
+          {
+            value: "Ribeira Grande de Santiago",
+            label: "Ribeira Grande de Santiago",
+          },
           { value: "São Miguel", label: "São Miguel" },
           { value: "Tarrafal", label: "Tarrafal" },
         ],
@@ -1638,11 +1539,19 @@ export default {
   },
 
   methods: { 
-    submitForm(){
-      
-    
+    submitForm(){ 
     console.log("Clicado");
      
+    },
+
+    async dadosBackend(){
+      const req = await fetch("http://localhost:3000/dadosBackend");
+      const data= await req.json();
+      this.tiposVideovigilancias = data.tiposVideovigilancias;
+      this.ilhas = data.ilhas;
+      this.atividadesDesenvolvidas = data.atividadesDesenvolvidas;
+      this.TipoNotificacoes = data.TipoNotificacoes;
+      
     },
 
     changeServico() {
@@ -1665,11 +1574,15 @@ export default {
       this.checkRepTrab = !this.checkRepTrab;
     },
   },  
+
+  mounted() {
+    this.dadosBackend();
+  },
   watch: { 
     categoria() {
       this.finalidd = null
     },
-    tipoVideo() {
+    tipoVideovigilancia() {
       this.zona = null
     },
   },
@@ -1679,11 +1592,11 @@ export default {
 
 <style>
 .cctv {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
   padding-top: 110px;
 }
 .container {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 .section-title {
   text-align: center;
@@ -1708,28 +1621,28 @@ export default {
   }
 }
 #divg {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
   border: 1px solid #061536;
   padding: 10px;
   border-radius: 10px;
 }
 .col {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 #divg2 {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
   padding: 10px;
   margin-top: 10px;
   padding-top: 20px;
 }
 .col,
 .row {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 input,
 label,
 textarea {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 input {
   margin-bottom: 10px;
@@ -1753,7 +1666,7 @@ option:hover {
 }
 
 #separacao {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
   padding-left: 10px;
   text-align: center;
   color: #ffffff;
@@ -1796,17 +1709,17 @@ button#buttonsave:focus {
 }
 
 .multiselect {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 .multiselect:focus,
 .multiselect:hover {
   outline: none !important;
   border-color: #061536;
   box-shadow: 0 0 10px #061536;
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 .multiselect {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
   align-items: center;
   background: var(--ms-bg, #fff);
   border: var(--ms-border-width, 1px) solid var(--ms-border-color, #061536);
@@ -1874,8 +1787,8 @@ button#buttonsave:focus {
   border-radius: var(--ms-radius, 4px);
   bottom: 0;
   box-sizing: border-box;
-  font-family: verdana;
-  font-size: verdana;
+  font-family: "Times New Roman", Times, serif;;
+  font-size: "Times New Roman", Times, serif;;
   height: 100%;
   left: 0;
   outline: none;
@@ -1968,8 +1881,8 @@ button#buttonsave:focus {
   border: 0;
   bottom: 0;
   box-sizing: border-box;
-  font-family: verdana;
-  font-size: verdana;
+  font-family: "Times New Roman", Times, serif;;
+  font-size: "Times New Roman", Times, serif;;
   left: 0;
   outline: none;
   padding: 0;

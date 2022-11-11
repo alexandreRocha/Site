@@ -140,9 +140,7 @@
                           </div> 
                         </div> 
                       </div> 
-                  </div>
-                </div>
-                 <div class="col-md-12"> 
+                      <div class="col-md-12"> 
                       <input type="text" class="form-control" id="nomedenominacao" alt="Nome Denominação: Refere-se à designação oficial de uma instituição pública ou privada" placeholder=" Representante">
                     </div>
                     <div class="col-md-12">  
@@ -203,10 +201,10 @@
                           </div> 
                         </div> 
                       </div> 
-                      <div class="col-md-12">  
+                      <div class="col-md-12" id="divloco">  
                       <input type="text" class="form-control" id="nomecomercial" alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida." placeholder=" Nome da pessoa do contato">
                     </div>
-                     <div class="col-md-12" id="divloco"> 
+                     <div class="col-md-12" > 
                         <div class="row">
                           <div class="col">  
                             <input type="email" class="form-control" id="caixapostal" alt="Caixa Postal" placeholder="Entre o seu email: example@cnpd.cv">
@@ -216,6 +214,9 @@
                           </div> 
                         </div> 
                       </div>
+                  </div>
+                </div>
+                 
               </div>
              <div class="col-md-12" id="separacao">
                 Processamento da informação
@@ -820,17 +821,17 @@ export default {
 
 
 #divg{ 
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
   border: 1px solid #061536;
   padding: 10px;
   border-radius: 10px;
   
 }
 .col{ 
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
 }
 #divg2{
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
   border: 1px solid #061536;
   padding: 10px;
   margin-top: 10px;
@@ -839,10 +840,10 @@ export default {
 }
 .col{
 
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
 }
 input, label{
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
 }
 input{
  margin-bottom: 10px;
@@ -859,7 +860,7 @@ option:hover {
     }
  
 #separacao{
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
   padding-left: 10px;
   text-align: center;
   color: #ffffff;
@@ -905,7 +906,7 @@ option:hover {
   border-radius: 50px;
 }
 .multiselect{
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
   width: 300;
  }
 .multiselect:focus, .multiselect:hover{

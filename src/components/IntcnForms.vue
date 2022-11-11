@@ -1,7 +1,7 @@
 <template>
   <section id="Interconexao" class="Interconexao">
     <div class="container">
-      <form>
+      <form onsubmit="event.preventDefault()" id="submit-form">
         <!-- FORMS Interconexao-->
         <div class="section-title">
           <h2>NOTIFICAÇÃO DE INTERCONEXÃO UNILATERAL DOS DADOS</h2>
@@ -15,13 +15,23 @@
                   >Tipo Notificação</label> 
               </div>
               <div class="col-md-10">
-                <Multiselect
-                  v-model="TipoNot"
-                  name="TipoNot"
-                  id="TipoNot"
-                  placeholder="- selecione o tipo de Notificação -"
-                  :options="TipoNotf"
-                />
+                <select  
+                v-model="TipoNotificacao"
+                        class="form-select" 
+                        name="TipoNotificacao"
+                        id="TipoNotificacao"
+                        for="TipoNotificacao"
+                        placeholder="- selecione  o tipo de Notificação -"
+                      >
+                        <option :value="null">- selecione  o tipo de Notificação-</option>
+                        <option
+                          v-for="TipoNotificacao in TipoNotificacoes"
+                          :key="TipoNotificacao.value"
+                          :value="TipoNotificacao.value"
+                        >
+                          {{ TipoNotificacao.value }}
+                        </option>
+                      </select>  
               </div>
             </div>
           </div>
@@ -89,13 +99,23 @@
                 />
               </div>
               <div class="col">
-                <Multiselect
-                  v-model="atividadeDes"
-                  name="atividadeDesenvolvida"
-                  id="atividadeDesenvolvida"
-                  placeholder="- qual a atividade desenvolvida -"
-                  :options="atividadeDesenvolvida"
-                />
+                <select  
+                v-model="atividade"
+                        class="form-select" 
+                        name="atividadeDesenvolvida"
+                        id="atividadeDesenvolvida"
+                        for="atividadeDesenvolvida"
+                        placeholder="- selecione a atividade desenvolvida -"
+                      >
+                        <option :value="null">- selecione a atividade desenvolvida -</option>
+                        <option
+                          v-for="atividade in atividadesDesenvolvidas"
+                          :key="atividade.value"
+                          :value="atividade.value"
+                        >
+                          {{ atividade.value }}
+                        </option>
+                      </select> 
               </div>
               <div class="col">
                 <input
@@ -144,11 +164,11 @@
                     >
                       <option :value="null">- selecione uma ilha -</option>
                       <option
-                        v-for="option in ilhas"
-                        :key="option.value"
-                        :value="option.value"
+                        v-for="ilha in ilhas"
+                        :key="ilha.value"
+                        :value="ilha.value"
                       >
-                        {{ option.label }}
+                        {{ ilha.label }}
                       </option>
                     </select>
                   </div>
@@ -163,11 +183,11 @@
                     >
                       <option :value="null">- selecione um concelho -</option>
                       <option
-                        v-for="option in concelhos[ilhaResp]"
-                        :key="option.value"
-                        :value="option.value"
+                        v-for="concelho in concelhos[ilhaResp]"
+                        :key="concelho.value"
+                        :value="concelho.value"
                       >
-                        {{ option.label }}
+                        {{ concelho.label }}
                       </option>
                     </select>
                   </div>
@@ -277,11 +297,11 @@
                     >
                       <option :value="null">- selecione uma ilha -</option>
                       <option
-                        v-for="option in ilhas"
-                        :key="option.value"
-                        :value="option.value"
+                        v-for="ilha in ilhas"
+                        :key="ilha.value"
+                        :value="ilha.value"
                       >
-                        {{ option.label }}
+                        {{ ilha.label }}
                       </option>
                     </select>
                   </div>
@@ -296,11 +316,11 @@
                     >
                       <option :value="null">- selecione um concelho -</option>
                       <option
-                        v-for="option in concelhos[ilhaMorRep]"
-                        :key="option.value"
-                        :value="option.value"
+                        v-for="concelho in concelhos[ilhaMorRep]"
+                        :key="concelho.value"
+                        :value="concelho.value"
                       >
-                        {{ option.label }}
+                        {{ concelho.label }}
                       </option>
                     </select>
                   </div>
@@ -449,11 +469,11 @@
                       >
                         <option :value="null">- selecione uma ilha -</option>
                         <option
-                          v-for="option in ilhas"
-                          :key="option.value"
-                          :value="option.value"
+                          v-for="ilha in ilhas"
+                          :key="ilha.value"
+                          :value="ilha.value"
                         >
-                          {{ option.label }}
+                          {{ ilha.label }}
                         </option>
                       </select>
                     </div>
@@ -468,11 +488,11 @@
                       >
                         <option :value="null">- selecione um concelho -</option>
                         <option
-                          v-for="option in concelhos[ilhaServExt]"
-                          :key="option.value"
-                          :value="option.value"
+                          v-for="concelho in concelhos[ilhaServExt]"
+                          :key="concelho.value"
+                          :value="concelho.value"
                         >
-                          {{ option.label }}
+                          {{ concelho.label }}
                         </option>
                       </select>
                     </div>
@@ -547,13 +567,24 @@
                 />
               </div>
               <div class="col">
-                <Multiselect
-                  v-model="atividadeDes"
-                  name="atividadeDesenvolvidaSR"
-                  id="atividadeDesenvolvidaSR"
-                  placeholder="- qual a atividade desenvolvida -"
-                  :options="atividadeDesenvolvida"
-                />
+                 
+                <select  
+                v-model="atividadeSR"
+                        class="form-select" 
+                        name="atividadeDesenvolvidaSR"
+                        id="atividadeDesenvolvidaSR"
+                        for="atividadeDesenvolvidaSR"
+                        placeholder="- selecione a atividade desenvolvida -"
+                      >
+                        <option :value="null">- selecione a atividade desenvolvida -</option>
+                        <option
+                          v-for="atividadeSR in atividadesDesenvolvidas"
+                          :key="atividadeSR.value"
+                          :value="atividadeSR.value"
+                        >
+                          {{ atividadeSR.value }}
+                        </option>
+                      </select> 
               </div>
               <div class="col">
                 <input
@@ -602,11 +633,11 @@
                     >
                       <option :value="null">- selecione uma ilha -</option>
                       <option
-                        v-for="option in ilhas"
-                        :key="option.value"
-                        :value="option.value"
+                        v-for="ilha in ilhas"
+                        :key="ilha.value"
+                        :value="ilha.value"
                       >
-                        {{ option.label }}
+                        {{ ilha.label }}
                       </option>
                     </select>
                   </div>
@@ -621,11 +652,11 @@
                     >
                       <option :value="null">- selecione um concelho -</option>
                       <option
-                        v-for="option in concelhos[ilhaRespSR]"
-                        :key="option.value"
-                        :value="option.value"
+                        v-for="concelho in concelhos[ilhaRespSR]"
+                        :key="concelho.value"
+                        :value="concelho.value"
                       >
-                        {{ option.label }}
+                        {{ concelho.label }}
                       </option>
                     </select>
                   </div>
@@ -735,11 +766,11 @@
                     >
                       <option :value="null">- selecione uma ilha -</option>
                       <option
-                        v-for="option in ilhas"
-                        :key="option.value"
-                        :value="option.value"
+                        v-for="ilha in ilhas"
+                        :key="ilha.value"
+                        :value="ilha.value"
                       >
-                        {{ option.label }}
+                        {{ ilha.label }}
                       </option>
                     </select>
                   </div>
@@ -754,11 +785,11 @@
                     >
                       <option :value="null">- selecione um concelho -</option>
                       <option
-                        v-for="option in concelhos[ilhaMorRepSR]"
-                        :key="option.value"
-                        :value="option.value"
+                        v-for="concelho in concelhos[ilhaMorRepSR]"
+                        :key="concelho.value"
+                        :value="concelho.value"
                       >
-                        {{ option.label }}
+                        {{ concelho.label }}
                       </option>
                     </select>
                   </div>
@@ -907,11 +938,11 @@
                       >
                         <option :value="null">- selecione uma ilha -</option>
                         <option
-                          v-for="option in ilhas"
-                          :key="option.value"
-                          :value="option.value"
+                          v-for="ilha in ilhas"
+                          :key="ilha.value"
+                          :value="ilha.value"
                         >
-                          {{ option.label }}
+                          {{ ilha.label }}
                         </option>
                       </select>
                     </div>
@@ -926,11 +957,11 @@
                       >
                         <option :value="null">- selecione um concelho -</option>
                         <option
-                          v-for="option in concelhos[ilhaServExtSR]"
-                          :key="option.value"
-                          :value="option.value"
+                          v-for="concelho in concelhos[ilhaServExtSR]"
+                          :key="concelho.value"
+                          :value="concelho.value"
                         >
-                          {{ option.label }}
+                          {{ concelho.label }}
                         </option>
                       </select>
                     </div>
@@ -984,13 +1015,14 @@
                 <label class="form-check-label">
                   Descrição da finalidade (indique uma das opções indicadas) Se
                   tiver mais do que uma categoria de finalidades a serem
-                  tratados clique no botão verde para adicionar mais campos.
+                  tratados clique no botão abaixo para adicionar mais campos.
                 </label>
                 <div class="col-md-12">
                   <button
                     @click="addFinalidd()"
                     alt="Adicionar mais campos"
                     type="button"
+                    id="addmore"
                     class="btn btn-success"
                   >
                     <b class="add"
@@ -999,6 +1031,7 @@
                   </button>
                   <div class="col-md-12"><br /></div>
 
+                  <label for="categorias"> Selecione uma Categoria abaixo</label>
                   <div
                     class="row"
                     v-for="(finalidadi, index) in finalidadiCategory"
@@ -1017,11 +1050,11 @@
                           - selecione uma categoria -
                         </option>
                         <option
-                          v-for="option in categorias"
-                          :key="option.id"
-                          :value="option.value"
+                          v-for="categoria in categorias"
+                          :key="categoria.id"
+                          :value="categoria.value"
                         >
-                          {{ option.label }}
+                          {{ categoria.label }}
                         </option>
                       </select>
                     </div>
@@ -1042,6 +1075,7 @@
                         @click="removeFinalidd(index)"
                         v-show="index != 0"
                         type="button"
+                        id="removeItem"
                         class="btn btn-danger"
                       >
                         <b class="add"
@@ -1149,13 +1183,14 @@
                 <label for="formFile" class="form-label"
                   >Se sim, indique as entidades a quem são comunicados os dados
                   e motivos da comunicação. Se tiver mais do que uma entidade
-                  clique no botão verde para adicionar mais campos.
+                  clique no botão abaixo para adicionar mais campos.
                 </label>
                 <div class="col-md-12">
                   <button
                     @click="addComunicTerce()"
                     alt="Adicionar mais campos"
                     type="button"
+                    id="addmore"
                     class="btn btn-success"
                   >
                     <b class="add"
@@ -1196,6 +1231,7 @@
                         @click="removeComunic(index)"
                         v-show="index != 0"
                         type="button"
+                        id="removeItem"
                         class="btn btn-danger"
                       >
                         <b class="add"
@@ -1270,7 +1306,7 @@
                 <label for="formFile" class="form-label"
                   >Listagem das entidades e respetivos países para onde há
                   transmissão de dados e quais os dados transferidos. Se tiver
-                  mais do que uma entidade clique no botão verde para adicionar
+                  mais do que uma entidade clique no botão abaixo para adicionar
                   mais campos.
                 </label>
                 <div class="col-md-12">
@@ -1278,6 +1314,7 @@
                     @click="addTransfInter()"
                     alt="Adicionar mais campos"
                     type="button"
+                    id="addmore"
                     class="btn btn-success"
                   >
                     <b class="add"
@@ -1331,6 +1368,7 @@
                         @click="removeInter(index)"
                         v-show="index != 0"
                         type="button"
+                        id="removeItem"
                         class="btn btn-danger"
                       >
                         <b class="add"
@@ -1414,11 +1452,11 @@
                               - selecione uma ilha -
                             </option>
                             <option
-                              v-for="option in ilhas"
-                              :key="option.value"
-                              :value="option.value"
+                              v-for="ilha in ilhas"
+                              :key="ilha.value"
+                              :value="ilha.value"
                             >
-                              {{ option.label }}
+                              {{ ilha.label }}
                             </option>
                           </select>
                         </div>
@@ -1435,11 +1473,11 @@
                               - selecione um concelho -
                             </option>
                             <option
-                              v-for="option in concelhos[ilhaDirAcess]"
-                              :key="option.value"
-                              :value="option.value"
+                              v-for="concelho in concelhos[ilhaDirAcess]"
+                              :key="concelho.value"
+                              :value="concelho.value"
                             >
-                              {{ option.label }}
+                              {{ concelho.label }}
                             </option>
                           </select>
                         </div>
@@ -1574,6 +1612,7 @@
         <!-- FIM DE FORMS-->
         <div class="col-12" id="divsave">
           <button
+          @click="submitForm" 
             id="buttonsave"
             value="Save"
             class="btn btn-primary"
@@ -1604,86 +1643,21 @@ export default {
       checkTransfInter: false,
 
        /**************************TIPO NOTIFICACAO *********************************** */
-       tipoNot:null,
-      TipoNotf: [
-        { value: "1ª Notificação", label: "1ª Notificação" },
-        { value: "Alteração", label: "Alteração" },
-        { value: "Substituição da Notificação não autorizada", label: "Substituição da Notificação não autorizada" }, 
-      ],
+      TipoNotificacoes:null,
+      TipoNotificacao:null,
 
 
       /**********************************ATIVIDADE DESENVOLVIDA*********************************************** */
-      atividadeDesenvolvida: [
-        { value: "Actividade de Televisão", label: "Actividade de Televisão" },
-        {
-          value: "Emprego (Selecção, fornecimento de recursos humanos)",
-          label: "Emprego (Selecção, fornecimento de recursos humanos)",
-        },
-        {
-          value: "Segurança e Ordem pública",
-          label: "Segurança e Ordem pública",
-        },
-        { value: "Produção da Água", label: "Produção da Água" },
-        { value: "Telecomunicação", label: "Telecomunicação" },
-        { value: "Segurança Privada", label: "Segurança Privada" },
-        {
-          value: "Ensino (Pré-escolar, Básico, Secundário, Superior)",
-          label: "Ensino (Pré-escolar, Básico, Secundário, Superior)",
-        },
-        {
-          value: "Estabelecimento comercial de venda a público",
-          label: "Estabelecimento comercial de venda a público",
-        },
-        {
-          value:
-            "Serviço de Internet (processamento de dados, domiciliação de informação",
-          label:
-            "Serviço de Internet (processamento de dados, domiciliação de informação",
-        },
-        {
-          value: "Administração Pública (Central, Local)",
-          label: "Administração Pública (Central, Local)",
-        },
-        { value: "Saúde", label: "Saúde" },
-        { value: "Centro Comercial", label: "Centro Comercial" },
-        {
-          value: "Publicidade, Estudos de Mercado, Sondagens de Opinião",
-          label: "Publicidade, Estudos de Mercado, Sondagens de Opinião",
-        },
-        { value: "Negócios Estrangeiros", label: "Negócios Estrangeiros" },
-        { value: "Previdência Social", label: "Previdência Social" },
-        {
-          value: "Alojamento (Hotel, Residencial, Pensão, etc.)",
-          label: "Alojamento (Hotel, Residencial, Pensão, etc.)",
-        },
-        { value: "Defesa", label: "Defesa" },
-        { value: "Actividade Financeira", label: "Actividade Financeira" },
-        { value: "Comércio Electrónico", label: "Comércio Electrónico" },
-        { value: "Informática", label: "Informática" },
-        { value: "Justiça", label: "Justiça" },
-        { value: "Seguros", label: "Seguros" },
-        {
-          value: "Transporte (Aéreo, Marítimo, Terrestre)",
-          label: "Transporte (Aéreo, Marítimo, Terrestre)",
-        },
-      ],
-
+      atividade:null,
+      atividadeSR:null,
+      atividadesDesenvolvidas:null, 
       /** *********************ILHAS E CONCELHOS ************************************** */
       ilhaResp: null,
       ilhaMorInst: null,
       ilhaServExt: null,
-      ilhaDirAcess: null,
-      ilhas: [
-        { value: "Santo Antão", label: "Santo Antão" },
-        { value: "São Vicente", label: "São Vicente" },
-        { value: "São Nicolau", label: "São Nicolau" },
-        { value: "Sal", label: "Sal" },
-        { value: "Boa Vista", label: "Boa Vista" },
-        { value: "Maio", label: "Maio" },
-        { value: "Santiago", label: "Santiago" },
-        { value: "Fogo", label: "Fogo" },
-        { value: "Brava", label: "Brava" },
-      ],
+      ilhaDirAcess: null, 
+      ilha:null,
+      ilhas:null,
       concelho: null,
       concelhoMorInst: null,
       concelhoServExt: null,
@@ -1741,33 +1715,9 @@ export default {
         Brava: [{ value: "Brava", label: "Brava" }],
       },
       /*****************************CATEGORIA E FINALIDADES DE TRATAMENTO************************************** */
-      selected: {},
       finalidd: null,
       categoria: null,
-
-      categorias: [
-        {
-          id: 1,
-          value: "Gestão contabilidade, fiscal e administrativa",
-          label: "Gestão contabilidade, fiscal e administrativa",
-        },
-        { id: 2, value: "Gravação de Chamadas", label: "Gravação de Chamadas" },
-        { id: 3, value: "Recursos Humanos", label: "Recursos Humanos" },
-        { id: 4, value: "Telecomunicações", label: "Telecomunicações" },
-        { id: 5, value: "Actividade Social", label: "Actividade Social" },
-        {
-          id: 6,
-          value: "Actividade Financeira, Creditícia e Seguradora",
-          label: "Actividade Financeira, Creditícia e Seguradora",
-        },
-        { id: 7, value: "Actividade Educativa", label: "Actividade Educativa" },
-        { id: 8, value: "Saúde", label: "Saúde" },
-        {
-          id: 9,
-          value: "Actividade Comercial e de Marketing",
-          label: "Actividade Comercial e de Marketing",
-        },
-      ],
+      categorias:null, 
 
       finalidadesCategorias: {
         "Gestão contabilidade, fiscal e administrativa": [
@@ -2205,6 +2155,23 @@ export default {
   },
 
   methods: {
+
+    submitForm(){ 
+    console.log("Clicado");
+     
+    },
+
+    async dadosBackend(){
+      const req = await fetch("http://localhost:3000/dadosBackend");
+      const data= await req.json(); 
+      this.ilhas = data.ilhas;
+      this.atividadesDesenvolvidas = data.atividadesDesenvolvidas;
+      this.categorias = data.categorias;
+      this.TipoNotificacoes = data.TipoNotificacoes;
+      
+    },
+
+
     addComunicTerce() {
       this.comunicacao.push({
         condicoesComunicacao: "",
@@ -2254,6 +2221,9 @@ export default {
     },
   },
 
+  mounted() {
+    this.dadosBackend();
+  },
   watch: {
     categoria() {
       this.finalidd = null;
@@ -2271,14 +2241,14 @@ export default {
 }
 .add {
   font-size: 16px;
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 .Interconexao {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
   padding-top: 110px;
 }
 .container {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 .section-title {
   text-align: center;
@@ -2303,26 +2273,26 @@ export default {
   }
 }
 #divg {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
   border: 1px solid #061536;
   padding: 10px;
   border-radius: 10px;
 }
 .col {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 #divg2 {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
   padding-top: 20px;
 }
 .col,
 .row {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 input,
 label,
 textarea {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 input {
   margin-bottom: 10px;
@@ -2346,7 +2316,7 @@ option:hover {
 }
 
 #separacao {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
   padding-left: 10px;
   text-align: center;
   color: #ffffff;
@@ -2355,7 +2325,7 @@ option:hover {
   background: #061536;
 }
 #separacao1 {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
   padding-left: 10px;
   color: #061536;
   font-weight: bold;
@@ -2393,19 +2363,33 @@ button#buttonsave:focus {
   color: #061536;
   box-shadow: 0 0 10px #061536;
 }
+#removeItem{
+  background-color: #bd9a13;
+  outline: none !important;
+  border-color: #061536;
+  color: #061536;
+  box-shadow: 0 0 10px #061536;
+}
+#addmore{
+  background-color: #bd9a13;
+  outline: none !important;
+  border-color: #061536;
+  color: #061536;
+  box-shadow: 0 0 10px #061536;
+}
 
 .multiselect {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 .multiselect:focus,
 .multiselect:hover {
   outline: none !important;
   border-color: #061536;
   box-shadow: 0 0 10px #061536;
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 .multiselect {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
   align-items: center;
   background: var(--ms-bg, #fff);
   border: var(--ms-border-width, 1px) solid var(--ms-border-color, #061536);
@@ -2473,8 +2457,8 @@ button#buttonsave:focus {
   border-radius: var(--ms-radius, 4px);
   bottom: 0;
   box-sizing: border-box;
-  font-family: verdana;
-  font-size: verdana;
+  font-family: "Times New Roman", Times, serif;;
+  font-size: "Times New Roman", Times, serif;;
   height: 100%;
   left: 0;
   outline: none;
@@ -2567,8 +2551,8 @@ button#buttonsave:focus {
   border: 0;
   bottom: 0;
   box-sizing: border-box;
-  font-family: verdana;
-  font-size: verdana;
+  font-family: "Times New Roman", Times, serif;;
+  font-size: "Times New Roman", Times, serif;;
   left: 0;
   outline: none;
   padding: 0;
@@ -2948,12 +2932,12 @@ button#buttonsave:focus {
   outline: none !important;
   border-color: #061536;
   box-shadow: 0 0 10px #061536;
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }*/
 .vue-treeselect {
   position: relative;
   text-align: left;
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
 }
 [dir="rtl"] .vue-treeselect {
   text-align: right;
@@ -3186,7 +3170,7 @@ button#buttonsave:focus {
 .vue-treeselect__sizer {
   margin: 0;
   line-height: inherit;
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;;
   font-size: inherit;
 }
 .vue-treeselect__input {
