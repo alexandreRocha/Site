@@ -1201,14 +1201,14 @@ export default {
 }
 .add {
   font-size: 16px;
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
 }
 .Interconexao {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
   padding-top: 110px;
 }
 .container {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
 }
 .section-title {
   text-align: center;
@@ -1233,26 +1233,26 @@ export default {
   }
 }
 #divg {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
   border: 1px solid #061536;
   padding: 10px;
   border-radius: 10px;
 }
 .col {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
 }
 #divg2 {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
   padding-top: 20px;
 }
 .col,
 .row {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
 }
 input,
 label,
 textarea {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
 }
 input {
   margin-bottom: 10px;
@@ -1276,7 +1276,7 @@ option:hover {
 }
 
 #separacao {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
   padding-left: 10px;
   text-align: center;
   color: #ffffff;
@@ -1285,7 +1285,7 @@ option:hover {
   background: #061536;
 }
 #separacao1 {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
   padding-left: 10px;
   color: #061536;
   font-weight: bold;
@@ -1325,17 +1325,17 @@ button#buttonsave:focus {
 }
 
 .multiselect {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
 }
 .multiselect:focus,
 .multiselect:hover {
   outline: none !important;
   border-color: #061536;
   box-shadow: 0 0 10px #061536;
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
 }
 .multiselect {
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
   align-items: center;
   background: var(--ms-bg, #fff);
   border: var(--ms-border-width, 1px) solid var(--ms-border-color, #061536);
@@ -1403,8 +1403,8 @@ button#buttonsave:focus {
   border-radius: var(--ms-radius, 4px);
   bottom: 0;
   box-sizing: border-box;
-  font-family: verdana;
-  font-size: verdana;
+  font-family: "Times New Roman", Times, serif;
+  font-size: "Times New Roman", Times, serif;
   height: 100%;
   left: 0;
   outline: none;
@@ -1497,8 +1497,8 @@ button#buttonsave:focus {
   border: 0;
   bottom: 0;
   box-sizing: border-box;
-  font-family: verdana;
-  font-size: verdana;
+  font-family: "Times New Roman", Times, serif;
+  font-size: "Times New Roman", Times, serif;
   left: 0;
   outline: none;
   padding: 0;
@@ -1878,12 +1878,12 @@ button#buttonsave:focus {
   outline: none !important;
   border-color: #061536;
   box-shadow: 0 0 10px #061536;
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
 }*/
 .vue-treeselect {
   position: relative;
   text-align: left;
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
 }
 [dir="rtl"] .vue-treeselect {
   text-align: right;
@@ -2116,7 +2116,7 @@ button#buttonsave:focus {
 .vue-treeselect__sizer {
   margin: 0;
   line-height: inherit;
-  font-family: verdana;
+  font-family: "Times New Roman", Times, serif;
   font-size: inherit;
 }
 .vue-treeselect__input {

@@ -29,12 +29,12 @@
             </div>
           </div>
         </div>
-              <div class="col-md-12" id="separacao">
-                1. Responsável pelo Tratamento       
-              </div>
+             
               <div class="col-md-12" id="divg">
                 <div class="container">
                   <div class="row">
+                    <div class="col-md-12" id="separacao">1. Responsável pelo Tratamento</div>
+                    <div class="col-md-12"><br /></div>
                     <div class="col"> 
                       <input class="form-check-input" type="radio" name="tipopessoa" id="pessoasingular">
                         <label id="labelleft" class="form-check-label" for="pessoasingular">
@@ -217,12 +217,12 @@
                         </div> 
                       </div>
               </div>
-             <div class="col-md-12" id="separacao">
-                Processamento da informação
-              </div>
+             
               <div class="col" id="divg">
                 <div class="container">
                   <div class="row">
+                     <div class="col-md-12" id="separacao">Processamento da informação</div>
+              <div class="col-md-12"><br /></div>
                     <div class="col"> 
                       <label class="form-check-label" >
                         Existe um Serviço Externo encarregado do processamento ?
@@ -284,10 +284,11 @@
                 </div>
               </div>
              <div class="col-md-12"> <br> </div>
+             <div class="col-md-8">
              <label class="form-check-label" >
                        (caso seja tratamento de assiduidade e controlo de acesso, deverá selecionar as duas opções)
                       </label>
-                 <div class="col">  
+              
                         
                         <Multiselect
                         v-model="value"
@@ -302,12 +303,13 @@
                       />
                           
                       </div> 
-                      <br>
+                     
+                      
                      
                     
-                     <div class="row">  
+                    
                       
-                      <div class="col">  
+                      <div class="col-md-4">  
                         <label class="form-check-label" >
                        Número de funcionarios
                       </label>
@@ -318,17 +320,19 @@
                             
                          
                       <div class="col-md-12"><br></div>
-                </div>
+                
                     
                        
             </div>
           </div>
         </div>
-                    <div class="col-md-12" id="separacao">
-                3. Dados pessoais contidos em cada registo      
-              </div>
+                  
                     <div class="col-md-12" id="divg">
                      <div class="row">  
+                        <div class="col-md-12" id="separacao">
+                3. Dados pessoais contidos em cada registo      
+              </div>
+               <div class="col-md-12"> <br> </div>
                       <label class="form-check-label" >
                       Dados registrados
                       </label>
@@ -374,11 +378,13 @@
                       <div class="col-md-12"><br></div>
                 </div>
                     </div>
-                    <div class="col-md-12" id="separacao">
-                4. Forma de armazenamento do dado biométrico   
-              </div>
+                  
               <div class="col-md-12" id="divg">
                      <div class="row">  
+                        <div class="col-md-12" id="separacao">
+                4. Forma de armazenamento do dado biométrico   
+              </div>
+              <div class="col-md-12"> <br> </div>
                       <label class="form-check-label" >
                      Forma de registro
                       </label>
@@ -400,11 +406,13 @@
                       <div class="col-md-12"><br></div>
                 </div>
                     </div>
-                     <div class="col-md-12" id="separacao">
-               5. Tratamento da informação  
-              </div>
+                  
               <div class="col-md-12" id="divg">
-                     <div class="row">  
+                     <div class="row"> 
+                         <div class="col-md-12" id="separacao">
+               5. Tratamento da informação  
+              </div> 
+              <div class="col-md-12"><br></div>
                       <label class="form-check-label" >
                      Forma de tratamento da informação
                       </label>
@@ -426,12 +434,14 @@
                       <div class="col-md-12"><br></div>
                 </div>
                     </div>
-                    <div class="col-md-12" id="separacao">
-                6.Exercício do direito de Acesso
-              </div>
+                  
                  <div class="col" id="divg">
                 <div class="container">
                   <div class="row">
+                      <div class="col-md-12" id="separacao">
+                6.Exercício do direito de Acesso
+              </div>
+              <div class="col-md-12"><br></div>
                     <div class="col"> 
                       <label class="form-check-label" >
                         Morada do local do exercício do direito de acesso é a mesma indicada em 1 ?
@@ -526,13 +536,15 @@
                   </div> 
                 </div>  
               </div> 
-               <div class="col-md-12" id="separacao">
-                De que forma é exercido o direito de acesso?
-              </div>
+               
 
               <div class="col-md-12" id="divg2">
                 <div class="container">
-                  <div class="row">  
+                  <div class="row"> 
+                    <div class="col-md-12" id="separacao">
+                De que forma é exercido o direito de acesso?
+              </div> 
+              <div class="col-md-12"><br></div>
                       <div class="col"> 
                       <input class="form-check-input" value=" Pessoa Singular" type="radio" name="formaDireitoAcesso" id="formaDireitoAcesso">
                         <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
@@ -552,11 +564,13 @@
                   </div>
               </div>
              </div>
-             <div class="col-md-12" id="separacao">
-             7. Medidas de segurança a implementar
-              </div>
+             
               <div class="col-md-12" id="divg">
-                <div class="row">   
+                <div class="row">  
+                  <div class="col-md-12" id="separacao">
+             7. Medidas de segurança a implementar
+              </div> 
+               <div class="col-md-12"><br></div>
                     <div class="col-md-12"> 
                       <label id="labelleft" class="form-check-label" for="formaDireitoAcesso">
                         Especifique as medidas físicas de segurança do sistema:
@@ -572,11 +586,13 @@
                     </div>  
                 </div>
             </div>
-            <div class="col-md-12" id="separacao">
-              8. Representante dos trabalhadores
-              </div>
+            
               <div class="col-md-12" id="divg">
                 <div class="row">  
+                  <div class="col-md-12" id="separacao">
+              8. Representante dos trabalhadores
+              </div>
+              <div class="col-md-12"><br></div>
                   <div class="row">  
                       <div class="col"> 
                         <div class="col"> 
@@ -597,13 +613,8 @@
             </div>
                
           <!-- FIM DE FORMS--> 
-            <div class="col-12" id="divsave">
-          <button
-            id="buttonsave"
-            value="Save"
-            class="btn btn-primary"
-            type="submit"
-          >
+        <div class="col-12" id="divsave">
+          <button @click="submitForm" id="buttonsave" class="btn btn-primary" type="submit">
             Submeter Dados
           </button>
         </div>
@@ -820,17 +831,17 @@ export default {
 
 
 #divg{ 
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
   border: 1px solid #061536;
   padding: 10px;
   border-radius: 10px;
   
 }
 .col{ 
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
 }
 #divg2{
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
   border: 1px solid #061536;
   padding: 10px;
   margin-top: 10px;
@@ -839,10 +850,10 @@ export default {
 }
 .col{
 
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
 }
 input, label{
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
 }
 input{
  margin-bottom: 10px;
@@ -859,13 +870,27 @@ option:hover {
     }
  
 #separacao{
-  font-family:verdana;
+  font-family: "Times New Roman", Times, serif;
   padding-left: 10px;
   text-align: center;
   color: #ffffff;
   border-style: ridge;
   border-radius: 10px;
   background: #061536;
+}
+#buttonsave {
+  background-color: #061536;
+}
+#divsave {
+  text-align: center;
+}
+button#buttonsave:hover,
+button#buttonsave:focus {
+  background-color: #061536;
+  outline: none !important;
+  border-color: #061536;
+  color: #bd9a13;
+  box-shadow: 0 0 10px #061536;
 }
 #labelleft{
   text-align: center;
@@ -905,7 +930,7 @@ option:hover {
   border-radius: 50px;
 }
 .multiselect{
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
   width: 300;
  }
 .multiselect:focus, .multiselect:hover{

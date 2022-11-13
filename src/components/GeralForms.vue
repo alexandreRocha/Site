@@ -98,10 +98,10 @@
                           <div class="col">  
                            <select
                       class="form-select"
-                      v-model="concelhoResp"
-                      name="concelhoResp"
-                      id="concelhoResp"
-                      for="concelhoResp"
+                      v-model="concelho"
+                      name="concelho"
+                      id="concelho"
+                      for="concelho"
                       placeholder="- Seleciona um concelho -"
                     >
                       <option :value="null">- selecione um concelho -</option>
@@ -176,10 +176,10 @@
                           <div class="col">  
                             <select
                       class="form-select"
-                      v-model="ilhaResp"
-                      name="ilhaResp"
-                      id="ilhaResp"
-                      for="ilhaResp"
+                      v-model="ilhaMorInst"
+                      name="ilhaMorInst"
+                      id="ilhaMorInst"
+                      for="ilhaMorInst"
                       placeholder="- Seleciona uma ilha-"
                     >
                       <option :value="null">- selecione uma ilha -</option>
@@ -195,10 +195,10 @@
                           <div class="col">  
                             <select
                       class="form-select"
-                      v-model="concelhoResp"
-                      name="concelhoResp"
-                      id="concelhoResp"
-                      for="concelhoResp"
+                      v-model="concelhoMorInst"
+                      name="concelhoMorInst"
+                      id="concelhoMorInst"
+                      for="concelhoMorInst"
                       placeholder="- Seleciona um concelho -"
                     >
                       <option :value="null">- selecione um concelho -</option>
@@ -265,10 +265,10 @@
                           <div class="col">  
                              <select
                       class="form-select"
-                      v-model="ilhaResp"
-                      name="ilhaResp"
-                      id="ilhaResp"
-                      for="ilhaResp"
+                      v-model="ilhaServExt"
+                      name="ilhaServExt"
+                      id="ilhaServExt"
+                      for="ilhaServExt"
                       placeholder="- Seleciona uma ilha-"
                     >
                       <option :value="null">- selecione uma ilha -</option>
@@ -859,10 +859,10 @@
                           <div class="col">  
                             <select
                       class="form-select"
-                      v-model="ilhaResp"
-                      name="ilhaResp"
-                      id="ilhaResp"
-                      for="ilhaResp"
+                      v-model="ilhaDirAcess"
+                      name="ilhaDirAcess"
+                      id="ilhaDirAcess"
+                      for="ilhaDirAcess"
                       placeholder="- Seleciona uma ilha-"
                     >
                       <option :value="null">- selecione uma ilha -</option>
@@ -970,6 +970,11 @@
             </div>
                
           <!-- FIM DE FORMS--> 
+          <div class="col-12" id="divsave">
+          <button @click="submitForm" id="buttonsave" class="btn btn-primary" type="submit">
+            Submeter Dados
+          </button>
+        </div>
     </div>
   </section>
 </template>
@@ -1691,17 +1696,17 @@ export default {
 
 
 #divg{ 
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
   border: 1px solid #061536;
   padding: 10px;
   border-radius: 10px;
   
 }
 .col{ 
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
 }
 #divg2{
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
   border: 1px solid #061536;
   padding: 10px;
   margin-top: 10px;
@@ -1710,10 +1715,10 @@ export default {
 }
 .col{
 
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
 }
 input, label{
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
 }
 input{
  margin-bottom: 10px;
@@ -1730,7 +1735,7 @@ option:hover {
     }
  
 #separacao{
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
   padding-left: 10px;
   text-align: center;
   color: #ffffff;
@@ -1752,6 +1757,20 @@ option:hover {
   background-color: #061536;
   color: #fff; 
   border: 2px solid #bd9a13;
+}
+#buttonsave {
+  background-color: #061536;
+}
+#divsave {
+  text-align: center;
+}
+button#buttonsave:hover,
+button#buttonsave:focus {
+  background-color: #061536;
+  outline: none !important;
+  border-color: #061536;
+  color: #bd9a13;
+  box-shadow: 0 0 10px #061536;
 }
 
 .icon-box {
@@ -1776,7 +1795,7 @@ option:hover {
   border-radius: 50px;
 }
 .multiselect{
-  font-family:verdana;
+  font-family:"Times New Roman", Times, serif;
   width: 300;
  }
 .multiselect:focus, .multiselect:hover{
