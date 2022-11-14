@@ -140,9 +140,7 @@
                           </div> 
                         </div> 
                       </div> 
-                  </div>
-                </div>
-                 <div class="col-md-12"> 
+                      <div class="col-md-12"> 
                       <input type="text" class="form-control" id="nomedenominacao" alt="Nome Denominação: Refere-se à designação oficial de uma instituição pública ou privada" placeholder=" Representante">
                     </div>
                     <div class="col-md-12">  
@@ -162,10 +160,10 @@
                           <div class="col">  
                              <select
                             class="form-select"
-                            v-model="ilhaDirAcess"
-                            name="ilhaDireitoAcesso"
-                            id="ilhaDireitoAcesso"
-                            for="ilhaDireitoAcesso"
+                            v-model=" ilhaMorRep"
+                            name=" ilhaMorRep"
+                            id=" ilhaMorRep"
+                            for=" ilhaMorRep"
                             placeholder="- Seleciona uma ilha-"
                           >
                             <option :value="null">
@@ -183,17 +181,17 @@
                           <div class="col">  
                            <select
                             class="form-select"
-                            v-model="concelhoDirAcess"
-                            name="concelhoDireitoAcesso"
-                            id="concelhoDireitoAcesso"
-                            for="concelhoDireitoAcesso"
+                            v-model="concelhoMorRep"
+                            name="concelhoMorRep"
+                            id="concelhoMorRep"
+                            for="concelhoMorRep"
                             placeholder="- Seleciona um concelho -"
                           >
                             <option :value="null">
                               - selecione um concelho -
                             </option>
                             <option
-                              v-for="option in concelhos[ilhaDirAcess]"
+                              v-for="option in concelhos[ilhaMorRep]"
                               :key="option.value"
                               :value="option.value"
                             >
@@ -203,10 +201,10 @@
                           </div> 
                         </div> 
                       </div> 
-                      <div class="col-md-12">  
+                      <div class="col-md-12" id="divloco">  
                       <input type="text" class="form-control" id="nomecomercial" alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida." placeholder=" Nome da pessoa do contato">
                     </div>
-                     <div class="col-md-12" id="divloco"> 
+                     <div class="col-md-12" > 
                         <div class="row">
                           <div class="col">  
                             <input type="email" class="form-control" id="caixapostal" alt="Caixa Postal" placeholder="Entre o seu email: example@cnpd.cv">
@@ -216,6 +214,9 @@
                           </div> 
                         </div> 
                       </div>
+                  </div>
+                </div>
+                 
               </div>
              
               <div class="col" id="divg">
@@ -253,18 +254,46 @@
                       <div class="col-md-12"> 
                         <div class="row">
                           <div class="col">  
-                            <select class="form-select" name="ilhaProcessInfo" id="ilhaProcessInfo" aria-label="Default select example">
-                              <option value="">- Qual a sua ilha -</option>
-                                <option v-for="ilha in ilhas" :key="ilha" value="1">{{ilha}}</option>
-                               
-                            </select>
+                             <select
+                            class="form-select"
+                            v-model="ilhaServExt"
+                            name="ilhaServExt"
+                            id="ilhaServExt"
+                            for="ilhaServExt"
+                            placeholder="- Seleciona uma ilha-"
+                          >
+                            <option :value="null">
+                              - selecione uma ilha -
+                            </option>
+                            <option
+                              v-for="option in ilhas"
+                              :key="option.value"
+                              :value="option.value"
+                            >
+                              {{ option.label }}
+                            </option>
+                          </select>
                           </div>
                           <div class="col">  
-                            <select class="form-select" name="concelhoProcessInfo" id="concelhoProcessInfo" aria-label="Default select example">
-                              <option value="">- Qual o concelho -</option> 
-                                <option  v-for="concelho in concelhos" :key="concelho" value="1">{{concelho}}</option>
-                                
-                             </select>
+                            <select
+                            class="form-select"
+                            v-model="concelhoServExt"
+                            name="concelhoServExt"
+                            id="concelhoServExt"
+                            for="concelhoServExt"
+                            placeholder="- Seleciona um concelho -"
+                          >
+                            <option :value="null">
+                              - selecione um concelho -
+                            </option>
+                            <option
+                              v-for="option in concelhos[ilhaServExt]"
+                              :key="option.value"
+                              :value="option.value"
+                            >
+                              {{ option.label }}
+                            </option>
+                          </select>
                           </div> 
                         </div> 
                       </div>   
@@ -333,6 +362,7 @@
                 3. Dados pessoais contidos em cada registo      
               </div>
                <div class="col-md-12"> <br> </div>
+                      <div class="col-md-12">
                       <label class="form-check-label" >
                       Dados registrados
                       </label>
@@ -351,12 +381,12 @@
                       />
                           
                       </div> 
-                      <div class="col-md-12"><br></div>
+                      
                 </div>
                     </div>
-                    
-              <div class="col-md-12" id="divg">
-                     <div class="row">  
+                    <div class="col-md-12"> <br> </div>
+             
+                     <div class="col">  
                       <label class="form-check-label" >
                      Outros dados
                       </label>
@@ -375,9 +405,10 @@
                       />
                           
                       </div> 
-                      <div class="col-md-12"><br></div>
+                      </div>
+                      
                 </div>
-                    </div>
+                   
                   
               <div class="col-md-12" id="divg">
                      <div class="row">  
@@ -449,10 +480,7 @@
                       <buttom @click="changeDireitoAcesso" type="button" class="btn btn-outline-primary" name="morada" id="moradasimbotton">
                       {{checkDireitoAcesso? 'Sim': 'Não' }} </buttom>
                     </div> 
-                  </div>
-                </div>
-              </div>
-               <div class="col-md-12" id="divg2" v-if="checkDireitoAcesso">
+                     <div class="col-md-12" id="divg2" v-if="checkDireitoAcesso">
                 <div class="container">
                   <div class="row"> 
                     
@@ -471,10 +499,10 @@
                           <div class="col">  
                               <select
                       class="form-select"
-                      v-model="ilhaResp"
-                      name="ilhaResp"
-                      id="ilhaResp"
-                      for="ilhaResp"
+                      v-model=" ilhaDirAcess"
+                      name=" ilhaDirAcess"
+                      id=" ilhaDirAcess"
+                      for=" ilhaDirAcess"
                       placeholder="- Seleciona uma ilha-"
                     >
                       <option :value="null">- selecione uma ilha -</option>
@@ -490,15 +518,15 @@
                           <div class="col">  
                             <select
                       class="form-select"
-                      v-model="concelhoResp"
-                      name="concelhoResp"
-                      id="concelhoResp"
-                      for="concelhoResp"
+                      v-model="concelhoDirAcess"
+                      name="concelhoDirAcess"
+                      id="concelhoDirAcess"
+                      for="concelhoDirAcess"
                       placeholder="- Seleciona um concelho -"
                     >
                       <option :value="null">- selecione um concelho -</option>
                       <option
-                        v-for="option in concelhos[ilhaResp]"
+                        v-for="option in concelhos[ ilhaDirAcess]"
                         :key="option.value"
                         :value="option.value"
                       >
@@ -536,6 +564,10 @@
                   </div> 
                 </div>  
               </div> 
+                  </div>
+                </div>
+              </div>
+              
                
 
               <div class="col-md-12" id="divg2">

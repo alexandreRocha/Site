@@ -28,12 +28,12 @@
           </div>
         </div>
 
-        <div class="col-md-12" id="separacao">
-                1. Responsável pelo Tratamento       
-              </div>
+        
               <div class="col-md-12" id="divg">
                 <div class="container">
                   <div class="row">
+                    <div class="col-md-12" id="separacao">1. Responsável pelo Tratamento</div>
+                    <div class="col-md-12"><br /></div>
                     <div class="col"> 
                       <input class="form-check-input" type="radio" name="tipopessoa" id="pessoasingular">
                         <label id="labelleft" class="form-check-label" for="pessoasingular">
@@ -54,15 +54,12 @@
                       <input type="text" class="form-control" id="nomecomercial" alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida." placeholder=" Nome/Comercial">
                     </div>
                      <div class="col"> 
-                         <div class="col">
-                <Multiselect
-                  v-model="atividadeDes"
-                  name="atividadeDesenvolvida"
-                  id="atividadeDesenvolvida"
-                  placeholder="- qual a atividade desenvolvida -"
-                  :options="atividadeDesenvolvida"
-                />
-              </div>
+                         <select class="form-select" aria-label="Default select example">
+                            <option value="">- Escolha a actividade desenvolvida-</option>
+                               <option v-for="atividade in atividades" :key="atividade" value="1">{{atividade}}</option>
+                               
+                                
+                          </select>
                       </div>
                       <div class="col">  
                         <input type="text" class="form-control" id="nif" alt="NIF" placeholder="Número de NIF">
@@ -99,7 +96,7 @@
                     </select>
                           </div>
                           <div class="col">  
-                           <select
+                            <select
                       class="form-select"
                       v-model="concelhoResp"
                       name="concelhoResp"
@@ -135,31 +132,14 @@
                             <input type="email" class="form-control" id="email" placeholder="Entre o seu email: example@cnpd.cv">
                           </div>
                           <div class="col">  
-                            <input
-                      class="form-check-input"
-                      type="radio"
-                      name="paisResp"
-                      id="paisResp"
-                    />
-                    <label id="labelleft" class="form-check-label" for="pais">
-                      Cabo Verde
-                    </label>
-                    <div class="col-md-12"></div>
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="paisResp"
-                      id="paisResp"
-                    />
-                    <label id="labelleft" class="form-check-label" for="pais">
-                      Fora do Território Nacional
-                    </label>
+                            <input class="form-check-input" type="radio" name="pais" id="pais">
+                            <label id="labelleft" class="form-check-label" for="pais">
+                              País: Cabo Verde/Fora do Território Nacional
+                            </label>
                           </div> 
                         </div> 
                       </div> 
-                  </div>
-                </div>
-                 <div class="col-md-12"> 
+                      <div class="col-md-12"> 
                       <input type="text" class="form-control" id="nomedenominacao" alt="Nome Denominação: Refere-se à designação oficial de uma instituição pública ou privada" placeholder=" Representante">
                     </div>
                     <div class="col-md-12">  
@@ -177,33 +157,53 @@
                     <div class="col-md-12"> 
                         <div class="row">
                           <div class="col">  
-                            d
+                             <select
+                            class="form-select"
+                            v-model=" ilhaMorRep"
+                            name=" ilhaMorRep"
+                            id=" ilhaMorRep"
+                            for=" ilhaMorRep"
+                            placeholder="- Seleciona uma ilha-"
+                          >
+                            <option :value="null">
+                              - selecione uma ilha -
+                            </option>
+                            <option
+                              v-for="option in ilhas"
+                              :key="option.value"
+                              :value="option.value"
+                            >
+                              {{ option.label }}
+                            </option>
+                          </select>
                           </div>
                           <div class="col">  
-                            <select
-                      class="form-select"
-                      v-model="concelhoResp"
-                      name="concelhoResp"
-                      id="concelhoResp"
-                      for="concelhoResp"
-                      placeholder="- Seleciona um concelho -"
-                    >
-                      <option :value="null">- selecione um concelho -</option>
-                      <option
-                        v-for="option in concelhos[ilhaResp]"
-                        :key="option.value"
-                        :value="option.value"
-                      >
-                        {{ option.label }}
-                      </option>
-                    </select>
+                           <select
+                            class="form-select"
+                            v-model="concelhoMorRep"
+                            name="concelhoMorRep"
+                            id="concelhoMorRep"
+                            for="concelhoMorRep"
+                            placeholder="- Seleciona um concelho -"
+                          >
+                            <option :value="null">
+                              - selecione um concelho -
+                            </option>
+                            <option
+                              v-for="option in concelhos[ilhaMorRep]"
+                              :key="option.value"
+                              :value="option.value"
+                            >
+                              {{ option.label }}
+                            </option>
+                          </select>
                           </div> 
                         </div> 
                       </div> 
-                      <div class="col">  
+                      <div class="col-md-12" id="divloco">  
                       <input type="text" class="form-control" id="nomecomercial" alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida." placeholder=" Nome da pessoa do contato">
                     </div>
-                     <div class="col-md-12" id="divloco"> 
+                     <div class="col-md-12" > 
                         <div class="row">
                           <div class="col">  
                             <input type="email" class="form-control" id="caixapostal" alt="Caixa Postal" placeholder="Entre o seu email: example@cnpd.cv">
@@ -213,6 +213,9 @@
                           </div> 
                         </div> 
                       </div>
+                  </div>
+                </div>
+                 
               </div>
 
         <!---- ----------------- Processamento da informação primeiro responsavel--------------------------------------------------------------------->
@@ -223,6 +226,7 @@
                 <div class="col-md-12" id="separacao">
                  Processamento da informação
                 </div>
+                <div class="col-md-12"><br /></div>
               </div>
               <div class="col" id="divg">
                 <div class="container">
@@ -234,10 +238,7 @@
                       <buttom @click="changeServico" type="button" class="btn btn-outline-primary" name="morada" id="moradasimbotton">
                       {{checkServico? 'Não': 'Sim' }} </buttom>
                     </div> 
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-12" id="divg2" v-if="checkServico">
+                     <div class="col-md-12" id="divg2" v-if="checkServico">
                 <div class="container">
                   <div class="row"> 
                     
@@ -300,6 +301,10 @@
                   </div>
                 </div>
               </div>
+                  </div>
+                </div>
+              </div>
+             
             </div>
           </div>
         </div>
@@ -443,6 +448,7 @@
                 <div class="col-md-12" id="separacao">
                  4. Trabalhadores abrangidos por especial obrigação de sigilo
                 </div>
+                <div class="col-md-12"> <br> </div>
               </div>
               <div class="container">
                 <div class="row">
@@ -474,6 +480,7 @@
                 <div class="col-md-12" id="separacao">
                   5. Exercício do direito de acesso
                 </div>
+                <div class="col-md-12"> <br> </div>
               </div>
              <div class="container">
                 <div class="row">
@@ -607,6 +614,7 @@
                 <div class="col-md-12" id="separacao">
                   De que forma é exercido o direito de acesso?
                 </div>
+                <div class="col-md-12"> <br> </div>
               </div>
               <div class="col">
                 <input
@@ -657,6 +665,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12" id="separacao">6. Representante dos trabalhadores</div>
+              <div class="col-md-12"> <br> </div>
        
               <div class="col">
                 <label class="form-check-label">
@@ -693,6 +702,7 @@
                 <div class="col-md-12" id="separacao">
                   7. Medidas de segurança 
                 </div>
+                <div class="col-md-12"> <br> </div>
               </div>
               <div class="col-md-12">
                 <label
@@ -732,6 +742,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12" id="separacao">8. Regulamento interno</div>
+              <div class="col-md-12"> <br> </div>
        
               <div class="col">
                 <label class="form-check-label">
