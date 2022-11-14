@@ -16,13 +16,23 @@
                 >
               </div>
               <div class="col-md-10">
-                <Multiselect
-                  v-model="TipoNot"
-                  name="TipoNot"
-                  id="TipoNot"
-                  placeholder="- selecione o tipo de Notificação -"
-                  :options="TipoNotf"
-                />
+               <select  
+                v-model="TipoNotificacao"
+                        class="form-select" 
+                        name="TipoNotificacao"
+                        id="TipoNotificacao"
+                        for="TipoNotificacao"
+                        placeholder="- selecione  o tipo de Notificação -"
+                      >
+                        <option :value="null">- selecione  o tipo de Notificação-</option>
+                        <option
+                          v-for="TipoNotificacao in TipoNotificacoes"
+                          :key="TipoNotificacao.value"
+                          :value="TipoNotificacao.value"
+                        >
+                          {{ TipoNotificacao.value }}
+                        </option>
+                      </select>  
               </div>
             </div>
           </div>
@@ -54,12 +64,23 @@
                       <input type="text" class="form-control" id="nomecomercial" alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida." placeholder=" Nome/Comercial">
                     </div>
                      <div class="col"> 
-                         <select class="form-select" aria-label="Default select example">
-                            <option value="">- Escolha a actividade desenvolvida-</option>
-                               <option v-for="atividade in atividades" :key="atividade" value="1">{{atividade}}</option>
-                               
-                                
-                          </select>
+                         <select  
+                        v-model="atividade"
+                        class="form-select" 
+                        name="atividadeDesenvolvida"
+                        id="atividadeDesenvolvida"
+                        for="atividadeDesenvolvida"
+                        placeholder="- selecione a atividade desenvolvida -"
+                      >
+                        <option :value="null">- selecione a atividade desenvolvida -</option>
+                        <option
+                          v-for="atividade in atividadesDesenvolvidas"
+                          :key="atividade.value"
+                          :value="atividade.value"
+                        >
+                          {{ atividade.value }}
+                        </option>
+                      </select> 
                       </div>
                       <div class="col">  
                         <input type="text" class="form-control" id="nif" alt="NIF" placeholder="Número de NIF">
@@ -222,13 +243,13 @@
         <div class="col" id="divg">
           <div class="container">
             <div class="row">
-              <div class="col-md-12" id="divloco">
+              <div class="col-md-12">
                 <div class="col-md-12" id="separacao">
                  Processamento da informação
                 </div>
                 <div class="col-md-12"><br /></div>
               </div>
-              <div class="col" id="divg">
+              <div class="col">
                 <div class="container">
                   <div class="row">
                     <div class="col"> 
@@ -239,8 +260,8 @@
                       {{checkServico? 'Não': 'Sim' }} </buttom>
                     </div> 
                      <div class="col-md-12" id="divg2" v-if="checkServico">
-                <div class="container">
-                  <div class="row"> 
+               
+                  
                     
                     <div class="col-md-12"> 
                       <input type="text" class="form-control" name="entidadeProcessInfo" id="entidadeProcessInfo" placeholder=" Qual a Entidade Encarregue ">
@@ -256,50 +277,50 @@
                     </div>
                       
                       <div class="col-md-12"> 
-                        <div class="row">
-                          <div class="col">  
-                            <select
-                      class="form-select"
-                      v-model="ilhaResp"
-                      name="ilhaResp"
-                      id="ilhaResp"
-                      for="ilhaResp"
-                      placeholder="- Seleciona uma ilha-"
-                    >
-                      <option :value="null">- selecione uma ilha -</option>
-                      <option
-                        v-for="option in ilhas"
-                        :key="option.value"
-                        :value="option.value"
+                       <div class="row">
+                    <div class="col">
+                      <select
+                        class="form-select"
+                        v-model="ilhaServExt"
+                        name="ilhaProcessInfo"
+                        id="ilhaProcessInfo"
+                        for="ilhaProcessInfo"
+                        placeholder="- Seleciona uma ilha-"
                       >
-                        {{ option.label }}
-                      </option>
-                    </select>
-                          </div>
-                          <div class="col">  
-                           <select
-                      class="form-select"
-                      v-model="concelhoResp"
-                      name="concelhoResp"
-                      id="concelhoResp"
-                      for="concelhoResp"
-                      placeholder="- Seleciona um concelho -"
-                    >
-                      <option :value="null">- selecione um concelho -</option>
-                      <option
-                        v-for="option in concelhos[ilhaResp]"
-                        :key="option.value"
-                        :value="option.value"
+                        <option :value="null">- selecione uma ilha -</option>
+                        <option
+                          v-for="ilha in ilhas"
+                          :key="ilha.value"
+                          :value="ilha.value"
+                        >
+                          {{ ilha.label }}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <select
+                        class="form-select"
+                        v-model="concelhoServExt"
+                        name="concelhoProcessInfo"
+                        id="concelhoProcessInfo"
+                        for="concelhoProcessInfo"
+                        placeholder="- Seleciona um concelho -"
                       >
-                        {{ option.label }}
-                      </option>
-                    </select>
-                          </div> 
-                        </div> 
+                        <option :value="null">- selecione um concelho -</option>
+                        <option
+                          v-for="concelho in concelhos[ilhaServExt]"
+                          :key="concelho.value"
+                          :value="concelho.value"
+                        >
+                          {{ concelho.label }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
                       </div>   
                       
-                  </div>
-                </div>
+                 
+               
               </div>
                   </div>
                 </div>
@@ -325,7 +346,7 @@
                         v-model="value"
                         name="finalidadetra" 
                         id="finalidadetra"
-                        placeholder="-Indique a(s) finalidade(s) do tratamento-"
+                        placeholder="- Indique a(s) finalidade(s) do tratamento-"
                         mode="tags"
                         :close-on-select="false"
                         :searchable="true"
@@ -365,6 +386,7 @@
                     alt="Adicionar mais campos"
                     type="button"
                     class="btn btn-success"
+                    id="addmore"
                   >
                     <b class="add"
                       ><IconAwe class="icon-color" icon="plus"
@@ -416,6 +438,7 @@
                         v-show="index != 0"
                         type="button"
                         class="btn btn-danger"
+                        id="removeItem"
                       >
                         <b class="add"
                           ><IconAwe class="icon-color" icon="trash-can"
@@ -457,7 +480,7 @@
                         v-model="value"
                         name="trabalhadores" 
                         id="finalidadetra"
-                        placeholder="-Indique a(s) finalidade(s) do tratamento-"
+                        placeholder="- Indique os trabalhadores abrangidos por especial obrigação do sigilo-"
                         mode="tags"
                         :close-on-select="false"
                         :searchable="true"
@@ -823,70 +846,9 @@ export default {
 
       /*******************************************TIPO DE NOTIFICAÇÃO ******************************************/
       tipoNot: null,
-      TipoNotf: [
-        { value: "1ª Notificação", label: "1ª Notificação" },
-        { value: "Alteração", label: "Alteração" },
-        {
-          value: "Substituição da Notificação não autorizada",
-          label: "Substituição da Notificação não autorizada",
-        },
-      ],
-
+    
       /**********************************ATIVIDADE DESENVOLVIDA*********************************************** */
-      atividadeDesenvolvida: [
-        { value: "Actividade de Televisão", label: "Actividade de Televisão" },
-        {
-          value: "Emprego (Selecção, fornecimento de recursos humanos)",
-          label: "Emprego (Selecção, fornecimento de recursos humanos)",
-        },
-        {
-          value: "Segurança e Ordem pública",
-          label: "Segurança e Ordem pública",
-        },
-        { value: "Produção da Água", label: "Produção da Água" },
-        { value: "Telecomunicação", label: "Telecomunicação" },
-        { value: "Segurança Privada", label: "Segurança Privada" },
-        {
-          value: "Ensino (Pré-escolar, Básico, Secundário, Superior)",
-          label: "Ensino (Pré-escolar, Básico, Secundário, Superior)",
-        },
-        {
-          value: "Estabelecimento comercial de venda a público",
-          label: "Estabelecimento comercial de venda a público",
-        },
-        {
-          value:
-            "Serviço de Internet (processamento de dados, domiciliação de informação",
-          label:
-            "Serviço de Internet (processamento de dados, domiciliação de informação",
-        },
-        {
-          value: "Administração Pública (Central, Local)",
-          label: "Administração Pública (Central, Local)",
-        },
-        { value: "Saúde", label: "Saúde" },
-        { value: "Centro Comercial", label: "Centro Comercial" },
-        {
-          value: "Publicidade, Estudos de Mercado, Sondagens de Opinião",
-          label: "Publicidade, Estudos de Mercado, Sondagens de Opinião",
-        },
-        { value: "Negócios Estrangeiros", label: "Negócios Estrangeiros" },
-        { value: "Previdência Social", label: "Previdência Social" },
-        {
-          value: "Alojamento (Hotel, Residencial, Pensão, etc.)",
-          label: "Alojamento (Hotel, Residencial, Pensão, etc.)",
-        },
-        { value: "Defesa", label: "Defesa" },
-        { value: "Actividade Financeira", label: "Actividade Financeira" },
-        { value: "Comércio Electrónico", label: "Comércio Electrónico" },
-        { value: "Informática", label: "Informática" },
-        { value: "Justiça", label: "Justiça" },
-        { value: "Seguros", label: "Seguros" },
-        {
-          value: "Transporte (Aéreo, Marítimo, Terrestre)",
-          label: "Transporte (Aéreo, Marítimo, Terrestre)",
-        },
-      ],
+     
 
       /** *********************ILHAS E CONCELHOS ************************************** */
       ilhaResp: null,
@@ -1146,6 +1108,15 @@ export default {
         entidadesComunicadas: "",
       });
     },
+     async dadosBackend(){
+      const req = await fetch("http://localhost:3000/dadosBackend");
+      const data= await req.json();
+      this.tiposVideovigilancias = data.tiposVideovigilancias;
+      this.ilhas = data.ilhas;
+      this.atividadesDesenvolvidas = data.atividadesDesenvolvidas;
+      this.TipoNotificacoes = data.TipoNotificacoes;
+      
+    },
     removeComunic(index) {
       this.comunicacao.splice(index, 1);
     },
@@ -1193,6 +1164,9 @@ export default {
     changeRegInterno(){
       this.checkRegInterno = !this.checkRegInterno;
     }
+  },
+mounted() {
+    this.dadosBackend();
   },
 
   watch: {
@@ -1470,6 +1444,20 @@ button#buttonsave:focus {
 }
 .multiselect-tag-remove:hover {
   background: rgba(0, 0, 0, 0.063);
+}
+#removeItem {
+  background-color: #bd9a13;
+  outline: none !important;
+  border-color: #061536;
+  color: #061536;
+  box-shadow: 0 0 10px #061536;
+}
+#addmore {
+  background-color: #bd9a13;
+  outline: none !important;
+  border-color: #061536;
+  color: #061536;
+  box-shadow: 0 0 10px #061536;
 }
 .multiselect-tag-remove-icon {
   background-color: currentColor;
