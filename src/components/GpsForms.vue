@@ -6,23 +6,32 @@
         <div class="section-title">
           <h2>NOTIFICAÇÃO DE GEOLOCALIZAÇÃO DE VIATURAS NO CONTEXTO LABORAL</h2>
         </div>
-        <div class="col-md-12"></div>
+        
         <div class="col-md-12" id="divg">
           <div class="container">
             <div class="row">
               <div class="col-md-2">
                 <label id="labelleft" for="TipoNot" class="form-label"
-                  >Tipo Notificação</label
-                >
+                  >Tipo Notificação</label> 
               </div>
               <div class="col-md-10">
-                <Multiselect
-                  v-model="TipoNot"
-                  name="TipoNot"
-                  id="TipoNot"
-                  placeholder="- selecione o tipo de Notificação -"
-                  :options="TipoNotf"
-                />
+                <select  
+                v-model="TipoNotificacao"
+                        class="form-select" 
+                        name="TipoNotificacao"
+                        id="TipoNotificacao"
+                        for="TipoNotificacao"
+                        placeholder="- selecione  o tipo de Notificação -"
+                      >
+                        <option :value="null">- selecione  o tipo de Notificação-</option>
+                        <option
+                          v-for="TipoNotificacao in TipoNotificacoes"
+                          :key="TipoNotificacao.value"
+                          :value="TipoNotificacao.value"
+                        >
+                          {{ TipoNotificacao.value }}
+                        </option>
+                      </select>  
               </div>
             </div>
           </div>
@@ -81,13 +90,23 @@
                 />
               </div>
               <div class="col">
-                <Multiselect
-                  v-model="atividadeDes"
-                  name="atividadeDesenvolvida"
-                  id="atividadeDesenvolvida"
-                  placeholder="- qual a atividade desenvolvida -"
-                  :options="atividadeDesenvolvida"
-                />
+                <select  
+                v-model="atividade"
+                        class="form-select" 
+                        name="atividadeDesenvolvida"
+                        id="atividadeDesenvolvida"
+                        for="atividadeDesenvolvida"
+                        placeholder="- selecione a atividade desenvolvida -"
+                      >
+                        <option :value="null">- selecione a atividade desenvolvida -</option>
+                        <option
+                          v-for="atividade in atividadesDesenvolvidas"
+                          :key="atividade.value"
+                          :value="atividade.value"
+                        >
+                          {{ atividade.value }}
+                        </option>
+                      </select> 
               </div>
               <div class="col">
                 <input
@@ -378,8 +397,8 @@
                   {{ checkServico ? "Não" : "Sim" }}
                 </buttom>
               </div>
-
-              <div class="col-md-12" id="divg2" v-if="checkServico">
+              <div class="col-md-12"><br></div>
+              <div class="col-md-12" v-if="checkServico">
                 <div class="col-md-12">
                   <input
                     type="text"
@@ -463,6 +482,7 @@
             </div>
           </div>
         </div>
+        <div class="col-md-12"><br></div>
 
         <!---- ----------------- Finalidade e Categoria de dados Pesoais-------------------------------------------------------------------->
 
@@ -473,10 +493,10 @@
                 2. Finalidades do Tratamento
               </div>
               <div class="col-md-12"><br /></div>
-              <div class="col-md-12">
-                <div class="col-md-12" id="separacao1">
+              <div class="col-md-12"> 
+                <label class="form-check-label"> 
                   Indique a(s) finalidade(s) do tratamento de dados
-                </div>
+                </label>
                 <treeselect
                   :multiple="true"
                   :options="finalidadesTratamento"
@@ -491,9 +511,10 @@
 
               <div class="col-md-12"><br /></div>
               <div class="col">
-                <div class="col-md-12" id="separacao1">
+                <label class="form-check-label"> 
                   Categorias dos dados pessoais tratados
-                </div>
+                </label> 
+                 
                 <treeselect
                   :multiple="true"
                   :options="categoriasDados"
@@ -503,9 +524,9 @@
                 <!--<pre class="language-json"><code>{{categoria}}</code></pre>-->
               </div>
               <div class="col">
-                <div class="col-md-12" id="separacao1">
+                <label class="form-check-label"> 
                   Outros dados pessoais tratados
-                </div>
+                </label>  
                 <treeselect
                   :multiple="true"
                   :options="outrosDadosTratados"
@@ -526,7 +547,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12" id="separacao">
-                3.Exercício do direito de acesso
+                3. Exercício do direito de acesso
               </div>
               <div class="col">
                 <label class="form-check-label">
@@ -543,8 +564,8 @@
                   {{ checkDireitoAcesso ? "Sim" : "Não" }}
                 </buttom>
               </div>
-
-              <div class="col-md-12" id="divg2" v-if="checkDireitoAcesso">
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12"  v-if="checkDireitoAcesso">
                 <div class="col-md-12">
                   <input
                     type="text"
@@ -700,6 +721,7 @@
               <div class="col-md-12" id="separacao">
                 4. Medidas de segurança a implementar
               </div>
+              <div class="col-md-12"><br /></div>
               <div class="col-md-12">
                 <label
                   id="labelleft"
@@ -786,15 +808,13 @@
   </section>
 </template>
 
-<script>
-import Multiselect from "@vueform/multiselect";
+<script> 
 // import the component
 import Treeselect from "vue3-treeselect";
 // import the styles
 import "vue3-treeselect/dist/vue3-treeselect.css";
 export default {
-  components: {
-    Multiselect,
+  components: { 
     Treeselect,
   },
   data() {
@@ -806,71 +826,13 @@ export default {
       checkRepTrab: false,
 
       /**************************TIPO NOTIFICACAO *********************************** */
-      tipoNot: null,
-      TipoNotf: [
-        { value: "1ª Notificação", label: "1ª Notificação" },
-        { value: "Alteração", label: "Alteração" },
-        {
-          value: "Substituição da Notificação não autorizada",
-          label: "Substituição da Notificação não autorizada",
-        },
-      ],
+     TipoNotificacao:null,
+    TipoNotificacoes:null,
 
       /**********************************ATIVIDADE DESENVOLVIDA*********************************************** */
-      atividadeDesenvolvida: [
-        { value: "Actividade de Televisão", label: "Actividade de Televisão" },
-        {
-          value: "Emprego (Selecção, fornecimento de recursos humanos)",
-          label: "Emprego (Selecção, fornecimento de recursos humanos)",
-        },
-        {
-          value: "Segurança e Ordem pública",
-          label: "Segurança e Ordem pública",
-        },
-        { value: "Produção da Água", label: "Produção da Água" },
-        { value: "Telecomunicação", label: "Telecomunicação" },
-        { value: "Segurança Privada", label: "Segurança Privada" },
-        {
-          value: "Ensino (Pré-escolar, Básico, Secundário, Superior)",
-          label: "Ensino (Pré-escolar, Básico, Secundário, Superior)",
-        },
-        {
-          value: "Estabelecimento comercial de venda a público",
-          label: "Estabelecimento comercial de venda a público",
-        },
-        {
-          value:
-            "Serviço de Internet (processamento de dados, domiciliação de informação",
-          label:
-            "Serviço de Internet (processamento de dados, domiciliação de informação",
-        },
-        {
-          value: "Administração Pública (Central, Local)",
-          label: "Administração Pública (Central, Local)",
-        },
-        { value: "Saúde", label: "Saúde" },
-        { value: "Centro Comercial", label: "Centro Comercial" },
-        {
-          value: "Publicidade, Estudos de Mercado, Sondagens de Opinião",
-          label: "Publicidade, Estudos de Mercado, Sondagens de Opinião",
-        },
-        { value: "Negócios Estrangeiros", label: "Negócios Estrangeiros" },
-        { value: "Previdência Social", label: "Previdência Social" },
-        {
-          value: "Alojamento (Hotel, Residencial, Pensão, etc.)",
-          label: "Alojamento (Hotel, Residencial, Pensão, etc.)",
-        },
-        { value: "Defesa", label: "Defesa" },
-        { value: "Actividade Financeira", label: "Actividade Financeira" },
-        { value: "Comércio Electrónico", label: "Comércio Electrónico" },
-        { value: "Informática", label: "Informática" },
-        { value: "Justiça", label: "Justiça" },
-        { value: "Seguros", label: "Seguros" },
-        {
-          value: "Transporte (Aéreo, Marítimo, Terrestre)",
-          label: "Transporte (Aéreo, Marítimo, Terrestre)",
-        },
-      ],
+      atividade:null,
+      atividadeSR:null,
+      atividadesDesenvolvidas:null, 
 
       /******************************FINALIDADES E CATEGORIA DO TRATAMENTO*******************************/
       //FINALIDADE
@@ -1081,6 +1043,21 @@ export default {
   },
 
   methods: {
+    submitForm(){ 
+    console.log("Clicado");
+     
+    },
+
+    async dadosBackend(){
+      const req = await fetch("http://localhost:3000/dadosBackend");
+      const data= await req.json(); 
+      this.ilhas = data.ilhas;
+      this.atividadesDesenvolvidas = data.atividadesDesenvolvidas;
+      this.categorias = data.categorias;
+      this.TipoNotificacoes = data.TipoNotificacoes;
+      
+    },
+
     changeServico() {
       this.checkServico = !this.checkServico;
     },
@@ -1091,6 +1068,10 @@ export default {
     changeRepTrab() {
       this.checkRepTrab = !this.checkRepTrab;
     },
+  },
+
+  mounted() {
+    this.dadosBackend();
   },
 };
 </script>

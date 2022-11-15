@@ -12,7 +12,7 @@
         <div class="row"> 
           <div id="box" v-for="(event, index) in (filteredList)" :key="index" class="col-lg-3"> 
             <div class="post-box"> <!--:src="event.url" src="https://www.parlamento.cv/userfiles/Austelino%20FINAL(texto)(2).png"  -->
-              <div class="post-img"><img :src="event.url" class="img-fluid" alt=""></div>
+              <div class="post-img"><img src="https://www.parlamento.cv/userfiles/Austelino%20FINAL(texto)(2).png" class="img-fluid" alt=""></div>
               <span class="post-date">{{event.id}}, Junho 2022</span>
               <h3 class="post-title">{{event.title}}</h3>
               <router-link :to="{name: 'eventview',params: { id: event.id}}"> 

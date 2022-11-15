@@ -44,11 +44,13 @@
                 <div class="col-md-12" id="separacao">
                   1. Responsável pelo Tratamento e seu representante
                 <br> 
-                  1.1. Primeira entidade de interconexão (destinatário de dados
-                  na interconexão)
+                 
                 </div>
-
+                
+                   
                 <div class="col-md-12" id="separacao1">
+                  1.1. Primeira entidade de interconexão (destinatário de dados na interconexão)
+               <br>
                   1.1.1. Responsável pelo Tratamento
                 </div>
               </div>
@@ -2111,7 +2113,7 @@ export default {
 
       /********************************DADOS PESSOAIS TRATADOS**********************************************/
       dadosPessoaisTratado: null,
-      dadosessoaisTratados: [
+      dadospessoaisTratados: [
         {
           value: "Convicções ou filiação partidária ou sindical, fé religiosa",
           label: "Convicções ou filiação partidária ou sindical, fé religiosa",

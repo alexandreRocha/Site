@@ -17,13 +17,25 @@
               >
             </div>
             <div class="col-md-10">
-              <Multiselect
-                v-model="TipoNot"
-                name="TipoNot"
-                id="TipoNot"
-                placeholder="- selecione o tipo de Notificação -"
-                :options="TipoNotf"
-              />
+              <select
+                v-model="TipoNotificacao"
+                class="form-select"
+                name="TipoNotificacao"
+                id="TipoNotificacao"
+                for="TipoNotificacao"
+                placeholder="- selecione  o tipo de Notificação -"
+              >
+                <option :value="null">
+                  - selecione o tipo de Notificação-
+                </option>
+                <option
+                  v-for="TipoNotificacao in TipoNotificacoes"
+                  :key="TipoNotificacao.value"
+                  :value="TipoNotificacao.value"
+                >
+                  {{ TipoNotificacao.value }}
+                </option>
+              </select>
             </div>
           </div>
         </div>
@@ -72,7 +84,6 @@
                 type="text"
                 class="form-control"
                 id="nomedenominacao"
-                alt="Nome Denominação: Refere-se à designação oficial de uma instituição pública ou privada"
                 placeholder=" Nome/Denominação"
               />
             </div>
@@ -81,18 +92,13 @@
                 type="text"
                 class="form-control"
                 id="nomecomercial"
-                alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida."
                 placeholder=" Nome/Comercial"
               />
             </div>
             <div class="col">
               <select class="form-select" aria-label="Default select example">
                 <option value="">- Escolha a actividade desenvolvida-</option>
-                <option
-                  v-for="atividade in atividades"
-                  :key="atividade"
-               
-                >
+                <option v-for="atividade in atividades" :key="atividade">
                   {{ atividade }}
                 </option>
               </select>
@@ -223,31 +229,20 @@
                 alt="Nome Denominação: Refere-se à designação oficial de uma instituição pública ou privada"
                 placeholder=" Representante"
               />
-            </div>
-            <div class="col-md-12">
+            </div> 
+            <div class="col">
               <input
                 type="text"
                 class="form-control"
                 id="nomecomercial"
-                alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida."
-                placeholder=" Nome/Comercial"
-              />
-            </div>
-            <div class="col-md-12">
-              <input
-                type="text"
-                class="form-control"
-                id="nomecomercial"
-                alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida."
                 placeholder=" Rua"
               />
             </div>
-            <div class="col-md-12">
+            <div class="col">
               <input
                 type="text"
                 class="form-control"
                 id="nomecomercial"
-                alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida."
                 placeholder=" Caixa Postal"
               />
             </div>
@@ -256,7 +251,6 @@
                 type="text"
                 class="form-control"
                 id="nomecomercial"
-                alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida."
                 placeholder=" Cidade/Vila/Lugar/Zona"
               />
             </div>
@@ -307,7 +301,6 @@
                 type="text"
                 class="form-control"
                 id="nomecomercial"
-                alt="Nome comercial: Pode ser a sigla ou designação em relação ao qual a instituição é mais conhecida."
                 placeholder=" Nome da pessoa do contato"
               />
             </div>
@@ -488,59 +481,59 @@
         </div>
       </div>
 
-
-
-  <div class="col-md-12" id="divg">
+      <div class="col-md-12" id="divg">
         <div class="container">
           <div class="row">
             <div class="col-md-12" id="divloco">
               <div class="col-md-12" id="separacao">
-              3. Dados pessoais contidos em cada registo
+                3. Dados pessoais contidos em cada registo
               </div>
             </div>
 
             <div class="col-md-12"><br /></div>
             <div class="col">
               <label class="form-check-label"> Dados registrados </label>
- 
-                  <Multiselect
-                    v-model="value"
-                    name="dadoscontidos"
-                    id="dadoscontidos"
-                    placeholder="-dados pessoais contidos em cada registro -"
-                    mode="tags"
-                    :close-on-select="false"
-                    :searchable="true"
-                    :create-option="true"
-                    :options="dadosRegistrado"
-                  />
+
+              <Multiselect
+                v-model="value"
+                name="dadoscontidos"
+                id="dadoscontidos"
+                placeholder="-dados pessoais contidos em cada registro -"
+                mode="tags"
+                :close-on-select="false"
+                :searchable="true"
+                :create-option="true"
+                :options="dadosRegistrado"
+              />
             </div>
 
             <div class="col">
               <label class="form-check-label"> Outros dados </label>
-                 
-                  <Multiselect
-                    v-model="value"
-                    name="outrosDados"
-                    id="outrosDados"
-                    placeholder="-outros dados -"
-                    mode="tags"
-                    :close-on-select="false"
-                    :searchable="true"
-                    :create-option="true"
-                    :options="outrosDados"
-                  />
+
+              <Multiselect
+                v-model="value"
+                name="outrosDados"
+                id="outrosDados"
+                placeholder="-outros dados -"
+                mode="tags"
+                :close-on-select="false"
+                :searchable="true"
+                :create-option="true"
+                :options="outrosDados"
+              />
             </div>
           </div>
         </div>
       </div>
-      
-
       <div class="col-md-12" id="divg">
-        <div class="row">
-          <div class="col-md-12" id="separacao">
-            4. Forma de armazenamento do dado biométrico
-          </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12" id="divloco">
+              <div class="col-md-12" id="separacao">
+                4. Forma de armazenamento do dado biométrico
+              </div>
+            </div>
+      
           <div class="col-md-12"><br /></div>
           <label class="form-check-label"> Forma de registro </label>
           <div class="col">
@@ -559,12 +552,16 @@
           <div class="col-md-12"><br /></div>
         </div>
       </div>
+      </div>
 
       <div class="col-md-12" id="divg">
-        <div class="row">
-          <div class="col-md-12" id="separacao">
-            5. Tratamento da informação
-          </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12" id="divloco">
+              <div class="col-md-12" id="separacao">
+                5. Tratamento da informação
+              </div>
+            </div> 
           <div class="col-md-12"><br /></div>
           <label class="form-check-label">
             Forma de tratamento da informação
@@ -585,13 +582,16 @@
           <div class="col-md-12"><br /></div>
         </div>
       </div>
+      </div>
 
-      <div class="col" id="divg">
+      <div class="col-md-12" id="divg">
         <div class="container">
           <div class="row">
-            <div class="col-md-12" id="separacao">
-              6.Exercício do direito de Acesso
-            </div>
+            <div class="col-md-12" id="divloco">
+              <div class="col-md-12" id="separacao">
+                6. Exercício do direito de Acesso
+              </div>
+            </div> 
             <div class="col-md-12"><br /></div>
             <div class="col">
               <label class="form-check-label">
@@ -608,9 +608,8 @@
                 {{ checkDireitoAcesso ? "Sim" : "Não" }}
               </buttom>
             </div>
-            <div class="col-md-12" id="divg2" v-if="checkDireitoAcesso">
-              <div class="container">
-                <div class="row">
+            <div class="col-md-12" v-if="checkDireitoAcesso">
+              
                   <div class="col-md-12">
                     <input
                       type="text"
@@ -706,20 +705,20 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
+                  </div> 
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-md-12" id="divg2">
+      <div class="col-md-12" id="divg">
         <div class="container">
           <div class="row">
-            <div class="col-md-12" id="separacao">
-              De que forma é exercido o direito de acesso?
-            </div>
+            <div class="col-md-12" id="divloco">
+              <div class="col-md-12" id="separacao">
+                De que forma é exercido o direito de acesso?
+              </div>
+            </div>  
             <div class="col-md-12"><br /></div>
             <div class="col">
               <input
@@ -766,51 +765,60 @@
         </div>
       </div>
 
-      <div class="col-md-12" id="divg">
-        <div class="row">
-          <div class="col-md-12" id="separacao">
-            7. Medidas de segurança a implementar
-          </div>
-          <div class="col-md-12"><br /></div>
-          <div class="col-md-12">
-            <label
-              id="labelleft"
-              class="form-check-label"
-              for="formaDireitoAcesso"
-            >
-              Especifique as medidas físicas de segurança do sistema:
-            </label>
-            <textarea
-              class="form-control"
-              name="outraFormaDireitoAcesso"
-              id="outraFormaDireitoAcesso"
-              placeholder=" segurança física"
-            ></textarea>
-          </div>
-          <div class="col-md-12"><br /></div>
-          <div class="col-md-12">
-            <label
-              id="labelleft"
-              class="form-check-label"
-              for="formaDireitoAcesso"
-            >
-              Especifique as medidas lógica de segurança do sistema:
-            </label>
-            <textarea
-              class="form-control"
-              name="outraFormaDireitoAcesso"
-              id="outraFormaDireitoAcesso"
-              placeholder=" segurança lógica"
-            ></textarea>
-          </div>
-        </div>
-      </div>
 
       <div class="col-md-12" id="divg">
-        <div class="row">
-          <div class="col-md-12" id="separacao">
-            8. Representante dos trabalhadores
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12" id="divloco">
+              <div class="col-md-12" id="separacao">
+                7. Medidas de segurança a implementar
+              </div>
+            </div>  
+
+              <div class="col-md-12">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
+                  Especifique as medidas físicas de segurança do sistema:
+                </label>
+                <textarea
+                  class="form-control"
+                  name="outraFormaDireitoAcesso"
+                  id="outraFormaDireitoAcesso"
+                  placeholder=" Mencionar outras formas de direito de acesso, caso não for mencionado acima"
+                ></textarea>
+              </div>
+              <div class="col-md-12"><br /></div>
+              <div class="col-md-12">
+                <label
+                  id="labelleft"
+                  class="form-check-label"
+                  for="formaDireitoAcesso"
+                >
+                  Especifique as medidas lógica de segurança do sistema:
+                </label>
+                <textarea
+                  class="form-control"
+                  name="outraFormaDireitoAcesso"
+                  id="outraFormaDireitoAcesso"
+                  placeholder=" Mencionar outras formas de direito de acesso, caso não for mencionado acima"
+                ></textarea>
+              </div>
+            </div>
           </div>
+        </div>
+
+
+        <div class="col-md-12" id="divg">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12" id="divloco">
+              <div class="col-md-12" id="separacao">
+                8. Representante dos trabalhadores
+              </div>
+            </div>   
           <div class="col-md-12"><br /></div>
           <div class="row">
             <div class="col">
@@ -840,7 +848,8 @@
           </div>
         </div>
       </div>
-      <br />
+      </div> 
+      <div class="col-md-12"><br></div>
       <!-- FIM DE FORMS-->
       <div class="col-12" id="divsave">
         <button
@@ -1020,8 +1029,8 @@ export default {
         { value: "Em cada estabelecimento", label: "Em cada estabelecimento" },
       ],
       /*******************************************TIPO DE NOTIFICAÇÃO ******************************************/
-      tipoNot: null,
-      TipoNotf: [
+      TipoNotificacao: null,
+      TipoNotificacoes: [
         { value: "1ª Notificação", label: "1ª Notificação" },
         { value: "Alteração", label: "Alteração" },
         {
